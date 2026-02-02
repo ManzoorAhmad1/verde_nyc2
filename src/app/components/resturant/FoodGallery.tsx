@@ -14,7 +14,7 @@ const foodImages = [
     alt: 'Verde NYC Cuisine'
   },
   {
-    src: 'https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1751563918370-81QWHG8LYH4D04GBL420/MediterrAsian+Black+Cod.jpg',
+    src: '/images/40A4867-750x750.jpg',
     alt: 'MediterrAsian Black Cod.jpg'
   },
   {

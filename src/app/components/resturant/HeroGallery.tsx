@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const images = [
   {
-    src: 'https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1745425897826-38M49QL6DPEV6TIHSZ1A/DSC_8807.jpg',
+    src: '/images/40A5026-verde-newyork-750x750.jpg',
     alt: 'DSC_8807.jpg'
   },
   {

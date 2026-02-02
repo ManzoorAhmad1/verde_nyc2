@@ -1,18 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.squarespace-cdn.com',
-        pathname: '/content/**',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.squarespace-cdn.com',
-      },
-    ],
-    domains: ['images.squarespace-cdn.com'],
+    remotePatterns: [],
+    domains: [],
+    unoptimized: false,
   },
   reactStrictMode: true,
   swcMinify: true,

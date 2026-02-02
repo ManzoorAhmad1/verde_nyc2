@@ -9,39 +9,32 @@ const MiamiBrunchContent = () => {
 
   const galleryImages = [
     {
-      src: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg",
-      alt: "87.jpg",
-      srcSet: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg?format=100w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg?format=300w 300w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg?format=2500w 2500w"
+      src: "/images/40A5026-verde-newyork-750x750.jpg",
+      alt: "Verde NYC Brunch",
     },
     {
-      src: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1767041138667-XKAGWMMK2NNVUM6EVR88/Verde NYC-Brunch-Dessert.png",
-      alt: "Verde NYC-Brunch-Dessert.png",
-      srcSet: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1767041138667-XKAGWMMK2NNVUM6EVR88/Verde NYC-Brunch-Dessert.png?format=100w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1767041138667-XKAGWMMK2NNVUM6EVR88/Verde NYC-Brunch-Dessert.png?format=300w 300w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1767041138667-XKAGWMMK2NNVUM6EVR88/Verde NYC-Brunch-Dessert.png?format=500w 500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1767041138667-XKAGWMMK2NNVUM6EVR88/Verde NYC-Brunch-Dessert.png?format=750w 750w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1767041138667-XKAGWMMK2NNVUM6EVR88/Verde NYC-Brunch-Dessert.png?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1767041138667-XKAGWMMK2NNVUM6EVR88/Verde NYC-Brunch-Dessert.png?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1767041138667-XKAGWMMK2NNVUM6EVR88/Verde NYC-Brunch-Dessert.png?format=2500w 2500w"
+      src: "/images/Legends-verde-dubai-8354-750x750.jpg",
+      alt: "Verde NYC Dessert",
     },
     {
-      src: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507187547-K9EHG7W1F2Z819SSWB39/03.jpg",
-      alt: "03.jpg",
-      srcSet: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507187547-K9EHG7W1F2Z819SSWB39/03.jpg?format=100w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507187547-K9EHG7W1F2Z819SSWB39/03.jpg?format=300w 300w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507187547-K9EHG7W1F2Z819SSWB39/03.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507187547-K9EHG7W1F2Z819SSWB39/03.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507187547-K9EHG7W1F2Z819SSWB39/03.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507187547-K9EHG7W1F2Z819SSWB39/03.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507187547-K9EHG7W1F2Z819SSWB39/03.jpg?format=2500w 2500w"
+      src: "/images/Legends-verde-dubai-8406.jpg",
+      alt: "Verde NYC Dining",
     },
     {
-      src: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507206051-SHPFVYXAUU00XEWI9SZ5/38.jpg",
-      alt: "38.jpg",
-      srcSet: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507206051-SHPFVYXAUU00XEWI9SZ5/38.jpg?format=100w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507206051-SHPFVYXAUU00XEWI9SZ5/38.jpg?format=300w 300w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507206051-SHPFVYXAUU00XEWI9SZ5/38.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507206051-SHPFVYXAUU00XEWI9SZ5/38.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507206051-SHPFVYXAUU00XEWI9SZ5/38.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507206051-SHPFVYXAUU00XEWI9SZ5/38.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507206051-SHPFVYXAUU00XEWI9SZ5/38.jpg?format=2500w 2500w"
+      src: "/images/40A4867-750x750.jpg",
+      alt: "Verde NYC Food",
     },
     {
-      src: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507212851-DRSK02M2XTD3W3KQ5JSE/46.jpg",
-      alt: "46.jpg",
-      srcSet: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507212851-DRSK02M2XTD3W3KQ5JSE/46.jpg?format=100w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507212851-DRSK02M2XTD3W3KQ5JSE/46.jpg?format=300w 300w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507212851-DRSK02M2XTD3W3KQ5JSE/46.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507212851-DRSK02M2XTD3W3KQ5JSE/46.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507212851-DRSK02M2XTD3W3KQ5JSE/46.jpg?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507212851-DRSK02M2XTD3W3KQ5JSE/46.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507212851-DRSK02M2XTD3W3KQ5JSE/46.jpg?format=2500w 2500w"
+      src: "/images/40A5026-verde-newyork-750x750.jpg",
+      alt: "Verde NYC Brunch",
     },
     {
-      src: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507225273-FWJ1YD2HZU326Y5AI0J2/70.jpg",
-      alt: "70.jpg",
-      srcSet: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507225273-FWJ1YD2HZU326Y5AI0J2/70.jpg?format=100w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507225273-FWJ1YD2HZU326Y5AI0J2/70.jpg?format=300w 300w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507225273-FWJ1YD2HZU326Y5AI0J2/70.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507225273-FWJ1YD2HZU326Y5AI0J2/70.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507225273-FWJ1YD2HZU326Y5AI0J2/70.jpg?format=1000w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507225273-FWJ1YD2HZU326Y5AI0J2/70.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507225273-FWJ1YD2HZU326Y5AI0J2/70.jpg?format=2500w 2500w"
+      src: "/images/Legends-verde-dubai-8354-750x750.jpg",
+      alt: "Verde NYC Brunch Dish",
     },
     {
-      src: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507205981-FE64ZVEEES5WORFYQKED/41.jpg",
+      src: "/images/40A4867-750x750.jpg",
       alt: "Verde NYC brunch cocktail on a table with assorted foods in the background",
-      srcSet: "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507205981-FE64ZVEEES5WORFYQKED/41.jpg?format=100w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507205981-FE64ZVEEES5WORFYQKED/41.jpg?format=300w 300w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507205981-FE64ZVEEES5WORFYQKED/41.jpg?format=500w 500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507205981-FE64ZVEEES5WORFYQKED/41.jpg?format=750w 750w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507205981-FE64ZVEEES5WORFYQKED/41.jpg?format=1000w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507205981-FE64ZVEEES5WORFYQKED/41.jpg?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507205981-FE64ZVEEES5WORFYQKED/41.jpg?format=2500w 2500w"
     }
   ];
 
@@ -63,7 +56,7 @@ const MiamiBrunchContent = () => {
             <div className="sqs-gallery-container sqs-gallery-block-slider sqs-gallery-has-controls sqs-gallery-block-show-meta relative overflow-hidden" style={{ paddingBottom: '31.3675%' }}>
               <div className="sqs-gallery sqs-gallery-design-strip relative">
                 <div className="sqs-wrapper flex transition-transform duration-300" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-                  {galleryImages.map((image, index) => (
+                  {galleryImages.map((image:any, index) => (
                     <div key={index} className="thumb-image sqs-gallery-design-strip-slide flex-shrink-0 w-full">
                       <img
                         data-src={image.src}
@@ -123,12 +116,11 @@ const MiamiBrunchContent = () => {
               <div className="lg:order-2">
                 <img
                   data-stretch="false"
-                  data-src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/Verde NYC-Brunch-Buffet.png"
-                  data-image="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/Verde NYC-Brunch-Buffet.png"
+                  data-src="/images/Legends-verde-dubai-8354-750x750.jpg"
+                  data-image="/images/Legends-verde-dubai-8354-750x750.jpg"
                   alt="brunch buffet layout inside Verde NYC with an assortment of foods and drinks"
                   className="w-full h-auto rounded-lg"
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/Verde NYC-Brunch-Buffet.png"
-                  srcSet="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/Verde NYC-Brunch-Buffet.png?format=100w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/Verde NYC-Brunch-Buffet.png?format=300w 300w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/Verde NYC-Brunch-Buffet.png?format=500w 500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/Verde NYC-Brunch-Buffet.png?format=750w 750w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/Verde NYC-Brunch-Buffet.png?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/Verde NYC-Brunch-Buffet.png?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/Verde NYC-Brunch-Buffet.png?format=2500w 2500w"
+                  src="/images/Legends-verde-dubai-8354-750x750.jpg"
                   loading="lazy"
                   decoding="async"
                 />
@@ -165,12 +157,11 @@ const MiamiBrunchContent = () => {
               <div>
                 <img
                   data-stretch="false"
-                  data-src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/Verde NYC-brunch-cocktail.png"
-                  data-image="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/Verde NYC-brunch-cocktail.png"
+                  data-src="/images/40A4867-750x750.jpg"
+                  data-image="/images/40A4867-750x750.jpg"
                   alt="refreshing brunch cocktail in a glass with a pink fan in the background"
                   className="w-full h-auto rounded-lg"
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/Verde NYC-brunch-cocktail.png"
-                  srcSet="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/Verde NYC-brunch-cocktail.png?format=100w 100w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/Verde NYC-brunch-cocktail.png?format=300w 300w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/Verde NYC-brunch-cocktail.png?format=500w 500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/Verde NYC-brunch-cocktail.png?format=750w 750w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/Verde NYC-brunch-cocktail.png?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/Verde NYC-brunch-cocktail.png?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/Verde NYC-brunch-cocktail.png?format=2500w 2500w"
+                  src="/images/40A4867-750x750.jpg"
                   loading="lazy"
                   decoding="async"
                 />

@@ -139,7 +139,7 @@ export default function Footer() {
             name: 'MILA',
             image: [
               '/images/logo-Verde-NYC-green.png',
-              'https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1710783649038-CY8TVV8EHY5UHZUQZFET/DSC_8750.jpg',
+              '/images/40A5026-verde-newyork-750x750.jpg',
             ],
             url: 'https://verdenyc.com/',
             telephone: '+12125551234',

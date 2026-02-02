@@ -11,7 +11,7 @@ export default function ArtCultureSection() {
           {/* Image */}
           <div className="relative aspect-square overflow-hidden">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8821ab81-8a28-4bb5-8c68-218c3b31789e/DSC_8759.jpg"
+              src="/images/Legends-verde-dubai-8406.jpg"
               alt="Verde NYC Art and Culture"
               fill
               className="object-cover"

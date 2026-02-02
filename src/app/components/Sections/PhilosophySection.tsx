@@ -6,7 +6,7 @@ export default function PhilosophySection() {
     <section className="relative section-padding overflow-hidden">
       {/* Background Texture */}
       <ParallaxImage
-        src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/e528ea05-1d1f-4146-a2b9-80fb763bde2c/LONGEVITY-1-edit.jpg"
+        src="/images/Legends-verde-dubai-8406.jpg"
         alt="Eudaimonia Philosophy"
         className="absolute inset-0 z-0"
         speed={0.3}
