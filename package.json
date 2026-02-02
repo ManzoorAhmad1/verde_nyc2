@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3000",
+    "start": "next start -p ${PORT:-3000}",
     "lint": "next lint"
   },
-    "engines": {
+  "engines": {
     "node": ">=20.9.0"
   },
   "dependencies": {
@@ -17,7 +17,7 @@
     "@formspree/react": "^3.0.0",
     "@headlessui/react": "1.7.17",
     "@hookform/resolvers": "^5.2.2",
-    "@reduxjs/toolkit": "^2.1.0",
+    "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.8",
     "clsx": "^2.1.1",
     "framer-motion": "^10.18.0",
@@ -31,7 +31,7 @@
     "react-hot-toast": "^2.4.1",
     "react-icon": "^1.0.0",
     "react-icons": "^5.5.0",
-    "react-redux": "^9.1.2",
+    "react-redux": "^8.1.3",
     "rizzui": "1.0.1",
     "tailwind-merge": "^2.5.2",
     "tailwind-variants": "^3.2.2",

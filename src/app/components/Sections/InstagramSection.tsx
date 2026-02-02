@@ -55,17 +55,17 @@ export default function InstagramSection() {
   const [hoveredPost, setHoveredPost] = useState<string | null>(null)
 
   return (
-    <section className="section-padding bg-neutral-50">
+    <section className="section-padding bg-neutral-900">
       <Container>
         <div className="text-center mb-12">
-          <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-4">
+          <h3 className="text-2xl md:text-3xl font-light text-white mb-4">
             FOLLOW US ON INSTAGRAM{' '}
             <Link 
-              href="https://www.instagram.com/milagroup_miami/" 
+              href="https://www.instagram.com/verdenyc/" 
               target="_blank"
-              className="text-primary hover:underline inline-flex items-center gap-2"
+              className="text-white hover:text-gray-300 inline-flex items-center gap-2"
             >
-              @MILAgroup_miami
+              @verdenyc
               <Instagram className="w-5 h-5" />
             </Link>
           </h3>
