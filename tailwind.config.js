@@ -13,40 +13,46 @@ const config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#0A2540', // Main blue from the site
-          light: '#1A3A5F',
-          dark: '#061A2C',
+          DEFAULT: '#111111',
+          light: '#222222',
+          dark: '#000000',
         },
         secondary: {
-          DEFAULT: '#D0241B', // Red accent
-          light: '#E34D45',
-          dark: '#B01A12',
+          DEFAULT: '#a04f07',
+          light: '#c66a0a',
+          dark: '#804005',
+        },
+        accent: {
+          DEFAULT: '#d4af37',
+          light: '#e6c555',
+          dark: '#b89a2a',
         },
         neutral: {
-          50: '#F8FAFC',
-          100: '#F1F5F9',
-          200: '#E2E8F0',
-          300: '#CBD5E1',
-          400: '#94A3B8',
-          500: '#64748B',
-          600: '#475569',
-          700: '#334155',
-          800: '#1E293B',
-          900: '#0F172A',
+          50: '#fafafa',
+          100: '#f5f5f5',
+          200: '#e5e5e5',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
         },
-        background: '#FFFFFF',
-        foreground: '#0A2540',
+        background: '#111111',
+        foreground: '#ffffff',
+        muted: '#888888',
       },
       fontFamily: {
-        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-serif)', 'Georgia', 'serif'],
+        sans: ['Cormorant Garamond', 'Georgia', 'serif'],
+        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
         mono: ['var(--font-mono)', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.3s ease-out',
         'slide-down': 'slideDown 0.3s ease-out',
-        'parallax': 'parallaxScroll linear',
+        'scroll-line': 'scrollLine 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
