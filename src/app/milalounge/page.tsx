@@ -89,13 +89,13 @@ export default function MilaLoungePage() {
           </p>
 
           <div className="lounge-buttons">
-            <Link href="https://www.sevenrooms.com/reservations/mila-miami" target="_blank" className="lounge-btn">
+            <Link href="/reserve" className="lounge-btn">
               Reserve for dinner
             </Link>
-            <Link href="/s/MILA-Lounge_Dinner-Menu_Dry-January-012026.pdf" target="_blank" className="lounge-btn">
+            <Link href="/reserve" className="lounge-btn">
               MENU
             </Link>
-            <Link href="mailto:reservations@milalounge.com?subject=MILA%20Lounge%20Bottle%20Service%20Inquiry" target="_blank" className="lounge-btn">
+            <Link href="mailto:reservations@verdenyc.com?subject=Verde%20Lounge%20Bottle%20Service%20Inquiry" target="_blank" className="lounge-btn">
               reserve for bottle service
             </Link>
           </div>
