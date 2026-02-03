@@ -48,7 +48,7 @@ export default function MembersClubPage() {
               <Link href="https://members.mmembersclub.com" target="_blank" className="membersclub-button">
                 MM portal
               </Link>
-              <Link href="/s/MILA-MM_Dinner-Menu-013026.pdf" target="_blank" className="membersclub-button">
+              <Link href="/reserve" className="membersclub-button">
                 MENU
               </Link>
             </div>

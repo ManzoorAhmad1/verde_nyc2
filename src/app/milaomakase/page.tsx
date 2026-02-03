@@ -72,8 +72,7 @@ export default function MilaOmakasePage() {
           </p>
 
           <Link 
-            href="https://www.opentable.com/r/mila-omakase-miami-beach?avt=eyJ2IjoyLCJtIjowLCJwIjowLCJzIjowLCJuIjowfQ&corrid=8860b077-5238-4e94-9712-0001db3e12b3&p=2&sd=2023-03-20T19%3A00%3A00" 
-            target="_blank" 
+            href="/reserve" 
             className="omakase-btn"
           >
             Your Experience awaits
@@ -86,7 +85,7 @@ export default function MilaOmakasePage() {
         <div className="omakase-experience-bg">
           <Image
             src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/182d9f1b-2aea-4ba1-bc57-5c5e9eaf6355/MILA-OMAKASE-VENUE.jpg"
-            alt="MILA Omakase Venue"
+            alt="Verde NYC Omakase Venue"
             fill
             style={{ objectFit: 'cover' }}
           />
