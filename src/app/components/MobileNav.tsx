@@ -7,11 +7,11 @@ import { useEffect, useState } from 'react';
 const navItems = [
   { label: "VALENTINE'S DAY", href: '/valentines-day' },
   { label: 'RESTAURANT', href: '/restaurant' },
-  { label: 'BRUNCH', href: '/miami-brunch' },
-  { label: 'VERDE LOUNGE', href: '/milalounge' },
-  { label: 'VERDE OMAKASE', href: '/milaomakase' },
-  { label: 'MM MEMBERS CLUB', href: '/membersclub' },
-  { label: 'PRIVATE EVENTS', href: '/private-events' },
+  { label: 'BRUNCH', href: '/' },
+  { label: 'VERDE LOUNGE', href: '/' },
+  { label: 'VERDE OMAKASE', href: '/' },
+  { label: 'MM MEMBERS CLUB', href: '/' },
+  { label: 'PRIVATE EVENTS', href: '/' },
   { label: 'CONTACT', href: '/contact' },
 ];
 
