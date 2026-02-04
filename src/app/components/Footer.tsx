@@ -17,6 +17,7 @@ export default function Footer() {
   return (
     <footer className="footer text-black/60">
       {/* Top Section - Brands */}
+      
       <div className="footer-brands">
         <h3>A <Link href="https://www.rivieradininggroup.com/" target="_blank">Riviera Dining Group</Link> BRAND</h3>
         <h3 className="mt-2">Visit other venues</h3>

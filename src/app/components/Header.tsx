@@ -21,10 +21,10 @@ export default function Header() {
       {/* Logo - Left Side */}
       <Link href="/" className="header-logo-link">
         <Image
-          src="/images/logo-Verde-NYC-white.png"
+          src={scrolled ? '/images/logo-Verde-NYC-green-removebg-preview.png' : '/images/logo-Verde-NYC-white.png'}
           alt="Verde NYC"
-          width={120}
-          height={40}
+          width={80}
+          height={30}
           className="header-logo"
           priority
         />

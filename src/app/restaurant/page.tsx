@@ -44,7 +44,7 @@ export default function RestaurantPage() {
           </div>
           <div className="philosophy-content">
             <h1><em>Mediterranean &amp; Asian Fusion Rooftop Restaurant in Miami</em></h1>
-            <h2>Welcome to a place where celebrating and dining seamlessly merge into one unique experience.</h2>
+            <h1>Welcome to a place where celebrating and dining seamlessly merge into one unique experience.</h1>
             
             <div className="philosophy-text">
               <p>The distinctively curated rooftop space pays homage to the simple spirit of Cycladic design, fused with Wabi-Sabi inspired details. <Link href="https://verde-nyc.com/">Verde NYC</Link>&apos;s cuisine is inspired by Asian and Mediterranean eating practices, both healthful and tasteful, embracing the importance of enjoying life.</p>
@@ -55,7 +55,7 @@ export default function RestaurantPage() {
             <div className="button-center">
               <Link 
                 href="https://www.opentable.com/restref/client/?restref=1054648&lang=en-US&ot_source=Restaurant%20website&ot_campaign=reservations"
-                className="btn btn-primary"
+                className="btn btn-primary text-[#8E402F] border-[#8E402F] hover:bg-[#8E402F] hover:text-white"
                 target="_blank"
               >
                 RESERVE YOUR TABLE
@@ -263,7 +263,7 @@ export default function RestaurantPage() {
                   <div className="button-center">
                     <Link 
                       href="/s/MILA_3F-Wine-Menu-012326.pdf"
-                      className="btn btn-tertiary"
+                      className="btn "
                       target="_blank"
                     >
                       download menu

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const navItems = [
   { label: "VALENTINE'S DAY", href: '/valentines-day' },
@@ -20,12 +21,22 @@ interface MobileNavProps {
 }
 
 export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <>
       {/* Top Header Bar with Reservations and Menu Icon */}
       <div className="top-header-bar">
         {/* Reservations Button - Left of Menu Icon */}
-        <Link href="/reserve" className="header-reservations-btn">
+        <Link href="/reserve" className={` ${scrolled ? 'text-black border border-black px-4 py-2' : 'header-reservations-btn'}`}>
           RESERVATIONS
         </Link>
 
@@ -35,9 +46,9 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
-          <span />
-          <span />
-          <span />
+          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`}/>
+          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`}/>
+          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`}/>
         </button>
       </div>
 
