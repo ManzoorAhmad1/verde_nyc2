@@ -15,7 +15,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer text-white">
+    <footer className="footer text-black/60">
       {/* Top Section - Brands */}
       <div className="footer-brands">
         <h3>A <Link href="https://www.rivieradininggroup.com/" target="_blank">Riviera Dining Group</Link> BRAND</h3>
@@ -31,7 +31,7 @@ export default function Footer() {
         </h3>
       </div>
 
-      <hr className="hr-line" />
+      <hr className="bg-black/80" />
 
       {/* Main Footer Content */}
       <div className="footer-content">
