@@ -8,8 +8,6 @@ const navItems = [
   { label: "VALENTINE'S DAY", href: '/valentines-day' },
   { label: 'RESTAURANT', href: '/restaurant' },
   { label: 'BRUNCH', href: '/miami-brunch' },
-  { label: 'MILA LOUNGE', href: '/milalounge' },
-  { label: 'MILA OMAKASE', href: '/milaomakase' },
   { label: 'MM MEMBERS CLUB', href: '/membersclub' },
   { label: 'PRIVATE EVENTS', href: '/private-events' },
   { label: 'CONTACT', href: '/contact' },

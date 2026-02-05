@@ -66,10 +66,6 @@ export default function Footer() {
             <span>|</span>
             <Link href="/miami-brunch" className="footer-link">BRUNCH</Link>
             <span>|</span>
-            <Link href="/milalounge" className="footer-link">MILA LOUNGE</Link>
-            <span>|</span>
-            <Link href="/milaomakase" className="footer-link">MILA OMAKASE</Link>
-            <span>|</span>
             <Link href="/membersclub" className="footer-link">MM MEMBERS CLUB</Link>
             <span>|</span>
             <Link href="/private-events" className="footer-link">PRIVATE EVENTS</Link>
@@ -96,20 +92,6 @@ export default function Footer() {
             </form>
             <p className="newsletter-privacy">We respect your privacy.</p>
           </div>
-        </div>
-
-        {/* Right - Map */}
-        <div className="footer-map-section">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.4047144920364!2d-80.13930802459865!3d25.790218977334025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b485dbbfffff%3A0xb35569e33c3a935c!2sMILA!5e0!3m2!1sen!2sus!4v1765583826432!5m2!1sen!2sus"
-            width="100%"
-            height="200"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="footer-map"
-          />
         </div>
       </div>
 
