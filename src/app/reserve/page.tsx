@@ -27,18 +27,18 @@ export default function ReservePage() {
             />
           </div>
           <h1>RESERVATIONS</h1>
-          <h2>Coming Soon</h2>
-          <p>We're preparing something extraordinary for you. Our reservation system will be available shortly.</p>
-          <p className="coming-soon-subtitle">In the meantime, feel free to contact us directly for reservations.</p>
+          <h2>Book Your Table at Verde NYC</h2>
+          <p>Experience the finest Mediterranean dining in New York's Meatpacking District.</p>
+          <p className="coming-soon-subtitle">Reserve your table through our online reservation system or contact us directly.</p>
           
           <div className="coming-soon-contact">
-            <p>Phone: <a href="tel:+12125551234">(212) 555-1234</a></p>
-            <p>Email: <a href="mailto:reservations@verdenyc.com">reservations@verdenyc.com</a></p>
+            <p>Phone: <a href="tel:+16464068763">+1 (646) 406-8763</a></p>
+            <p>Email: <a href="mailto:contact@verde-nyc.com">contact@verde-nyc.com</a></p>
           </div>
 
-          <Link href="/" className="coming-soon-btn">
-            Return to Home
-          </Link>
+          <a href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className="coming-soon-btn">
+            Make a Reservation
+          </a>
         </div>
       </section>
 

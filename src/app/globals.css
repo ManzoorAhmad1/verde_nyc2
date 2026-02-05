@@ -1970,6 +1970,7 @@
   border: 1px solid #3A363A;
   transition: all 0.3s ease;
   display: inline-block;
+  white-space: nowrap;
 }
 
 .membersclub-button:hover {

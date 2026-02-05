@@ -62,13 +62,13 @@ export default function ValentinesDayPage() {
             {/* Verde Restaurant Section */}
             <div className="venue-section">
               <h2 style={{ textAlign: 'center' }}>
-                <Link href="/restaurant">VERDE R</Link>ESTAURANT
+                <Link href="/restaurant">VERDE RESTAURANT</Link>
               </h2>
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
                 <Image
                   src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/d4a37912-2e15-4d5b-8888-0d0e4e4f0230/Miami-New-Year-Restaurant.png"
-                  alt="Miami New Year Restaurant"
+                  alt="Verde NYC Valentine's Day Restaurant"
                   width={620}
                   height={263}
                   style={{ maxWidth: '100%', height: 'auto' }}
@@ -79,20 +79,11 @@ export default function ValentinesDayPage() {
                 <div className="spacer"></div>
                 <div className="button-wrapper">
                   <Link
-                    href="/s/MILA_3F_VDAY-Menu-011326.pdf"
-                    className="btn  text-[#A5A39A] "
-                    target="_blank"
-                  >
-                    menu
-                  </Link>
-                </div>
-                <div className="button-wrapper">
-                  <Link
-                    href="/s/MILA_3F_VDAY-VEG-Menu-011326.pdf"
+                    href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search"
                     className="btn text-[#A5A39A]"
                     target="_blank"
                   >
-                    vegetarian menu
+                    Reserve Your Table
                   </Link>
                 </div>
                 <div className="spacer"></div>
@@ -124,37 +115,6 @@ export default function ValentinesDayPage() {
 
             <hr className="section-divider" />
 
-            {/* Verde Omakase Section */}
-            <div className="venue-section">
-              <h2 style={{ textAlign: 'center' }}>
-                <Link href="/milaomakase">VERDE OMAKASE</Link>
-              </h2>
-
-              <div className="omakase-image-wrapper max-w-7xl mx-auto">
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/e34f34f5-a64b-4d6d-bdab-f2786ef3a354/MILA+Omakase+Vday+2026+Portal.jpg"
-                  alt="Verde NYC Omakase Vday 2026"
-                  width={1920}
-                  height={950}
-                  style={{ maxWidth: '100%', height: 'auto' }}
-                />
-              </div>
-
-              <div className="button-center">
-                <Link
-                  href="https://www.opentable.com/booking/experiences-availability?rid=1271149&restref=1271149&experienceId=621322&utm_source=external&utm_medium=referral&utm_campaign=shared&dateTime=2026-02-14T19%3A30%3A00&partySize=2"
-                  className="btn "
-                  target="_blank"
-                >
-                  7 pm or 9:30 pm | $195
-                </Link>
-              </div>
-
-              <p className=" text-center text-[#2D2C2A]">*excludes tax and service charge</p>
-            </div>
-
-            <hr className="section-divider" />
-
             {/* Verde Lounge Section */}
             <div className="venue-section">
               <h2 style={{ textAlign: 'center' }}>VERDE LOUNGE</h2>
@@ -174,20 +134,11 @@ export default function ValentinesDayPage() {
                 <div className="spacer"></div>
                 <div className="button-wrapper">
                   <Link
-                    href="https://www.sevenrooms.com/experiences/verde-nyc/valentines-day-at-verde-lounge"
-                    className="btn "
+                    href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search"
+                    className="btn"
                     target="_blank"
                   >
-                    reserve for VDAY dinner
-                  </Link>
-                </div>
-                <div className="button-wrapper">
-                  <Link
-                    href="mailto:reservations@verdenyc.com?subject=Table%20Inquiry"
-                    className="btn "
-                    target="_blank"
-                  >
-                    reserve for bottle service
+                    Reserve Your Table
                   </Link>
                 </div>
                 <div className="spacer"></div>

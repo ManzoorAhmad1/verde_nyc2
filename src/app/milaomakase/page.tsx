@@ -59,7 +59,7 @@ export default function MilaOmakasePage() {
           <h2>Verde Omakase</h2>
           
           <p className="omakase-description">
-            <Link href="/">Verde NYC</Link> Omakase is a 10-seat enclosed room offering the most exclusive and authentic journey to the Far East, magnified by the Mediterranean influences of 26 times Michelin-starred Chef Michaël Michaelidis.
+            <Link href="/">Verde NYC</Link> Omakase is a 10-seat enclosed experience offering the most exclusive and authentic journey to the Far East, magnified by the Mediterranean influences of our award-winning culinary team in New York's Meatpacking District.
           </p>
 
           <h3>Hours</h3>
@@ -72,7 +72,8 @@ export default function MilaOmakasePage() {
           </p>
 
           <Link 
-            href="/reserve" 
+            href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" 
+            target="_blank"
             className="omakase-btn"
           >
             Your Experience awaits
@@ -107,10 +108,10 @@ export default function MilaOmakasePage() {
 
       {/* Map Section */}
       <section id="new-page-3" className="omakase-map-section">
-        <h2 className='text-[#3A363A]'>Visit Our New York Omakase Location</h2>
+        <h2 className='text-[#3A363A]'>Visit Our NYC Meatpacking District Location</h2>
         <div className="omakase-map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.404938001749!2d-80.1368046!3d25.7902116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b5d58b0783d7%3A0x3b2bdc12138f51a1!2sMILA%20Omakase!5e0!3m2!1sen!2sus!4v1756841346523!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.0!2d-74.0060!3d40.7410!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzI3LjYiTiA3NMKwMDAnMjEuNiJX!5e0!3m2!1sen!2sus!4v1756841346523!5m2!1sen!2sus"
             width="100%"
             height="300"
             style={{ border: 0 }}

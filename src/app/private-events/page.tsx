@@ -87,8 +87,8 @@ export default function PrivateEventsPage() {
           </div>
           <div className="private-events-text-col">
             <h2 style={{color: 'var(--verde-heading)'}}>Indoor Private Dining Rooms</h2>
-            <p style={{color: 'var(--verde-text)'}}>Our indoor private dining rooms are crafted to captivate, each offering a distinctive and refined atmosphere. From the sophisticated main dining room with its sweeping panoramic views to the chic, intimate enclaves throughout the restaurant, every space provides a unique and elegant backdrop, setting the stage for a truly memorable event.</p>
-            <p style={{color: 'var(--verde-text)'}}>With capacities ranging from intimate gatherings to grand celebrations, our rooms are designed to suit any occasion. Personalized menus and a professional event team are included as standard, ensuring your event unfolds seamlessly from start to finish.</p>
+            <p style={{color: 'var(--verde-text)'}}>Verde NYC's indoor private dining rooms are architectural masterpieces designed to create lasting impressions. Our main dining room features floor-to-ceiling windows offering breathtaking views of the Meatpacking District, while our intimate private spaces throughout the restaurant showcase sophisticated Mediterranean design elements that transport guests to the coastal elegance of the French Riviera.</p>
+            <p style={{color: 'var(--verde-text)'}}>Accommodating parties from 10 to 150 guests, each space is meticulously curated with custom lighting, art installations, and luxurious furnishings. Our dedicated events team works closely with you to craft personalized menus featuring seasonal Mediterranean cuisine, complemented by our extensive wine collection and craft cocktail program.</p>
           </div>
         </div>
 
@@ -106,7 +106,8 @@ export default function PrivateEventsPage() {
           </div>
           <div className="private-events-text-col">
             <h2 style={{color: 'var(--verde-heading)'}}>Outdoor Event Spaces</h2>
-            <p style={{color: 'var(--verde-text)'}}>Immerse your guests in the splendor of <a href="https://maps.app.goo.gl/nnJS46B32kqVTCQz9" target="_blank" rel="noopener noreferrer">New York City</a> with our exquisite outdoor event spaces, perfect for creating unforgettable experiences. Our rooftop terrace offers breathtaking skyline views and comfort in an open-air setting. Each space captures the essence of New York, providing an idyllic backdrop for any occasion.</p>
+            <p style={{color: 'var(--verde-text)'}}>Elevate your celebration with Verde NYC's stunning rooftop terrace, an urban oasis in the heart of the <a href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank" rel="noopener noreferrer">Meatpacking District</a>. Our outdoor spaces blend natural elegance with modern sophistication, featuring lush greenery, ambient lighting, and panoramic Manhattan skyline views that create an unforgettable backdrop for any occasion.</p>
+            <p style={{color: 'var(--verde-text)'}}>Perfect for cocktail receptions, wedding ceremonies, or al fresco dining experiences, our outdoor venues can accommodate up to 200 guests. With retractable coverings and climate control options, we ensure comfort regardless of the season while maintaining the open-air ambiance that makes Verde NYC a premier destination for outdoor celebrations.</p>
           </div>
         </div>
 
@@ -124,8 +125,8 @@ export default function PrivateEventsPage() {
           </div>
           <div className="private-events-text-col">
             <h2 style={{color: 'var(--verde-heading)'}}>VERDE LOUNGE</h2>
-            <p style={{color: 'var(--verde-text)'}}>Experience Verde Lounge, a sophisticated space offering an elevated and glamorous atmosphere perfect for private celebrations and exclusive gatherings.</p>
-            <p style={{color: 'var(--verde-text)'}}>The unique venue draws upon natural materials and warm tones, combined with elegant lighting and lush greenery, creating an unforgettable ambiance for your special event.</p>
+            <p style={{color: 'var(--verde-text)'}}>Verde Lounge offers an exclusive venue for sophisticated evening celebrations. Inspired by Mediterranean coastal elegance, this intimate space features warm amber lighting, plush seating arrangements, and carefully curated design elements that create an atmosphere of refined luxury and comfort.</p>
+            <p style={{color: 'var(--verde-text)'}}>Ideal for cocktail parties, networking events, and upscale celebrations, the lounge accommodates up to 75 guests. Our resident DJs and live entertainment options can be customized to match your event's mood, while our expert mixology team crafts signature cocktails and curates wine selections from our extensive cellar featuring premier Mediterranean vintages.</p>
           </div>
         </div>
 
@@ -142,9 +143,9 @@ export default function PrivateEventsPage() {
             </div>
           </div>
           <div className="private-events-text-col">
-            <h2 style={{color: 'var(--verde-heading)'}}>Private Dining Experience</h2>
-            <p style={{color: 'var(--verde-text)'}}>For the ultimate exclusive dining experience, our intimate private dining room offers a sophisticated setting for up to 10 guests, perfect for special occasions and corporate gatherings.</p>
-            <p style={{color: 'var(--verde-text)'}}>The luxurious space features elegant design elements, creating an atmosphere of refined intimacy where every detail is crafted to perfection.</p>
+            <h2 style={{color: 'var(--verde-heading)'}}>Chef's Table Experience</h2>
+            <p style={{color: 'var(--verde-text)'}}>For the most intimate and exclusive dining experience, our Chef's Table offers a front-row seat to culinary artistry. This luxurious 10-seat private dining room provides an immersive gastronomic journey where guests witness the precision and passion of our culinary team while enjoying a bespoke multi-course tasting menu.</p>
+            <p style={{color: 'var(--verde-text)'}}>Perfect for milestone celebrations, business dinners, or intimate gatherings, this ultra-exclusive space features elegant contemporary design with Mediterranean influences. Your dedicated sommelier will pair each course with exceptional wines, creating a harmonious dining experience that celebrates the finest ingredients and culinary techniques from the Mediterranean region.</p>
           </div>
         </div>
       </section>
@@ -171,19 +172,19 @@ export default function PrivateEventsPage() {
         <div className="private-events-index-nav-inner">
           <a href="#" className="private-events-nav-item active">
             <div className="private-events-nav-indicator"></div>
-            <div className="private-events-nav-text"><span>New Gallery</span></div>
+            <div className="private-events-nav-text"><span>Event Gallery</span></div>
           </a>
           <a href="#event-menu-miami" className="private-events-nav-item">
             <div className="private-events-nav-indicator"></div>
-            <div className="private-events-nav-text"><span>Event menu Miami</span></div>
+            <div className="private-events-nav-text"><span>Event Planning</span></div>
           </a>
           <a href="#mila-indoor-outdoor" className="private-events-nav-item">
             <div className="private-events-nav-indicator"></div>
-            <div className="private-events-nav-text"><span>Verde indoor outdoor events</span></div>
+            <div className="private-events-nav-text"><span>Event Spaces</span></div>
           </a>
           <a href="#private-events-venues" className="private-events-nav-item">
             <div className="private-events-nav-indicator"></div>
-            <div className="private-events-nav-text"><span>Private events venues</span></div>
+            <div className="private-events-nav-text"><span>Venue Options</span></div>
           </a>
         </div>
       </nav>
