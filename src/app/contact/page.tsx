@@ -34,33 +34,29 @@ export default function ContactPage() {
       {/* Contact Info Section */}
       <section id="contact-info" className="contact-info">
         <div className="contact-info-content">
-          <h2>VERDE <Link href="/restaurant">RESTAURANT</Link></h2>
-          <h3>Rooftop<br />&amp;</h3>
-          <h2>VERDE <Link href="/milalounge">LOUNGE</Link></h2>
-          <h3>Second floor</h3>
-          <p>
+          <h2 style={{color: 'var(--verde-heading)'}}>VERDE <Link href="/restaurant" style={{color: 'var(--verde-heading)'}}>RESTAURANT</Link></h2>
+          <h3 style={{color: 'var(--verde-text)'}}>Meatpacking District</h3>
+          <p style={{color: 'var(--verde-text)'}}>
             <a href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank" rel="noopener noreferrer">
-              1636 Meridian Ave, Rooftop, New York, NY 10001
+              85 10th Avenue, New York City, NY 10011
             </a>
           </p>
 
-          <h2>VERDE <Link href="/milaomakase">OMAKASE</Link></h2>
-          <p>
-            <a href="https://maps.app.goo.gl/qB8CFApdJxJeEnFq9" target="_blank" rel="noopener noreferrer">
-              800 Lincoln Rd, Second Floor, New York, NY 10001
-            </a>
+          <h2 style={{color: 'var(--verde-heading)'}}>For Reservations</h2>
+          <p style={{color: 'var(--verde-text)'}}>
+            <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank">Online: Click Here</Link><br />
+            Phone: <a href="tel:+16464068763">+1 (646) 406-8763</a><br />
+            Email: <a href="mailto:contact@verde-nyc.com">contact@verde-nyc.com</a>
           </p>
 
-          <h2>For Reservations</h2>
-          <p>
-            <Link href="/reserve">Online: Click Here</Link><br />
-            Phone: <a href="tel:2127060744">(212)706-0744</a><br />
-            Email: <a href="mailto:reservations@verdenyc.com">reservations@verdenyc.com</a>
+          <h2 style={{color: 'var(--verde-heading)'}}>Private Events</h2>
+          <p style={{color: 'var(--verde-text)'}}>
+            Email: <a href="mailto:event@verde-nyc.com">event@verde-nyc.com</a>
           </p>
 
-          <h2>MM Club</h2>
-          <p>
-            <Link href="/membersclub">Online: Click Here</Link>
+          <h2 style={{color: 'var(--verde-heading)'}}>Members Club</h2>
+          <p style={{color: 'var(--verde-text)'}}>
+            <Link href="/membersclub">Learn More</Link>
           </p>
 
           {/* Social Icons */}
@@ -92,10 +88,10 @@ export default function ContactPage() {
       {/* Map Section */}
       <section id="map" className="contact-map">
         <div className="contact-map-content">
-          <h2><em>Where</em> To Find Us</h2>
+          <h2 style={{color: 'var(--verde-heading)'}}><em>Where</em> To Find Us</h2>
           <div className="contact-map-embed">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.4045681556363!2d-80.13930802405599!3d25.790223807425093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b485dbbfffff%3A0xb35569e33c3a935c!2sMILA!5e0!3m2!1sen!2sus!4v1763414317305!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9593794733634!2d-74.00893432346168!3d40.74243103514894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf2f24f4a7%3A0x999!2s85%2010th%20Ave%2C%20New%20York%2C%20NY%2010011!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
               width="100%"
               height="450"
               style={{ border: 0 }}

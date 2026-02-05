@@ -7,11 +7,11 @@ import { useEffect, useState } from 'react';
 const navItems = [
   { label: "VALENTINE'S DAY", href: '/valentines-day' },
   { label: 'RESTAURANT', href: '/restaurant' },
-  { label: 'BRUNCH', href: '/' },
-  { label: 'VERDE LOUNGE', href: '/' },
-  { label: 'VERDE OMAKASE', href: '/' },
-  { label: 'MM MEMBERS CLUB', href: '/' },
-  { label: 'PRIVATE EVENTS', href: '/' },
+  { label: 'BRUNCH', href: '/miami-brunch' },
+  { label: 'MILA LOUNGE', href: '/milalounge' },
+  { label: 'MILA OMAKASE', href: '/milaomakase' },
+  { label: 'MM MEMBERS CLUB', href: '/membersclub' },
+  { label: 'PRIVATE EVENTS', href: '/private-events' },
   { label: 'CONTACT', href: '/contact' },
 ];
 
@@ -36,7 +36,7 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
       {/* Top Header Bar with Reservations and Menu Icon */}
       <div className="top-header-bar">
         {/* Reservations Button - Left of Menu Icon */}
-        <Link href="/reserve" className={` ${scrolled ? 'text-black border border-black px-4 py-2' : 'header-reservations-btn'}`}>
+        <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className={` ${scrolled ? 'text-black border border-black px-4 py-2' : 'header-reservations-btn'}`}>
           RESERVATIONS
         </Link>
 
@@ -46,9 +46,9 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
-          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`}/>
-          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`}/>
-          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`}/>
+          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`} />
+          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`} />
+          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`} />
         </button>
       </div>
 

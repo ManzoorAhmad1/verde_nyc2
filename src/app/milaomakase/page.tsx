@@ -107,7 +107,7 @@ export default function MilaOmakasePage() {
 
       {/* Map Section */}
       <section id="new-page-3" className="omakase-map-section">
-        <h2>Visit Our New York Omakase Location</h2>
+        <h2 className='text-[#3A363A]'>Visit Our New York Omakase Location</h2>
         <div className="omakase-map-container">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.404938001749!2d-80.1368046!3d25.7902116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b5d58b0783d7%3A0x3b2bdc12138f51a1!2sMILA%20Omakase!5e0!3m2!1sen!2sus!4v1756841346523!5m2!1sen!2sus"
@@ -134,8 +134,8 @@ export default function MilaOmakasePage() {
             />
           </div>
           <div className="omakase-heritage-text">
-            <h2><strong>The Heritage of Omakase: A Timeless Tradition</strong></h2>
-            <p>
+            <h2 className='text-[#3A363A]'><strong>The Heritage of Omakase: A Timeless Tradition</strong></h2>
+            <p className='text-[#948E84]'>
               The tradition of "omakase" is deeply rooted in Japanese culture, in which guests entrust the chef with their dining selections. This artful approach unfolds as a thoughtfully sequenced meal that begins with delicate flavors and gradually builds to heartier dishes. It showcases a variety of cooking techniques—grilling, simmering, and beyond—creating a rich tapestry of taste. Verde Omakase is a dynamic experience that evolves with the seasons.
             </p>
           </div>

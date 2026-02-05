@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import WhatsAppButton from './components/WhatsAppButton'
 
 export const metadata: Metadata = {
   title: 'Verde NYC | MediterrAsian Rooftop Restaurant & Lounge',
@@ -25,6 +26,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   )

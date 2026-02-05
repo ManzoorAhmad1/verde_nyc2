@@ -40,16 +40,16 @@ export default function MembersClubPage() {
         <div className="membersclub-content-grid">
           {/* Left Column - Text Content */}
           <div className="membersclub-text-column">
-            <h2>VERDE NYC MM</h2>
-            <p>
-              Located on the second floor beneath <Link href="/restaurant">Verde Restaurant</Link>, MM is a secluded area, reserved exclusively for our MM members, offering bespoke mixology and a <Link href="/milaomakase">culinary journey</Link> curated by Chef Michaël Michaelidis.
-            </p>
-            <div className="membersclub-buttons">
-              <Link href="https://members.mmembersclub.com" target="_blank" className="membersclub-button">
-                MM portal
+            <h2 style={{color: 'var(--verde-heading)'}}>VERDE NYC Members Club</h2>
+            <span style={{color: 'var(--verde-text)'}}>
+              Experience exclusivity at Verde NYC. Our members-only area offers a secluded sanctuary for those who appreciate the finer things in life. Enjoy priority reservations, exclusive events, and access to special areas reserved only for members of the Verde family.
+            </span>
+            <div className="membersclub-buttons mt-20">
+              <Link href="mailto:contact@verde-nyc.com" target="_blank" className="membersclub-button">
+                MEMBERSHIP INQUIRIES
               </Link>
-              <Link href="/reserve" className="membersclub-button">
-                MENU
+              <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className="membersclub-button">
+                RESERVE
               </Link>
             </div>
           </div>
@@ -69,17 +69,20 @@ export default function MembersClubPage() {
 
         {/* Center Description */}
         <div className="membersclub-center-description">
-          <h3>
-            lifestyle members-only club to shape a network of luxury <Link href="/restaurant">restaurants</Link>, <Link href="/milalounge">lounges</Link> and other entertaining <Link href="https://www.rivieradininggroup.com/venue-listing" target="_blank">venues</Link>, with access to private areas exclusively for members.
+          <h3 style={{color: 'var(--verde-heading)'}}>
+            Join an exclusive lifestyle community that celebrates the art of Mediterranean dining and entertainment.
           </h3>
-          <p>
-            MM redefines how people navigate through dining experiences, honoring its members with priority access to all sites, including <Link href="https://mm-club.com/mm-venues" target="_blank">out-of-state venues</Link>. Giving to member benefits represent, MM is a sign of status, elegance, and taste.
-          </p>
-          <Link href="https://mm-club.com" target="_blank" className="membersclub-discover-button">
-            DISCOVER MORE ABOUT MM
-          </Link>
-        </div>
+          <span style={{color: 'var(--verde-text)'}}>
+            Verde NYC members enjoy priority access to reservations, exclusive events, and special experiences throughout the year. From curated wine tastings to chef&apos;s table experiences, membership means being part of a community that values excellence, celebration, and the finest in Mediterranean hospitality.
+          </span>
 
+        </div>
+                <div className="membersclub-center-description">
+
+        <Link href="mailto:contact@verde-nyc.com" target="_blank" className="membersclub-discover-button ">
+          LEARN MORE ABOUT MEMBERSHIP
+        </Link>
+        </div>
         {/* Become Member Section */}
         <div className="membersclub-become-member">
           <div className="membersclub-member-image">
@@ -91,11 +94,11 @@ export default function MembersClubPage() {
             />
           </div>
           <div className="membersclub-member-text">
-            <h2>Are you interested in becoming a member?</h2>
-            <p>
-              Become part of an exclusive lifestyle community that offers priority access to a collection of currated events, luxury restaurants, lounges, and private member-only spaces. MM elevates every dining experience and stands as a symbol of refinement, status, and exceptional taste.
-            </p>
-            <Link href="mailto:info@mm-club.com?" target="_blank" className="membersclub-contact-button">
+            <h2 style={{color: 'var(--verde-heading)'}}>Are you interested in becoming a member?</h2>
+            <span style={{color: 'var(--verde-text)'}}>
+              Become part of an exclusive lifestyle community that offers priority access to curated events, exceptional dining experiences, and member-only spaces. Verde membership elevates every visit and stands as a symbol of refinement, status, and exceptional taste. Contact us to learn more about joining the Verde family.
+            </span>
+            <Link href="mailto:contact@verde-nyc.com" target="_blank" className="membersclub-contact-button mt-10">
               contact us here
             </Link>
           </div>
@@ -103,7 +106,7 @@ export default function MembersClubPage() {
 
         {/* Instagram Section */}
         <div className="membersclub-instagram">
-          <h3>Follow MM journey on <Link href="https://instagram.com/mm_membersclub" target="_blank">Instagram</Link></h3>
+          <h3 style={{color: 'var(--verde-text)'}}>Follow Verde NYC on <Link href="https://instagram.com/verde_nyc" target="_blank">Instagram</Link></h3>
         </div>
       </section>
 
@@ -111,11 +114,11 @@ export default function MembersClubPage() {
       <nav className="membersclub-index-nav">
         <Link href="#" className="membersclub-nav-dot active">
           <span className="indicator"></span>
-          <span className="text">New Page</span>
+          <span className="text-[#948E84]">New Page</span>
         </Link>
         <Link href="#membership" className="membersclub-nav-dot">
           <span className="indicator"></span>
-          <span className="text">MEMBERSHIP</span>
+          <span className="text-[#948E84]">MEMBERSHIP</span>
         </Link>
       </nav>
 

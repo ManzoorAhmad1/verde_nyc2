@@ -60,15 +60,19 @@ export default function Footer() {
         {/* Center - Links & Newsletter */}
         <div className="footer-center">
           <div className="footer-links">
-            <Link href="/" className="footer-link">HOME</Link>
+            <Link href="/valentines-day" className="footer-link">VALENTINE'S DAY</Link>
             <span>|</span>
-            <Link href="/reserve" className="footer-link">RESERVE</Link>
+            <Link href="/restaurant" className="footer-link">RESTAURANT</Link>
             <span>|</span>
-            <Link href="/all-press" className="footer-link">PRESS</Link>
+            <Link href="/miami-brunch" className="footer-link">BRUNCH</Link>
             <span>|</span>
-            <Link href="https://www.rivieradininggroup.com/career" target="_blank" className="footer-link">JOIN THE TEAM</Link>
+            <Link href="/milalounge" className="footer-link">MILA LOUNGE</Link>
             <span>|</span>
-            <Link href="/gift-card" className="footer-link">GIFT CARD</Link>
+            <Link href="/milaomakase" className="footer-link">MILA OMAKASE</Link>
+            <span>|</span>
+            <Link href="/membersclub" className="footer-link">MM MEMBERS CLUB</Link>
+            <span>|</span>
+            <Link href="/private-events" className="footer-link">PRIVATE EVENTS</Link>
             <span>|</span>
             <Link href="/contact" className="footer-link">CONTACT</Link>
           </div>

@@ -39,36 +39,33 @@ export default function PrivateEventsPage() {
           />
         </div>
         <div className="private-events-intro-content">
-          <h1>
-            <em>A PERFECT multi-space event venue in MiamI</em>
+          <h1 style={{color: 'var(--verde-heading)'}}>
+            <em>The Perfect Event Venue in Meatpacking District</em>
             <br />
-            Intimate and large private gatherings
+            Intimate and Large Private Gatherings
           </h1>
           
-          <p className="private-events-description">
-            Verde NYC offers endless possibilities for private dining and special events. From an intimate 11-guest party, to full buyouts, our dedicated event team can curate a unique private dining experience for you in any of our spaces from <Link href="/restaurant">Verde Restaurant</Link>, to <Link href="/milalounge">Verde Lounge</Link> or <Link href="/milaomakase">Verde Omakase</Link>.
+          <p className="private-events-description" style={{color: 'var(--verde-text)'}}>
+            Verde NYC offers endless possibilities for private dining and special events. From intimate gatherings to full venue buyouts, our dedicated event team can curate a unique experience for you. Whether it&apos;s a corporate celebration, wedding reception, or milestone birthday, Verde transforms your vision into an unforgettable Mediterranean celebration.
           </p>
-          <p className="private-events-description">
-            Please fill out the inquiry form and someone will get in touch within 48 hours.
+          <p className="private-events-description" style={{color: 'var(--verde-text)'}}>
+            Contact our events team to discuss your special occasion: <a href="mailto:event@verde-nyc.com">event@verde-nyc.com</a>
           </p>
 
           <div className="private-events-buttons">
-            <a href="https://milamiami.tripleseat.com/party_request/11268" target="_blank" rel="noopener noreferrer" className="private-events-button">
-              MILA RESTAURANT
+            <a href="mailto:event@verde-nyc.com" target="_blank" rel="noopener noreferrer" className="private-events-button">
+              INQUIRE ABOUT EVENTS
             </a>
-            <a href="https://my.matterport.com/show/?m=VPCMah3RKuB" target="_blank" rel="noopener noreferrer" className="private-events-button">
-              MILA Virtual Tour
-            </a>
-            <a href="https://milamiami.tripleseat.com/party_request/25118" target="_blank" rel="noopener noreferrer" className="private-events-button">
-              LOUNGE | OMAKASE
+            <a href="tel:+16464068763" target="_blank" rel="noopener noreferrer" className="private-events-button">
+              CALL US
             </a>
           </div>
 
           <div className="private-events-brochure">
-            <h2>View our special events brochure:</h2>
-            <p>Explore our special events brochure for private dining menus, customizable event spaces, and inspiration for unforgettable celebrations in Miami Beach.</p>
-            <a href="https://issuu.com/rivieradininggroup/docs/mila_private_events_deck" target="_blank" rel="noopener noreferrer" className="private-events-button">
-              view
+            <h2 style={{color: 'var(--verde-heading)'}}>Plan Your Special Event</h2>
+            <p style={{color: 'var(--verde-text)'}}>Contact our events team to discuss menu customization, space selection, and create an unforgettable celebration at Verde NYC.</p>
+            <a href="mailto:event@verde-nyc.com" target="_blank" rel="noopener noreferrer" className="private-events-button">
+              EMAIL US
             </a>
           </div>
         </div>
@@ -77,7 +74,7 @@ export default function PrivateEventsPage() {
       {/* Indoor/Outdoor Section */}
       <section className="private-events-spaces">
         {/* Indoor Private Dining */}
-        <div className="private-events-grid">
+        <div className="private-events-grid reverse">
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
@@ -89,18 +86,14 @@ export default function PrivateEventsPage() {
             </div>
           </div>
           <div className="private-events-text-col">
-            <h2>Indoor Private Dining Rooms</h2>
-            <p>Our indoor private dining rooms are crafted to captivate, each offering a distinctive and refined atmosphere. From the sophisticated main dining room with its sweeping panoramic views to the chic, intimate enclaves throughout the restaurant, every space provides a unique and elegant backdrop, setting the stage for a truly memorable event.</p>
-            <p>With capacities ranging from intimate gatherings to grand celebrations, our rooms are designed to suit any occasion. Personalized menus and a professional event team are included as standard, ensuring your event unfolds seamlessly from start to finish.</p>
+            <h2 style={{color: 'var(--verde-heading)'}}>Indoor Private Dining Rooms</h2>
+            <p style={{color: 'var(--verde-text)'}}>Our indoor private dining rooms are crafted to captivate, each offering a distinctive and refined atmosphere. From the sophisticated main dining room with its sweeping panoramic views to the chic, intimate enclaves throughout the restaurant, every space provides a unique and elegant backdrop, setting the stage for a truly memorable event.</p>
+            <p style={{color: 'var(--verde-text)'}}>With capacities ranging from intimate gatherings to grand celebrations, our rooms are designed to suit any occasion. Personalized menus and a professional event team are included as standard, ensuring your event unfolds seamlessly from start to finish.</p>
           </div>
         </div>
 
         {/* Outdoor Event Spaces */}
-        <div className="private-events-grid reverse">
-          <div className="private-events-text-col">
-            <h2>Outdoor Event Spaces</h2>
-            <p>Immerse your guests in the splendor of <a href="https://maps.app.goo.gl/nnJS46B32kqVTCQz9" target="_blank" rel="noopener noreferrer">New York City</a> with our exquisite outdoor event spaces, perfect for creating unforgettable experiences. Our rooftop terrace offers breathtaking skyline views and comfort in an open-air setting. Each space captures the essence of New York, providing an idyllic backdrop for any occasion.</p>
-          </div>
+        <div className="private-events-grid">
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
@@ -111,10 +104,14 @@ export default function PrivateEventsPage() {
               />
             </div>
           </div>
+          <div className="private-events-text-col">
+            <h2 style={{color: 'var(--verde-heading)'}}>Outdoor Event Spaces</h2>
+            <p style={{color: 'var(--verde-text)'}}>Immerse your guests in the splendor of <a href="https://maps.app.goo.gl/nnJS46B32kqVTCQz9" target="_blank" rel="noopener noreferrer">New York City</a> with our exquisite outdoor event spaces, perfect for creating unforgettable experiences. Our rooftop terrace offers breathtaking skyline views and comfort in an open-air setting. Each space captures the essence of New York, providing an idyllic backdrop for any occasion.</p>
+          </div>
         </div>
 
         {/* Verde Lounge */}
-        <div className="private-events-grid">
+        <div className="private-events-grid reverse">
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
@@ -126,19 +123,14 @@ export default function PrivateEventsPage() {
             </div>
           </div>
           <div className="private-events-text-col">
-            <h2>VERDE LOUNGE</h2>
-            <p>Inspired by African tribes and the primitive design style of the mother continent, <Link href="/milalounge">Verde Lounge</Link> is a multi-sensory space offering a transporting, glamorous and elevated secluded nightlife experience.</p>
-            <p>The unique venue draws upon minimalistic natural materials and earthy tones, combined with opulent warm-glow lamps, textured prints and shades, and a dramatic, lush foliage hanging from the ceiling.</p>
+            <h2 style={{color: 'var(--verde-heading)'}}>VERDE LOUNGE</h2>
+            <p style={{color: 'var(--verde-text)'}}>Experience Verde Lounge, a sophisticated space offering an elevated and glamorous atmosphere perfect for private celebrations and exclusive gatherings.</p>
+            <p style={{color: 'var(--verde-text)'}}>The unique venue draws upon natural materials and warm tones, combined with elegant lighting and lush greenery, creating an unforgettable ambiance for your special event.</p>
           </div>
         </div>
 
-        {/* Verde Omakase */}
-        <div className="private-events-grid reverse">
-          <div className="private-events-text-col">
-            <h2>Verde Omakase</h2>
-            <p>Experience <Link href="/milaomakase">Verde Omakase</Link>, a 10-seat enclosed room offering the most exclusive and authentic journey in the Far East, magnified by the Mediterranean influences of 26-times Michelin-starred Chef Michaël Michaelidis.</p>
-            <p>The intimate, ultra-luxurious and transporting space features a massive overhanging cherry blossom tree, a Japanese craftsmanship-inspired wallpaper screen, a dramatic marble countertop, a 500-year-old hinoki wood cutting board, and wall-mounted niches serving as members' chopstick display.</p>
-          </div>
+        {/* Private Dining Experience */}
+        <div className="private-events-grid">
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
@@ -149,21 +141,26 @@ export default function PrivateEventsPage() {
               />
             </div>
           </div>
+          <div className="private-events-text-col">
+            <h2 style={{color: 'var(--verde-heading)'}}>Private Dining Experience</h2>
+            <p style={{color: 'var(--verde-text)'}}>For the ultimate exclusive dining experience, our intimate private dining room offers a sophisticated setting for up to 10 guests, perfect for special occasions and corporate gatherings.</p>
+            <p style={{color: 'var(--verde-text)'}}>The luxurious space features elegant design elements, creating an atmosphere of refined intimacy where every detail is crafted to perfection.</p>
+          </div>
         </div>
       </section>
 
       {/* Types of Events Section */}
       <section className="private-events-types">
         <div className="private-events-types-content">
-          <h2>Types of Events Hosted at Verde NYC</h2>
-          <p>For social events, <Link href="/">Verde NYC</Link> shines as an exceptional choice. From glamorous birthday celebrations and engagement dinners to festive holiday parties and sophisticated cocktail receptions, our venue has hosted it all.</p>
-          <p>Our dedicated team is committed to crafting bespoke experiences tailored to your company's, party's, or group's unique needs. Along with our <Link href="/restaurant">exquisite food</Link> and beverage offerings, we can provide custom decor, branding opportunities, unique entertainment, and state-of-the-art technical equipment for presentations and speeches.</p>
+          <h2 style={{color: 'var(--verde-heading)'}}>Types of Events Hosted at Verde NYC</h2>
+          <p style={{color: 'var(--verde-text)'}}>For social events, <Link href="/">Verde NYC</Link> shines as an exceptional choice. From glamorous birthday celebrations and engagement dinners to festive holiday parties and sophisticated cocktail receptions, our venue has hosted it all.</p>
+          <p style={{color: 'var(--verde-text)'}}>Our dedicated team is committed to crafting bespoke experiences tailored to your company's, party's, or group's unique needs. Along with our <Link href="/restaurant">exquisite food</Link> and beverage offerings, we can provide custom decor, branding opportunities, unique entertainment, and state-of-the-art technical equipment for presentations and speeches.</p>
           
-          <h2>Private Buyouts at Verde NYC</h2>
-          <p>Private buyouts at Verde NYC offer a unique experience for those seeking unparalleled exclusivity. A private buyout of Verde NYC secures exclusive access to our entire restaurant and its facilities. You can custom-design the floor plan, menu, and décor to perfectly suit your event's theme and objectives. This level of customization and exclusivity guarantees your guests an unforgettable experience that truly reflects your vision.</p>
-          <p>For more information and to book your private event, visit <a href="https://www.rivieradininggroup.com/verde-nyc" target="_blank" rel="noopener noreferrer"><span style={{ textDecoration: 'underline' }}>our website</span></a> today.</p>
+          <h2 style={{color: 'var(--verde-heading)'}}>Private Buyouts at Verde NYC</h2>
+          <p style={{color: 'var(--verde-text)'}}>Private buyouts at Verde NYC offer a unique experience for those seeking unparalleled exclusivity. A private buyout of Verde NYC secures exclusive access to our entire restaurant and its facilities. You can custom-design the floor plan, menu, and décor to perfectly suit your event's theme and objectives. This level of customization and exclusivity guarantees your guests an unforgettable experience that truly reflects your vision.</p>
+          <p style={{color: 'var(--verde-text)'}}>For more information and to book your private event, contact us at <a href="mailto:event@verde-nyc.com"><span style={{ textDecoration: 'underline' }}>event@verde-nyc.com</span></a>.</p>
           
-          <a href="https://www.rivieradininggroup.com/verde-nyc" target="_blank" rel="noopener noreferrer" className="private-events-cta-button">
+          <a href="mailto:event@verde-nyc.com" target="_blank" rel="noopener noreferrer" className="private-events-cta-button">
             book your private event
           </a>
         </div>

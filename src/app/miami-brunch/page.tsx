@@ -9,6 +9,25 @@ import Footer from '../components/Footer';
 
 export default function MiamiBrunchPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const images = [
+    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg",
+    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1767041138667-XKAGWMMK2NNVUM6EVR88/MILA-Brunch-Dessert.png",
+    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507187547-K9EHG7W1F2Z819SSWB39/03.jpg",
+    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507206051-SHPFVYXAUU00XEWI9SZ5/38.jpg",
+    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507212851-DRSK02M2XTD3W3KQ5JSE/46.jpg",
+    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507225273-FWJ1YD2HZU326Y5AI0J2/70.jpg",
+    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507205981-FE64ZVEEES5WORFYQKED/41.jpg"
+  ];
+
+  const handlePrevious = () => {
+    setCurrentSlide((prev) => (prev === 0 ? Math.max(0, images.length - 5) : Math.max(0, prev - 1)));
+  };
+
+  const handleNext = () => {
+    setCurrentSlide((prev) => (prev >= images.length - 5 ? 0 : prev + 1));
+  };
 
   return (
     <>
@@ -27,7 +46,7 @@ export default function MiamiBrunchPage() {
               priority
             />
           </div>
-          <div className="banner-content">
+          <div className="banner-content w-full">
             <h1>VERDE NYC BRUNCH</h1>
           </div>
         </section>
@@ -36,21 +55,58 @@ export default function MiamiBrunchPage() {
         <section id="miami-brunch-content" className="brunch-content-section">
           <div className="content-wrapper">
             {/* Gallery Slider */}
-            <div className="brunch-gallery-slider">
-              <div className="gallery-slider-images">
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg"
-                  alt="Verde NYC Brunch"
-                  fill
-                  style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
-                />
+            <div className="sqs-block gallery-block sqs-block-gallery relative w-full h-[300px] overflow-hidden">
+              <div className="sqs-gallery-container h-full">
+                <div className="sqs-gallery sqs-gallery-design-strip relative h-full">
+                  {/* Slider Images */}
+                  <div 
+                    className="sqs-wrapper flex transition-transform duration-500 ease-in-out h-full"
+                    style={{ transform: `translateX(-${currentSlide * 40}%)` }}
+                  >
+                    {images.map((src, index) => (
+                      <div key={index} className="flex-shrink-0 w-2/5 h-full">
+                        <img 
+                          className="w-full h-full object-cover" 
+                          src={`${src}?format=500w`} 
+                          alt={`Gallery image ${index + 1}`}
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Gallery Controls */}
+                  <div className="sqs-gallery-meta-container">
+                    <div className="sqs-gallery-controls">
+                      <button
+                        tabIndex={0}
+                        className="previous absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full h6-3 shadow-lg transition-all"
+                        aria-label="Previous Slide"
+                        onClick={handlePrevious}
+                      >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      <button
+                        tabIndex={0}
+                        className="next absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full h6-3 shadow-lg transition-all"
+                        aria-label="Next Slide"
+                        onClick={handleNext}
+                      >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Brunch Intro */}
             <div className="brunch-intro">
-              <h2>Best Brunch in New York City</h2>
-              <p>Sundays at <strong>Verde NYC</strong> are meant to be savored. A time to unwind, connect, and indulge in an elevated brunch ritual where Mediterranean warmth meets Asian precision. Set high above <a href="https://www.google.com/maps/place/Verde+NYC" target="_blank">New York City</a>, <a href="https://www.verde-nyc.com" target="_blank">Verde NYC&apos;s</a> Sunday brunch unfolds in a sun-drenched, transportive atmosphere, brought to life with live music that sets the rhythm for the afternoon. Thoughtfully curated flavors, artful presentation, and a vibrant yet refined energy transform brunch into an immersive lifestyle experience.</p>
+              <h2 className='py-4 mt-4' style={{color: 'var(--verde-heading)'}}>Sunday Brunch at Verde NYC</h2>
+              <h6 className='text-[#948E84]'>Sundays at <span>Verde NYC</span> are meant to be savored. From noon to 5pm, indulge in an elevated brunch experience where Mediterranean elegance meets celebration. Set in the heart of the <a href="https://www.google.com/maps/place/Verde+NYC" target="_blank">Meatpacking District</a>, <a href="https://www.verde-nyc.com" target="_blank">Verde NYC&apos;s</a> Sunday brunch unfolds in a sun-drenched, transportive atmosphere, brought to life with live music and vibrant energy. Thoughtfully curated flavors, artful presentation, and a refined yet festive ambiance transform brunch into an unforgettable lifestyle experience.</h6>
             </div>
 
             <hr className="section-divider" />
@@ -58,7 +114,7 @@ export default function MiamiBrunchPage() {
             {/* Buffet Image Card */}
             <div className="brunch-image-card right">
               <div className="image-card-image">
-                <Image
+                <Image 
                   src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/MILA-Brunch-Buffet.png"
                   alt="brunch buffet layout inside MILA with an assortment of foods and drinks"
                   fill
@@ -66,8 +122,8 @@ export default function MiamiBrunchPage() {
                 />
               </div>
               <div className="image-card-content">
-                <h3><strong>Elevated buffet stations</strong></h3>
-                <p>Guests are invited to explore a curated selection of chef-driven dishes over a two-hour experience, moving freely between artfully designed stations and composing their own journey of flavors.</p>
+                <h3 className='text-[#3A363A]'><span>Elevated buffet stations</span></h3>
+                <h6 className='text-[#948E84]'>Guests are invited to explore a curated selection of chef-driven dishes over a two-hour experience, moving freely between artfully designed stations and composing their own journey of flavors.</h6>
               </div>
             </div>
 
@@ -75,9 +131,9 @@ export default function MiamiBrunchPage() {
 
             {/* Description Text */}
             <div className="brunch-description">
-              <p>Begin your MediterrAsian Brunch with a refined bakery selection of freshly baked croissants and seasonal tropical fruits, followed by an artful display of cured meats, artisanal cheeses, and handcrafted breads.</p>
-              <p>At the center of the experience, a <strong>5J Jamón carving station</strong> offers premium cuts carved to perfection, alongside curated salads and a vibrant <strong>Sushi and Temaki Handroll Station</strong>. Guests can also enjoy a Raw Bar with freshly shucked oysters and a Mezze station highlighted by Verde NYC&apos;s signature eggplant caviar. On the <strong>outdoor rooftop bar</strong>, the experience expands with a live <strong>Robata grill</strong> and a dedicated <strong>Spritz station</strong>, adding a sun-soaked, aperitivo-inspired energy.</p>
-              <p>The brunch concludes with an indulgent dessert display, featuring chef-crafted sweets and a <strong>Gelato Station</strong> for a refreshing finish.</p>
+              <h6 className='text-[#948E84]'>Begin your MediterrAsian Brunch with a refined bakery selection of freshly baked croissants and seasonal tropical fruits, followed by an artful display of cured meats, artisanal cheeses, and handcrafted breads.</h6>
+              <h6 className='text-[#948E84]'>At the center of the experience, a <span>5J Jamón carving station</span> offers premium cuts carved to perfection, alongside curated salads and a vibrant <span>Sushi and Temaki Handroll Station</span>. Guests can also enjoy a Raw Bar with freshly shucked oysters and a Mezze station highlighted by Verde NYC&apos;s signature eggplant caviar. On the <span>outdoor rooftop bar</span>, the experience expands with a live <span>Robata grill</span> and a dedicated <span>Spritz station</span>, adding a sun-soaked, aperitivo-inspired energy.</h6>
+              <h6 className='text-[#948E84]'>The brunch concludes with an indulgent dessert display, featuring chef-crafted sweets and a <span>Gelato Station</span> for a refreshing finish.</h6>
             </div>
 
             <hr className="section-divider" />
@@ -93,9 +149,9 @@ export default function MiamiBrunchPage() {
                 />
               </div>
               <div className="image-card-content">
-                <h3><strong>Beverage Package</strong></h3>
-                <p>Our packages include:</p>
-                <p><strong>A non-alcoholic package featuring refreshing mocktails</strong> crafted with the freshest ingredients, and <strong>Champagne and Rose Packages</strong> with premium champagne and luxury cocktails offerings.</p>
+                <h3 className='text-[#3A363A]'><span>Beverage Package</span></h3>
+                <h6 className='text-[#948E84]'>Our packages include:</h6>
+                <h6 className='text-[#948E84]'><span>A non-alcoholic package featuring refreshing mocktails</span> crafted with the freshest ingredients, and <span>Champagne and Rose Packages</span> with premium champagne and luxury cocktails offerings.</h6>
               </div>
             </div>
 
@@ -103,15 +159,15 @@ export default function MiamiBrunchPage() {
 
             {/* Hours Section */}
             <div className="brunch-hours">
-              <h3>Hours</h3>
-              <p>Sunday | 11:30 AM - 2:30 PM</p>
-              <p><a href="https://maps.app.goo.gl/fqeZH3QPWLxBZFXY7" target="_blank">Get Directions</a></p>
+              <h3 style={{color: 'var(--verde-heading)'}}>Hours</h3>
+              <h6 className='text-[#948E84]'>Sunday | Noon - 5:00 PM</h6>
+              <h6 className='text-[#948E84]'><a href="https://maps.app.goo.gl/fqeZH3QPWLxBZFXY7" target="_blank">Get Directions - 85 10th Avenue, New York City</a></h6>
             </div>
 
             <div className="button-center">
-              <Link 
-                href="https://www.opentable.com/r/mila-miami-restaurant-reservations-miami-2?restref=1054648&lang=en-US&ot_source=Restaurant%20website"
-                className="btn-tertiary"
+              <Link
+                href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search"
+                className="text-[#948E84]"
                 target="_blank"
               >
                 Reserve Your Experience
@@ -119,9 +175,9 @@ export default function MiamiBrunchPage() {
             </div>
 
             <div className="brunch-menu-section">
-              <h3><strong>Sunday Brunch Menu</strong></h3>
+              <h3><span className='text-[#948E84]'>Sunday Brunch Menu</span></h3>
               <div className="button-center">
-                <Link href="/restaurant" className="btn-tertiary">
+                <Link href="/restaurant" className="text-[#948E84]">
                   Explore Our Menus
                 </Link>
               </div>

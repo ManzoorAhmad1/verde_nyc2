@@ -10,7 +10,8 @@ import Footer from './components/Footer';
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const sectionRef: any = useRef(null);
-  const eudaimoniaRef:any=useRef(null)
+  const eudaimoniaRef: any = useRef(null)
+  const EudaimoniaRef: any = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +33,27 @@ export default function HomePage() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-    useEffect(() => {
+  useEffect(() => {
+    const handleScroll = () => {
+      if (EudaimoniaRef.current) {
+        const scrollPosition = window.pageYOffset;
+        const sectionTop = EudaimoniaRef.current.offsetTop;
+
+        // Calculate how much the background should move (20% of scroll amount)
+        const backgroundPosition = (scrollPosition - sectionTop) * 0.2;
+
+        // Apply the transform to the background
+        EudaimoniaRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  useEffect(() => {
     const handleScroll = () => {
       if (sectionRef.current) {
         const scrollPosition = window.pageYOffset;
@@ -197,21 +218,21 @@ export default function HomePage() {
           style={{
             backgroundImage: 'url(https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/4123ed8a-2100-4876-a12b-4a146be4c408/MILA.jpg)',
             backgroundSize: 'cover',
-            backgroundAttachment: 'fixed', // यह parallax effect के लिए महत्वपूर्ण है
+            backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
             minHeight: '60vh',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
-            overflow: 'hidden' // Prevent any overflow from animation
+            overflow: 'hidden'
           }}
         >
           <div className="section-overlay" />
           <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
             <h2 className="w-full section-heading text-white">
-              Inspired by the elegant, minimalist details of nature, <br />
-              Verde NYC embodies a multi-sensory culinary and lifestyle sanctuary.
+              From Paris to Saint-Tropez, Dubai to New York – <br />
+              Verde brings its signature festive spirit to the Meatpacking District.
             </h2>
           </div>
         </section>
@@ -219,17 +240,11 @@ export default function HomePage() {
         {/* Reserve Section */}
         <section id="reserve-mila" className="reserve-section">
           <div className="max-w-3xl mx-auto">
-            {/* <div className="vertical-line" /> */}
-            <h3 className='text-[#9A9489]'>Rooftop Dining &amp; Multi-sensory Ambiance</h3>
-            <p className='text-[#9A9489]'>
-              Located in the heart of New York City, Verde NYC is a transportive venue bringing an elevated dining experience
-              and pleasure together with a magical, glamorous, and vibrant atmosphere, seamlessly merging into one unique
-              experience. Embracing the effortless beauty of the five elements, Verde NYC offers a unique experience that
-              awakens all of the senses, through refined taste, bespoke mixology, transporting ethnic sounds and an
-              unparalleled ambiance. The rooftop restaurant known for its flavorful dishes, its fresh and flirty ambiance
-              transforms a high-end dinner service into a vibrant atmosphere for guests to celebrate the night away.
+            <h3 className='text-[var(--verde-text)]'>Mediterranean Excellence Meets New York Energy</h3>
+            <p className='text-[var(--verde-text)]'>
+              This Fall, Verde, the iconic international restaurant & beach club brand from Paris, Saint-Tropez, and Dubai makes its much-anticipated debut in New York City. Nestled in the heart of the Meatpacking District, Verde NYC brings its signature festive spirit, refined Mediterranean cuisine, and world-renowned atmosphere to the vibrant pulse of New York. Celebrated across the globe for its unforgettable dining destinations, Verde blends culinary excellence, elevated ambiance, and a distinct lifestyle experience. From glamorous nights in Paris to sun-soaked days in Saint-Tropez, Verde is more than a restaurant—it&apos;s a global phenomenon.
             </p>
-            <Link href="/reserve" className="btn btn-primary border border-[#8e402f] text-[#8e402f] hover:bg-[#8e402f] hover:text-white">
+            <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className="btn btn-primary border border-[#8e402f] text-[#8e402f] hover:bg-[#8e402f] hover:text-white">
               reserve your experience
             </Link>
           </div>
@@ -239,7 +254,7 @@ export default function HomePage() {
         <section
           id="eudaimonia"
           ref={eudaimoniaRef}
-          
+
           className="eudaimonia-section"
           style={{
             backgroundImage: 'url(https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/e528ea05-1d1f-4146-a2b9-80fb763bde2c/LONGEVITY-1-edit.jpg)',
@@ -247,13 +262,14 @@ export default function HomePage() {
         >
           <div className="section-overlay" style={{ background: 'rgba(0,0,0,0.4)' }} />
           <div className="relative z-10">
-            <div className="eudaimonia-content text-white">
+            <div className="eudaimonia-content text-white"
+              ref={EudaimoniaRef}
+
+            >
               <hr className="hr-line" />
-              <h3>Eudaimonia</h3>
+              <h3>A Place to Dine, Dance, and Indulge</h3>
               <p>
-                Living by the mantra &apos;EUDAIMONIA&apos; (translated as &quot;the contented, happy state you feel when you travel&quot;),
-                Verde NYC embodies a multi-sensory and multi-venue culinary and lifestyle experience filled with eclectic
-                blends of Balearic music, tasteful dishes, and a lively ambiance to celebrate the night away.
+                Verde NYC invites you to step into a world where elegance, flavor, and celebration come together. Drawing inspiration from the elegance of Paris and the vibrant spirit of the Mediterranean, every detail at Verde is designed to transport you. Experience culinary masterpieces crafted with creativity and precision, surrounded by an atmosphere that pulses with energy and sophistication. Whether it&apos;s an intimate dinner or a night of celebration, Verde NYC creates unforgettable moments where style meets substance.
               </p>
               <hr className="hr-line" />
             </div>
@@ -271,17 +287,14 @@ export default function HomePage() {
           <div className="relative z-10 text-white">
             <h2 className="section-heading">Our Philosophy</h2>
             <div className="philosophy-grid">
-              <p className='text-[#8C857B]'>
+              <p style={{color: 'var(--verde-text)'}}>
                 Envisioned and crafted by the founders, Gregory Galy and Marine Giron-Galy through their travels,
                 experiences and thirst for discovery and adventure, Verde NYC&apos;s design has been brought to life by
                 interior designer Olya Volkova. She combined traditional and noble materials such as reclaimed wood,
                 unpolished floors, untainted stone, handmade linen and cotton fabrics to create a serene yet luxurious ambiance.
               </p>
-              <p className='text-[#8C857B]'>
-                Verde NYC&apos;s aesthetic fuses the minimalistic design of the Cycladic islands with Japan&apos;s Wabi-Sabi philosophy
-                of embracing life&apos;s unpredictability and accepting imperfections as beauty. Sculptures, paintings and
-                art made of metal, clay and wood are placed throughout the restaurant to further enhance the theme
-                and aesthetic, curating a sanctuary.
+              <p style={{color: 'var(--verde-text)'}}>
+                Verde NYC&apos;s aesthetic celebrates Mediterranean elegance with a contemporary twist, embracing the beauty of natural materials and organic forms. Sculptures, paintings and art made of metal, clay and wood are placed throughout the restaurant to further enhance the theme and aesthetic, curating a sanctuary in the heart of New York.
               </p>
             </div>
           </div>
@@ -297,8 +310,8 @@ export default function HomePage() {
               sizes="100vw"
             />
           </div>
-          <div className="art-content text-[#8C857B]">
-            <h2 className='text-black/80'>ART Culture</h2>
+          <div className="art-content" style={{color: 'var(--verde-text)'}}>
+            <h2 style={{color: 'var(--verde-heading)'}}>ART & Culture</h2>
             <p>
               We are collectors, artisans, and craftsmen, carving a lifestyle dedicated to creating sanctuary spaces
               that transport our guests.

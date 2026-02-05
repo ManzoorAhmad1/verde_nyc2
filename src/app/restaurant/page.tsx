@@ -37,24 +37,24 @@ export default function RestaurantPage() {
           <div className="parallax-background texture-bg">
             <Image
               src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
-              alt="mila-miami-texture"
+              alt="verde-nyc-texture"
               fill
               style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
             />
           </div>
           <div className="philosophy-content">
-            <h1><em>Mediterranean &amp; Asian Fusion Rooftop Restaurant in Miami</em></h1>
-            <h1>Welcome to a place where celebrating and dining seamlessly merge into one unique experience.</h1>
+            <h1 style={{color: 'var(--verde-heading)'}}><em>Mediterranean Excellence in the Heart of Meatpacking</em></h1>
+            <h1 style={{color: 'var(--verde-heading)'}}>Welcome to Verde NYC – where culinary artistry meets celebration.</h1>
             
-            <div className="philosophy-text">
-              <p>The distinctively curated rooftop space pays homage to the simple spirit of Cycladic design, fused with Wabi-Sabi inspired details. <Link href="https://verde-nyc.com/">Verde NYC</Link>&apos;s cuisine is inspired by Asian and Mediterranean eating practices, both healthful and tasteful, embracing the importance of enjoying life.</p>
-              <p>The kitchen, under the helm of 26-times Michelin awarded Chef Michaël Michaelidis, and Corporate Chef Joshua Walls, aims to take guests on a culinary journey through the shores of the Mediterranean and Japan while creating a creative expression of flavorful MediterrAsian cuisine.</p>
-              <p>Dishes are served in the informal izakaya dining style, meaning they are meant to be shared at the table, in an energetic setting, paired with theatrical tableside preparations.</p>
+            <div className="philosophy-text" style={{color: 'var(--verde-text)'}}>
+              <p>Indulge in a symphony of flavors inspired by the elegance of Paris and the vibrant spirit of the Mediterranean. At <Link href="https://verde-nyc.com/">Verde NYC</Link>, every dish is a masterpiece, crafted with creativity and precision to ignite your senses and elevate your dining journey.</p>
+              <p>Our culinary experts bring together the finest Mediterranean ingredients with innovative techniques, creating an unforgettable gastronomic experience. From lunch to late-night dining, Verde offers an atmosphere where sophistication meets celebration.</p>
+              <p>Dishes are designed to be shared, encouraging connection and conversation in an energetic setting that transforms throughout the day—from refined lunch service to vibrant evening celebrations.</p>
             </div>
 
             <div className="button-center">
               <Link 
-                href="https://www.opentable.com/restref/client/?restref=1054648&lang=en-US&ot_source=Restaurant%20website&ot_campaign=reservations"
+                href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search"
                 className="btn btn-primary text-[#8E402F] border-[#8E402F] hover:bg-[#8E402F] hover:text-white"
                 target="_blank"
               >
