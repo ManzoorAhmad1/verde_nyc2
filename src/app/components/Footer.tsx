@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <footer className="footer text-black/60">
       {/* Top Section - Brands */}
-      
+
       <div className="footer-brands">
         <h3>A <Link href="https://www.rivieradininggroup.com/" target="_blank">Riviera Dining Group</Link> BRAND</h3>
         <h3 className="mt-2">Visit other venues</h3>
@@ -48,7 +48,8 @@ export default function Footer() {
             />
           </Link>
           <div className="footer-address mt-4">
-            <Link href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank">
+            <Link href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
+              target="_blank">
               1636 Meridian Ave<br />
               New York, NY 10001
             </Link>

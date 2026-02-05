@@ -144,7 +144,7 @@ export default function HomePage() {
                         group-hover:bg-[#8B1E1E]/80 
                         transition-all duration-500 ease-out">
                   <h3 className="text-white text-2xl md:text-3xl font-semibold text-center">
-                    Mila restaurant
+                    Verdey-nyc restaurant
                   </h3>
                 </div>
               </div>
@@ -334,17 +334,19 @@ export default function HomePage() {
             <h3 className="font-sm text-center text-black/50 mb-10 tracking-[0.4em] text-[20px]">
               FOLLOW US ON INSTAGRAM{' '}
               <a
-                href="https://www.instagram.com/milagroup_miami/"
+                href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
                 target="_blank"
+                rel="noopener noreferrer"
                 className="underline"
               >
-                @MILAgroup_miami
+                @VERDEY_NYC
               </a>
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               <a
-                href="https://www.instagram.com/milagroup_miami/"
+                href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
                 target="_blank"
+                rel="noopener noreferrer"
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
@@ -354,8 +356,9 @@ export default function HomePage() {
                 />
               </a>
               <a
-                href="https://www.instagram.com/milagroup_miami/"
+                href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
                 target="_blank"
+                rel="noopener noreferrer"
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
@@ -365,8 +368,9 @@ export default function HomePage() {
                 />
               </a>
               <a
-                href="https://www.instagram.com/milagroup_miami/"
+                href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
                 target="_blank"
+                rel="noopener noreferrer"
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
@@ -376,8 +380,9 @@ export default function HomePage() {
                 />
               </a>
               <a
-                href="https://www.instagram.com/milagroup_miami/"
+                href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
                 target="_blank"
+                rel="noopener noreferrer"
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
@@ -387,8 +392,9 @@ export default function HomePage() {
                 />
               </a>
               <a
-                href="https://www.instagram.com/milagroup_miami/"
+                href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
                 target="_blank"
+                rel="noopener noreferrer"
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
@@ -398,8 +404,9 @@ export default function HomePage() {
                 />
               </a>
               <a
-                href="https://www.instagram.com/milagroup_miami/"
+                href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
                 target="_blank"
+                rel="noopener noreferrer"
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
