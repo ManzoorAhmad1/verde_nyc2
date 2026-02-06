@@ -78,15 +78,6 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                 {item.label}
               </Link>
             ))}
-            <a
-              href="https://www.rivieradininggroup.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="menu-nav-item"
-              onClick={() => setIsOpen(false)}
-            >
-              OUR BRANDS
-            </a>
           </nav>
         </div>
       </div>
