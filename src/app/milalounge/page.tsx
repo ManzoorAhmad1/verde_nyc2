@@ -13,16 +13,16 @@ export default function MilaLoungePage() {
   
   const galleryImages = [
     {
-      src: '/images/RA_Verde_Main1_RV6_250317.jpg',
+      src: '/images/_40A8486.jpg',
       alt: 'Verde NYC Lounge Interior'
     },
     {
-      src: '/images/RA_Verde_Bar_RV6_250317.jpg',
-      alt: 'Verde NYC Halloween Party'
+      src: '/images/_40A8487.jpg',
+      alt: 'Verde NYC Lounge Ambiance'
     },
     {
-      src: '/images/RA_Verde_Main2_RV6_250317.jpg',
-      alt: 'Verde NYC Lounge Ambiance'
+      src: '/images/_40A8489.jpg',
+      alt: 'Verde NYC Lounge Experience'
     }
   ];
 
@@ -73,19 +73,19 @@ export default function MilaLoungePage() {
           <h1 className='text-[#3A363A] '>VERDE LOUNGE</h1>
           
           <h3 className="lounge-subtitle text-[#948E84]">
-            Inspired by Mediterranean elegance and the vibrant energy of New York nightlife, Verde Lounge is a multi-sensory space offering a transporting, glamorous and elevated secluded nightlife experience in the Meatpacking District.
+            From the legendary nightlife of Paris to the glamorous evenings of Dubai, the Yeeels Group has mastered the art of sophisticated celebration. Verde Lounge NYC brings this expertise to Manhattan—a multi-sensory sanctuary where Mediterranean elegance meets New York&apos;s electric energy in the heart of the Meatpacking District.
           </h3>
           
           <p className='text-[#948E84]'>
-            The unique <Link href="https://www.rivieradininggroup.com/venue-listing" target="_blank">venue</Link> draws upon minimalistic natural materials and earthy tones combined with opulent warm-glow lamps, textured prints and shades, and dramatic, lush foliage creating an intimate atmosphere.
+            Drawing inspiration from our acclaimed lounges in France and the UAE, the space features minimalistic natural materials—reclaimed European woods, artisanal textiles, and warm-glow lighting imported from our Parisian ateliers. Dramatic lush foliage and bespoke design elements create an intimate atmosphere that channels the spirit of the Mediterranean coast.
           </p>
           
           <p className='text-[#948E84]'>
-            Starting with downtempo music by resident DJs, <Link href="/restaurant">dinner</Link> service, and an innovative mixology program, the experience evolves into electronic music, bottle service, and unexpected artist performances, setting the stage for an unforgettable night.
+            The evening unfolds as a journey: downtempo selections from our internationally-trained resident DJs accompany <Link href="/restaurant">refined dinner service</Link> and innovative cocktails crafted by mixologists trained across our global venues. As night deepens, the energy builds into pulsing electronic rhythms, premium bottle service, and unexpected artist performances that have made Verde Lounge destinations legendary from the Champs-Élysées to Sheikh Zayed Road.
           </p>
           
           <p className='text-[#948E84]'>
-            Guests must be 21+ to experience <Link href="/">Verde NYC</Link> Lounge in <Link href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank">New York City's Meatpacking District</Link>.
+            Guests must be 21+ to experience <Link href="/">Verde NYC</Link> Lounge at <Link href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank">85 10th Avenue, Meatpacking District</Link>.
           </p>
 
           <div className="lounge-buttons">
@@ -105,8 +105,8 @@ export default function MilaLoungePage() {
       {/* DJ Programming Section */}
       <section id="programme" className="lounge-programme-section">
         <div className="lounge-programme-inner">
-          <h2 className='text-[#3A363A] '>DJ Programming in New York City</h2>
-          <p className='text-[#948E84]'>Discover our thoughtfully curated DJ lineup, featuring a blend of resident and guest artists who set the tone for unforgettable evenings in our lounge.</p>
+          <h2 className='text-[#3A363A] '>International DJ Programming</h2>
+          <p className='text-[#948E84]'>Our music programming reflects the Yeeels Group&apos;s global perspective—resident DJs trained across our Paris, Dubai, and Saint-Tropez venues, joined by international guest artists who have graced our stages worldwide. Every evening is a carefully curated sonic journey that honors our Mediterranean roots while embracing Manhattan&apos;s dynamic energy.</p>
           
           <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className="lounge-btn">
             Book YOUR TABLE
@@ -114,7 +114,7 @@ export default function MilaLoungePage() {
           
           <div className="lounge-lineup-image">
             <Image
-              src="/images/RA_Verde_Main3_RV6_250317.jpg"
+              src="/images/_40A8490.jpg"
               alt="Monthly DJ Lineup"
               width={1080}
               height={1350}
@@ -127,16 +127,16 @@ export default function MilaLoungePage() {
       {/* T-Shirts Section */}
       <section id="miami-art-week-tshirts-ml" className="lounge-tshirts-section">
         <div className="lounge-tshirts-header">
-          <h2 className='text-[#3A363A] '>VERDE LOUNGE<br />Winter Lineup T-SHIRTS</h2>
-          <p className='text-[#948E84]'>This limited-edition T-shirt celebrates the Winter Lineup at VERDE LOUNGE, creating a magnetic musical journey that channels the essence of New York's vibrant nightlife scene.</p>
+          <h2 className='text-[#3A363A] '>VERDE LOUNGE<br />Limited Edition Collection</h2>
+          <p className='text-[#948E84]'>Celebrating our global expansion from Paris to New York, this limited-edition collection embodies the Yeeels Group spirit—where Mediterranean sophistication meets metropolitan energy. A wearable piece of our international legacy.</p>
           <hr />
         </div>
 
         <div className="lounge-tshirts-content">
           <div className="lounge-tshirts-image">
             <Image
-              src="/images/RA_Verde_Bar2_RV6_250317.jpg"
-              alt="Winter Lineup T-Shirt"
+              src="/images/_40A8493.jpg"
+              alt="Limited Edition Collection"
               width={1080}
               height={1350}
               style={{ width: '100%', height: 'auto' }}
@@ -144,10 +144,10 @@ export default function MilaLoungePage() {
           </div>
 
           <div className="lounge-tshirts-details">
-            <h2 className='text-[#3A363A] '>Winter Lineup T-Shirt - Limited Edition</h2>
+            <h2 className='text-[#3A363A] '>Yeeels Group NYC Collection - Limited Edition</h2>
             
             <h3 className='text-[#3A363A]'><strong>Description</strong></h3>
-            <p  className="indented text-[#948E84]">100 % premium cotton - Classic fit - Black</p>
+            <p  className="indented text-[#948E84]">100% premium Italian cotton - Classic European fit - Black</p>
             
             <h3 className='text-[#3A363A]'><strong>Sizes</strong></h3>
             <p  className="indented text-[#948E84]">Small (S) - Medium (M) - Large (L) (runs small)</p>
@@ -176,12 +176,12 @@ export default function MilaLoungePage() {
         <div className="lounge-vibes-inner">
           <h3 className='text-[#3A363A]'>HOURS</h3>
           <p className='text-[#948E84]'>Wednesday - Saturday: 6:30 pm – 4 am</p>
-          <p className='text-[#948E84]'>Follow Verde Lounge journey on <Link href="https://www.instagram.com/verdenyc/" target="_blank">Instagram</Link></p>
+          <p className='text-[#948E84]'>Follow the Yeeels Group journey on <Link href="https://www.instagram.com/yeeels/" target="_blank">Instagram</Link></p>
           
           <div className="lounge-collage-image">
             <img
-              src="/images/2024.11.12-ExteriorNight-Verde-burgundy.png"
-              alt="8 collaged images of Verde NYC lounge with a dj, people laughing and dancing, cocktails and a view of the bar"
+              src="/images/_40A8494.jpg"
+              alt="Verde NYC Lounge atmosphere and nightlife"
               style={{ width: '100%', height: 'auto' }}
             />
           </div>

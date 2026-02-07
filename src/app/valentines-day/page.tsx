@@ -24,16 +24,16 @@ export default function ValentinesDayPage() {
         <section id="valentines-banner" className="valentines-banner-section">
           <div className="parallax-background">
             <Image
-              src="/images/2024.11.12-ExteriorNight-Verde-burgundy.png"
-              alt="Verde NYC Valentine's Day 2026"
+              src="/images/_40A8521.jpg"
+              alt="Verde NYC Valentine's Day 2026 - A Yeeels Group Celebration"
               fill
               style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
               priority
             />
           </div>
           <div className="banner-content">
-            <h1 style={{ textAlign: 'center', color: '#fff' }}>Valentine&apos;s Day Dinner in New York</h1>
-            <h2 style={{ textAlign: 'center', color: '#ffffff' }}>&apos;Taste of Love&apos;</h2>
+            <h1 style={{ textAlign: 'center', color: '#fff' }}>Valentine&apos;s Day at Verde NYC</h1>
+            <h2 style={{ textAlign: 'center', color: '#ffffff' }}>A Yeeels Group Celebration of Love</h2>
           </div>
         </section>
 
@@ -50,10 +50,10 @@ export default function ValentinesDayPage() {
           <div className="content-wrapper text-[#A5A39A]">
             {/* Introduction */}
             <div className="valentines-intro">
-              <strong className='text-[#3A363A]'>Celebrate Valentine&apos;s Day</strong>
+              <strong className='text-[#3A363A]'>An Evening of Mediterranean Romance</strong>
               <p className='text-xs tracking-[0.3em] text-[#2D2C2A]'>Saturday, February 14th</p>
               <p className='text-center text-xs border-b border-white pb-14 rounded-none' >
-                Let every shared moment taste a little sweeter. Slow down, indulge deeply, and celebrate the &apos;Taste of Love&apos; with a specialty prix fixe menu, crafted for connection and desire. Reserve your evening and let every moment linger a little longer.
+                From the candlelit terraces of Paris to the starlit shores of Saint-Tropez, from the glittering skyline dinners of Dubai to the romantic intimacy of our Italian venues—the Yeeels Group has been crafting unforgettable Valentine&apos;s celebrations for over a decade. This year, experience this legacy of love in New York. Our culinary team has designed an exclusive prix fixe menu that celebrates connection, passion, and the art of sharing. Reserve your evening and let us create a memory that lingers long after the final course.
               </p>
 
             </div>
@@ -67,7 +67,7 @@ export default function ValentinesDayPage() {
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
                 <Image
-                  src="/images/RA_Verde_Main1_RV6_250317.jpg"
+                  src="/images/_40A8522.jpg"
                   alt="Verde NYC Valentine's Day Restaurant"
                   width={620}
                   height={263}
@@ -121,7 +121,7 @@ export default function ValentinesDayPage() {
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
                 <Image
-                  src="/images/RA_Verde_Bar2_RV6_250317.jpg"
+                  src="/images/_40A8523.jpg"
                   alt="New York Verde Lounge New Year"
                   style={{ maxWidth: '100%', height: 'auto' }}
                   width={1920}

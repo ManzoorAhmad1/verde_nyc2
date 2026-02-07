@@ -19,8 +19,8 @@ export default function MembersClubPage() {
       <section className="membersclub-hero-section">
         <div className="membersclub-video-wrapper">
           <Image
-            src="/images/RA_Verde_Main3_RV6_250317.jpg"
-            alt="Verde NYC MM"
+            src="/images/_40A8476.jpg"
+            alt="Verde NYC Members Club"
             fill
             className="membersclub-fallback-image"
             priority
@@ -33,12 +33,12 @@ export default function MembersClubPage() {
         <div className="membersclub-content-grid">
           {/* Left Column - Text Content */}
           <div className="membersclub-text-column">
-            <h2 style={{color: 'var(--verde-heading)'}}>VERDE NYC Members Club</h2>
+            <h2 style={{color: 'var(--verde-heading)'}}>The Yeeels Group Global Members Circle</h2>
             <span style={{color: 'var(--verde-text)'}}>
-              Experience exclusivity at Verde NYC. Our members-only area offers a secluded sanctuary for those who appreciate the finer things in life. Enjoy priority reservations, exclusive events, and access to special areas reserved only for members of the Verde family.
+              Across Paris, Saint-Tropez, Dubai, and now New York, the Yeeels Group Members Circle represents an exclusive community of discerning individuals who appreciate the extraordinary. Our members enjoy privileged access to all Yeeels Group venues worldwide—priority reservations at Verde NYC, exclusive invitations to our Parisian soirées, VIP beach access in Saint-Tropez, and members-only experiences across our global portfolio.
             </span>
             <div className="membersclub-buttons mt-20">
-              <Link href="mailto:contact@verde-nyc.com" target="_blank" className="membersclub-button">
+              <Link href="mailto:membership@yeeels.com" target="_blank" className="membersclub-button">
                 MEMBERSHIP INQUIRIES
               </Link>
               <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className="membersclub-button">
@@ -51,8 +51,8 @@ export default function MembersClubPage() {
           <div className="membersclub-image-column">
             <div className="membersclub-interior-image">
               <Image
-                src="/images/RA_Verde_Bar_RV6_250317.jpg"
-                alt="interior view of Verde NYC MM"
+                src="/images/_40A8478.jpg"
+                alt="Interior view of Verde NYC Members Club"
                 fill
                 style={{ objectFit: 'cover' }}
               />
@@ -63,43 +63,43 @@ export default function MembersClubPage() {
         {/* Center Description */}
         <div className="membersclub-center-description">
           <h3 style={{color: 'var(--verde-heading)'}}>
-            Join an exclusive lifestyle community that celebrates the art of Mediterranean dining and entertainment.
+            A Global Passport to Excellence — Paris | Saint-Tropez | Dubai | Italy | New York
           </h3>
           <span style={{color: 'var(--verde-text)'}}>
-            Verde NYC members enjoy priority access to reservations, exclusive events, and special experiences throughout the year. From curated wine tastings to chef&apos;s table experiences, membership means being part of a community that values excellence, celebration, and the finest in Mediterranean hospitality.
+            Yeeels Group membership transcends geographic boundaries. As a member of our international community, you gain priority access to reservations across all nine of our venues worldwide, exclusive invitations to seasonal events from Parisian fashion week gatherings to Dubai Art Week celebrations, chef&apos;s table experiences with our culinary directors, and access to our private members&apos; lounges in each destination. Our concierge team stands ready to curate bespoke experiences tailored to your preferences, whether you&apos;re seeking a table for two in Manhattan or orchestrating a celebration across multiple Yeeels Group venues.
           </span>
 
         </div>
                 <div className="membersclub-center-description">
 
-        <Link href="mailto:contact@verde-nyc.com" target="_blank" className="membersclub-discover-button ">
-          LEARN MORE ABOUT MEMBERSHIP
+        <Link href="mailto:membership@yeeels.com" target="_blank" className="membersclub-discover-button ">
+          EXPLORE GLOBAL MEMBERSHIP
         </Link>
         </div>
         {/* Become Member Section */}
         <div className="membersclub-become-member">
           <div className="membersclub-member-image">
             <Image
-              src="/images/RA_Verde_Main2_RV6_250317.jpg"
-              alt="Verde NYC MM members with elegant glasses of wine and martini"
+              src="/images/_40A8483.jpg"
+              alt="Yeeels Group Members enjoying exclusive experiences"
               fill
               style={{ objectFit: 'cover' }}
             />
           </div>
           <div className="membersclub-member-text">
-            <h2 style={{color: 'var(--verde-heading)'}}>Are you interested in becoming a member?</h2>
+            <h2 style={{color: 'var(--verde-heading)'}}>Join the Yeeels Group Family</h2>
             <span style={{color: 'var(--verde-text)'}}>
-              Become part of an exclusive lifestyle community that offers priority access to curated events, exceptional dining experiences, and member-only spaces. Verde membership elevates every visit and stands as a symbol of refinement, status, and exceptional taste. Contact us to learn more about joining the Verde family.
+              Membership in the Yeeels Group Circle is by invitation and application only, ensuring an exclusive community of like-minded individuals who share our passion for exceptional dining, celebration, and the art of living well. Our members become ambassadors of our values—commitment, innovation, audacity, and passion—enjoying a world of privileges that extends from the Champs-Élysées to the Meatpacking District. Inquire today to begin your journey into our global family.
             </span>
-            <Link href="mailto:contact@verde-nyc.com" target="_blank" className="membersclub-contact-button mt-10">
-              contact us here
+            <Link href="mailto:membership@yeeels.com" target="_blank" className="membersclub-contact-button mt-10">
+              request membership information
             </Link>
           </div>
         </div>
 
         {/* Instagram Section */}
         <div className="membersclub-instagram">
-          <h3 style={{color: 'var(--verde-text)'}}>Follow Verde NYC on <Link href="https://instagram.com/verde_nyc" target="_blank">Instagram</Link></h3>
+          <h3 style={{color: 'var(--verde-text)'}}>Follow Yeeels Group on <Link href="https://instagram.com/yeeels" target="_blank">Instagram</Link></h3>
         </div>
       </section>
 

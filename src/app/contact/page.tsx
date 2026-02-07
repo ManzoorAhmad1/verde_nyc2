@@ -19,7 +19,7 @@ export default function ContactPage() {
       <section id="contact-mila" className="contact-hero">
         <div className="contact-hero-image">
           <Image
-            src="/images/RA_Verde_interior_Main_4_290325.jpeg"
+            src="/images/_40A8472.jpg"
             alt="Verde NYC Contact"
             fill
             style={{ objectFit: 'cover' }}
@@ -34,29 +34,36 @@ export default function ContactPage() {
       {/* Contact Info Section */}
       <section id="contact-info" className="contact-info">
         <div className="contact-info-content">
-          <h2 style={{color: 'var(--verde-heading)'}}>VERDE <Link href="/restaurant" style={{color: 'var(--verde-heading)'}}>RESTAURANT</Link></h2>
-          <h3 style={{color: 'var(--verde-text)'}}>Meatpacking District</h3>
+          <h2 style={{color: 'var(--verde-heading)'}}>VERDE NYC — <Link href="/restaurant" style={{color: 'var(--verde-heading)'}}>A YEEELS GROUP VENUE</Link></h2>
+          <h3 style={{color: 'var(--verde-text)'}}>Meatpacking District, New York</h3>
           <p style={{color: 'var(--verde-text)'}}>
             <a href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank" rel="noopener noreferrer">
               85 10th Avenue, New York City, NY 10011
             </a>
           </p>
 
-          <h2 style={{color: 'var(--verde-heading)'}}>For Reservations</h2>
+          <h2 style={{color: 'var(--verde-heading)'}}>Reservations</h2>
           <p style={{color: 'var(--verde-text)'}}>
             <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank">Online: Click Here</Link><br />
             Phone: <a href="tel:+16464068763">+1 (646) 406-8763</a><br />
-            Email: <a href="mailto:contact@verde-nyc.com">contact@verde-nyc.com</a>
+            Email: <a href="mailto:reservations@yeeels.com">reservations@yeeels.com</a>
           </p>
 
-          <h2 style={{color: 'var(--verde-heading)'}}>Private Events</h2>
+          <h2 style={{color: 'var(--verde-heading)'}}>Private Events & Buyouts</h2>
           <p style={{color: 'var(--verde-text)'}}>
-            Email: <a href="mailto:event@verde-nyc.com">event@verde-nyc.com</a>
+            Email: <a href="mailto:events@yeeels.com">events@yeeels.com</a><br />
+            Global Events Director: <a href="tel:+971566756965">+971 56 675 6965</a>
+          </p>
+
+          <h2 style={{color: 'var(--verde-heading)'}}>Yeeels Group Headquarters</h2>
+          <p style={{color: 'var(--verde-text)'}}>
+            24 Avenue George V, Paris 75008, France<br />
+            Email: <a href="mailto:contact@yeeels.com">contact@yeeels.com</a>
           </p>
 
           <h2 style={{color: 'var(--verde-heading)'}}>Members Club</h2>
           <p style={{color: 'var(--verde-text)'}}>
-            <Link href="/membersclub">Learn More</Link>
+            <Link href="/membersclub">Explore Membership Benefits</Link>
           </p>
 
           {/* Social Icons */}
@@ -88,7 +95,8 @@ export default function ContactPage() {
       {/* Map Section */}
       <section id="map" className="contact-map">
         <div className="contact-map-content">
-          <h2 style={{color: 'var(--verde-heading)'}}><em>Where</em> To Find Us</h2>
+          <h2 style={{color: 'var(--verde-heading)'}}><em>Find Us</em> In The Heart Of Manhattan</h2>
+          <p style={{color: 'var(--verde-text)', textAlign: 'center', marginBottom: '2rem'}}>Part of the Yeeels Group family — with venues in Paris, Saint-Tropez, Dubai, Italy, and New York</p>
           <div className="contact-map-embed">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9593794733634!2d-74.00893432346168!3d40.74243103514894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf2f24f4a7%3A0x999!2s85%2010th%20Ave%2C%20New%20York%2C%20NY%2010011!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"

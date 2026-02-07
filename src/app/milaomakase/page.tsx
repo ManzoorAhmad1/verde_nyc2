@@ -19,7 +19,7 @@ export default function MilaOmakasePage() {
       <section id="omakase-video" className="omakase-hero-section">
         <div className="omakase-video-bg">
           <Image
-            src="/images/RA_Verde_Main1_RV6_250317.jpg"
+            src="/images/_40A8496.jpg"
             alt="Verde NYC Omakase Interior"
             fill
             style={{ objectFit: 'cover' }}
@@ -36,7 +36,7 @@ export default function MilaOmakasePage() {
       <section id="mila-omakase-miami" className="omakase-info-section">
         <div className="omakase-info-bg">
           <Image
-            src="/images/RA_Verde_interior_Lobby_290325.jpeg"
+            src="/images/_40A8498.jpg"
             alt="Verde NYC texture background"
             fill
             style={{ objectFit: 'cover' }}
@@ -44,24 +44,24 @@ export default function MilaOmakasePage() {
         </div>
         <div className="omakase-info-content">
           <h3 className="omakase-award">
-            best omakase sushi in new york, ny - New York Times{' '}
-            <Link href="https://www.nytimes.com" target="_blank">
-              "best of" awards 2024
+            A Yeeels Group Signature Experience —{' '}
+            <Link href="https://yeeels.com/en/" target="_blank">
+              Excellence Across Four Continents
             </Link>
           </h3>
           <h2>Verde Omakase</h2>
           
           <p className="omakase-description">
-            <Link href="/">Verde NYC</Link> Omakase is a 10-seat enclosed experience offering the most exclusive and authentic journey to the Far East, magnified by the Mediterranean influences of our award-winning culinary team in New York's Meatpacking District.
+            Building on the Yeeels Group&apos;s legacy of culinary excellence from Paris to Dubai, <Link href="/">Verde NYC</Link> Omakase represents the pinnacle of our MediterrAsian philosophy. This intimate 10-seat experience offers an exclusive journey where Japanese precision meets Mediterranean soul—crafted by chefs trained across our international kitchens and executed with the artistry that has defined our brand for over a decade.
           </p>
 
           <h3>Hours</h3>
           <p>2 seatings: Tuesday - Saturday | 7 pm &amp; 9:30 pm</p>
           <p className="omakase-note">
-            To maintain the integrity of the Verde Omakase experience, we are pleased to accommodate dietary restrictions when communicated at least 24 hours in advance of your reservation. Requests received after 24 hours cannot be honored, and the experience will remain non-refundable.
+            To honor the integrity of the Verde Omakase experience, dietary restrictions must be communicated at least 24 hours in advance. Our culinary team sources ingredients from our global network of premium suppliers—line-caught fish from Japan, seasonal produce from Mediterranean farms, and artisanal products from our partner purveyors in France and Italy.
           </p>
           <p className="omakase-note">
-            Each experience begins promptly at the scheduled time. Due to the curated progression of the menu, late arrivals may miss select courses. Please note: the journey will continue as designed, and dishes cannot be replayed. Thank you for your understanding.
+            Each experience begins precisely at the scheduled time. The carefully choreographed progression of courses cannot accommodate late arrivals—a standard maintained across all Yeeels Group omakase experiences worldwide. We appreciate your understanding.
           </p>
 
           <Link 
@@ -78,7 +78,7 @@ export default function MilaOmakasePage() {
       <section id="omakase" className="omakase-experience-section">
         <div className="omakase-experience-bg">
           <Image
-            src="/images/RA_Verde_Main2_RV6_250317.jpg"
+            src="/images/_40A8500.jpg"
             alt="Verde NYC Omakase Venue"
             fill
             style={{ objectFit: 'cover' }}
@@ -87,12 +87,12 @@ export default function MilaOmakasePage() {
         <div className="omakase-experience-content">
           <div className="omakase-experience-text">
             <hr />
-            <h2>EXPERIENCE OMAKASE</h2>
+            <h2>THE YEEELS GROUP OMAKASE PHILOSOPHY</h2>
             <p>
-              The intimate, ultra-luxurious and transporting space features a massive overhanging cherry blossom tree, a Japanese craftsmanship-inspired wallpaper screen, a dramatic marble countertop, a 500-year-old hinoki wood cutting board, and wall-mounted niches serving as members' chopstick display.
+              Inspired by our acclaimed tasting experiences in Paris and Dubai, the Verde NYC omakase space represents the Yeeels Group&apos;s interpretation of this sacred Japanese tradition. The intimate theater features a dramatic overhanging cherry blossom tree, a Japanese craftsmanship-inspired wallpaper screen commissioned from artisans in Kyoto, a luxurious marble countertop, and our prized 500-year-old hinoki wood cutting board—elements that bridge Mediterranean warmth with Japanese minimalism.
             </p>
             <p>
-              The ever-changing dishes showcase the most refined ingredients such as line-caught fish flown in daily, innovative vegetables and condiments, sea urchin from Hokkaido, bluefin tuna from Ehime prefecture and Bushu-Gyu wagyu beef from Saitama Prefecture.
+              The ever-evolving menu showcases ingredients sourced through our international network: line-caught fish flown daily from Tsukiji and Mediterranean waters, sea urchin from Hokkaido, bluefin tuna from Ehime Prefecture, Bushu-Gyu wagyu from Saitama, and seasonal vegetables from our partner farms in France, Italy, and the Hudson Valley. Each course tells a story of our global culinary journey.
             </p>
             <hr />
           </div>
@@ -101,7 +101,8 @@ export default function MilaOmakasePage() {
 
       {/* Map Section */}
       <section id="new-page-3" className="omakase-map-section">
-        <h2 className='text-[#3A363A]'>Visit Our NYC Meatpacking District Location</h2>
+        <h2 className='text-[#3A363A]'>Verde NYC — Meatpacking District</h2>
+        <p className='text-[#948E84]' style={{textAlign: 'center', marginBottom: '1rem'}}>Part of the Yeeels Group Global Portfolio: Paris | Saint-Tropez | Dubai | Italy | New York</p>
         <div className="omakase-map-container">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.0!2d-74.0060!3d40.7410!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzI3LjYiTiA3NMKwMDAnMjEuNiJX!5e0!3m2!1sen!2sus!4v1756841346523!5m2!1sen!2sus"
@@ -120,17 +121,17 @@ export default function MilaOmakasePage() {
         <div className="omakase-heritage-content">
           <div className="omakase-heritage-image">
             <Image
-              src="/images/RA_Verde_Bar2_RV6_250317.jpg"
-              alt="Verde NYC Omakase's Tuna Nicois Salad on a cream colored plate with garnishes"
+              src="/images/_40A8501.jpg"
+              alt="Verde NYC Omakase culinary presentation"
               width={2323}
               height={2323}
               style={{ width: '100%', height: 'auto' }}
             />
           </div>
           <div className="omakase-heritage-text">
-            <h2 className='text-[#3A363A]'><strong>The Heritage of Omakase: A Timeless Tradition</strong></h2>
+            <h2 className='text-[#3A363A]'><strong>The Heritage of Omakase: Perfected Across Continents</strong></h2>
             <p className='text-[#948E84]'>
-              The tradition of "omakase" is deeply rooted in Japanese culture, in which guests entrust the chef with their dining selections. This artful approach unfolds as a thoughtfully sequenced meal that begins with delicate flavors and gradually builds to heartier dishes. It showcases a variety of cooking techniques—grilling, simmering, and beyond—creating a rich tapestry of taste. Verde Omakase is a dynamic experience that evolves with the seasons.
+              The philosophy of “omakase”—entrusting the chef with your dining journey—has been at the heart of the Yeeels Group&apos;s approach since our founding in Paris. This artful tradition unfolds as a meticulously sequenced progression from delicate to robust, showcasing techniques honed across our kitchens in France, Dubai, and now New York. At Verde Omakase, this centuries-old Japanese tradition merges with Mediterranean passion to create a dynamic, seasonally-evolving experience that honors both cultures while creating something entirely new.
             </p>
           </div>
         </div>

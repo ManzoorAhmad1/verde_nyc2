@@ -20,19 +20,20 @@ export default function PressPage() {
           <div className="coming-soon-logo">
             <Image
               src="/images/logo-Verde-NYC-white.png"
-              alt="Verde NYC"
+              alt="Verde NYC - A Yeeels Group Venue"
               width={200}
               height={80}
               priority
             />
           </div>
-          <h1>PRESS</h1>
-          <h2>Coming Soon</h2>
-          <p>Our press page is currently under construction. Stay tuned for exciting news and media coverage.</p>
-          <p className="coming-soon-subtitle">For press inquiries, please contact our PR team.</p>
+          <h1>YEEELS GROUP IN THE PRESS</h1>
+          <h2>Global Recognition, Local Excellence</h2>
+          <p>For over a decade, the Yeeels Group has been celebrated by the world&apos;s leading publications—from Vogue Paris to Architectural Digest, from Gulf News to The New York Times. Our press archive is currently being updated to include Verde NYC coverage.</p>
+          <p className="coming-soon-subtitle">For press inquiries and media requests, please contact our global communications team.</p>
           
           <div className="coming-soon-contact">
-            <p>Email: <a href="mailto:press@verdenyc.com">press@verdenyc.com</a></p>
+            <p>Global Press: <a href="mailto:press@yeeels.com">press@yeeels.com</a></p>
+            <p>NYC Press: <a href="mailto:pressnyc@yeeels.com">pressnyc@yeeels.com</a></p>
           </div>
 
           <Link href="/" className="coming-soon-btn">

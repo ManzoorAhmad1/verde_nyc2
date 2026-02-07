@@ -19,7 +19,7 @@ export default function PrivateEventsPage() {
       <section className="private-events-hero">
         <div className="private-events-hero-image">
           <Image
-            src="/images/2024.11.12-ExteriorNight-Verde-burgundy.png"
+            src="/images/_40A8461.jpg"
             alt="Verde NYC private events venue"
             fill
             style={{ objectFit: 'cover' }}
@@ -40,16 +40,16 @@ export default function PrivateEventsPage() {
         </div>
         <div className="private-events-intro-content">
           <h1 style={{color: 'var(--verde-heading)'}}>
-            <em>The Perfect Event Venue in Meatpacking District</em>
+            <em>World-Class Private Events by Yeeels Group</em>
             <br />
-            Intimate and Large Private Gatherings
+            From Intimate Gatherings to Grand Celebrations
           </h1>
           
           <p className="private-events-description" style={{color: 'var(--verde-text)'}}>
-            Verde NYC offers endless possibilities for private dining and special events. From intimate gatherings to full venue buyouts, our dedicated event team can curate a unique experience for you. Whether it&apos;s a corporate celebration, wedding reception, or milestone birthday, Verde transforms your vision into an unforgettable Mediterranean celebration.
+            The Yeeels Group has orchestrated extraordinary private events across Paris, Saint-Tropez, Dubai, and Italy for over a decade. Now, this expertise arrives in New York. Verde NYC offers bespoke event experiences that blend Mediterranean elegance with Manhattan sophistication—from intimate chef&apos;s table dinners to full venue buyouts for up to 400 guests. Our dedicated events team brings the same meticulous attention to detail that has made our venues the preferred choice for discerning hosts across Europe and the Middle East.
           </p>
           <p className="private-events-description" style={{color: 'var(--verde-text)'}}>
-            Contact our events team to discuss your special occasion: <a href="mailto:event@verde-nyc.com">event@verde-nyc.com</a>
+            Contact our global events team to begin crafting your extraordinary occasion: <a href="mailto:events@yeeels.com">events@yeeels.com</a>
           </p>
 
           <div className="private-events-buttons">
@@ -62,10 +62,10 @@ export default function PrivateEventsPage() {
           </div>
 
           <div className="private-events-brochure">
-            <h2 style={{color: 'var(--verde-heading)'}}>Plan Your Special Event</h2>
-            <p style={{color: 'var(--verde-text)'}}>Contact our events team to discuss menu customization, space selection, and create an unforgettable celebration at Verde NYC.</p>
-            <a href="mailto:event@verde-nyc.com" target="_blank" rel="noopener noreferrer" className="private-events-button">
-              EMAIL US
+            <h2 style={{color: 'var(--verde-heading)'}}>The Yeeels Group Event Experience</h2>
+            <p style={{color: 'var(--verde-text)'}}>From corporate galas in Dubai to society weddings in Saint-Tropez, we have perfected the art of exceptional hospitality. Let our New York team create an unforgettable celebration tailored to your vision, with the same excellence that defines every Yeeels Group venue worldwide.</p>
+            <a href="mailto:events@yeeels.com" target="_blank" rel="noopener noreferrer" className="private-events-button">
+              CONTACT GLOBAL EVENTS
             </a>
           </div>
         </div>
@@ -78,8 +78,8 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
-                src="/images/RA_Verde_Main1_RV6_250317.jpg"
-                alt="interior view of Verde NYC with rectangle small tables on the bottom right and round tables top center"
+                src="/images/_40A8464.jpg"
+                alt="Interior view of Verde NYC private dining room"
                 fill
                 style={{ objectFit: 'cover' }}
               />
@@ -87,8 +87,8 @@ export default function PrivateEventsPage() {
           </div>
           <div className="private-events-text-col">
             <h2 style={{color: 'var(--verde-heading)'}}>Indoor Private Dining Rooms</h2>
-            <p style={{color: 'var(--verde-text)'}}>Verde NYC's indoor private dining rooms are architectural masterpieces designed to create lasting impressions. Our main dining room features floor-to-ceiling windows offering breathtaking views of the Meatpacking District, while our intimate private spaces throughout the restaurant showcase sophisticated Mediterranean design elements that transport guests to the coastal elegance of the French Riviera.</p>
-            <p style={{color: 'var(--verde-text)'}}>Accommodating parties from 10 to 150 guests, each space is meticulously curated with custom lighting, art installations, and luxurious furnishings. Our dedicated events team works closely with you to craft personalized menus featuring seasonal Mediterranean cuisine, complemented by our extensive wine collection and craft cocktail program.</p>
+            <p style={{color: 'var(--verde-text)'}}>Drawing inspiration from our celebrated venues across France, Italy, and the UAE, Verde NYC&apos;s private dining rooms are architectural masterpieces designed to create lasting impressions. Each space reflects the Yeeels Group&apos;s signature aesthetic—where reclaimed European woods, Mediterranean textiles, and contemporary design converge to create an atmosphere of refined luxury.</p>
+            <p style={{color: 'var(--verde-text)'}}>Our main dining room features floor-to-ceiling windows with breathtaking Meatpacking District views, while intimate private spaces throughout the venue showcase bespoke design elements imported from our Parisian ateliers. Accommodating parties from 10 to 150 guests, each space is meticulously curated with custom lighting, commissioned artworks, and furnishings that honor our Mediterranean heritage.</p>
           </div>
         </div>
 
@@ -97,8 +97,8 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
-                src="/images/RA_Verde_Main2_RV6_250317.jpg"
-                alt="interior view of Verde NYC looking toward the outdoor spaces/rooftop terrace"
+                src="/images/_40A8469.jpg"
+                alt="Verde NYC outdoor rooftop terrace event space"
                 fill
                 style={{ objectFit: 'cover' }}
               />
@@ -106,8 +106,8 @@ export default function PrivateEventsPage() {
           </div>
           <div className="private-events-text-col">
             <h2 style={{color: 'var(--verde-heading)'}}>Outdoor Event Spaces</h2>
-            <p style={{color: 'var(--verde-text)'}}>Elevate your celebration with Verde NYC's stunning rooftop terrace, an urban oasis in the heart of the <a href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank" rel="noopener noreferrer">Meatpacking District</a>. Our outdoor spaces blend natural elegance with modern sophistication, featuring lush greenery, ambient lighting, and panoramic Manhattan skyline views that create an unforgettable backdrop for any occasion.</p>
-            <p style={{color: 'var(--verde-text)'}}>Perfect for cocktail receptions, wedding ceremonies, or al fresco dining experiences, our outdoor venues can accommodate up to 200 guests. With retractable coverings and climate control options, we ensure comfort regardless of the season while maintaining the open-air ambiance that makes Verde NYC a premier destination for outdoor celebrations.</p>
+            <p style={{color: 'var(--verde-text)'}}>Inspired by our legendary beach clubs in Saint-Tropez and Dubai, Verde NYC&apos;s rooftop terrace brings open-air Mediterranean glamour to the heart of Manhattan. Our outdoor spaces blend the natural elegance that defines Verde Beach destinations worldwide with sophisticated New York energy—featuring lush greenery, ambient lighting, and panoramic skyline views that create an unforgettable backdrop for any celebration.</p>
+            <p style={{color: 'var(--verde-text)'}}>Whether you envision a sunset cocktail reception, an al fresco wedding ceremony, or a corporate gathering under the stars, our rooftop venues accommodate up to 200 guests. Climate-controlled retractable coverings ensure comfort year-round while preserving the open-air ambiance that has made our outdoor venues legendary from the French Riviera to the Arabian Gulf.</p>
           </div>
         </div>
 
@@ -116,8 +116,8 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
-                src="/images/RA_Verde_Bar_RV6_250317.jpg"
-                alt="Verde NYC Lounge bar with chairs lining the bar counter"
+                src="/images/_40A8470.jpg"
+                alt="Verde NYC Lounge bar area"
                 fill
                 style={{ objectFit: 'cover' }}
               />
@@ -125,8 +125,8 @@ export default function PrivateEventsPage() {
           </div>
           <div className="private-events-text-col">
             <h2 style={{color: 'var(--verde-heading)'}}>VERDE LOUNGE</h2>
-            <p style={{color: 'var(--verde-text)'}}>Verde Lounge offers an exclusive venue for sophisticated evening celebrations. Inspired by Mediterranean coastal elegance, this intimate space features warm amber lighting, plush seating arrangements, and carefully curated design elements that create an atmosphere of refined luxury and comfort.</p>
-            <p style={{color: 'var(--verde-text)'}}>Ideal for cocktail parties, networking events, and upscale celebrations, the lounge accommodates up to 75 guests. Our resident DJs and live entertainment options can be customized to match your event's mood, while our expert mixology team crafts signature cocktails and curates wine selections from our extensive cellar featuring premier Mediterranean vintages.</p>
+            <p style={{color: 'var(--verde-text)'}}>The Yeeels Group pioneered the concept of integrated lounge experiences across our Paris and Dubai venues, and Verde Lounge NYC represents the pinnacle of this evolution. This exclusive space channels the sophisticated nightlife energy that has made our European lounges legendary—combining warm amber lighting, plush Mediterranean-inspired seating, and design elements curated from our venues in France, Italy, and the UAE.</p>
+            <p style={{color: 'var(--verde-text)'}}>Accommodating up to 75 guests, Verde Lounge offers an unparalleled setting for cocktail receptions, networking events, and upscale celebrations. Our internationally-trained mixology team crafts signature cocktails inspired by each of our global destinations, while resident DJs create soundscapes that transition seamlessly from sophisticated ambiance to celebratory energy.</p>
           </div>
         </div>
 
@@ -135,8 +135,8 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
-                src="/images/RA_Verde_Main3_RV6_250317.jpg"
-                alt="Verde NYC Omakase space with chairs lining the outside and a japanese cherry blossom tree on the left"
+                src="/images/_40A8471.jpg"
+                alt="Verde NYC Chef's Table private dining"
                 fill
                 style={{ objectFit: 'cover' }}
               />
@@ -144,8 +144,8 @@ export default function PrivateEventsPage() {
           </div>
           <div className="private-events-text-col">
             <h2 style={{color: 'var(--verde-heading)'}}>Chef's Table Experience</h2>
-            <p style={{color: 'var(--verde-text)'}}>For the most intimate and exclusive dining experience, our Chef's Table offers a front-row seat to culinary artistry. This luxurious 10-seat private dining room provides an immersive gastronomic journey where guests witness the precision and passion of our culinary team while enjoying a bespoke multi-course tasting menu.</p>
-            <p style={{color: 'var(--verde-text)'}}>Perfect for milestone celebrations, business dinners, or intimate gatherings, this ultra-exclusive space features elegant contemporary design with Mediterranean influences. Your dedicated sommelier will pair each course with exceptional wines, creating a harmonious dining experience that celebrates the finest ingredients and culinary techniques from the Mediterranean region.</p>
+            <p style={{color: 'var(--verde-text)'}}>For the most discerning hosts, our Chef&apos;s Table offers an intimate journey into culinary artistry—a concept perfected across our Michelin-recognized kitchens in Paris and refined for the New York palate. This exclusive 10-seat private dining room places you at the heart of the action, where our executive chef presents a bespoke multi-course tasting menu showcasing techniques and ingredients sourced from our global network of premium suppliers.</p>
+            <p style={{color: 'var(--verde-text)'}}>The space features a dramatic marble counter, a 500-year-old hinoki wood cutting board imported from Japan, and design elements that honor both Mediterranean warmth and Japanese precision. Your personal sommelier pairs each course with exceptional wines selected from our international cellar, creating a harmonious dining experience that embodies the Yeeels Group commitment to excellence without compromise.</p>
           </div>
         </div>
       </section>
@@ -153,16 +153,16 @@ export default function PrivateEventsPage() {
       {/* Types of Events Section */}
       <section className="private-events-types">
         <div className="private-events-types-content">
-          <h2 style={{color: 'var(--verde-heading)'}}>Types of Events Hosted at Verde NYC</h2>
-          <p style={{color: 'var(--verde-text)'}}>For social events, <Link href="/">Verde NYC</Link> shines as an exceptional choice. From glamorous birthday celebrations and engagement dinners to festive holiday parties and sophisticated cocktail receptions, our venue has hosted it all.</p>
-          <p style={{color: 'var(--verde-text)'}}>Our dedicated team is committed to crafting bespoke experiences tailored to your company's, party's, or group's unique needs. Along with our <Link href="/restaurant">exquisite food</Link> and beverage offerings, we can provide custom decor, branding opportunities, unique entertainment, and state-of-the-art technical equipment for presentations and speeches.</p>
+          <h2 style={{color: 'var(--verde-heading)'}}>Events Hosted Across Our Global Venues</h2>
+          <p style={{color: 'var(--verde-text)'}}>From haute couture fashion launches in Paris to royal celebrations in Dubai, from intimate celebrity dinners in Saint-Tropez to Fortune 500 corporate gatherings across our network—the Yeeels Group has hosted the world&apos;s most discerning clientele. At <Link href="/">Verde NYC</Link>, we bring this unparalleled expertise to every event, whether an elegant birthday soirée, a sophisticated engagement dinner, or a landmark corporate milestone.</p>
+          <p style={{color: 'var(--verde-text)'}}>Our dedicated team crafts bespoke experiences tailored to your vision, with access to our global network of culinary talent, entertainment partnerships, and design resources. Beyond our <Link href="/restaurant">exceptional cuisine</Link>, we offer custom décor, international branding opportunities, world-class entertainment, and state-of-the-art technical capabilities—all orchestrated with the precision that has made us leaders in four countries.</p>
           
-          <h2 style={{color: 'var(--verde-heading)'}}>Private Buyouts at Verde NYC</h2>
-          <p style={{color: 'var(--verde-text)'}}>Private buyouts at Verde NYC offer a unique experience for those seeking unparalleled exclusivity. A private buyout of Verde NYC secures exclusive access to our entire restaurant and its facilities. You can custom-design the floor plan, menu, and décor to perfectly suit your event's theme and objectives. This level of customization and exclusivity guarantees your guests an unforgettable experience that truly reflects your vision.</p>
-          <p style={{color: 'var(--verde-text)'}}>For more information and to book your private event, contact us at <a href="mailto:event@verde-nyc.com"><span style={{ textDecoration: 'underline' }}>event@verde-nyc.com</span></a>.</p>
+          <h2 style={{color: 'var(--verde-heading)'}}>Complete Venue Buyouts</h2>
+          <p style={{color: 'var(--verde-text)'}}>A private buyout of Verde NYC offers truly unparalleled exclusivity—complete access to all four of our distinctive spaces, with the freedom to customize every element to your vision. Transform our rooftop into a Parisian garden party, channel the energy of our Dubai venues for a corporate gala, or create an entirely new concept limited only by imagination. Our international events team brings expertise from across our global portfolio to ensure flawless execution.</p>
+          <p style={{color: 'var(--verde-text)'}}>For private event inquiries, contact our global events team at <a href="mailto:events@yeeels.com"><span style={{ textDecoration: 'underline' }}>events@yeeels.com</span></a> or reach Maksim Dirgela directly at +971 56 675 6965.</p>
           
-          <a href="mailto:event@verde-nyc.com" target="_blank" rel="noopener noreferrer" className="private-events-cta-button">
-            book your private event
+          <a href="mailto:events@yeeels.com" target="_blank" rel="noopener noreferrer" className="private-events-cta-button">
+            inquire about your event
           </a>
         </div>
       </section>

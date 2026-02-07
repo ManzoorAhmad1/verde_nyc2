@@ -12,13 +12,13 @@ export default function MiamiBrunchPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const images = [
-    "/images/RA_Verde_Main1_RV6_250317.jpg",
-    "/images/RA_Verde_Main2_RV6_250317.jpg",
-    "/images/RA_Verde_Main3_RV6_250317.jpg",
-    "/images/RA_Verde_Bar_RV6_250317.jpg",
-    "/images/RA_Verde_Bar2_RV6_250317.jpg",
-    "/images/RA_Verde_interior_Lobby_290325.jpeg",
-    "/images/RA_Verde_interior_Main_4_290325.jpeg"
+    "/images/_40A8504.jpg",
+    "/images/_40A8506.jpg",
+    "/images/_40A8507.jpg",
+    "/images/_40A8509.jpg",
+    "/images/_40A8511.jpg",
+    "/images/_40A8513.jpg",
+    "/images/_40A8514.jpg"
   ];
 
   const handlePrevious = () => {
@@ -39,7 +39,7 @@ export default function MiamiBrunchPage() {
         <section id="brunch-banner" className="brunch-banner-section">
           <div className="parallax-background">
             <Image
-              src="/images/RA_Verde_interior_Main_4_290325.jpeg"
+              src="/images/_40A8503.jpg"
               alt="Verde NYC Brunch"
               fill
               style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
@@ -105,8 +105,8 @@ export default function MiamiBrunchPage() {
 
             {/* Brunch Intro */}
             <div className="brunch-intro">
-              <h2 className='py-4 mt-4' style={{color: 'var(--verde-heading)'}}>Sunday Brunch at Verde NYC</h2>
-              <h6 className='text-[#948E84]'>Sundays at <span>Verde NYC</span> are meant to be savored. From noon to 5pm, indulge in an elevated brunch experience where Mediterranean elegance meets celebration. Set in the heart of the <a href="https://www.google.com/maps/place/Verde+NYC" target="_blank">Meatpacking District</a>, <a href="https://www.verde-nyc.com" target="_blank">Verde NYC&apos;s</a> Sunday brunch unfolds in a sun-drenched, transportive atmosphere, brought to life with live music and vibrant energy. Thoughtfully curated flavors, artful presentation, and a refined yet festive ambiance transform brunch into an unforgettable lifestyle experience.</h6>
+              <h2 className='py-4 mt-4' style={{color: 'var(--verde-heading)'}}>The Yeeels Group Sunday Brunch Experience</h2>
+              <h6 className='text-[#948E84]'>From Saint-Tropez beach clubs to Parisian terraces, Sunday at the Yeeels Group has always been sacred. At <span>Verde NYC</span>, we bring this celebrated tradition to New York—a midday celebration where Mediterranean elegance meets Manhattan sophistication. From noon to 5pm in the sun-drenched splendor of our <a href="https://www.google.com/maps/place/Verde+NYC" target="_blank">Meatpacking District</a> rooftop, indulge in a transportive experience brought to life with live music, curated cocktails, and the festive energy that has made <a href="https://yeeels.com/en/" target="_blank">Yeeels Group</a> brunches legendary across Europe and the Middle East.</h6>
             </div>
 
             <hr className="section-divider" />
@@ -115,15 +115,15 @@ export default function MiamiBrunchPage() {
             <div className="brunch-image-card right">
               <div className="image-card-image">
                 <Image 
-                  src="/images/RA_Verde_Bar2_RV6_250317.jpg"
-                  alt="brunch buffet layout inside MILA with an assortment of foods and drinks"
+                  src="/images/_40A8515.jpg"
+                  alt="Verde NYC Sunday Brunch featuring chef-curated Mediterranean stations"
                   fill
                   style={{ objectFit: 'cover' }}
                 />
               </div>
               <div className="image-card-content">
-                <h3 className='text-[#3A363A]'><span>Elevated buffet stations</span></h3>
-                <h6 className='text-[#948E84]'>Guests are invited to explore a curated selection of chef-driven dishes over a two-hour experience, moving freely between artfully designed stations and composing their own journey of flavors.</h6>
+                <h3 className='text-[#3A363A]'><span>Chef-Curated Mediterranean Stations</span></h3>
+                <h6 className='text-[#948E84]'>Inspired by the legendary brunch formats at our Saint-Tropez and Dubai venues, guests journey through artfully designed stations curated by chefs trained across our global kitchens. Each stop offers a distinct gastronomic chapter—compose your own Mediterranean narrative over a leisurely two-hour experience.</h6>
               </div>
             </div>
 
@@ -131,9 +131,9 @@ export default function MiamiBrunchPage() {
 
             {/* Description Text */}
             <div className="brunch-description">
-              <h6 className='text-[#948E84]'>Begin your MediterrAsian Brunch with a refined bakery selection of freshly baked croissants and seasonal tropical fruits, followed by an artful display of cured meats, artisanal cheeses, and handcrafted breads.</h6>
-              <h6 className='text-[#948E84]'>At the center of the experience, a <span>5J Jamón carving station</span> offers premium cuts carved to perfection, alongside curated salads and a vibrant <span>Sushi and Temaki Handroll Station</span>. Guests can also enjoy a Raw Bar with freshly shucked oysters and a Mezze station highlighted by Verde NYC&apos;s signature eggplant caviar. On the <span>outdoor rooftop bar</span>, the experience expands with a live <span>Robata grill</span> and a dedicated <span>Spritz station</span>, adding a sun-soaked, aperitivo-inspired energy.</h6>
-              <h6 className='text-[#948E84]'>The brunch concludes with an indulgent dessert display, featuring chef-crafted sweets and a <span>Gelato Station</span> for a refreshing finish.</h6>
+              <h6 className='text-[#948E84]'>Your journey begins with an exquisite bakery selection featuring freshly baked croissants from recipes perfected in our Parisian kitchens, alongside seasonal fruits sourced from Mediterranean growers and Hudson Valley farms. Continue to an artful display of Italian cured meats, French artisanal cheeses, and handcrafted breads from our in-house boulangerie.</h6>
+              <h6 className='text-[#948E84]'>At the heart of the experience, our <span>5J Jamón Ibérico carving station</span>—a tradition from our Spanish-influenced Dubai venue—offers premium cuts carved to perfection. Explore curated salads and a vibrant <span>Sushi and Temaki Handroll Station</span> showcasing fish flown daily from Japan. The Raw Bar features freshly shucked oysters from both coasts, while our Mezze station highlights Verde&apos;s signature eggplant caviar and Mediterranean spreads. On our celebrated <span>rooftop terrace</span>, a live <span>Robata grill</span> and dedicated <span>Spritz station</span> channel the aperitivo culture of our Italian venues.</h6>
+              <h6 className='text-[#948E84]'>The experience concludes with an indulgent dessert display featuring creations from our pastry team trained in Paris, capped by a <span>Gelato Station</span> offering flavors inspired by each of our global destinations.</h6>
             </div>
 
             <hr className="section-divider" />
@@ -142,16 +142,16 @@ export default function MiamiBrunchPage() {
             <div className="brunch-image-card left">
               <div className="image-card-image">
                 <Image
-                  src="/images/RA_Verde_Main3_RV6_250317.jpg"
-                  alt="refreshing brunch cocktail in a glass with a pink fan in the background"
+                  src="/images/_40A8519.jpg"
+                  alt="Verde NYC signature brunch cocktails and Mediterranean beverages"
                   fill
                   style={{ objectFit: 'cover' }}
                 />
               </div>
               <div className="image-card-content">
-                <h3 className='text-[#3A363A]'><span>Beverage Package</span></h3>
-                <h6 className='text-[#948E84]'>Our packages include:</h6>
-                <h6 className='text-[#948E84]'><span>A non-alcoholic package featuring refreshing mocktails</span> crafted with the freshest ingredients, and <span>Champagne and Rose Packages</span> with premium champagne and luxury cocktails offerings.</h6>
+                <h3 className='text-[#3A363A]'><span>International Beverage Program</span></h3>
+                <h6 className='text-[#948E84]'>Our beverage packages reflect the Yeeels Group&apos;s expertise cultivated across Paris, Saint-Tropez, Dubai, and Italy:</h6>
+                <h6 className='text-[#948E84]'><span>A thoughtfully crafted non-alcoholic program</span> featuring mocktails developed by our international mixology team, alongside <span>Champagne and Rosé packages</span> showcasing selections from our French suppliers—including houses that have partnered with us since our earliest Parisian days.</h6>
               </div>
             </div>
 
@@ -159,9 +159,10 @@ export default function MiamiBrunchPage() {
 
             {/* Hours Section */}
             <div className="brunch-hours">
-              <h3 style={{color: 'var(--verde-heading)'}}>Hours</h3>
+              <h3 style={{color: 'var(--verde-heading)'}}>Hours & Location</h3>
               <h6 className='text-[#948E84]'>Sunday | Noon - 5:00 PM</h6>
-              <h6 className='text-[#948E84]'><a href="https://maps.app.goo.gl/fqeZH3QPWLxBZFXY7" target="_blank">Get Directions - 85 10th Avenue, New York City</a></h6>
+              <h6 className='text-[#948E84]'><a href="https://maps.app.goo.gl/fqeZH3QPWLxBZFXY7" target="_blank">Get Directions — 85 10th Avenue, Meatpacking District, New York City</a></h6>
+              <h6 className='text-[#948E84]' style={{marginTop: '1rem'}}>Part of the Yeeels Group: Paris | Saint-Tropez | Dubai | Italy | New York</h6>
             </div>
 
             <div className="button-center">

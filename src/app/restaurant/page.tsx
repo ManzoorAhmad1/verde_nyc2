@@ -23,7 +23,7 @@ export default function RestaurantPage() {
         <section id="restaurant-gallery" className="restaurant-gallery-section">
           <div className="gallery-slideshow">
             <Image
-              src="/images/RA_Verde_Main1_RV6_250317.jpg"
+              src="/images/_40A8442.jpg"
               alt="Verde NYC Restaurant"
               fill
               style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
@@ -43,13 +43,13 @@ export default function RestaurantPage() {
             />
           </div>
           <div className="philosophy-content">
-            <h1 style={{color: 'var(--verde-heading)'}}><em>Mediterranean Excellence in the Heart of Meatpacking</em></h1>
-            <h1 style={{color: 'var(--verde-heading)'}}>Welcome to Verde NYC – where culinary artistry meets celebration.</h1>
+            <h1 style={{color: 'var(--verde-heading)'}}><em>A Yeeels Group Signature Destination</em></h1>
+            <h1 style={{color: 'var(--verde-heading)'}}>Verde NYC — Where Culinary Mastery Meets Celebration</h1>
             
             <div className="philosophy-text" style={{color: 'var(--verde-text)'}}>
-              <p>Indulge in a symphony of flavors inspired by the elegance of Paris and the vibrant spirit of the Mediterranean. At <Link href="https://verde-nyc.com/">Verde NYC</Link>, every dish is a masterpiece, crafted with creativity and precision to ignite your senses and elevate your dining journey.</p>
-              <p>Our culinary experts bring together the finest Mediterranean ingredients with innovative techniques, creating an unforgettable gastronomic experience. From lunch to late-night dining, Verde offers an atmosphere where sophistication meets celebration.</p>
-              <p>Dishes are designed to be shared, encouraging connection and conversation in an energetic setting that transforms throughout the day—from refined lunch service to vibrant evening celebrations.</p>
+              <p>From the glamorous avenues of Paris to the sun-kissed shores of Saint-Tropez, from the sophisticated skyline of Dubai to the vibrant pulse of Manhattan—the Yeeels Group has redefined festive dining across four continents. At <Link href="https://verde-nyc.com/">Verde NYC</Link>, this legacy of excellence finds its newest expression in an unforgettable culinary journey through Mediterranean and Asian flavors.</p>
+              <p>Our award-winning culinary team sources the finest ingredients from trusted purveyors across the globe—line-caught fish from Japanese waters, premium wagyu from Kagoshima Prefecture, seasonal vegetables from local farms, and artisanal products from the Mediterranean coast. Each dish is a masterpiece of technique and creativity, honoring tradition while embracing innovation.</p>
+              <p>Whether you join us for an intimate lunch overlooking the Meatpacking District or an electrifying evening of dining and entertainment, Verde NYC transforms every meal into a celebration. Dishes are designed for sharing, encouraging connection and conversation in an atmosphere that evolves from refined sophistication to vibrant festivity as the night unfolds.</p>
             </div>
 
             <div className="button-center">
@@ -376,7 +376,7 @@ export default function RestaurantPage() {
           <div className="gallery-grid">
             <div className="gallery-item">
               <Image
-                src="/images/RA_Verde_Main2_RV6_250317.jpg"
+                src="/images/_40A8443.jpg"
                 alt="Verde NYC Food"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -384,7 +384,7 @@ export default function RestaurantPage() {
             </div>
             <div className="gallery-item">
               <Image
-                src="/images/RA_Verde_Main3_RV6_250317.jpg"
+                src="/images/_40A8444.jpg"
                 alt="Verde NYC Food"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -392,7 +392,7 @@ export default function RestaurantPage() {
             </div>
             <div className="gallery-item">
               <Image
-                src="/images/RA_Verde_Bar_RV6_250317.jpg"
+                src="/images/_40A8452.jpg"
                 alt="Verde NYC Food"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -400,15 +400,15 @@ export default function RestaurantPage() {
             </div>
             <div className="gallery-item">
               <Image
-                src="/images/RA_Verde_Bar2_RV6_250317.jpg"
-                alt="MediterrAsian Black Cod"
+                src="/images/_40A8455.jpg"
+                alt="Verde NYC Cuisine"
                 fill
                 style={{ objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <Image
-                src="/images/RA_Verde_interior_Lobby_290325.jpeg"
+                src="/images/_40A8459.jpg"
                 alt="Verde NYC Food"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -416,7 +416,7 @@ export default function RestaurantPage() {
             </div>
             <div className="gallery-item">
               <Image
-                src="/images/RA_Verde_interior_Main_4_290325.jpeg"
+                src="/images/_40A8460.jpg"
                 alt="Verde NYC Food"
                 fill
                 style={{ objectFit: 'cover' }}

@@ -19,16 +19,16 @@ export default function Footer() {
       {/* Top Section - Brands */}
 
       <div className="footer-brands">
-        <h3>A <Link href="https://www.rivieradininggroup.com/" target="_blank">Riviera Dining Group</Link> BRAND</h3>
-        <h3 className="mt-2">Visit other venues</h3>
+        <h3>A <Link href="https://yeeels.com/en/" target="_blank">YEEELS GROUP</Link> DESTINATION</h3>
+        <h3 className="mt-2">Paris | Saint-Tropez | Dubai | Italy | New York</h3>
         <h3 className="mt-2">
-          <Link href="https://www.avamediterraegean.com" target="_blank">AVA</Link>
+          <Link href="https://yeeels.com/en/services/architecture" target="_blank">VERDE PARIS</Link>
           {' | '}
-          <Link href="https://www.casa-neos.com" target="_blank">CASA NEOS</Link>
+          <Link href="https://yeeels.com/en/services/verdebeach/" target="_blank">VERDE BEACH</Link>
           {' | '}
-          <Link href="https://www.claudierestaurant.com" target="_blank">CLAUDIE</Link>
+          <Link href="https://yeeels.com/en/services/verdedubai" target="_blank">VERDE DUBAI</Link>
           {' | '}
-          <Link href="https://mm-club.com" target="_blank">MM</Link>
+          <Link href="https://yeeels.com/en/services/decorating" target="_blank">MAMAMIA PARIS</Link>
         </h3>
       </div>
 
@@ -41,20 +41,21 @@ export default function Footer() {
           <Link href="/">
             <Image
               src="/images/logo-Verde-NYC-green.png"
-              alt="Verde NYC"
+              alt="Verde NYC - A Yeeels Group Venue"
               width={150}
               height={50}
               className="footer-logo mx-auto"
             />
           </Link>
           <div className="footer-address mt-4">
-            <Link href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
+            <Link href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7"
               target="_blank">
-              1636 Meridian Ave<br />
-              New York, NY 10001
+              85 10th Avenue<br />
+              Meatpacking District<br />
+              New York, NY 10011
             </Link>
             <br />
-            <Link href="/reserve" className="underline mt-2 inline-block">View Hours</Link>
+            <Link href="/reserve" className="underline mt-2 inline-block">Hours & Reservations</Link>
           </div>
         </div>
 
@@ -75,7 +76,7 @@ export default function Footer() {
           </div>
 
           <div className="newsletter-form">
-            <p>Sign up to receive our latest news, upcoming events and special invitations.</p>
+            <p>Join the Yeeels Group community. Receive exclusive news, events, and invitations from all our venues worldwide.</p>
             <form onSubmit={handleSubmit}>
               <div className="newsletter-input-group">
                 <input
@@ -103,27 +104,32 @@ export default function Footer() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": ["Restaurant", "LocalBusiness"],
-            "name": "Verde NYC",
+            "name": "Verde NYC - A Yeeels Group Venue",
             "image": [
               "/images/logo-Verde-NYC-green.png"
             ],
             "url": "https://verde-nyc.com/",
-            "telephone": "+12127060744",
-            "priceRange": "Starting at $100",
+            "telephone": "+16464068763",
+            "priceRange": "$$$",
             "menu": "https://verde-nyc.com/restaurant",
-            "servesCuisine": "Mediterranean",
+            "servesCuisine": "Mediterranean, MediterrAsian",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "1636 Meridian Avenue Rooftop",
+              "streetAddress": "85 10th Avenue",
               "addressLocality": "New York",
               "addressRegion": "NY",
-              "postalCode": "10001",
+              "postalCode": "10011",
               "addressCountry": "US"
             },
             "geo": {
               "@type": "GeoCoordinates",
-              "latitude": 40.7128,
+              "latitude": 40.7424,
               "longitude": -74.0060
+            },
+            "parentOrganization": {
+              "@type": "Organization",
+              "name": "Yeeels Group",
+              "url": "https://yeeels.com/en/"
             }
           })
         }}

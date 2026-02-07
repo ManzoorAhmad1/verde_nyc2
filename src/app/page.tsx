@@ -87,7 +87,7 @@ export default function HomePage() {
         <section id="opening-video" className="hero-section">
           <div className="hero-video-container">
             <img
-              src="/images/2024.11.12-ExteriorNight-Verde-burgundy.png"
+              src="/images/_40A8416.jpg"
               alt="Verde NYC exterior at night"
               className="hero-image-bg"
             />
@@ -104,26 +104,24 @@ export default function HomePage() {
           backgroundImage: 'url(https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png)',
         }}>
           <div className="w-full mt-20">
-            <h3 className="section-title font-bold">#1 HIGHEST-GROSSING Independent Restaurant in the U.S. - Restaurant Business</h3>
-            <h2 className="section-heading font-normal">A culinary journey through the Mediterranean &amp; Asia</h2>
+            <h3 className="section-title font-bold">A YEEELS GROUP DESTINATION — Paris | Saint-Tropez | Dubai | New York</h3>
+            <h2 className="section-heading font-normal">Where Culinary Excellence Meets Celebration</h2>
 
             <p className="section-text mb-8">
-              Verde NYC is a multi-venue concept, aiming to transport guests on a culinary journey through the shores of
-              the Mediterranean and Japan, while creating a visionary expression of flavorful MediterrAsian cuisine.
+              Verde NYC is the latest jewel in the Yeeels Group crown—an international hospitality collective renowned for creating exceptional living spaces across France, Italy, the UAE, and now the United States. We invite you on an unforgettable journey through Mediterranean and Asian flavors, where every dish tells a story of passion, precision, and artistry.
             </p>
             <p className="section-text mb-16">
-              Verde NYC&apos;s transportive venues include four concepts, starting with the rooftop restaurant, which elevates the
-              culinary and exclusive nightlife in the heart of New York City.
+              Our New York destination features four distinct experiences, each designed to transport you beyond the ordinary—from our acclaimed rooftop restaurant to intimate omakase encounters, vibrant lounge celebrations, and exclusive members-only spaces.
             </p>
 
             {/* Venue Cards Grid */}
             <div className="venue-grid mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
 
-              {/* Mila Restaurant */}
+              {/* Verde Restaurant */}
               <div className="relative w-full aspect-[16/9] overflow-hidden group">
                 <img
-                  src="/images/RA_Verde_Main1_RV6_250317.jpg"
-                  alt="Mila restaurant"
+                  src="/images/_40A8414.jpg"
+                  alt="Verde NYC Restaurant"
                   className="w-full h-full object-cover"
                 />
 
@@ -132,7 +130,7 @@ export default function HomePage() {
                         group-hover:bg-[#8B1E1E]/80 
                         transition-all duration-500 ease-out">
                   <h3 className="text-white text-2xl md:text-3xl font-semibold text-center">
-                    Verdey-nyc restaurant
+                    VERDE RESTAURANT
                   </h3>
                 </div>
               </div>
@@ -140,7 +138,7 @@ export default function HomePage() {
               {/* Verde Omakase */}
               <Link href="/milaomakase" className="relative w-full aspect-[16/9] overflow-hidden group">
                 <Image
-                  src="/images/RA_Verde_Main2_RV6_250317.jpg"
+                  src="/images/_40A8416.jpg"
                   alt="Verde NYC Omakase"
                   fill
                   className="object-cover"
@@ -159,7 +157,7 @@ export default function HomePage() {
               {/* Verde Lounge */}
               <Link href="/milalounge" className="relative w-full aspect-[16/9] overflow-hidden group">
                 <Image
-                  src="/images/RA_Verde_Main3_RV6_250317.jpg"
+                  src="/images/_40A8417.jpg"
                   alt="Verde NYC Lounge"
                   fill
                   className="object-cover"
@@ -178,7 +176,7 @@ export default function HomePage() {
               {/* MM Members Club */}
               <Link href="/membersclub" className="relative w-full aspect-[16/9] overflow-hidden group">
                 <Image
-                  src="/images/RA_Verde_Bar_RV6_250317.jpg"
+                  src="/images/_40A8418.jpg"
                   alt="MM Members Club"
                   fill
                   className="object-cover"
@@ -204,7 +202,7 @@ export default function HomePage() {
           id="introduction"
           className="section section-with-bg"
           style={{
-            backgroundImage: 'url(/images/RA_Verde_interior_Main_4_290325.jpeg)',
+            backgroundImage: 'url(/images/_40A8419.jpg)',
             backgroundSize: 'cover',
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
@@ -219,8 +217,8 @@ export default function HomePage() {
           <div className="section-overlay" />
           <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
             <h2 className="w-full section-heading text-white">
-              From Paris to Saint-Tropez, Dubai to New York – <br />
-              Verde brings its signature festive spirit to the Meatpacking District.
+              Born in Paris. Celebrated in Saint-Tropez. Elevated in Dubai. <br />
+              Now, Verde arrives in New York—bringing two decades of Mediterranean excellence to the Meatpacking District.
             </h2>
           </div>
         </section>
@@ -228,9 +226,9 @@ export default function HomePage() {
         {/* Reserve Section */}
         <section id="reserve-mila" className="reserve-section">
           <div className="max-w-3xl mx-auto">
-            <h3 className='text-[var(--verde-text)]'>Mediterranean Excellence Meets New York Energy</h3>
+            <h3 className='text-[var(--verde-text)]'>A Global Legacy of Culinary Excellence</h3>
             <p className='text-[var(--verde-text)]'>
-              This Fall, Verde, the iconic international restaurant & beach club brand from Paris, Saint-Tropez, and Dubai makes its much-anticipated debut in New York City. Nestled in the heart of the Meatpacking District, Verde NYC brings its signature festive spirit, refined Mediterranean cuisine, and world-renowned atmosphere to the vibrant pulse of New York. Celebrated across the globe for its unforgettable dining destinations, Verde blends culinary excellence, elevated ambiance, and a distinct lifestyle experience. From glamorous nights in Paris to sun-soaked days in Saint-Tropez, Verde is more than a restaurant—it&apos;s a global phenomenon.
+              The Yeeels Group has spent over a decade perfecting the art of festive dining across Europe and the Middle East. From the sophisticated elegance of Verde Paris on Avenue George V to the sun-drenched glamour of our Saint-Tropez beach club, from the cosmopolitan energy of Verde Dubai to the timeless charm of our Italian venues—each destination embodies our commitment to exceptional experiences. Now, Verde NYC brings this celebrated legacy to America&apos;s most dynamic city. In the heart of the Meatpacking District, discover a sanctuary where Mediterranean cuisine, innovative mixology, and world-class entertainment converge to create moments that transcend the ordinary.
             </p>
             <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className="btn btn-primary border border-[#8e402f] text-[#8e402f] hover:bg-[#8e402f] hover:text-white">
               reserve your experience
@@ -245,7 +243,7 @@ export default function HomePage() {
 
           className="eudaimonia-section"
           style={{
-            backgroundImage: 'url(/images/RA_Verde_Bar2_RV6_250317.jpg)',
+            backgroundImage: 'url(/images/_40A8421.jpg)',
           }}
         >
           <div className="section-overlay" style={{ background: 'rgba(0,0,0,0.4)' }} />
@@ -255,9 +253,9 @@ export default function HomePage() {
 
             >
               <hr className="hr-line" />
-              <h3 >A Place to Dine, Dance, and Indulge</h3>
+              <h3 >The Art of Festive Dining</h3>
               <p className='text-white'>
-                Verde NYC invites you to step into a world where elegance, flavor, and celebration come together. Drawing inspiration from the elegance of Paris and the vibrant spirit of the Mediterranean, every detail at Verde is designed to transport you. Experience culinary masterpieces crafted with creativity and precision, surrounded by an atmosphere that pulses with energy and sophistication. Whether it&apos;s an intimate dinner or a night of celebration, Verde NYC creates unforgettable moments where style meets substance.
+                At the heart of the Yeeels Group philosophy lies a simple yet profound belief: dining should be transformative. From our flagship venues in Paris to the shores of the French Riviera, from the glittering skyline of Dubai to the vibrant energy of Manhattan, we create spaces where gastronomy becomes theatre, where every evening unfolds as a unique celebration. Verde NYC continues this tradition, offering an immersive experience where Mediterranean sophistication meets New York&apos;s electric energy. Here, exceptional cuisine, innovative cocktails, and curated entertainment converge to create memories that linger long after the evening ends.
               </p>
               <hr className="hr-line" />
             </div>
@@ -276,13 +274,10 @@ export default function HomePage() {
             <h2 className="section-heading">Our Philosophy</h2>
             <div className="philosophy-grid">
               <p style={{color: 'var(--verde-text)'}}>
-                Envisioned and crafted by the founders, Gregory Galy and Marine Giron-Galy through their travels,
-                experiences and thirst for discovery and adventure, Verde NYC&apos;s design has been brought to life by
-                interior designer Olya Volkova. She combined traditional and noble materials such as reclaimed wood,
-                unpolished floors, untainted stone, handmade linen and cotton fabrics to create a serene yet luxurious ambiance.
+                The Yeeels Group was founded on a singular vision: to become the global leader in high-end festive dining. This vision has guided our expansion from Paris to Saint-Tropez, Dubai to New York, always with the same unwavering commitment to excellence. At Verde NYC, this philosophy manifests in every detail—from the carefully sourced Mediterranean ingredients to the bespoke interior design that blends reclaimed woods, natural stone, and artisanal textiles imported from our European ateliers.
               </p>
               <p style={{color: 'var(--verde-text)'}}>
-                Verde NYC&apos;s aesthetic celebrates Mediterranean elegance with a contemporary twist, embracing the beauty of natural materials and organic forms. Sculptures, paintings and art made of metal, clay and wood are placed throughout the restaurant to further enhance the theme and aesthetic, curating a sanctuary in the heart of New York.
+                Our three pillars—Food, Tribe, and Stories—define everything we do. Creative and passionate cuisine designed for sharing. A culture of collaboration, respect, and operational excellence. High-energy, immersive experiences that transform dining into celebration. These values have made us leaders across four countries and nine venues, and they now come to life in the heart of Manhattan&apos;s Meatpacking District.
               </p>
             </div>
           </div>
@@ -292,7 +287,7 @@ export default function HomePage() {
         <section id="art-culture-mila" className="art-section">
           <div className="art-image">
             <img
-              src="/images/RA_Verde_interior_Main_4_290325.jpeg"
+              src="/images/_40A8424.jpg"
               alt="Verde NYC Art Culture"
               className="object-cover"
               sizes="100vw"
@@ -301,15 +296,12 @@ export default function HomePage() {
           <div className="art-content" style={{color: 'var(--verde-text)'}}>
             <h2 style={{color: 'var(--verde-heading)'}}>ART & Culture</h2>
             <p>
-              We are collectors, artisans, and craftsmen, carving a lifestyle dedicated to creating sanctuary spaces
-              that transport our guests.
+              The Yeeels Group has always believed that exceptional dining spaces require exceptional artistry. Across our venues in France, Italy, UAE, and the United States, we collaborate with visionary artists, sculptors, ceramists, and designers to create environments that inspire and transport.
             </p>
             <p>
-              The Japanese Wabi-Sabi philosophy and the restaurant&apos;s aesthetic reflect imperfect beauty and the
-              ingenuous integrity of natural objects and processes. We are proud to collaborate with talented artists,
-              painters, potters and ceramists worldwide.
+              At Verde NYC, Japanese Wabi-Sabi philosophy meets Mediterranean warmth—celebrating the beauty of imperfection and the integrity of natural materials. Hand-selected artworks, bespoke installations, and carefully curated design elements create a sanctuary where every corner tells a story, every surface invites touch, and every moment becomes a memory.
             </p>
-            <p>For any collaboration inquiries, email us at pr@rivieradininggroup.com</p>
+            <p>For collaboration inquiries, contact us at pr@yeeels.com</p>
             <Link href="/contact" className="btn btn-primary mt-6">
               contact us
             </Link>
@@ -338,7 +330,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/images/RA_Verde_Main1_RV6_250317.jpg"
+                  src="/images/_40A8425.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -350,7 +342,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/images/RA_Verde_Main2_RV6_250317.jpg"
+                  src="/images/_40A8432.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -362,7 +354,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/images/RA_Verde_Main3_RV6_250317.jpg"
+                  src="/images/_40A8434.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -374,7 +366,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/images/RA_Verde_Bar_RV6_250317.jpg"
+                  src="/images/_40A8436.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -386,7 +378,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/images/RA_Verde_Bar2_RV6_250317.jpg"
+                  src="/images/_40A8439.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -398,7 +390,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="/images/RA_Verde_interior_Lobby_290325.jpeg"
+                  src="/images/_40A8441.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />

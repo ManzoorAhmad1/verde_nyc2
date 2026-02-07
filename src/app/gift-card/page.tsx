@@ -20,20 +20,20 @@ export default function GiftCardPage() {
           <div className="coming-soon-logo">
             <Image
               src="/images/logo-Verde-NYC-white.png"
-              alt="Verde NYC"
+              alt="Verde NYC - A Yeeels Group Venue"
               width={200}
               height={80}
               priority
             />
           </div>
-          <h1>GIFT CARDS</h1>
-          <h2>Coming Soon</h2>
-          <p>The perfect gift for your loved ones. Our digital gift card program will be launching soon.</p>
-          <p className="coming-soon-subtitle">Give the gift of an unforgettable dining experience at Verde NYC.</p>
+          <h1>YEEELS GROUP GIFT CARDS</h1>
+          <h2>The Gift of Global Excellence</h2>
+          <p>Give the extraordinary—a passport to Yeeels Group experiences across Paris, Saint-Tropez, Dubai, Italy, and New York.</p>
+          <p className="coming-soon-subtitle">Our digital gift card program will be launching soon, honoring the Yeeels Group tradition of exceptional hospitality.</p>
           
           <div className="coming-soon-contact">
             <p>For gift card inquiries:</p>
-            <p>Email: <a href="mailto:info@verdenyc.com">info@verdenyc.com</a></p>
+            <p>Email: <a href="mailto:gifts@yeeels.com">gifts@yeeels.com</a></p>
           </div>
 
           <Link href="/" className="coming-soon-btn">
