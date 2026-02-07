@@ -9,7 +9,7 @@ export default function NotFound() {
         <div className="not-found-content">
           <div className="not-found-logo">
             <img
-              loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png"
+              loading="lazy" decoding="async" src="/images/logo-Verde-NYC-white.png"
               alt="Verde NYC"
               width={200}
               height={80}

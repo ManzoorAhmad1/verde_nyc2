@@ -23,7 +23,7 @@ export default function ValentinesDayPage() {
         <section id="valentines-banner" className="valentines-banner-section">
           <div className="parallax-background">
             <img
-              loading="eager" decoding="async" fetchPriority="high" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8521.jpg"
+              loading="eager" decoding="async" fetchPriority="high" src="/images/_40A8521.jpg"
               alt="Verde NYC Valentine's Day 2026 - A Yeeels Group Celebration"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
@@ -63,7 +63,7 @@ export default function ValentinesDayPage() {
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
                 <img
-                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8522.jpg"
+                  loading="lazy" decoding="async" src="/images/_40A8522.jpg"
                   alt="Verde NYC Valentine's Day Restaurant"
                   style={{ maxWidth: '100%', height: 'auto' }}
                 />
@@ -115,7 +115,7 @@ export default function ValentinesDayPage() {
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
                 <img
-                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8523.jpg"
+                  loading="lazy" decoding="async" src="/images/_40A8523.jpg"
                   alt="New York Verde Lounge New Year"
                   style={{ maxWidth: '100%', height: 'auto' }}
                 />

@@ -12,15 +12,15 @@ export default function MilaLoungePage() {
   
   const galleryImages = [
     {
-      src: 'https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8486.jpg',
+      src: '/images/_40A8487.jpg',
       alt: 'Verde NYC Lounge Interior'
     },
     {
-      src: 'https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8487.jpg',
+      src: '/images/_40A8487.jpg',
       alt: 'Verde NYC Lounge Ambiance'
     },
     {
-      src: 'https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8489.jpg',
+      src: '/images/_40A8489.jpg',
       alt: 'Verde NYC Lounge Experience'
     }
   ];
@@ -111,8 +111,22 @@ export default function MilaLoungePage() {
           
           <div className="lounge-lineup-image">
             <img
-              loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8490.jpg"
+              loading="lazy" decoding="async" src="/images/_40A8490.jpg"
               alt="Monthly DJ Lineup"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </div>
+          <div className="lounge-lineup-image mt-6">
+            <img
+              loading="lazy" decoding="async" src="/images/_40A8538.jpg"
+              alt="Verde Lounge Atmosphere"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </div>
+          <div className="lounge-lineup-image mt-6">
+            <img
+              loading="lazy" decoding="async" src="/images/_40A8540.jpg"
+              alt="Verde Lounge Interior"
               style={{ width: '100%', height: 'auto' }}
             />
           </div>
@@ -130,7 +144,7 @@ export default function MilaLoungePage() {
         <div className="lounge-tshirts-content">
           <div className="lounge-tshirts-image">
             <img
-              loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8493.jpg"
+              loading="lazy" decoding="async" src="/images/_40A8493.jpg"
               alt="Limited Edition Collection"
               style={{ width: '100%', height: 'auto' }}
             />
@@ -173,7 +187,7 @@ export default function MilaLoungePage() {
           
           <div className="lounge-collage-image">
             <img
-              loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8494.jpg"
+              loading="lazy" decoding="async" src="/images/_40A8494.jpg"
               alt="Verde NYC Lounge atmosphere and nightlife"
               style={{ width: '100%', height: 'auto' }}
             />

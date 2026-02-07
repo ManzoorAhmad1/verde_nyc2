@@ -18,7 +18,7 @@ export default function PrivateEventsPage() {
       <section className="private-events-hero">
         <div className="private-events-hero-image">
           <img
-            loading="eager" decoding="async" fetchPriority="high" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8461.jpg"
+            loading="eager" decoding="async" fetchPriority="high" src="/images/_40A8461.jpg"
             alt="Verde NYC private events venue"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
@@ -74,7 +74,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <img
-                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8464.jpg"
+                loading="lazy" decoding="async" src="/images/_40A8464.jpg"
                 alt="Interior view of Verde NYC private dining room"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
@@ -92,7 +92,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <img
-                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8469.jpg"
+                loading="lazy" decoding="async" src="/images/_40A8469.jpg"
                 alt="Verde NYC outdoor rooftop terrace event space"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
@@ -110,7 +110,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <img
-                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8470.jpg"
+                loading="lazy" decoding="async" src="/images/_40A8470.jpg"
                 alt="Verde NYC Lounge bar area"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
@@ -128,7 +128,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <img
-                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8471.jpg"
+                loading="lazy" decoding="async" src="/images/_40A8471.jpg"
                 alt="Verde NYC Chef's Table private dining"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
@@ -138,6 +138,40 @@ export default function PrivateEventsPage() {
             <h2 style={{color: 'var(--verde-heading)'}}>Chef's Table Experience</h2>
             <p style={{color: 'var(--verde-text)'}}>For the most discerning hosts, our Chef&apos;s Table offers an intimate journey into culinary artistry—a concept perfected across our Michelin-recognized kitchens in Paris and refined for the New York palate. This exclusive 10-seat private dining room places you at the heart of the action, where our executive chef presents a bespoke multi-course tasting menu showcasing techniques and ingredients sourced from our global network of premium suppliers.</p>
             <p style={{color: 'var(--verde-text)'}}>The space features a dramatic marble counter, a 500-year-old hinoki wood cutting board imported from Japan, and design elements that honor both Mediterranean warmth and Japanese precision. Your personal sommelier pairs each course with exceptional wines selected from our international cellar, creating a harmonious dining experience that embodies the Yeeels Group commitment to excellence without compromise.</p>
+          </div>
+        </div>
+
+        {/* Additional Space 1 */}
+        <div className="private-events-grid reverse">
+          <div className="private-events-image-col">
+            <div className="private-events-image-wrapper">
+              <img
+                loading="lazy" decoding="async" src="/images/_40A8541.jpg"
+                alt="Verde NYC exclusive dining area"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+          </div>
+          <div className="private-events-text-col">
+            <h2 style={{color: 'var(--verde-heading)'}}>VIP Dining Experience</h2>
+            <p style={{color: 'var(--verde-text)'}}>Our VIP dining areas offer an elevated experience for guests seeking privacy and exclusivity. Designed with the signature Yeeels Group aesthetic, these intimate spaces feature premium furnishings, personalized service, and an ambiance that makes every gathering feel extraordinary.</p>
+          </div>
+        </div>
+
+        {/* Additional Space 2 */}
+        <div className="private-events-grid">
+          <div className="private-events-image-col">
+            <div className="private-events-image-wrapper">
+              <img
+                loading="lazy" decoding="async" src="/images/_40A8544.jpg"
+                alt="Verde NYC bar and lounge"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+          </div>
+          <div className="private-events-text-col">
+            <h2 style={{color: 'var(--verde-heading)'}}>Bar & Cocktail Lounge</h2>
+            <p style={{color: 'var(--verde-text)'}}>The Verde NYC bar showcases our world-class mixology program, featuring signature cocktails crafted by internationally trained bartenders. The stunning bar area serves as both a gathering point and a destination, perfect for pre-dinner drinks or late-night celebrations.</p>
           </div>
         </div>
       </section>

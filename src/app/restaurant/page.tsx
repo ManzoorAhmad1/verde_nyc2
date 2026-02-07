@@ -22,7 +22,7 @@ export default function RestaurantPage() {
         <section id="restaurant-gallery" className="restaurant-gallery-section">
           <div className="gallery-slideshow">
             <img
-              loading="eager" decoding="async" fetchPriority="high" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"
+              loading="eager" decoding="async" fetchPriority="high" src="/images/_40A8442.jpg"
               alt="Verde NYC Restaurant"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
@@ -372,43 +372,57 @@ export default function RestaurantPage() {
           <div className="gallery-grid">
             <div className="gallery-item">
               <img
-                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8443.jpg"
+                loading="lazy" decoding="async" src="/images/_40A8443.jpg"
                 alt="Verde NYC Food"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <img
-                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8444.jpg"
+                loading="lazy" decoding="async" src="/images/_40A8444.jpg"
                 alt="Verde NYC Food"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <img
-                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8452.jpg"
+                loading="lazy" decoding="async" src="/images/_40A8452.jpg"
                 alt="Verde NYC Food"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <img
-                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8455.jpg"
+                loading="lazy" decoding="async" src="/images/_40A8455.jpg"
                 alt="Verde NYC Cuisine"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <img
-                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8459.jpg"
+                loading="lazy" decoding="async" src="/images/_40A8459.jpg"
                 alt="Verde NYC Food"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <img
-                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8460.jpg"
+                loading="lazy" decoding="async" src="/images/_40A8460.jpg"
                 alt="Verde NYC Food"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+            <div className="gallery-item">
+              <img
+                loading="lazy" decoding="async" src="/images/_40A8525.jpg"
+                alt="Verde NYC Interior"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+            <div className="gallery-item">
+              <img
+                loading="lazy" decoding="async" src="/images/_40A8527.jpg"
+                alt="Verde NYC Ambiance"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>

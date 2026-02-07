@@ -18,7 +18,7 @@ export default function ContactPage() {
       <section id="contact-mila" className="contact-hero">
         <div className="contact-hero-image">
           <img
-            loading="eager" decoding="async" fetchPriority="high" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8472.jpg"
+            loading="eager" decoding="async" fetchPriority="high" src="/images/_40A8472.jpg"
             alt="Verde NYC Contact"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
