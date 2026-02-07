@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import Header from './components/Header';
 import MobileNav from './components/MobileNav';
@@ -11,67 +11,49 @@ export default function HomePage() {
   const sectionRef: any = useRef(null);
   const eudaimoniaRef: any = useRef(null)
   const EudaimoniaRef: any = useRef(null)
+  const ticking = useRef(false);
 
+  // Combined optimized scroll handler with requestAnimationFrame
   useEffect(() => {
     const handleScroll = () => {
-      if (eudaimoniaRef.current) {
+      if (ticking.current) return;
+      
+      ticking.current = true;
+      requestAnimationFrame(() => {
         const scrollPosition = window.pageYOffset;
-        const sectionTop = eudaimoniaRef.current.offsetTop;
-
-        // Calculate how much the background should move (20% of scroll amount)
-        const backgroundPosition = (scrollPosition - sectionTop) * 0.2;
-
-        // Apply the transform to the background
-        eudaimoniaRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
-      }
+        
+        // Parallax for eudaimoniaRef
+        if (eudaimoniaRef.current) {
+          const sectionTop = eudaimoniaRef.current.offsetTop;
+          const backgroundPosition = (scrollPosition - sectionTop) * 0.2;
+          eudaimoniaRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
+        }
+        
+        // Parallax for EudaimoniaRef
+        if (EudaimoniaRef.current) {
+          const sectionTop = EudaimoniaRef.current.offsetTop;
+          const backgroundPosition = (scrollPosition - sectionTop) * 0.2;
+          EudaimoniaRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
+        }
+        
+        // Parallax for sectionRef
+        if (sectionRef.current) {
+          const sectionTop = sectionRef.current.offsetTop;
+          const backgroundPosition = (scrollPosition - sectionTop) * 0.2;
+          sectionRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
+        }
+        
+        ticking.current = false;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (EudaimoniaRef.current) {
-        const scrollPosition = window.pageYOffset;
-        const sectionTop = EudaimoniaRef.current.offsetTop;
 
-        // Calculate how much the background should move (20% of scroll amount)
-        const backgroundPosition = (scrollPosition - sectionTop) * 0.2;
-
-        // Apply the transform to the background
-        EudaimoniaRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const scrollPosition = window.pageYOffset;
-        const sectionTop = sectionRef.current.offsetTop;
-
-        // Calculate how much the background should move (20% of scroll amount)
-        const backgroundPosition = (scrollPosition - sectionTop) * 0.2;
-
-        // Apply the transform to the background
-        sectionRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   return (
     <>
       {/* Desktop Header */}

@@ -498,6 +498,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    will-change: background-position;
   }
 
   .section-overlay {
@@ -856,6 +857,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    will-change: background-position;
   }
 
   .eudaimonia-content {
@@ -884,6 +886,7 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    will-change: background-position;
   }
 
   .philosophy-grid {
@@ -983,6 +986,13 @@
 
     .section-heading {
       font-size: 24px;
+    }
+
+    /* Disable fixed background on mobile for better scroll performance */
+    .section-with-bg,
+    .eudaimonia-section,
+    .philosophy-section {
+      background-attachment: scroll !important;
     }
 
     .instagram-grid {
