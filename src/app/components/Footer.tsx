@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -39,8 +38,8 @@ export default function Footer() {
         {/* Left - Logo & Address */}
         <div className="footer-logo-section">
           <Link href="/">
-            <Image
-              src="/images/logo-Verde-NYC-green.png"
+            <img
+              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png"
               alt="Verde NYC - A Yeeels Group Venue"
               width={150}
               height={50}

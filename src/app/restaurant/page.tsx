@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
@@ -22,12 +21,10 @@ export default function RestaurantPage() {
         {/* Gallery Section */}
         <section id="restaurant-gallery" className="restaurant-gallery-section">
           <div className="gallery-slideshow">
-            <Image
-              src="/images/_40A8442.jpg"
+            <img
+              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"
               alt="Verde NYC Restaurant"
-              fill
-              style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
-              priority
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
           </div>
         </section>
@@ -35,11 +32,10 @@ export default function RestaurantPage() {
         {/* Philosophy Section */}
         <section id="our-philosophy-mila" className="philosophy-section">
           <div className="parallax-background texture-bg">
-            <Image
+            <img
               src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
               alt="verde-nyc-texture"
-              fill
-              style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
           </div>
           <div className="philosophy-content">
@@ -375,51 +371,45 @@ export default function RestaurantPage() {
         <section id="food-gallery" className="food-gallery-section">
           <div className="gallery-grid">
             <div className="gallery-item">
-              <Image
-                src="/images/_40A8443.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8443.jpg"
                 alt="Verde NYC Food"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
-              <Image
-                src="/images/_40A8444.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8444.jpg"
                 alt="Verde NYC Food"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
-              <Image
-                src="/images/_40A8452.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8452.jpg"
                 alt="Verde NYC Food"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
-              <Image
-                src="/images/_40A8455.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8455.jpg"
                 alt="Verde NYC Cuisine"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
-              <Image
-                src="/images/_40A8459.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8459.jpg"
                 alt="Verde NYC Food"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
-              <Image
-                src="/images/_40A8460.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8460.jpg"
                 alt="Verde NYC Food"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
           </div>

@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function NotFound() {
@@ -9,12 +8,11 @@ export default function NotFound() {
       <section className="not-found-section">
         <div className="not-found-content">
           <div className="not-found-logo">
-            <Image
-              src="/images/logo-Verde-NYC-white.png"
+            <img
+              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png"
               alt="Verde NYC"
               width={200}
               height={80}
-              priority
             />
           </div>
           <h1>404</h1>

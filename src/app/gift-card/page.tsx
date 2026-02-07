@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
@@ -18,12 +17,11 @@ export default function GiftCardPage() {
       <section className="coming-soon-section">
         <div className="coming-soon-content">
           <div className="coming-soon-logo">
-            <Image
-              src="/images/logo-Verde-NYC-white.png"
+            <img
+              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png"
               alt="Verde NYC - A Yeeels Group Venue"
               width={200}
               height={80}
-              priority
             />
           </div>
           <h1>YEEELS GROUP GIFT CARDS</h1>

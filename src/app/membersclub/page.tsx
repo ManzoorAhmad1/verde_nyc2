@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import Header from '../components/Header';
@@ -18,12 +17,11 @@ export default function MembersClubPage() {
       {/* Hero Section with Video Background */}
       <section className="membersclub-hero-section">
         <div className="membersclub-video-wrapper">
-          <Image
-            src="/images/_40A8476.jpg"
+          <img
+            src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8476.jpg"
             alt="Verde NYC Members Club"
-            fill
             className="membersclub-fallback-image"
-            priority
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
       </section>
@@ -50,11 +48,10 @@ export default function MembersClubPage() {
           {/* Right Column - Image */}
           <div className="membersclub-image-column">
             <div className="membersclub-interior-image">
-              <Image
-                src="/images/_40A8478.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8478.jpg"
                 alt="Interior view of Verde NYC Members Club"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
           </div>
@@ -79,11 +76,10 @@ export default function MembersClubPage() {
         {/* Become Member Section */}
         <div className="membersclub-become-member">
           <div className="membersclub-member-image">
-            <Image
-              src="/images/_40A8483.jpg"
+            <img
+              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8483.jpg"
               alt="Yeeels Group Members enjoying exclusive experiences"
-              fill
-              style={{ objectFit: 'cover' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
           <div className="membersclub-member-text">

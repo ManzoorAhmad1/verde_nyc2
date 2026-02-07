@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
@@ -18,12 +17,10 @@ export default function MilaOmakasePage() {
       {/* Hero Video Section */}
       <section id="omakase-video" className="omakase-hero-section">
         <div className="omakase-video-bg">
-          <Image
-            src="/images/_40A8496.jpg"
+          <img
+            src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8496.jpg"
             alt="Verde NYC Omakase Interior"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
           <div className="omakase-video-overlay"></div>
         </div>
@@ -35,11 +32,10 @@ export default function MilaOmakasePage() {
       {/* Verde Omakase NYC Section */}
       <section id="mila-omakase-miami" className="omakase-info-section">
         <div className="omakase-info-bg">
-          <Image
-            src="/images/_40A8498.jpg"
+          <img
+            src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8498.jpg"
             alt="Verde NYC texture background"
-            fill
-            style={{ objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
         <div className="omakase-info-content">
@@ -77,11 +73,10 @@ export default function MilaOmakasePage() {
       {/* Experience Omakase Section */}
       <section id="omakase" className="omakase-experience-section">
         <div className="omakase-experience-bg">
-          <Image
-            src="/images/_40A8500.jpg"
+          <img
+            src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8500.jpg"
             alt="Verde NYC Omakase Venue"
-            fill
-            style={{ objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
         <div className="omakase-experience-content">
@@ -120,11 +115,9 @@ export default function MilaOmakasePage() {
       <section id="omakase-experience" className="omakase-heritage-section">
         <div className="omakase-heritage-content">
           <div className="omakase-heritage-image">
-            <Image
-              src="/images/_40A8501.jpg"
+            <img
+              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8501.jpg"
               alt="Verde NYC Omakase culinary presentation"
-              width={2323}
-              height={2323}
               style={{ width: '100%', height: 'auto' }}
             />
           </div>

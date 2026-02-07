@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
@@ -18,12 +17,10 @@ export default function PrivateEventsPage() {
       {/* Hero Gallery Section */}
       <section className="private-events-hero">
         <div className="private-events-hero-image">
-          <Image
-            src="/images/_40A8461.jpg"
+          <img
+            src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8461.jpg"
             alt="Verde NYC private events venue"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
       </section>
@@ -31,11 +28,10 @@ export default function PrivateEventsPage() {
       {/* Event Menu Section */}
       <section className="private-events-intro">
         <div className="private-events-intro-bg">
-          <Image
+          <img
             src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
             alt="texture background"
-            fill
-            style={{ objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
         <div className="private-events-intro-content">
@@ -77,11 +73,10 @@ export default function PrivateEventsPage() {
         <div className="private-events-grid reverse">
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
-              <Image
-                src="/images/_40A8464.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8464.jpg"
                 alt="Interior view of Verde NYC private dining room"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
           </div>
@@ -96,11 +91,10 @@ export default function PrivateEventsPage() {
         <div className="private-events-grid">
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
-              <Image
-                src="/images/_40A8469.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8469.jpg"
                 alt="Verde NYC outdoor rooftop terrace event space"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
           </div>
@@ -115,11 +109,10 @@ export default function PrivateEventsPage() {
         <div className="private-events-grid reverse">
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
-              <Image
-                src="/images/_40A8470.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8470.jpg"
                 alt="Verde NYC Lounge bar area"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
           </div>
@@ -134,11 +127,10 @@ export default function PrivateEventsPage() {
         <div className="private-events-grid">
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
-              <Image
-                src="/images/_40A8471.jpg"
+              <img
+                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8471.jpg"
                 alt="Verde NYC Chef's Table private dining"
-                fill
-                style={{ objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
           </div>

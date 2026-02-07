@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
@@ -18,12 +17,10 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section id="contact-mila" className="contact-hero">
         <div className="contact-hero-image">
-          <Image
-            src="/images/_40A8472.jpg"
+          <img
+            src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8472.jpg"
             alt="Verde NYC Contact"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
         <div className="contact-hero-content">

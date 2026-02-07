@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
@@ -13,15 +12,15 @@ export default function MilaLoungePage() {
   
   const galleryImages = [
     {
-      src: '/images/_40A8486.jpg',
+      src: 'https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8486.jpg',
       alt: 'Verde NYC Lounge Interior'
     },
     {
-      src: '/images/_40A8487.jpg',
+      src: 'https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8487.jpg',
       alt: 'Verde NYC Lounge Ambiance'
     },
     {
-      src: '/images/_40A8489.jpg',
+      src: 'https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8489.jpg',
       alt: 'Verde NYC Lounge Experience'
     }
   ];
@@ -46,12 +45,10 @@ export default function MilaLoungePage() {
               key={index}
               className={`lounge-gallery-item ${index === currentSlide ? 'active' : ''}`}
             >
-              <Image
+              <img
                 src={image.src}
                 alt={image.alt}
-                fill
-                style={{ objectFit: 'cover' }}
-                priority={index === 0}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
           ))}
@@ -113,11 +110,9 @@ export default function MilaLoungePage() {
           </Link>
           
           <div className="lounge-lineup-image">
-            <Image
-              src="/images/_40A8490.jpg"
+            <img
+              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8490.jpg"
               alt="Monthly DJ Lineup"
-              width={1080}
-              height={1350}
               style={{ width: '100%', height: 'auto' }}
             />
           </div>
@@ -134,11 +129,9 @@ export default function MilaLoungePage() {
 
         <div className="lounge-tshirts-content">
           <div className="lounge-tshirts-image">
-            <Image
-              src="/images/_40A8493.jpg"
+            <img
+              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8493.jpg"
               alt="Limited Edition Collection"
-              width={1080}
-              height={1350}
               style={{ width: '100%', height: 'auto' }}
             />
           </div>
@@ -180,7 +173,7 @@ export default function MilaLoungePage() {
           
           <div className="lounge-collage-image">
             <img
-              src="/images/_40A8494.jpg"
+              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8494.jpg"
               alt="Verde NYC Lounge atmosphere and nightlife"
               style={{ width: '100%', height: 'auto' }}
             />

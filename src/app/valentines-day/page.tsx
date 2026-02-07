@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
@@ -23,12 +22,10 @@ export default function ValentinesDayPage() {
         {/* Valentine's Banner Section */}
         <section id="valentines-banner" className="valentines-banner-section">
           <div className="parallax-background">
-            <Image
-              src="/images/_40A8521.jpg"
+            <img
+              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8521.jpg"
               alt="Verde NYC Valentine's Day 2026 - A Yeeels Group Celebration"
-              fill
-              style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
-              priority
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
           </div>
           <div className="banner-content">
@@ -40,11 +37,10 @@ export default function ValentinesDayPage() {
         {/* Valentine's Content Section */}
         <section id="valentines-content" className="valentines-content-section">
           <div className="parallax-background texture-bg">
-            <Image
+            <img
               src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
               alt="mila-miami-texture"
-              fill
-              style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
           </div>
           <div className="content-wrapper text-[#A5A39A]">
@@ -66,11 +62,9 @@ export default function ValentinesDayPage() {
               </h2>
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
-                <Image
-                  src="/images/_40A8522.jpg"
+                <img
+                  src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8522.jpg"
                   alt="Verde NYC Valentine's Day Restaurant"
-                  width={620}
-                  height={263}
                   style={{ maxWidth: '100%', height: 'auto' }}
                 />
               </div>
@@ -120,13 +114,10 @@ export default function ValentinesDayPage() {
               <h2 style={{ textAlign: 'center' }}>VERDE LOUNGE</h2>
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
-                <Image
-                  src="/images/_40A8523.jpg"
+                <img
+                  src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8523.jpg"
                   alt="New York Verde Lounge New Year"
                   style={{ maxWidth: '100%', height: 'auto' }}
-                  width={1920}
-                  height={950}
-
                 />
               </div>
 
