@@ -18,7 +18,7 @@ export default function MembersClubPage() {
       <section className="membersclub-hero-section">
         <div className="membersclub-video-wrapper">
           <img
-            loading="eager" decoding="async" fetchPriority="high" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8476.jpg"
+            loading="eager" decoding="async" fetchPriority="high" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8476.jpg"
             alt="Verde NYC Members Club"
             className="membersclub-fallback-image"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -49,7 +49,7 @@ export default function MembersClubPage() {
           <div className="membersclub-image-column">
             <div className="membersclub-interior-image">
               <img
-                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8478.jpg"
+                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8478.jpg"
                 alt="Interior view of Verde NYC Members Club"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
@@ -77,7 +77,7 @@ export default function MembersClubPage() {
         <div className="membersclub-become-member">
           <div className="membersclub-member-image">
             <img
-              loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8483.jpg"
+              loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8483.jpg"
               alt="Yeeels Group Members enjoying exclusive experiences"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />

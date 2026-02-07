@@ -18,7 +18,7 @@ export default function MilaOmakasePage() {
       <section id="omakase-video" className="omakase-hero-section">
         <div className="omakase-video-bg">
           <img
-            loading="eager" decoding="async" fetchPriority="high" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8496.jpg"
+            loading="eager" decoding="async" fetchPriority="high" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8496.jpg"
             alt="Verde NYC Omakase Interior"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
@@ -33,7 +33,7 @@ export default function MilaOmakasePage() {
       <section id="mila-omakase-miami" className="omakase-info-section">
         <div className="omakase-info-bg">
           <img
-            loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8498.jpg"
+            loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8498.jpg"
             alt="Verde NYC texture background"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
@@ -74,7 +74,7 @@ export default function MilaOmakasePage() {
       <section id="omakase" className="omakase-experience-section">
         <div className="omakase-experience-bg">
           <img
-            loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8500.jpg"
+            loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8500.jpg"
             alt="Verde NYC Omakase Venue"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
@@ -116,7 +116,7 @@ export default function MilaOmakasePage() {
         <div className="omakase-heritage-content">
           <div className="omakase-heritage-image">
             <img
-              loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8501.jpg"
+              loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8501.jpg"
               alt="Verde NYC Omakase culinary presentation"
               style={{ width: '100%', height: 'auto' }}
             />

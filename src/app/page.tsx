@@ -86,7 +86,7 @@ export default function HomePage() {
         <section id="opening-video" className="hero-section">
           <div className="hero-video-container">
             <img
-              loading="eager" decoding="async" fetchPriority="high" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8416.jpg"
+              loading="eager" decoding="async" fetchPriority="high" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8416.jpg"
               alt="Verde NYC exterior at night"
               className="hero-image-bg"
             />
@@ -119,7 +119,7 @@ export default function HomePage() {
               {/* Verde Restaurant */}
               <div className="relative w-full aspect-[16/9] overflow-hidden group">
                 <img
-                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8414.jpg"
+                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8414.jpg"
                   alt="Verde NYC Restaurant"
                   className="w-full h-full object-cover"
                 />
@@ -137,7 +137,7 @@ export default function HomePage() {
               {/* Verde Omakase */}
               <Link href="/milaomakase" className="relative w-full aspect-[16/9] overflow-hidden group">
                 <img
-                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8416.jpg"
+                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8416.jpg"
                   alt="Verde NYC Omakase"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -155,7 +155,7 @@ export default function HomePage() {
               {/* Verde Lounge */}
               <Link href="/milalounge" className="relative w-full aspect-[16/9] overflow-hidden group">
                 <img
-                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8417.jpg"
+                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8417.jpg"
                   alt="Verde NYC Lounge"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -173,7 +173,7 @@ export default function HomePage() {
               {/* MM Members Club */}
               <Link href="/membersclub" className="relative w-full aspect-[16/9] overflow-hidden group">
                 <img
-                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8418.jpg"
+                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8418.jpg"
                   alt="MM Members Club"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -198,7 +198,7 @@ export default function HomePage() {
           id="introduction"
           className="section section-with-bg"
           style={{
-            backgroundImage: 'url(https://dm4kmpvzhijsu.cloudfront.net/images/_40A8419.jpg)',
+            backgroundImage: 'url(https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8419.jpg)',
             backgroundSize: 'cover',
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
@@ -239,7 +239,7 @@ export default function HomePage() {
 
           className="eudaimonia-section"
           style={{
-            backgroundImage: 'url(https://dm4kmpvzhijsu.cloudfront.net/images/_40A8421.jpg)',
+            backgroundImage: 'url(https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8421.jpg)',
           }}
         >
           <div className="section-overlay" style={{ background: 'rgba(0,0,0,0.4)' }} />
@@ -283,7 +283,7 @@ export default function HomePage() {
         <section id="art-culture-mila" className="art-section">
           <div className="art-image">
             <img
-              loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8424.jpg"
+              loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8424.jpg"
               alt="Verde NYC Art Culture"
               className="object-cover"
               sizes="100vw"
@@ -326,7 +326,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8425.jpg"
+                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8425.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -338,7 +338,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8432.jpg"
+                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8432.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -350,7 +350,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8434.jpg"
+                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8434.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -362,7 +362,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8436.jpg"
+                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8436.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -374,7 +374,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8439.jpg"
+                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8439.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -386,7 +386,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8441.jpg"
+                  loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8441.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />

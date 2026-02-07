@@ -18,7 +18,7 @@ export default function PrivateEventsPage() {
       <section className="private-events-hero">
         <div className="private-events-hero-image">
           <img
-            loading="eager" decoding="async" fetchPriority="high" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8461.jpg"
+            loading="eager" decoding="async" fetchPriority="high" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8461.jpg"
             alt="Verde NYC private events venue"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
@@ -74,7 +74,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <img
-                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8464.jpg"
+                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8464.jpg"
                 alt="Interior view of Verde NYC private dining room"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
@@ -92,7 +92,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <img
-                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8469.jpg"
+                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8469.jpg"
                 alt="Verde NYC outdoor rooftop terrace event space"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
@@ -110,7 +110,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <img
-                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8470.jpg"
+                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8470.jpg"
                 alt="Verde NYC Lounge bar area"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
@@ -128,7 +128,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <img
-                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8471.jpg"
+                loading="lazy" decoding="async" src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8471.jpg"
                 alt="Verde NYC Chef's Table private dining"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />

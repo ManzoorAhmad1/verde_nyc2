@@ -20,7 +20,7 @@ export default function Header() {
       {/* Logo - Left Side */}
       <Link href="/" className="header-logo-link">
         <img
-          loading="lazy" decoding="async" src={scrolled ? 'https://dm4kmpvzhijsu.cloudfront.net/images/logo-Verde-NYC-green-removebg-preview.png' : 'https://dm4kmpvzhijsu.cloudfront.net/images/logo-Verde-NYC-white.png'}
+          loading="lazy" decoding="async" src={scrolled ? 'https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green-removebg-preview.png' : 'https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png'}
           alt="Verde NYC"
           width={80}
           height={30}
