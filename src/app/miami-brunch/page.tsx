@@ -12,13 +12,13 @@ export default function MiamiBrunchPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const images = [
-    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507229765-DBNJ4B0UN1KG9R6TZ1GI/87.jpg",
-    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1767041138667-XKAGWMMK2NNVUM6EVR88/MILA-Brunch-Dessert.png",
-    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507187547-K9EHG7W1F2Z819SSWB39/03.jpg",
-    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507206051-SHPFVYXAUU00XEWI9SZ5/38.jpg",
-    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507212851-DRSK02M2XTD3W3KQ5JSE/46.jpg",
-    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507225273-FWJ1YD2HZU326Y5AI0J2/70.jpg",
-    "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1730507205981-FE64ZVEEES5WORFYQKED/41.jpg"
+    "/images/RA_Verde_Main1_RV6_250317.jpg",
+    "/images/RA_Verde_Main2_RV6_250317.jpg",
+    "/images/RA_Verde_Main3_RV6_250317.jpg",
+    "/images/RA_Verde_Bar_RV6_250317.jpg",
+    "/images/RA_Verde_Bar2_RV6_250317.jpg",
+    "/images/RA_Verde_interior_Lobby_290325.jpeg",
+    "/images/RA_Verde_interior_Main_4_290325.jpeg"
   ];
 
   const handlePrevious = () => {
@@ -39,7 +39,7 @@ export default function MiamiBrunchPage() {
         <section id="brunch-banner" className="brunch-banner-section">
           <div className="parallax-background">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8c68392-6a86-4a9c-8d19-b0d9921657a0/DSC_4013.jpg"
+              src="/images/RA_Verde_interior_Main_4_290325.jpeg"
               alt="Verde NYC Brunch"
               fill
               style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
@@ -115,7 +115,7 @@ export default function MiamiBrunchPage() {
             <div className="brunch-image-card right">
               <div className="image-card-image">
                 <Image 
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8d62c8fd-abce-4512-b916-3ed26e41f79c/MILA-Brunch-Buffet.png"
+                  src="/images/RA_Verde_Bar2_RV6_250317.jpg"
                   alt="brunch buffet layout inside MILA with an assortment of foods and drinks"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -142,7 +142,7 @@ export default function MiamiBrunchPage() {
             <div className="brunch-image-card left">
               <div className="image-card-image">
                 <Image
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c8ccb04c-5cbe-4b18-893d-eb24f8064ff6/MILA-brunch-cocktail.png"
+                  src="/images/RA_Verde_Main3_RV6_250317.jpg"
                   alt="refreshing brunch cocktail in a glass with a pink fan in the background"
                   fill
                   style={{ objectFit: 'cover' }}

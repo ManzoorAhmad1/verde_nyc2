@@ -18,15 +18,8 @@ export default function MembersClubPage() {
       {/* Hero Section with Video Background */}
       <section className="membersclub-hero-section">
         <div className="membersclub-video-wrapper">
-          <iframe
-            className="membersclub-youtube-embed"
-            src="https://www.youtube.com/embed/HwHl6fg_mPQ?autoplay=1&mute=1&loop=1&playlist=HwHl6fg_mPQ&controls=0&showinfo=0&modestbranding=1&playsinline=1&rel=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title="MM Website Video"
-          />
           <Image
-            src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1751918403388-FNXA0RPRKYP49R0GE5YG/MMS-JUNE-9513.jpg"
+            src="/images/RA_Verde_Main3_RV6_250317.jpg"
             alt="Verde NYC MM"
             fill
             className="membersclub-fallback-image"
@@ -58,7 +51,7 @@ export default function MembersClubPage() {
           <div className="membersclub-image-column">
             <div className="membersclub-interior-image">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/7c34fa33-21cd-41d7-943f-ed06004cc353/8c36f7ff-9c94-4381-acac-14f1b654aa1c.jpg"
+                src="/images/RA_Verde_Bar_RV6_250317.jpg"
                 alt="interior view of Verde NYC MM"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -87,7 +80,7 @@ export default function MembersClubPage() {
         <div className="membersclub-become-member">
           <div className="membersclub-member-image">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/81049aa0-e44f-4b6b-a07b-beffa3a3fa3c/LOOK_07_MILA_12-11-24_1034FINAL.jpg"
+              src="/images/RA_Verde_Main2_RV6_250317.jpg"
               alt="Verde NYC MM members with elegant glasses of wine and martini"
               fill
               style={{ objectFit: 'cover' }}

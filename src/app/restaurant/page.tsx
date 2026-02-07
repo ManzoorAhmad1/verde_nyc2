@@ -23,7 +23,7 @@ export default function RestaurantPage() {
         <section id="restaurant-gallery" className="restaurant-gallery-section">
           <div className="gallery-slideshow">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1745425953160-6MHPY42XGCA41W97OC5C/MILA+-+4.jpg"
+              src="/images/RA_Verde_Main1_RV6_250317.jpg"
               alt="Verde NYC Restaurant"
               fill
               style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
@@ -376,7 +376,7 @@ export default function RestaurantPage() {
           <div className="gallery-grid">
             <div className="gallery-item">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1751564004866-YGL7LFYI1G26706EJMP6/MILA-APRIL-9519.jpg"
+                src="/images/RA_Verde_Main2_RV6_250317.jpg"
                 alt="Verde NYC Food"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -384,7 +384,7 @@ export default function RestaurantPage() {
             </div>
             <div className="gallery-item">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1751563833376-5AU0F4BPZQB15B5RR535/MILA-APRIL-9764.jpg"
+                src="/images/RA_Verde_Main3_RV6_250317.jpg"
                 alt="Verde NYC Food"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -392,7 +392,7 @@ export default function RestaurantPage() {
             </div>
             <div className="gallery-item">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1751563833535-DTBYXVS4NEWVFAW9I4LO/MILA-APRIL-9659.jpg"
+                src="/images/RA_Verde_Bar_RV6_250317.jpg"
                 alt="Verde NYC Food"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -400,7 +400,7 @@ export default function RestaurantPage() {
             </div>
             <div className="gallery-item">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1751563918370-81QWHG8LYH4D04GBL420/MediterrAsian+Black+Cod.jpg"
+                src="/images/RA_Verde_Bar2_RV6_250317.jpg"
                 alt="MediterrAsian Black Cod"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -408,7 +408,7 @@ export default function RestaurantPage() {
             </div>
             <div className="gallery-item">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1751563889969-F8IQK4042S1VRWLTV04I/MILA-APRIL-9959.jpg"
+                src="/images/RA_Verde_interior_Lobby_290325.jpeg"
                 alt="Verde NYC Food"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -416,7 +416,7 @@ export default function RestaurantPage() {
             </div>
             <div className="gallery-item">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1751563939261-B16UOS1XCM8UBQUM6XMD/MILA-APRIL-9557.jpg"
+                src="/images/RA_Verde_interior_Main_4_290325.jpeg"
                 alt="Verde NYC Food"
                 fill
                 style={{ objectFit: 'cover' }}

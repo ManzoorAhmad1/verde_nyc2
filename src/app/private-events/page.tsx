@@ -19,7 +19,7 @@ export default function PrivateEventsPage() {
       <section className="private-events-hero">
         <div className="private-events-hero-image">
           <Image
-            src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1711395423888-LKB9OWQHPBNHPXG6PMHA/AMA04850.jpg"
+            src="/images/2024.11.12-ExteriorNight-Verde-burgundy.png"
             alt="Verde NYC private events venue"
             fill
             style={{ objectFit: 'cover' }}
@@ -78,7 +78,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1b902ab8-0e23-4d15-bcd1-e5518771caf8/MILA+-+3.jpg"
+                src="/images/RA_Verde_Main1_RV6_250317.jpg"
                 alt="interior view of Verde NYC with rectangle small tables on the bottom right and round tables top center"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -97,7 +97,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/b53cf3b1-46b9-47b1-9a72-9278447f2664/DSC_4112.jpg"
+                src="/images/RA_Verde_Main2_RV6_250317.jpg"
                 alt="interior view of Verde NYC looking toward the outdoor spaces/rooftop terrace"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -116,7 +116,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/9874a9b3-03d6-4c76-b3c7-06680632e37f/811792b4-efde-4f16-af39-7110e0ce4774.jpg"
+                src="/images/RA_Verde_Bar_RV6_250317.jpg"
                 alt="Verde NYC Lounge bar with chairs lining the bar counter"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -135,7 +135,7 @@ export default function PrivateEventsPage() {
           <div className="private-events-image-col">
             <div className="private-events-image-wrapper">
               <Image
-                src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/974cdb17-45e7-4440-8cdb-78b3b7d199f7/AlexTphoto.com+-+Mila+Omakase-01-HighRes.jpg"
+                src="/images/RA_Verde_Main3_RV6_250317.jpg"
                 alt="Verde NYC Omakase space with chairs lining the outside and a japanese cherry blossom tree on the left"
                 fill
                 style={{ objectFit: 'cover' }}

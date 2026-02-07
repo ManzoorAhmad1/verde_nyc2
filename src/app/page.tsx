@@ -86,22 +86,10 @@ export default function HomePage() {
         {/* Hero Section with Video */}
         <section id="opening-video" className="hero-section">
           <div className="hero-video-container">
-            <iframe
-              className="hero-video-bg"
-              src="https://www.youtube.com/embed/HGBXHkrPQX0?autoplay=1&mute=1&loop=1&playlist=HGBXHkrPQX0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: '100vw',
-                height: '56.25vw',
-                minHeight: '100vh',
-                minWidth: '177.77vh',
-                transform: 'translate(-50%, -50%)',
-                border: 'none',
-              }}
+            <img
+              src="/images/2024.11.12-ExteriorNight-Verde-burgundy.png"
+              alt="Verde NYC exterior at night"
+              className="hero-image-bg"
             />
             <div className="hero-overlay" />
           </div>
@@ -134,7 +122,7 @@ export default function HomePage() {
               {/* Mila Restaurant */}
               <div className="relative w-full aspect-[16/9] overflow-hidden group">
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/31ec4b05-6b9d-4014-81bd-4baefcddb28f/DSC_4013.jpg"
+                  src="/images/RA_Verde_Main1_RV6_250317.jpg"
                   alt="Mila restaurant"
                   className="w-full h-full object-cover"
                 />
@@ -152,7 +140,7 @@ export default function HomePage() {
               {/* Verde Omakase */}
               <Link href="/milaomakase" className="relative w-full aspect-[16/9] overflow-hidden group">
                 <Image
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/067e5ee0-76ff-453f-9a16-954997681fc9/AlexTphoto.com+-+Mila+Omakase-01-HighRes.jpg"
+                  src="/images/RA_Verde_Main2_RV6_250317.jpg"
                   alt="Verde NYC Omakase"
                   fill
                   className="object-cover"
@@ -171,7 +159,7 @@ export default function HomePage() {
               {/* Verde Lounge */}
               <Link href="/milalounge" className="relative w-full aspect-[16/9] overflow-hidden group">
                 <Image
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8f672c29-bd96-4251-9c59-6df2e3e76e52/AlexTphoto.com+-+Mila+Lounge-04-HighRes.jpg"
+                  src="/images/RA_Verde_Main3_RV6_250317.jpg"
                   alt="Verde NYC Lounge"
                   fill
                   className="object-cover"
@@ -190,7 +178,7 @@ export default function HomePage() {
               {/* MM Members Club */}
               <Link href="/membersclub" className="relative w-full aspect-[16/9] overflow-hidden group">
                 <Image
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/5bc6c87d-cfad-4939-a20f-044ab02805a3/MM+Club+1.jpg"
+                  src="/images/RA_Verde_Bar_RV6_250317.jpg"
                   alt="MM Members Club"
                   fill
                   className="object-cover"
@@ -216,7 +204,7 @@ export default function HomePage() {
           id="introduction"
           className="section section-with-bg"
           style={{
-            backgroundImage: 'url(https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/4123ed8a-2100-4876-a12b-4a146be4c408/MILA.jpg)',
+            backgroundImage: 'url(/images/RA_Verde_interior_Main_4_290325.jpeg)',
             backgroundSize: 'cover',
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
@@ -257,7 +245,7 @@ export default function HomePage() {
 
           className="eudaimonia-section"
           style={{
-            backgroundImage: 'url(https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/e528ea05-1d1f-4146-a2b9-80fb763bde2c/LONGEVITY-1-edit.jpg)',
+            backgroundImage: 'url(/images/RA_Verde_Bar2_RV6_250317.jpg)',
           }}
         >
           <div className="section-overlay" style={{ background: 'rgba(0,0,0,0.4)' }} />
@@ -267,8 +255,8 @@ export default function HomePage() {
 
             >
               <hr className="hr-line" />
-              <h3>A Place to Dine, Dance, and Indulge</h3>
-              <p>
+              <h3 >A Place to Dine, Dance, and Indulge</h3>
+              <p className='text-white'>
                 Verde NYC invites you to step into a world where elegance, flavor, and celebration come together. Drawing inspiration from the elegance of Paris and the vibrant spirit of the Mediterranean, every detail at Verde is designed to transport you. Experience culinary masterpieces crafted with creativity and precision, surrounded by an atmosphere that pulses with energy and sophistication. Whether it&apos;s an intimate dinner or a night of celebration, Verde NYC creates unforgettable moments where style meets substance.
               </p>
               <hr className="hr-line" />
@@ -304,7 +292,7 @@ export default function HomePage() {
         <section id="art-culture-mila" className="art-section">
           <div className="art-image">
             <img
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/8821ab81-8a28-4bb5-8c68-218c3b31789e/DSC_8759.jpg"
+              src="/images/RA_Verde_interior_Main_4_290325.jpeg"
               alt="Verde NYC Art Culture"
               className="object-cover"
               sizes="100vw"
@@ -350,7 +338,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1769652316932-M19U2Q5ET3KUZWB85V7W/image-asset.jpeg"
+                  src="/images/RA_Verde_Main1_RV6_250317.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -362,7 +350,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1769460060172-DCS2WFURNDZVPYX6X3DA/image-asset.jpeg"
+                  src="/images/RA_Verde_Main2_RV6_250317.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -374,7 +362,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1769215038975-SOI0H222HTEGLNGXK001/image-asset.jpeg"
+                  src="/images/RA_Verde_Main3_RV6_250317.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -386,7 +374,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1769042629602-0LTVL48G0ZIYAE0HDQFD/image-asset.jpeg"
+                  src="/images/RA_Verde_Bar_RV6_250317.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -398,7 +386,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1768591723858-OXU62MEW8MYWI6CI9H08/image-asset.jpeg"
+                  src="/images/RA_Verde_Bar2_RV6_250317.jpg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />
@@ -410,7 +398,7 @@ export default function HomePage() {
                 className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 <img
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1768332668589-FL0J0JD5M6SE026TS0T2/image-asset.jpeg"
+                  src="/images/RA_Verde_interior_Lobby_290325.jpeg"
                   alt="Instagram post"
                   className="object-cover w-full h-full"
                 />

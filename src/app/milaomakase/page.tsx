@@ -19,20 +19,13 @@ export default function MilaOmakasePage() {
       <section id="omakase-video" className="omakase-hero-section">
         <div className="omakase-video-bg">
           <Image
-            src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/974cdb17-45e7-4440-8cdb-78b3b7d199f7/AlexTphoto.com+-+Mila+Omakase-01-HighRes.jpg"
+            src="/images/RA_Verde_Main1_RV6_250317.jpg"
             alt="Verde NYC Omakase Interior"
             fill
             style={{ objectFit: 'cover' }}
             priority
           />
           <div className="omakase-video-overlay"></div>
-          <iframe
-            className="omakase-youtube-embed"
-            src="https://www.youtube.com/embed/IX3C2kII9ik?autoplay=1&mute=1&loop=1&playlist=IX3C2kII9ik&controls=0&showinfo=0&modestbranding=1&playsinline=1"
-            title="Experience Verde NYC Omakase"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
         </div>
         <div className="omakase-hero-content">
           <h1>VERDE OMAKASE</h1>
@@ -43,7 +36,7 @@ export default function MilaOmakasePage() {
       <section id="mila-omakase-miami" className="omakase-info-section">
         <div className="omakase-info-bg">
           <Image
-            src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
+            src="/images/RA_Verde_interior_Lobby_290325.jpeg"
             alt="Verde NYC texture background"
             fill
             style={{ objectFit: 'cover' }}
@@ -85,7 +78,7 @@ export default function MilaOmakasePage() {
       <section id="omakase" className="omakase-experience-section">
         <div className="omakase-experience-bg">
           <Image
-            src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/182d9f1b-2aea-4ba1-bc57-5c5e9eaf6355/MILA-OMAKASE-VENUE.jpg"
+            src="/images/RA_Verde_Main2_RV6_250317.jpg"
             alt="Verde NYC Omakase Venue"
             fill
             style={{ objectFit: 'cover' }}
@@ -127,7 +120,7 @@ export default function MilaOmakasePage() {
         <div className="omakase-heritage-content">
           <div className="omakase-heritage-image">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/c2262d80-3c49-463e-bd90-45383c7a5db3/Tuna+Nicois+Salad+3.jpg"
+              src="/images/RA_Verde_Bar2_RV6_250317.jpg"
               alt="Verde NYC Omakase's Tuna Nicois Salad on a cream colored plate with garnishes"
               width={2323}
               height={2323}

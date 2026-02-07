@@ -24,7 +24,7 @@ export default function ValentinesDayPage() {
         <section id="valentines-banner" className="valentines-banner-section">
           <div className="parallax-background">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/ee28f80c-3b8f-4dea-b7bb-a9a0baf03a81/MILA_Valentine%27s+Day+2026_121825_Web+Popup.jpg"
+              src="/images/2024.11.12-ExteriorNight-Verde-burgundy.png"
               alt="Verde NYC Valentine's Day 2026"
               fill
               style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
@@ -67,7 +67,7 @@ export default function ValentinesDayPage() {
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
                 <Image
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/d4a37912-2e15-4d5b-8888-0d0e4e4f0230/Miami-New-Year-Restaurant.png"
+                  src="/images/RA_Verde_Main1_RV6_250317.jpg"
                   alt="Verde NYC Valentine's Day Restaurant"
                   width={620}
                   height={263}
@@ -121,7 +121,7 @@ export default function ValentinesDayPage() {
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
                 <Image
-                  src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0865fdc5-4b44-4303-9c25-d9e7d913e9ba/mila-lounge-low-res.png"
+                  src="/images/RA_Verde_Bar2_RV6_250317.jpg"
                   alt="New York Verde Lounge New Year"
                   style={{ maxWidth: '100%', height: 'auto' }}
                   width={1920}

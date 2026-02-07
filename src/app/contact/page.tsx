@@ -19,7 +19,7 @@ export default function ContactPage() {
       <section id="contact-mila" className="contact-hero">
         <div className="contact-hero-image">
           <Image
-            src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/13b60406-0b2a-4ac7-9d2c-6a4205216af3/3fea97c5-38f1-4ffe-9a55-b65a5454ac0c.jpg"
+            src="/images/RA_Verde_interior_Main_4_290325.jpeg"
             alt="Verde NYC Contact"
             fill
             style={{ objectFit: 'cover' }}

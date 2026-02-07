@@ -13,15 +13,15 @@ export default function MilaLoungePage() {
   
   const galleryImages = [
     {
-      src: 'https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1756234869691-R7EL7INT2P81M6V31CVT/AlexTphoto.com%2B-%2BMila%2BLounge-04-HighRes.jpg',
+      src: '/images/RA_Verde_Main1_RV6_250317.jpg',
       alt: 'Verde NYC Lounge Interior'
     },
     {
-      src: 'https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1756235076572-92RFJHJIHE29IG0R07YR/MILA%25252B31%25252BOctober%25252B2021%25252BHalloween%25252B%25252B%2525252817%25252529.jpg',
+      src: '/images/RA_Verde_Bar_RV6_250317.jpg',
       alt: 'Verde NYC Halloween Party'
     },
     {
-      src: 'https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1669408731321-M24DS51N6LZA3V2D0576/AdobeStock_228024003.jpg',
+      src: '/images/RA_Verde_Main2_RV6_250317.jpg',
       alt: 'Verde NYC Lounge Ambiance'
     }
   ];
@@ -114,7 +114,7 @@ export default function MilaLoungePage() {
           
           <div className="lounge-lineup-image">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/9405b8bc-b07a-4988-a64c-72b29bb5a2f6/MONTHLY+LINEUP_02.04+-+02.28_IN+FEED+%28Jan+26%29.png"
+              src="/images/RA_Verde_Main3_RV6_250317.jpg"
               alt="Monthly DJ Lineup"
               width={1080}
               height={1350}
@@ -135,7 +135,7 @@ export default function MilaLoungePage() {
         <div className="lounge-tshirts-content">
           <div className="lounge-tshirts-image">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/1764177631183-O4J902TADXLX2CZPIKE8/Winter+Lineup+Tshirt+In+feed+%283%29.png"
+              src="/images/RA_Verde_Bar2_RV6_250317.jpg"
               alt="Winter Lineup T-Shirt"
               width={1080}
               height={1350}
@@ -180,7 +180,7 @@ export default function MilaLoungePage() {
           
           <div className="lounge-collage-image">
             <img
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/498f3de4-116f-4dfc-8737-44b100903c7c/MILA+Lounge"
+              src="/images/2024.11.12-ExteriorNight-Verde-burgundy.png"
               alt="8 collaged images of Verde NYC lounge with a dj, people laughing and dancing, cocktails and a view of the bar"
               style={{ width: '100%', height: 'auto' }}
             />
