@@ -11,13 +11,13 @@ export default function MiamiBrunchPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const images = [
-    "https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8504.jpg",
-    "https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8506.jpg",
-    "https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8507.jpg",
-    "https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8510.jpg",
-    "https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8511.jpg",
-    "https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8513.jpg",
-    "https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8514.jpg"
+    "https://dm4kmpvzhijsu.cloudfront.net/images/_40A8504.jpg",
+    "https://dm4kmpvzhijsu.cloudfront.net/images/_40A8506.jpg",
+    "https://dm4kmpvzhijsu.cloudfront.net/images/_40A8507.jpg",
+    "https://dm4kmpvzhijsu.cloudfront.net/images/_40A8510.jpg",
+    "https://dm4kmpvzhijsu.cloudfront.net/images/_40A8511.jpg",
+    "https://dm4kmpvzhijsu.cloudfront.net/images/_40A8513.jpg",
+    "https://dm4kmpvzhijsu.cloudfront.net/images/_40A8514.jpg"
   ];
 
   const handlePrevious = () => {
@@ -38,7 +38,7 @@ export default function MiamiBrunchPage() {
         <section id="brunch-banner" className="brunch-banner-section">
           <div className="parallax-background">
             <img
-              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8503.jpg"
+              loading="eager" decoding="async" fetchPriority="high" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8503.jpg"
               alt="Verde NYC Brunch"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
@@ -112,7 +112,7 @@ export default function MiamiBrunchPage() {
             <div className="brunch-image-card right">
               <div className="image-card-image">
                 <img 
-                  src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8515.jpg"
+                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8515.jpg"
                   alt="Verde NYC Sunday Brunch featuring chef-curated Mediterranean stations"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
@@ -138,7 +138,7 @@ export default function MiamiBrunchPage() {
             <div className="brunch-image-card left">
               <div className="image-card-image">
                 <img
-                  src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8519.jpg"
+                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8519.jpg"
                   alt="Verde NYC signature brunch cocktails and Mediterranean beverages"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />

@@ -18,7 +18,7 @@ export default function PressPage() {
         <div className="coming-soon-content">
           <div className="coming-soon-logo">
             <img
-              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png"
+              loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/logo-Verde-NYC-white.png"
               alt="Verde NYC - A Yeeels Group Venue"
               width={200}
               height={80}

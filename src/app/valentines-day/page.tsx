@@ -23,7 +23,7 @@ export default function ValentinesDayPage() {
         <section id="valentines-banner" className="valentines-banner-section">
           <div className="parallax-background">
             <img
-              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8521.jpg"
+              loading="eager" decoding="async" fetchPriority="high" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8521.jpg"
               alt="Verde NYC Valentine's Day 2026 - A Yeeels Group Celebration"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
@@ -38,7 +38,7 @@ export default function ValentinesDayPage() {
         <section id="valentines-content" className="valentines-content-section">
           <div className="parallax-background texture-bg">
             <img
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
+              loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
               alt="mila-miami-texture"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
@@ -63,7 +63,7 @@ export default function ValentinesDayPage() {
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
                 <img
-                  src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8522.jpg"
+                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8522.jpg"
                   alt="Verde NYC Valentine's Day Restaurant"
                   style={{ maxWidth: '100%', height: 'auto' }}
                 />
@@ -115,7 +115,7 @@ export default function ValentinesDayPage() {
 
               <div className="venue-image-wrapper max-w-2xl mx-auto">
                 <img
-                  src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8523.jpg"
+                  loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8523.jpg"
                   alt="New York Verde Lounge New Year"
                   style={{ maxWidth: '100%', height: 'auto' }}
                 />

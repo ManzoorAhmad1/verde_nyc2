@@ -14,11 +14,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'verdey-nyc.s3.eu-north-1.amazonaws.com',
+        hostname: 'dm4kmpvzhijsu.cloudfront.net',
         pathname: '/**',
       },
     ],
-    domains: ['images.squarespace-cdn.com', 'files.elfsightcdn.com', 'verdey-nyc.s3.eu-north-1.amazonaws.com'],
+    domains: ['images.squarespace-cdn.com', 'files.elfsightcdn.com', 'dm4kmpvzhijsu.cloudfront.net'],
     unoptimized: true,
   },
   reactStrictMode: true,

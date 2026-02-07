@@ -22,7 +22,7 @@ export default function RestaurantPage() {
         <section id="restaurant-gallery" className="restaurant-gallery-section">
           <div className="gallery-slideshow">
             <img
-              src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"
+              loading="eager" decoding="async" fetchPriority="high" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8442.jpg"
               alt="Verde NYC Restaurant"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
@@ -33,7 +33,7 @@ export default function RestaurantPage() {
         <section id="our-philosophy-mila" className="philosophy-section">
           <div className="parallax-background texture-bg">
             <img
-              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
+              loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
               alt="verde-nyc-texture"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
@@ -372,42 +372,42 @@ export default function RestaurantPage() {
           <div className="gallery-grid">
             <div className="gallery-item">
               <img
-                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8443.jpg"
+                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8443.jpg"
                 alt="Verde NYC Food"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <img
-                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8444.jpg"
+                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8444.jpg"
                 alt="Verde NYC Food"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <img
-                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8452.jpg"
+                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8452.jpg"
                 alt="Verde NYC Food"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <img
-                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8455.jpg"
+                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8455.jpg"
                 alt="Verde NYC Cuisine"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <img
-                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8459.jpg"
+                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8459.jpg"
                 alt="Verde NYC Food"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
             <div className="gallery-item">
               <img
-                src="https://verdey-nyc.s3.eu-north-1.amazonaws.com/images/_40A8460.jpg"
+                loading="lazy" decoding="async" src="https://dm4kmpvzhijsu.cloudfront.net/images/_40A8460.jpg"
                 alt="Verde NYC Food"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
