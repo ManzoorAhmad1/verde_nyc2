@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import WhatsAppButton from './components/WhatsAppButton'
+import FloatingActionButton from './components/FloatingActionButton'
 
 export const metadata: Metadata = {
   title: 'Verde NYC | MediterrAsian Rooftop Restaurant & Lounge',
@@ -26,7 +26,17 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
-        <WhatsAppButton />
+        <div id="fab-portal" style={{
+          position: 'fixed',
+          bottom: 0,
+          right: 0,
+          left: 0,
+          top: 0,
+          pointerEvents: 'none',
+          zIndex: 999999,
+        }}>
+          <FloatingActionButton />
+        </div>
       </body>
     </html>
   )

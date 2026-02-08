@@ -9,40 +9,57 @@ import Footer from './components/Footer';
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const sectionRef: any = useRef(null);
+  const introRef: any = useRef(null);
   const eudaimoniaRef: any = useRef(null)
   const EudaimoniaRef: any = useRef(null)
   const ticking = useRef(false);
 
-  // Combined optimized scroll handler with requestAnimationFrame
+  // Optimized scroll handler - disable intro parallax for smoothness
   useEffect(() => {
     const handleScroll = () => {
       if (ticking.current) return;
-      
+
       ticking.current = true;
       requestAnimationFrame(() => {
         const scrollPosition = window.pageYOffset;
-        
-        // Parallax for eudaimoniaRef
+
+        // Subtle parallax for intro background
+        if (introRef.current) {
+          const bgWrapper = introRef.current.querySelector('.intro-bg-wrapper');
+          if (bgWrapper) {
+            const rect = introRef.current.getBoundingClientRect();
+            // Only animate when visible
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            
+            if (isVisible) {
+              const sectionTop = introRef.current.offsetTop;
+              const relativeScroll = scrollPosition - sectionTop;
+              // Subtle movement (0.2 speed)
+              const offset = relativeScroll * 0.2;
+              bgWrapper.style.transform = `translate3d(0, ${offset}px, 0)`;
+            }
+          }
+        }
+
+        // Light parallax only for other sections
         if (eudaimoniaRef.current) {
           const sectionTop = eudaimoniaRef.current.offsetTop;
-          const backgroundPosition = (scrollPosition - sectionTop) * 0.2;
+          const backgroundPosition = (scrollPosition - sectionTop) * 0.15;
           eudaimoniaRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
         }
-        
-        // Parallax for EudaimoniaRef
+
         if (EudaimoniaRef.current) {
           const sectionTop = EudaimoniaRef.current.offsetTop;
-          const backgroundPosition = (scrollPosition - sectionTop) * 0.2;
+          const backgroundPosition = (scrollPosition - sectionTop) * 0.15;
           EudaimoniaRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
         }
-        
-        // Parallax for sectionRef
+
         if (sectionRef.current) {
           const sectionTop = sectionRef.current.offsetTop;
-          const backgroundPosition = (scrollPosition - sectionTop) * 0.2;
+          const backgroundPosition = (scrollPosition - sectionTop) * 0.15;
           sectionRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
         }
-        
+
         ticking.current = false;
       });
     };
@@ -72,7 +89,6 @@ export default function HomePage() {
               alt="Verde NYC exterior at night"
               className="hero-image-bg"
             />
-            <div className="hero-overlay" />
           </div>
           <div className="scroll-indicator">
             <span>Scroll</span>
@@ -81,7 +97,7 @@ export default function HomePage() {
         </section>
 
         {/* Verde NYC Venues Section */}
-        <section id="mila-venues" className="section" style={{
+        <section id="mila-venues" className="section venue-section-smooth" style={{
           backgroundImage: 'url(https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png)',
         }}>
           <div className="w-full mt-20">
@@ -96,75 +112,71 @@ export default function HomePage() {
             </p>
 
             {/* Venue Cards Grid */}
-            <div className="venue-grid mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="venue-grid mt-12 grid grid-cols-1 md:grid-cols-2 gap-3">
 
               {/* Verde Restaurant */}
-              <div className="relative w-full aspect-[16/9] overflow-hidden group">
+              <div className="venue-card-smooth relative w-full aspect-[16/9] overflow-hidden group">
                 <img
                   loading="lazy" decoding="async" src="/images/_40A8416.jpg"
                   alt="Verde NYC Restaurant"
-                  className="w-full h-full object-cover"
+                  className="venue-image-smooth w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 flex items-center justify-center 
-                        bg-black/30 
+                <div className="venue-overlay-smooth absolute inset-0 flex items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
-                        transition-all duration-500 ease-out">
-                  <h3 className="text-white text-2xl md:text-3xl font-semibold text-center">
+                        transition-colors duration-500 ease-out">
+                  <p className="text-white text-2xl font-semibold text-center">
                     VERDE RESTAURANT
-                  </h3>
+                  </p>
                 </div>
               </div>
 
               {/* Verde Omakase */}
-              <Link href="/milaomakase" className="relative w-full aspect-[16/9] overflow-hidden group">
+              <Link href="/milaomakase" className="venue-card-smooth relative w-full aspect-[16/9] overflow-hidden group">
                 <img
                   loading="lazy" decoding="async" src="/images/_40A8416.jpg"
                   alt="Verde NYC Omakase"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="venue-image-smooth absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 flex items-center justify-center 
-                        bg-black/30 
+                <div className="venue-overlay-smooth absolute inset-0 flex items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
-                        transition-all duration-500 ease-out">
-                  <h3 className="text-white text-2xl md:text-3xl font-semibold text-center">
+                        transition-colors duration-500 ease-out">
+                  <h3 className="text-white text-2xl font-semibold text-center">
                     verde omakase
                   </h3>
                 </div>
               </Link>
 
               {/* Verde Lounge */}
-              <Link href="/milalounge" className="relative w-full aspect-[16/9] overflow-hidden group">
+              <Link href="/milalounge" className="venue-card-smooth relative w-full aspect-[16/9] overflow-hidden group">
                 <img
                   loading="lazy" decoding="async" src="/images/_40A8417.jpg"
                   alt="Verde NYC Lounge"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="venue-image-smooth absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 flex items-center justify-center 
-                        bg-black/30 
+                <div className="venue-overlay-smooth absolute inset-0 flex items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
-                        transition-all duration-500 ease-out">
-                  <h3 className="text-white text-2xl md:text-3xl font-semibold text-center">
+                        transition-colors duration-500 ease-out">
+                  <h3 className="text-white text-2xl  font-semibold text-center">
                     verde lounge
                   </h3>
                 </div>
               </Link>
 
               {/* MM Members Club */}
-              <Link href="/membersclub" className="relative w-full aspect-[16/9] overflow-hidden group">
+              <Link href="/membersclub" className="venue-card-smooth relative w-full aspect-[16/9] overflow-hidden group">
                 <img
                   loading="lazy" decoding="async" src="/images/_40A8418.jpg"
                   alt="MM Members Club"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="venue-image-smooth absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 flex items-center justify-center 
-                        bg-black/30 
+                <div className="venue-overlay-smooth absolute inset-0 flex items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
-                        transition-all duration-500 ease-out">
-                  <h3 className="text-white text-2xl md:text-3xl font-semibold text-center uppercase">
+                        transition-colors duration-500 ease-out">
+                  <h3 className="text-white text-2xl font-semibold text-center uppercase">
                     mm
                   </h3>
                 </div>
@@ -176,25 +188,13 @@ export default function HomePage() {
 
         {/* Introduction Section */}
         <section
-          ref={sectionRef}
+          ref={introRef}
           id="introduction"
-          className="section section-with-bg"
-          style={{
-            backgroundImage: 'url(/images/_40A8419.jpg)',
-            backgroundSize: 'cover',
-            backgroundAttachment: 'fixed',
-            backgroundPosition: 'center',
-            minHeight: '60vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
-            overflow: 'hidden'
-          }}
+          className="section intro-smooth-section"
         >
-          <div className="section-overlay" />
-          <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-            <h2 className="w-full section-heading text-white">
+          <div className="intro-bg-wrapper"></div>
+          <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4" style={{ zIndex: 10 }}>
+            <h2 className="w-full section-heading text-white intro-text-animate">
               Born in Paris. Celebrated in Saint-Tropez. Elevated in Dubai. <br />
               Now, Verde arrives in New York—bringing two decades of Mediterranean excellence to the Meatpacking District.
             </h2>
@@ -224,11 +224,9 @@ export default function HomePage() {
             backgroundImage: 'url(/images/_40A8421.jpg)',
           }}
         >
-          <div className="section-overlay" style={{ background: 'rgba(0,0,0,0.4)' }} />
           <div className="relative z-10">
             <div className="eudaimonia-content text-white"
               ref={EudaimoniaRef}
-
             >
               <hr className="hr-line" />
               <h3 >The Art of Festive Dining</h3>
@@ -251,10 +249,10 @@ export default function HomePage() {
           <div className="relative z-10 text-white">
             <h2 className="section-heading">Our Philosophy</h2>
             <div className="philosophy-grid">
-              <p style={{color: 'var(--verde-text)'}}>
+              <p style={{ color: 'var(--verde-text)' }}>
                 The Yeeels Group was founded on a singular vision: to become the global leader in high-end festive dining. This vision has guided our expansion from Paris to Saint-Tropez, Dubai to New York, always with the same unwavering commitment to excellence. At Verde NYC, this philosophy manifests in every detail—from the carefully sourced Mediterranean ingredients to the bespoke interior design that blends reclaimed woods, natural stone, and artisanal textiles imported from our European ateliers.
               </p>
-              <p style={{color: 'var(--verde-text)'}}>
+              <p style={{ color: 'var(--verde-text)' }}>
                 Our three pillars—Food, Tribe, and Stories—define everything we do. Creative and passionate cuisine designed for sharing. A culture of collaboration, respect, and operational excellence. High-energy, immersive experiences that transform dining into celebration. These values have made us leaders across four countries and nine venues, and they now come to life in the heart of Manhattan&apos;s Meatpacking District.
               </p>
             </div>
@@ -271,8 +269,8 @@ export default function HomePage() {
               sizes="100vw"
             />
           </div>
-          <div className="art-content" style={{color: 'var(--verde-text)'}}>
-            <h2 style={{color: 'var(--verde-heading)'}}>ART & Culture</h2>
+          <div className="art-content" style={{ color: 'var(--verde-text)' }}>
+            <h2 style={{ color: 'var(--verde-heading)' }}>ART & Culture</h2>
             <p>
               The Yeeels Group has always believed that exceptional dining spaces require exceptional artistry. Across our venues in France, Italy, UAE, and the United States, we collaborate with visionary artists, sculptors, ceramists, and designers to create environments that inspire and transport.
             </p>

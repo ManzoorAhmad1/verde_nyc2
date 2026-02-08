@@ -238,6 +238,9 @@
     color: var(--foreground);
     background: var(--background);
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    /* Prevent layout shifts during scroll */
+    overscroll-behavior: none;
   }
 
   h1,
@@ -486,6 +489,8 @@
   .section {
     padding: 15px 15px;
     position: relative;
+    /* Optimize for smooth scrolling */
+    contain: layout;
   }
 
   .section-dark {
@@ -497,8 +502,53 @@
     position: relative;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    will-change: background-position;
+    background-attachment: scroll;
+  }
+
+  /* Introduction Section - Ultra Smooth with Natural Scroll */
+  .intro-smooth-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .intro-bg-wrapper {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-image: url('/images/_40A8419.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* Natural scroll with page */
+    background-attachment: scroll;
+    /* GPU acceleration for smoothness */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    z-index: 0;
+  }
+
+  .intro-text-animate {
+    opacity: 0;
+    animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .section-overlay {
@@ -508,6 +558,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
   }
 
   .section-title {
@@ -586,6 +637,31 @@
     font-size: 14px;
     line-height: 1.7;
     opacity: 0.9;
+  }
+
+  /* Smooth Scrolling Venue Cards */
+  .venue-card-smooth {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: auto;
+  }
+
+  .venue-image-smooth {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .venue-overlay-smooth {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .venue-section-smooth {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
   }
 
   /* Buttons */
@@ -856,8 +932,7 @@
     padding: 120px 40px;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    will-change: background-position;
+    background-attachment: scroll;
   }
 
   .eudaimonia-content {
@@ -885,8 +960,7 @@
     padding: 80px 40px;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    will-change: background-position;
+    background-attachment: scroll;
   }
 
   .philosophy-grid {
@@ -986,6 +1060,20 @@
 
     .section-heading {
       font-size: 24px;
+    }
+
+    /* Optimizations for intro section on mobile */
+    .intro-smooth-section {
+      min-height: 80vh !important;
+    }
+
+    .intro-bg-wrapper {
+      background-position: center !important;
+      background-attachment: scroll !important;
+    }
+
+    .intro-text-animate {
+      font-size: 22px !important;
     }
 
     /* Disable fixed background on mobile for better scroll performance */
@@ -3728,5 +3816,216 @@
 
   .bg-gradient-dark {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  }
+}
+
+/* ============================================
+   WhatsApp Button Animation
+   ============================================ */
+.whatsapp-pulse {
+  animation: whatsappPulse 2s ease-in-out infinite;
+}
+
+.whatsapp-pulse:hover {
+  animation: none;
+}
+
+@keyframes whatsappPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1);
+  }
+}
+
+/* ============================================
+   Floating Action Button (FAB)
+   ============================================ */
+.floating-action-container {
+  position: fixed !important;
+  bottom: 30px !important;
+  right: 30px !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 15px !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Main FAB Button */
+.fab-main {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8e402f 0%, #a85842 100%);
+  border: none;
+  box-shadow: 0 4px 20px rgba(142, 64, 47, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation: fabBounce 2s ease-in-out infinite;
+  color: white;
+  position: relative;
+  z-index: 99999;
+}
+
+.fab-main:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(142, 64, 47, 0.6);
+  animation: none;
+}
+
+.fab-main-open {
+  transform: rotate(180deg);
+  animation: none;
+}
+
+.fab-icon {
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pulse Animation */
+@keyframes fabPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(142, 64, 47, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(142, 64, 47, 0.6), 0 0 0 10px rgba(142, 64, 47, 0.1);
+  }
+}
+
+/* Bounce Animation - Up and Down Movement */
+@keyframes fabBounce {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 4px 20px rgba(142, 64, 47, 0.4);
+  }
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(142, 64, 47, 0.6), 0 0 0 10px rgba(142, 64, 47, 0.1);
+  }
+}
+
+/* FAB Menu */
+.fab-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+}
+
+.fab-menu-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* FAB Menu Items */
+.fab-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  min-width: 150px;
+  position: relative;
+  z-index: 99999;
+}
+
+.fab-menu-item:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.fab-menu-item svg {
+  flex-shrink: 0;
+}
+
+/* WhatsApp Button */
+.fab-whatsapp:hover {
+  background: #25D366;
+  color: white;
+  border-color: #25D366;
+}
+
+/* Phone Button */
+.fab-phone:hover {
+  background: #4285F4;
+  color: white;
+  border-color: #4285F4;
+}
+
+/* Reservation Button */
+.fab-reservation:hover {
+  background: #8e402f;
+  color: white;
+  border-color: #8e402f;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .floating-action-container {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .fab-main {
+    width: 56px;
+    height: 56px;
+  }
+
+  .fab-menu-item {
+    min-width: 140px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .fab-menu-item span {
+    font-size: 13px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .floating-action-container {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .fab-main {
+    width: 52px;
+    height: 52px;
+  }
+
+  .fab-menu-item {
+    min-width: 130px;
+    padding: 10px 14px;
+    font-size: 12px;
   }
 }
