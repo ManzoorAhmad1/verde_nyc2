@@ -9,44 +9,36 @@ import Footer from './components/Footer';
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const introRef: any = useRef(null);
-  const eudaimoniaRef: any = useRef(null)
-  const ticking = useRef(false);
+  const eudaimoniaRef: any = useRef(null);
 
-  // Optimized scroll handler - disable intro parallax for smoothness
+  // Optimized parallax scroll handler for smooth performance
   useEffect(() => {
-    const handleScroll = () => {
-      if (ticking.current) return;
+    let rafId: number | null = null;
 
-      ticking.current = true;
-      requestAnimationFrame(() => {
+    const handleScroll = () => {
+      if (rafId) return;
+
+      rafId = requestAnimationFrame(() => {
         const scrollPosition = window.pageYOffset;
 
-        // Subtle parallax for intro background
+        // Continuous parallax for intro section
         if (introRef.current) {
           const bgWrapper = introRef.current.querySelector('.intro-bg-wrapper');
           if (bgWrapper) {
-            const rect = introRef.current.getBoundingClientRect();
-            // Only animate when visible
-            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-            
-            if (isVisible) {
-              const sectionTop = introRef.current.offsetTop;
-              const relativeScroll = scrollPosition - sectionTop;
-              // Enhanced parallax movement (0.4 speed)
-              const offset = relativeScroll * 0.4;
-              bgWrapper.style.transform = `translate3d(0, ${offset}px, 0)`;
-            }
+            const sectionTop = introRef.current.offsetTop;
+            const parallaxOffset = (scrollPosition - sectionTop) * 0.3;
+            bgWrapper.style.transform = `translate3d(0, ${parallaxOffset}px, 0)`;
           }
         }
 
-        // Enhanced parallax for Eudaimonia section background only
+        // Continuous parallax for Eudaimonia section
         if (eudaimoniaRef.current) {
           const sectionTop = eudaimoniaRef.current.offsetTop;
-          const backgroundPosition = (scrollPosition - sectionTop) * 0.3;
-          eudaimoniaRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
+          const parallaxOffset = (scrollPosition - sectionTop) * 0.25;
+          eudaimoniaRef.current.style.backgroundPositionY = `${parallaxOffset}px`;
         }
 
-        ticking.current = false;
+        rafId = null;
       });
     };
 
@@ -54,6 +46,7 @@ export default function HomePage() {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -71,7 +64,7 @@ export default function HomePage() {
         <section id="opening-video" className="hero-section">
           <div className="hero-video-container">
             <img
-              loading="eager" decoding="async" fetchPriority="high" src="/images/_40A8416.jpg"
+              loading="eager" decoding="async" fetchPriority="high" src="/images/_40A8461.jpg"
               alt="Verde NYC exterior at night"
               className="hero-image-bg"
             />
@@ -117,11 +110,11 @@ export default function HomePage() {
                 <div className="venue-overlay-smooth absolute inset-0 flex flex-col items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
                         transition-colors duration-500 ease-out px-8">
-                  <h3 className="text-white text-2xl font-semibold text-center mb-2">
+                  <h3 className="text-white section-heading font-normal text-center mb-2">
                     VERDE RESTAURANT
                   </h3>
-                  <p className="text-white text-sm text-center opacity-90 max-w-md">
-                    The distinctively curated rooftop aims to take guests on a culinary journey through the shores of the Mediterranean and Japan.
+                  <p className="text-white text-sm text-center max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    The distinctively curated rooftop aims to take guests on a culinary journey through the shores of the Mediterranean.
                   </p>
                 </div>
               </div>
@@ -137,11 +130,11 @@ export default function HomePage() {
                 <div className="venue-overlay-smooth absolute inset-0 flex flex-col items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
                         transition-colors duration-500 ease-out px-8">
-                  <h3 className="text-white text-2xl font-semibold text-center mb-2">
-                    verde omakase
+                  <h3 className="text-white section-heading font-normal text-center mb-2">
+                    Verdy Party's
                   </h3>
-                  <p className="text-white text-sm text-center opacity-90 max-w-md">
-                    A 10-seat enclosed room offering the most exclusive and authentic journey in the Far East, magnified by the Mediterranean influences.
+                  <p className="text-white text-sm text-center max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Bespoke private events from intimate gatherings to grand celebrations. World-class hospitality experience for up to 400 guests with Mediterranean elegance.
                   </p>
                 </div>
               </Link>
@@ -157,11 +150,11 @@ export default function HomePage() {
                 <div className="venue-overlay-smooth absolute inset-0 flex flex-col items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
                         transition-colors duration-500 ease-out px-8">
-                  <h3 className="text-white text-2xl font-semibold text-center mb-2">
-                    verde lounge
+                  <h3 className="text-white section-heading font-normal text-center mb-2">
+                    Verde LouPange
                   </h3>
-                  <p className="text-white text-sm text-center opacity-90 max-w-md">
-                    A multi-sensory space offering a transportive, glamorous and elevated secluded nightlife, inspired by African tribes and primitive design style.
+                  <p className="text-white text-sm text-center max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Where Parisian craft meets New York soul. Intimate charm and metropolitan energy for vibrant lounge evenings and thoughtfully designed experiences.
                   </p>
                 </div>
               </Link>
@@ -177,11 +170,11 @@ export default function HomePage() {
                 <div className="venue-overlay-smooth absolute inset-0 flex flex-col items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
                         transition-colors duration-500 ease-out px-8">
-                  <h3 className="text-white text-2xl font-semibold text-center mb-2 uppercase">
-                    verde members club
+                  <h3 className="text-white section-heading font-normal text-center mb-2">
+                   Verdy Bar
                   </h3>
-                  <p className="text-white text-sm text-center opacity-90 max-w-md">
-                    An exclusively intimate venue, reserved to Verde members, featuring a new glamorous and modern wind to the conventional speakeasy vibes.
+                  <p className="text-white text-sm text-center max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Sunday Brunch experience featuring chef-curated Mediterranean stations, live music, and the festive energy from noon to 5pm on our sun-drenched rooftop.
                   </p>
                 </div>
               </Link>

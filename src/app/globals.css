@@ -509,8 +509,7 @@ html {
 
   /* Introduction Section - Ultra Smooth with Natural Scroll */
   .intro-smooth-section {
-    position: sticky;
-    top: 0;
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -530,12 +529,12 @@ html {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    /* Natural scroll with page */
     background-attachment: scroll;
-    /* GPU acceleration for smoothness */
     transform: translateZ(0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    will-change: transform;
+    transition: transform 0.1s ease-out;
     z-index: 0;
   }
 
@@ -939,8 +938,7 @@ html {
 
   /* Eudaimonia Section */
   .eudaimonia-section {
-    position: sticky;
-    top: 0;
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -949,7 +947,8 @@ html {
     background-position: center;
     background-attachment: scroll;
     z-index: 20;
-    will-change: transform;
+    will-change: transform, background-position;
+    transition: background-position 0.1s ease-out;
   }
 
   .eudaimonia-content {
