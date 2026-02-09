@@ -29,6 +29,12 @@ export default function HomePage() {
             const parallaxOffset = (scrollPosition - sectionTop) * 0.3;
             bgWrapper.style.transform = `translate3d(0, ${parallaxOffset}px, 0)`;
           }
+          
+          // Move the entire section down as user scrolls
+          const sectionTop = introRef.current.offsetTop;
+          const scrollProgress = Math.max(0, scrollPosition - (sectionTop - 800));
+          const sectionOffset = scrollProgress * 0.4;
+          introRef.current.style.transform = `translate3d(0, ${sectionOffset}px, 0)`;
         }
 
         // Continuous parallax for Eudaimonia section
@@ -188,6 +194,7 @@ export default function HomePage() {
           ref={introRef}
           id="introduction"
           className="section intro-smooth-section"
+          style={{ marginTop: '-100px' }}
         >
           <div className="intro-bg-wrapper"></div>
           <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4" style={{ zIndex: 10 }}>
