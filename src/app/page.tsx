@@ -87,14 +87,20 @@ export default function HomePage() {
           backgroundImage: 'url(https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png)',
         }}>
           <div className="w-full mt-20">
-            <h3 className="section-title font-bold">A YEEELS GROUP DESTINATION — Paris | Saint-Tropez | Dubai | New York</h3>
-            <h2 className="section-heading font-normal">Where Culinary Excellence Meets Celebration</h2>
+            <h3 className="section-title font-bold">A YEEELS GROUP DESTINATION — Paris | Saint-Tropez | Dubai | Sardinia | New York</h3>
+            <h2 className="section-heading font-normal">Where Parisian Craft Meets New York Soul</h2>
 
             <p className="section-text mb-8">
-              Verde NYC is the latest jewel in the Yeeels Group crown—an international hospitality collective renowned for creating exceptional living spaces across France, Italy, the UAE, and now the United States. We invite you on an unforgettable journey through Mediterranean and Asian flavors, where every dish tells a story of passion, precision, and artistry.
+              Verde NYC is the latest jewel in the Yeeels Group crown—an international hospitality collective celebrated for curating unforgettable culinary destinations across Europe, the Middle East, and now, in the heart of Manhattan.
             </p>
-            <p className="section-text mb-16">
-              Our New York destination features four distinct experiences, each designed to transport you beyond the ordinary—from our acclaimed rooftop restaurant to intimate omakase encounters, vibrant lounge celebrations, and exclusive members-only spaces.
+            <p className="section-text mb-8">
+              Verde brings Parisian soul to New York's vibrant streets. Here, French culinary tradition is reimagined with contemporary elegance—each dish reflects precision, passion, and the art of celebration.
+            </p>
+            <p className="section-text mb-8">
+              Step into a world of intimate charm and metropolitan energy, where every moment is crafted for connection and savor. From thoughtfully designed tasting journeys to vibrant lounge evenings and exclusive dining experiences, Verde invites you to dine beyond the expected.
+            </p>
+            <p className="section-text mb-16 italic">
+              Paris on the plate. New York in the room
             </p>
 
             {/* Venue Cards Grid */}
