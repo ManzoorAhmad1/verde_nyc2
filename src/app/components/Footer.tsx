@@ -61,15 +61,17 @@ export default function Footer() {
         {/* Center - Links & Newsletter */}
         <div className="footer-center">
           <div className="footer-links">
-            <Link href="/valentines-day" className="footer-link">VALENTINE'S DAY</Link>
+            <Link href="/menu" className="footer-link">MENU</Link>
             <span>|</span>
-            <Link href="/restaurant" className="footer-link">RESTAURANT</Link>
+            <Link href="/gallery" className="footer-link">GALLERY</Link>
             <span>|</span>
-            <Link href="/miami-brunch" className="footer-link">BRUNCH</Link>
-            <span>|</span>
-            <Link href="/membersclub" className="footer-link">MM MEMBERS CLUB</Link>
+            <Link href="/reserve" className="footer-link">RESERVE</Link>
             <span>|</span>
             <Link href="/private-events" className="footer-link">PRIVATE EVENTS</Link>
+            <span>|</span>
+            <Link href="/gift-card" className="footer-link">GIFT CARD</Link>
+            <span>|</span>
+            <Link href="/all-press" className="footer-link">PRESS</Link>
             <span>|</span>
             <Link href="/contact" className="footer-link">CONTACT</Link>
           </div>

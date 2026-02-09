@@ -8,10 +8,8 @@ import Footer from './components/Footer';
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const sectionRef: any = useRef(null);
   const introRef: any = useRef(null);
   const eudaimoniaRef: any = useRef(null)
-  const EudaimoniaRef: any = useRef(null)
   const ticking = useRef(false);
 
   // Optimized scroll handler - disable intro parallax for smoothness
@@ -34,30 +32,18 @@ export default function HomePage() {
             if (isVisible) {
               const sectionTop = introRef.current.offsetTop;
               const relativeScroll = scrollPosition - sectionTop;
-              // Subtle movement (0.2 speed)
-              const offset = relativeScroll * 0.2;
+              // Enhanced parallax movement (0.4 speed)
+              const offset = relativeScroll * 0.4;
               bgWrapper.style.transform = `translate3d(0, ${offset}px, 0)`;
             }
           }
         }
 
-        // Light parallax only for other sections
+        // Enhanced parallax for Eudaimonia section background only
         if (eudaimoniaRef.current) {
           const sectionTop = eudaimoniaRef.current.offsetTop;
-          const backgroundPosition = (scrollPosition - sectionTop) * 0.15;
+          const backgroundPosition = (scrollPosition - sectionTop) * 0.3;
           eudaimoniaRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
-        }
-
-        if (EudaimoniaRef.current) {
-          const sectionTop = EudaimoniaRef.current.offsetTop;
-          const backgroundPosition = (scrollPosition - sectionTop) * 0.15;
-          EudaimoniaRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
-        }
-
-        if (sectionRef.current) {
-          const sectionTop = sectionRef.current.offsetTop;
-          const backgroundPosition = (scrollPosition - sectionTop) * 0.15;
-          sectionRef.current.style.backgroundPositionY = `${backgroundPosition}px`;
         }
 
         ticking.current = false;
@@ -122,11 +108,14 @@ export default function HomePage() {
                   className="venue-image-smooth w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
-                <div className="venue-overlay-smooth absolute inset-0 flex items-center justify-center 
+                <div className="venue-overlay-smooth absolute inset-0 flex flex-col items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
-                        transition-colors duration-500 ease-out">
-                  <p className="text-white text-2xl font-semibold text-center">
+                        transition-colors duration-500 ease-out px-8">
+                  <h3 className="text-white text-2xl font-semibold text-center mb-2">
                     VERDE RESTAURANT
+                  </h3>
+                  <p className="text-white text-sm text-center opacity-90 max-w-md">
+                    The distinctively curated rooftop aims to take guests on a culinary journey through the shores of the Mediterranean and Japan.
                   </p>
                 </div>
               </div>
@@ -139,12 +128,15 @@ export default function HomePage() {
                   className="venue-image-smooth absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
-                <div className="venue-overlay-smooth absolute inset-0 flex items-center justify-center 
+                <div className="venue-overlay-smooth absolute inset-0 flex flex-col items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
-                        transition-colors duration-500 ease-out">
-                  <h3 className="text-white text-2xl font-semibold text-center">
+                        transition-colors duration-500 ease-out px-8">
+                  <h3 className="text-white text-2xl font-semibold text-center mb-2">
                     verde omakase
                   </h3>
+                  <p className="text-white text-sm text-center opacity-90 max-w-md">
+                    A 10-seat enclosed room offering the most exclusive and authentic journey in the Far East, magnified by the Mediterranean influences.
+                  </p>
                 </div>
               </Link>
 
@@ -156,29 +148,35 @@ export default function HomePage() {
                   className="venue-image-smooth absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
-                <div className="venue-overlay-smooth absolute inset-0 flex items-center justify-center 
+                <div className="venue-overlay-smooth absolute inset-0 flex flex-col items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
-                        transition-colors duration-500 ease-out">
-                  <h3 className="text-white text-2xl  font-semibold text-center">
+                        transition-colors duration-500 ease-out px-8">
+                  <h3 className="text-white text-2xl font-semibold text-center mb-2">
                     verde lounge
                   </h3>
+                  <p className="text-white text-sm text-center opacity-90 max-w-md">
+                    A multi-sensory space offering a transportive, glamorous and elevated secluded nightlife, inspired by African tribes and primitive design style.
+                  </p>
                 </div>
               </Link>
 
-              {/* MM Members Club */}
+              {/* Verde Members Club */}
               <Link href="/membersclub" className="venue-card-smooth relative w-full aspect-[16/9] overflow-hidden group">
                 <img
                   loading="lazy" decoding="async" src="/images/_40A8418.jpg"
-                  alt="MM Members Club"
+                  alt="Verde Members Club"
                   className="venue-image-smooth absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
 
-                <div className="venue-overlay-smooth absolute inset-0 flex items-center justify-center 
+                <div className="venue-overlay-smooth absolute inset-0 flex flex-col items-center justify-center 
                         group-hover:bg-[#8B1E1E]/80 
-                        transition-colors duration-500 ease-out">
-                  <h3 className="text-white text-2xl font-semibold text-center uppercase">
-                    mm
+                        transition-colors duration-500 ease-out px-8">
+                  <h3 className="text-white text-2xl font-semibold text-center mb-2 uppercase">
+                    verde members club
                   </h3>
+                  <p className="text-white text-sm text-center opacity-90 max-w-md">
+                    An exclusively intimate venue, reserved to Verde members, featuring a new glamorous and modern wind to the conventional speakeasy vibes.
+                  </p>
                 </div>
               </Link>
 
@@ -225,9 +223,7 @@ export default function HomePage() {
           }}
         >
           <div className="relative z-10">
-            <div className="eudaimonia-content text-white"
-              ref={EudaimoniaRef}
-            >
+            <div className="eudaimonia-content text-white">
               <hr className="hr-line" />
               <h3 >The Art of Festive Dining</h3>
               <p className='text-white'>
@@ -285,7 +281,7 @@ export default function HomePage() {
         </section>
 
         {/* Instagram Section */}
-        <section id="insta" className="section  py-16 px-4 md:px-8">
+        <section id="insta" className="section py-16 px-4 md:px-8 relative bg-[#f3ede2]" style={{ zIndex: 50 }}>
           <div className="max-w-7xl mx-auto">
             <h3 className="font-sm text-center text-black/50 mb-10 tracking-[0.4em] text-[20px]">
               FOLLOW US ON INSTAGRAM{' '}

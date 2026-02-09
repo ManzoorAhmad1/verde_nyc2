@@ -64,36 +64,38 @@ export default function MilaLoungePage() {
         </div>
       </section>
 
-      {/* Verde NYC Lounge Content Section */}
+      {/* Verde NYC Content Section */}
       <section id="mila-lounge" className="lounge-content-section">
         <div className="lounge-content-inner">
-          <h1 className='text-[#3A363A] '>VERDE LOUNGE</h1>
+          <p className='text-[#948E84] text-sm mb-8'>A YEEELS GROUP DESTINATION — PARIS | SAINT-TROPEZ | DUBAI | SARDINIA | NEW YORK</p>
           
-          <h3 className="lounge-subtitle text-[#948E84]">
-            From the legendary nightlife of Paris to the glamorous evenings of Dubai, the Yeeels Group has mastered the art of sophisticated celebration. Verde Lounge NYC brings this expertise to Manhattan—a multi-sensory sanctuary where Mediterranean elegance meets New York&apos;s electric energy in the heart of the Meatpacking District.
-          </h3>
+          <h1 className='text-[#3A363A] mb-6'>WHERE PARISIAN CRAFT MEETS NEW YORK SOUL</h1>
           
-          <p className='text-[#948E84]'>
-            Drawing inspiration from our acclaimed lounges in France and the UAE, the space features minimalistic natural materials—reclaimed European woods, artisanal textiles, and warm-glow lighting imported from our Parisian ateliers. Dramatic lush foliage and bespoke design elements create an intimate atmosphere that channels the spirit of the Mediterranean coast.
+          <p className='text-[#948E84] mb-6'>
+            Verde NYC is the latest jewel in the Yeeels Group crown—an international hospitality collective celebrated for curating unforgettable culinary destinations across Europe, the Middle East, and now, in the heart of Manhattan.
           </p>
           
-          <p className='text-[#948E84]'>
-            The evening unfolds as a journey: downtempo selections from our internationally-trained resident DJs accompany <Link href="/restaurant">refined dinner service</Link> and innovative cocktails crafted by mixologists trained across our global venues. As night deepens, the energy builds into pulsing electronic rhythms, premium bottle service, and unexpected artist performances that have made Verde Lounge destinations legendary from the Champs-Élysées to Sheikh Zayed Road.
+          <p className='text-[#948E84] mb-6'>
+            Verde brings Parisian soul to New York&apos;s vibrant streets. Here, French culinary tradition is reimagined with contemporary elegance—each dish reflects precision, passion, and the art of celebration.
           </p>
           
-          <p className='text-[#948E84]'>
-            Guests must be 21+ to experience <Link href="/">Verde NYC</Link> Lounge at <Link href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank">85 10th Avenue, Meatpacking District</Link>.
+          <p className='text-[#948E84] mb-6'>
+            Step into a world of intimate charm and metropolitan energy, where every moment is crafted for connection and savor. From thoughtfully designed tasting journeys to vibrant lounge evenings and exclusive dining experiences, Verde invites you to dine beyond the expected.
+          </p>
+          
+          <p className='text-[#948E84] italic mb-8'>
+            Paris on the plate. New York in the room.
           </p>
 
           <div className="lounge-buttons">
             <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className="lounge-btn">
-              Reserve for dinner
+              Make a Reservation
             </Link>
-            <Link href="/restaurant" className="lounge-btn">
-              MENU
+            <Link href="/menu" className="lounge-btn">
+              View Menu
             </Link>
-            <Link href="mailto:reservations@verdenyc.com?subject=Verde%20Lounge%20Bottle%20Service%20Inquiry" target="_blank" className="lounge-btn">
-              reserve for bottle service
+            <Link href="/contact" className="lounge-btn">
+              Contact Us
             </Link>
           </div>
         </div>
@@ -133,62 +135,16 @@ export default function MilaLoungePage() {
         </div>
       </section>
 
-      {/* T-Shirts Section */}
-      <section id="miami-art-week-tshirts-ml" className="lounge-tshirts-section">
-        <div className="lounge-tshirts-header">
-          <h2 className='text-[#3A363A] '>VERDE LOUNGE<br />Limited Edition Collection</h2>
-          <p className='text-[#948E84]'>Celebrating our global expansion from Paris to New York, this limited-edition collection embodies the Yeeels Group spirit—where Mediterranean sophistication meets metropolitan energy. A wearable piece of our international legacy.</p>
-          <hr />
-        </div>
-
-        <div className="lounge-tshirts-content">
-          <div className="lounge-tshirts-image">
-            <img
-              loading="lazy" decoding="async" src="/images/_40A8493.jpg"
-              alt="Limited Edition Collection"
-              style={{ width: '100%', height: 'auto' }}
-            />
-          </div>
-
-          <div className="lounge-tshirts-details">
-            <h2 className='text-[#3A363A] '>Yeeels Group NYC Collection - Limited Edition</h2>
-            
-            <h3 className='text-[#3A363A]'><strong>Description</strong></h3>
-            <p  className="indented text-[#948E84]">100% premium Italian cotton - Classic European fit - Black</p>
-            
-            <h3 className='text-[#3A363A]'><strong>Sizes</strong></h3>
-            <p  className="indented text-[#948E84]">Small (S) - Medium (M) - Large (L) (runs small)</p>
-            
-            <h3 className='text-[#3A363A]'><strong>Shipping Options</strong></h3>
-            <p  className="indented text-[#948E84]"><strong>Shipping via FedEx:</strong> Flat rate - $10.95 within the U.S (3 business days delivery)</p>
-            <p  className="indented text-[#948E84]"><strong>Local Pick-Up:</strong> Available to pick-up at <Link href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank">Verde NYC</Link> (2 business days after purchase).</p>
-            <p  className="indented text-[#948E84]">Pick-Up hours: Tuesday to Sunday: 6:00 PM – 10:00 PM and Saturday &amp; Sunday: 11:30 AM – 4:00 PM.</p>
-            <p  className="indented text-[#948E84]">Your confirmation email will be requested to pick your order.</p>
-            <p  className="indented text-[#948E84]">Orders not picked up within <strong>14 days</strong> will be forfeited without refund.</p>
-            
-            <h3 className='text-[#3A363A]'><strong>Return &amp; Refund Policy</strong></h3>
-            <p  className="indented text-[#948E84]">All sales are final. We do not accept returns, exchanges, or offer refunds once an order has been placed.</p>
-            
-            <p className='text-[#948E84]'><strong>*For Presale, T-Shirts will be available to ship December 1st.</strong></p>
-
-            <Link href="https://buy.stripe.com/fZu00j3GgerR3Lp3vv8g00f" target="_blank" className="lounge-buy-btn">
-              BUY NOW $80 | All taxes Included
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Hours & Vibes Section */}
-      <section id="milaloungevibes" className="lounge-vibes-section">
+      {/* Experience Section */}
+      <section id="lounge-experience" className="lounge-vibes-section">
         <div className="lounge-vibes-inner">
-          <h3 className='text-[#3A363A]'>HOURS</h3>
-          <p className='text-[#948E84]'>Wednesday - Saturday: 6:30 pm – 4 am</p>
-          <p className='text-[#948E84]'>Follow the Yeeels Group journey on <Link href="https://www.instagram.com/yeeels/" target="_blank">Instagram</Link></p>
+          <h2 className='text-[#3A363A]'>An Unforgettable Experience</h2>
+          <p className='text-[#948E84]'>Verde Lounge combines exceptional cuisine with sophisticated ambiance. From intimate dinners to late-night celebrations, every visit is crafted to exceed expectations.</p>
           
           <div className="lounge-collage-image">
             <img
               loading="lazy" decoding="async" src="/images/_40A8494.jpg"
-              alt="Verde NYC Lounge atmosphere and nightlife"
+              alt="Verde NYC Lounge elegant dining atmosphere"
               style={{ width: '100%', height: 'auto' }}
             />
           </div>
@@ -199,23 +155,19 @@ export default function MilaLoungePage() {
       <nav className="lounge-index-nav">
         <a href="#lounge-gallery" className="lounge-nav-item active">
           <div className="lounge-nav-indicator"></div>
-          <span>Lounge Gallery</span>
+          <span>Gallery</span>
         </a>
         <a href="#mila-lounge" className="lounge-nav-item">
           <div className="lounge-nav-indicator"></div>
-          <span className='text-[#3A363A]'>VERDE LOUNGE</span>
+          <span className='text-[#3A363A]'>About</span>
         </a>
         <a href="#programme" className="lounge-nav-item">
           <div className="lounge-nav-indicator"></div>
-          <span className='text-[#3A363A]'>Programme</span>
+          <span className='text-[#3A363A]'>Entertainment</span>
         </a>
-        <a href="#miami-art-week-tshirts-ml" className="lounge-nav-item">
+        <a href="#lounge-experience" className="lounge-nav-item">
           <div className="lounge-nav-indicator"></div>
-          <span className='text-[#3A363A]'>T-Shirts</span>
-        </a>
-        <a href="#milaloungevibes" className="lounge-nav-item">
-          <div className="lounge-nav-indicator"></div>
-          <span className='text-[#3A363A]'>Vibes</span>
+          <span className='text-[#3A363A]'>Experience</span>
         </a>
       </nav>
 

@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const navItems = [
-  { label: "VALENTINE'S DAY", href: '/valentines-day' },
+  { label: 'DINNER PARTY', href: '/dinner-party' },
+  { label: 'MENU', href: '/menu' },
   { label: 'RESTAURANT', href: '/restaurant' },
-  { label: 'BRUNCH', href: '/miami-brunch' },
-  { label: 'MM MEMBERS CLUB', href: '/membersclub' },
-  { label: 'PRIVATE EVENTS', href: '/private-events' },
+  { label: 'BAR', href: '/bar' },
+  { label: 'GALLERY', href: '/gallery' },
   { label: 'CONTACT', href: '/contact' },
 ];
 
