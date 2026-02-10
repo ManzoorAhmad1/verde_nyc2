@@ -10,21 +10,21 @@ export const VENUES: any = [
   },
   {
     id: '2',
-    title: "VERDY PARTY'S",
+    title: "VERDE PARTY'S",
     description: " Experience world-class hospitality at VERDYPARTY'S, where bespoke private events come to life. Whether an intimate gathering or a grand celebration for up to 400 guests, each occasion is infused with timeless Mediterranean elegance and meticulous attention to detail.",
     image: '/gallery/40A4575-verde-newyork.jpg',
     link: '/milaomakase'
   },
   {
     id: '3',
-    title: 'VERDE LOUPANGE',
-    description: 'At VERDE LOUPANGE, intimate charm blends seamlessly with metropolitan energy. Designed for vibrant lounge evenings and thoughtfully curated experiences, this space captures the essence of Parisian artistry and the spirited soul of New York',
+    title: 'VERDE lounge',
+    description: 'At VERDE lounge, intimate charm blends seamlessly with metropolitan energy. Designed for vibrant lounge evenings and thoughtfully curated experiences, this space captures the essence of Parisian artistry and the spirited soul of New York',
     image: '/gallery/40A4625-verde-newyork.jpg',
     link: '/milaomakase'
   },
   {
     id: '4',
-    title: 'VERDY BAR',
+    title: 'VERDE BAR',
     description: 'VERDYBAR redefines Sunday Brunch. Join us on our rooftop for a festive experience featuring live music, exquisite Mediterranean fare from chef-designed stations, and an atmosphere dedicated to leisure and lively connection',
     image: '/gallery/40A4697-verde-newyork.jpg',
     link: '/milaomakase'
