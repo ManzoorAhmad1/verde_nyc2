@@ -10,7 +10,7 @@ import InstagramSection from '@/components/InstagramSection';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import MobileNav from './components/MobileNav';
-import SmoothScrolling from '@/components/SmoothScrolling';
+import SmoothScrolling from '@/components/SmoothScrolling.jsx';
 
 
 

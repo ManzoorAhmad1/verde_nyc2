@@ -19,7 +19,7 @@ export default function SmoothScrolling() {
     })
 
     // Request animation frame loop
-    function raf(time: number) {
+    function raf(time) {
       lenis.raf(time)
       requestAnimationFrame(raf)
     }
