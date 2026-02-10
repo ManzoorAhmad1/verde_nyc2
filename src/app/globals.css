@@ -669,6 +669,7 @@ html {
     backface-visibility: hidden;
     z-index: 50;
     background: #f3ede2;
+    padding-bottom: 250px;
   }
 
   /* Buttons */
