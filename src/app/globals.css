@@ -229,7 +229,7 @@ html {
   }
 
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -4267,6 +4267,8 @@ html {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .menu-hero-image {
@@ -4358,6 +4360,9 @@ html {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
 }
 
 .menu-category-card:hover {
@@ -4375,6 +4380,8 @@ html {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 .menu-category-card:hover .menu-category-image img {
