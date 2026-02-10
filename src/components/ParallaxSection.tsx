@@ -70,7 +70,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   return (
     <section
       ref={sectionRef}
-      className={`relative h-[60vh] lg:h-[80vh] overflow-hidden flex items-center justify-center ${className}`}
+      className={`relative h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden flex items-center justify-center ${className}`}
     >
       {/* Background */}
       <div
@@ -82,9 +82,9 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
       {/* Overlay */}
 
       {/* Content */}
-      <div className={`relative z-10 text-center text-4xl font-light px-6 max-w-5xl leading-relaxed ${contentClassName}`}>
-        <h2 className="w-full section-heading text-white intro-text-animate">
-          Born in Paris. Celebrated in Saint-Tropez. Elevated in Dubai. <br />
+      <div className={`relative z-10 text-center font-light px-4 md:px-6 max-w-3xl leading-relaxed ${contentClassName}`}>
+        <h2 className="w-full section-heading text-white intro-text-animate !text-sm md:!text-xl lg:!text-2xl !leading-relaxed">
+          Born in Paris. Celebrated in Saint-Tropez. Elevated in Dubai. <span className="hidden md:inline"><br /></span>
           Now, Verde arrives in New York—bringing two decades of Mediterranean excellence to the Meatpacking District.
         </h2>
       </div>

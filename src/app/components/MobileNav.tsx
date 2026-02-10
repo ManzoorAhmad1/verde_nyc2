@@ -14,7 +14,7 @@ const navItems = [
   { label: 'RESTAURANT', href: '/' },
   { label: 'BAR', href: '/' },
   { label: 'GALLERY', href: '/' },
-  { label: 'CONTACT', href: '/' },
+  { label: 'CONTACT', href: '/contact' },
 ];
 
 interface MobileNavProps {

@@ -19,14 +19,14 @@ export const VENUES: any = [
     id: '3',
     title: 'VERDE Lounge',
     description: 'At VERDE lounge, intimate charm blends seamlessly with metropolitan energy. Designed for vibrant lounge evenings and thoughtfully curated experiences, this space captures the essence of Parisian artistry and the spirited soul of New York',
-    image: '/gallery/40A4625-verde-newyork.jpg',
+    image: '/images/_40A8523.jpg',
     link: '/milaomakase'
   },
   {
     id: '4',
     title: 'VERDE BAR',
     description: 'VERDYBAR redefines Sunday Brunch. Join us on our rooftop for a festive experience featuring live music, exquisite Mediterranean fare from chef-designed stations, and an atmosphere dedicated to leisure and lively connection',
-    image: '/gallery/40A4697-verde-newyork.jpg',
+    image: '/images/_40A8460.jpg',
     link: '/milaomakase'
   }
 ];

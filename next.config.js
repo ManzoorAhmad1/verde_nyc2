@@ -14,11 +14,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'verdey-nyc.s3.eu-north-1.amazonaws.com',
+        hostname: 'verde-nyc.s3.eu-north-1.amazonaws.com',
         pathname: '/**',
       },
     ],
-    domains: ['images.squarespace-cdn.com', 'files.elfsightcdn.com', 'verdey-nyc.s3.eu-north-1.amazonaws.com'],
+    domains: ['images.squarespace-cdn.com', 'files.elfsightcdn.com', 'verde-nyc.s3.eu-north-1.amazonaws.com'],
     unoptimized: true,
   },
   reactStrictMode: true,

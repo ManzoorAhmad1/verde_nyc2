@@ -37,11 +37,11 @@ const VenueGrid: React.FC = () => {
                 className="venue-image-smooth w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"></div>
-              <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-10 opacity-100 group-hover:bg-red-950/80 transition-all">
-                <h3 className="text-2xl lg:text-3xl font-playfair uppercase tracking-[0.1em] mb-4">
+              <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 md:p-10 opacity-100 group-hover:bg-red-950/80 transition-all">
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-playfair uppercase tracking-[0.1em] mb-0 group-hover:mb-2 md:group-hover:mb-4 text-white transition-all duration-500">
                   {venue.title}
                 </h3>
-                <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 max-w-2xl">
+                <p className="text-xs md:text-sm text-white opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-[200px] transition-all duration-500 max-w-2xl">
                   {venue.description}
                 </p>
               </div>

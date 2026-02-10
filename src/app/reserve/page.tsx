@@ -30,9 +30,9 @@ export default function ReservePage() {
           <p className="coming-soon-subtitle">Reserve through our online system or contact our dedicated reservations team for personalized assistance.</p>
           
           <div className="coming-soon-contact">
-            <p>Phone: <a href="tel:+16464068763">+1 (646) 406-8763</a></p>
-            <p>Email: <a href="mailto:reservations@yeeels.com">reservations@yeeels.com</a></p>
-            <p>Global Concierge: <a href="mailto:concierge@yeeels.com">concierge@yeeels.com</a></p>
+            <p>Phone: <a href="tel:+16467763660">+16467763660</a></p>
+            <p>Email: <a href="mailto:reservations@yeeels.com">Contact@verde-nyc.com</a></p>
+            <p>Global Concierge: <a href="mailto:concierge@yeeels.com">Reservations@yeeels.com</a></p>
           </div>
 
           <a href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className="coming-soon-btn">

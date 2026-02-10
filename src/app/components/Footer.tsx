@@ -47,7 +47,7 @@ export default function Footer() {
             />
           </Link>
           <div className="footer-address mt-4">
-            <Link href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7"
+            <Link href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
               target="_blank">
               85 10th Avenue<br />
               Meatpacking District<br />
@@ -63,15 +63,15 @@ export default function Footer() {
           <div className="footer-links">
             <Link href="/menu" className="footer-link">MENU</Link>
             <span>|</span>
-            <Link href="/gallery" className="footer-link">GALLERY</Link>
+            <Link href="/" className="footer-link">GALLERY</Link>
             <span>|</span>
-            <Link href="/reserve" className="footer-link">RESERVE</Link>
+            <Link href="/" className="footer-link">RESERVE</Link>
             <span>|</span>
-            <Link href="/private-events" className="footer-link">PRIVATE EVENTS</Link>
+            <Link href="/" className="footer-link">PRIVATE EVENTS</Link>
             <span>|</span>
-            <Link href="/gift-card" className="footer-link">GIFT CARD</Link>
+            <Link href="/" className="footer-link">GIFT CARD</Link>
             <span>|</span>
-            <Link href="/all-press" className="footer-link">PRESS</Link>
+            <Link href="/" className="footer-link">PRESS</Link>
             <span>|</span>
             <Link href="/contact" className="footer-link">CONTACT</Link>
           </div>
