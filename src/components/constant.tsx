@@ -17,7 +17,7 @@ export const VENUES: any = [
   },
   {
     id: '3',
-    title: 'VERDE lounge',
+    title: 'VERDE Lounge',
     description: 'At VERDE lounge, intimate charm blends seamlessly with metropolitan energy. Designed for vibrant lounge evenings and thoughtfully curated experiences, this space captures the essence of Parisian artistry and the spirited soul of New York',
     image: '/gallery/40A4625-verde-newyork.jpg',
     link: '/milaomakase'
