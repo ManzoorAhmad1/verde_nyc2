@@ -2,27 +2,30 @@ import React, { useEffect, useRef, useState } from "react";
 
 const ParallaxSecond: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [offset, setOffset] = useState(0);
-
-  // Parallax calculation
-  const getParallaxOffset = (speed = 0.3) => {
-    if (!sectionRef.current) return 0;
-
-    const rect = sectionRef.current.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    // Only apply parallax when section is in viewport
-    if (rect.bottom < 0 || rect.top > windowHeight) return 0;
-
-    return -rect.top * speed;
-  };
+  const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setOffset(getParallaxOffset(0.3));
+      if (!sectionRef.current || !bgRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Check visibility including partial visibility
+      if (rect.bottom >= 0 && rect.top <= windowHeight) {
+        // Calculate offset (negative value to move background up slower than scroll)
+        // Using -rect.top * speed creates the parallax effect
+        // We use translate3d for GPU acceleration
+        const offset = -rect.top * 0.3;
+        bgRef.current.style.transform = `translate3d(0, ${offset}px, 0)`;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Use passive listener for better scroll performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Initial calculation
+    handleScroll();
+    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -33,13 +36,14 @@ const ParallaxSecond: React.FC = () => {
     >
       {/* Parallax Background */}
       <div
-        className="absolute inset-0 z-0 scale-110"
+        ref={bgRef}
+        className="absolute inset-0 z-0 scale-110 will-change-transform"
         style={{
           backgroundImage:
             "url('/images/_40A8490.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          transform: `translateY(${offset}px)`,
+          // Initial transform handled by ref
         }}
       >
         {/* Dark overlay */}

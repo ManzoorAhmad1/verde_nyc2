@@ -21,23 +21,50 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (bgRef.current && sectionRef.current) {
-        const sectionTop = sectionRef.current.offsetTop;
-        const scrollTop = window.scrollY;
-        const sectionHeight = sectionRef.current.offsetHeight;
+    let animationFrameId: number;
+    // Cache values to avoid layout thrashing during scroll
+    let sectionTop = 0;
+    let sectionHeight = 0;
+    const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
 
-        // check if section is in viewport
-        if (scrollTop + window.innerHeight > sectionTop && scrollTop < sectionTop + sectionHeight) {
-          // distance scrolled inside this section
-          const offset = (scrollTop - sectionTop) * speed;
-          bgRef.current.style.transform = `translateY(${offset}px)`;
-        }
+    const updateDimensions = () => {
+      if (sectionRef.current) {
+        sectionTop = sectionRef.current.offsetTop;
+        sectionHeight = sectionRef.current.offsetHeight;
+      }
+    };
+
+    // Initial measure
+    updateDimensions();
+    
+    // Update cached values on resize
+    window.addEventListener('resize', updateDimensions);
+
+    const handleScroll = () => {
+      if (!bgRef.current) return;
+
+      const scrollTop = window.scrollY;
+
+      // Check using cached values
+      // Add a buffer to ensure smooth entry/exit
+      if (scrollTop + windowHeight > sectionTop && scrollTop < sectionTop + sectionHeight) {
+        // Use requestAnimationFrame for the actual DOM update
+        animationFrameId = requestAnimationFrame(() => {
+          if (bgRef.current) {
+            const offset = (scrollTop - sectionTop) * speed;
+            bgRef.current.style.transform = `translate3d(0, ${offset}px, 0)`;
+          }
+        });
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('resize', updateDimensions);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
   }, [speed]);
 
   return (

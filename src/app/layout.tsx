@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   },
 }
 
+import SmoothScrolling from '@/components/SmoothScrolling'
+
 export default function RootLayout({
   children,
 }: {
@@ -25,6 +27,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="antialiased">
+        <SmoothScrolling />
         {children}
         <div id="fab-portal" style={{
           position: 'fixed',
