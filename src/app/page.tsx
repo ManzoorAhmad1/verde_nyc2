@@ -10,6 +10,7 @@ import InstagramSection from '@/components/InstagramSection';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import MobileNav from './components/MobileNav';
+import SmoothScrolling from '@/components/SmoothScrolling';
 
 
 
@@ -18,6 +19,7 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SmoothScrolling />
       <Header />
       <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
 

@@ -11,11 +11,10 @@
   --verde-background: #f3ede2;
   --verde-accent: #8e402f;
   --font-cormorant: 'Cormorant Garamond', Georgia, serif;
-  scroll-behavior: smooth;
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; - Removed to prevent conflict with Lenis */
 }
 
 .body {
@@ -904,6 +903,8 @@ html {
     gap: 0;
     z-index: 40;
     background: #f3ede2;
+    transform: translate3d(0, 0, 0); /* Promote to GPU layer for smoother sliding */
+    will-change: transform; /* Hint browser of incoming movement */
   }
 
   .art-image {

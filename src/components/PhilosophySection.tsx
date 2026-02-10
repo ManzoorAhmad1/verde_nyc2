@@ -5,7 +5,7 @@ function PhilosophySection() {
   return (
     <div>
       {/* Philosophy Section */}
-      <section className="bg-mila-dark py-32 px-6 sticky top-0" style={{ backgroundImage: "url('/mila-miami-texture.png')" }}>
+      <section className="bg-mila-dark py-32 px-6 sticky top-0 min-h-screen flex flex-col justify-center" style={{ backgroundImage: "url('/mila-miami-texture.png')" }}>
         <div className="relative z-10 text-white">
           <h2 className="section-heading">Our Philosophy</h2>
           <div className="philosophy-grid">
