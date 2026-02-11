@@ -5,11 +5,12 @@ import { useEffect, useState } from 'react';
 
 const navItems = [
   { label: 'MENU', href: '/menu' },
-  { label: 'DINNER PARTY', href: '/dinner-party' },
+  // { label: 'DINNER PARTY', href: '/dinner-party' },
   // { label: 'RESTAURANT', href: '/restaurant' },
   // { label: 'BAR', href: '/bar' },
   { label: 'GALLERY', href: '/gallery' },
   // { label: 'CONTACT', href: '/contact' },
+  { label: 'DINNER PARTY', href: '/' },
   { label: 'RESTAURANT', href: '/' },
   { label: 'BAR', href: '/' },
   { label: 'CONTACT', href: '/contact' },

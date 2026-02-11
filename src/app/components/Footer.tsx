@@ -65,7 +65,7 @@ export default function Footer() {
             <span>|</span>
             <Link href="/gallery" className="footer-link">GALLERY</Link>
             <span>|</span>
-            <Link href="/dinner-party" className="footer-link">DINNER PARTY</Link>
+            <Link href="/" className="footer-link">DINNER PARTY</Link>
             <span>|</span>
             <Link href="/" className="footer-link">PRIVATE EVENTS</Link>
             <span>|</span>
