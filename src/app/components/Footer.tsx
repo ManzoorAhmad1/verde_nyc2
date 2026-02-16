@@ -65,13 +65,11 @@ export default function Footer() {
             <span>|</span>
             <Link href="/gallery" className="footer-link">GALLERY</Link>
             <span>|</span>
-            <Link href="/" className="footer-link">DINNER PARTY</Link>
+            <Link href="/dinner-party" className="footer-link">DINNER PARTY</Link>
             <span>|</span>
-            <Link href="/" className="footer-link">PRIVATE EVENTS</Link>
+            <Link href="/restaurant" className="footer-link">RESTAURANT</Link>
             <span>|</span>
-            <Link href="/" className="footer-link">GIFT CARD</Link>
-            <span>|</span>
-            <Link href="/" className="footer-link">PRESS</Link>
+            <Link href="/bar" className="footer-link">BAR</Link>
             <span>|</span>
             <Link href="/contact" className="footer-link">CONTACT</Link>
           </div>

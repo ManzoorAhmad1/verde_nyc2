@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
@@ -19,12 +20,15 @@ export default function RestaurantPage() {
 
       <main className="restaurant-page">
         {/* Gallery Section */}
-        <section id="restaurant-gallery" className="restaurant-gallery-section">
-          <div className="gallery-slideshow">
-            <img
-              loading="eager" decoding="async" fetchPriority="high" src="/images/_40A8442.jpg"
+        <section id="restaurant-gallery" className="restaurant-gallery-section" style={{ height: 'auto', minHeight: '80vh' }}>
+          <div className="gallery-slideshow relative w-full h-[80vh] md:h-[90vh]">
+            <Image
+              priority
+              src="/images/_40A8442.jpg"
               alt="Verde NYC Restaurant"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
             />
           </div>
         </section>
@@ -32,10 +36,12 @@ export default function RestaurantPage() {
         {/* Philosophy Section */}
         <section id="our-philosophy-mila" className="philosophy-section">
           <div className="parallax-background texture-bg">
-            <img
-              loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
+            <Image
+              src="https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"
               alt="verde-nyc-texture"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
             />
           </div>
           <div className="philosophy-content">
@@ -371,59 +377,75 @@ export default function RestaurantPage() {
         <section id="food-gallery" className="food-gallery-section">
           <div className="gallery-grid">
             <div className="gallery-item">
-              <img
-                loading="lazy" decoding="async" src="/images/_40A8443.jpg"
-                alt="Verde NYC Food"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              <Image
+                src="/verde_images/verde-lifestyle-1.jpg"
+                alt="Verde Lifestyle"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div className="gallery-item">
-              <img
-                loading="lazy" decoding="async" src="/images/_40A8444.jpg"
+              <Image
+                src="/images/_40A8444.jpg"
                 alt="Verde NYC Food"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div className="gallery-item">
-              <img
-                loading="lazy" decoding="async" src="/images/_40A8452.jpg"
-                alt="Verde NYC Food"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              <Image
+                src="/verde_images/mixology-cocktails.jpg"
+                alt="Verde Cocktails"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div className="gallery-item">
-              <img
-                loading="lazy" decoding="async" src="/images/_40A8455.jpg"
+              <Image
+                src="/images/_40A8455.jpg"
                 alt="Verde NYC Cuisine"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div className="gallery-item">
-              <img
-                loading="lazy" decoding="async" src="/images/_40A8459.jpg"
+              <Image
+                src="/verde_images/Decadence-verde-dubai-0693.jpg"
+                alt="Verde Decadence"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="gallery-item">
+              <Image
+                src="/images/_40A8460.jpg"
                 alt="Verde NYC Food"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div className="gallery-item">
-              <img
-                loading="lazy" decoding="async" src="/images/_40A8460.jpg"
-                alt="Verde NYC Food"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              <Image
+                src="/verde_images/verde-lifestyle-8.jpg"
+                alt="Verde Interior"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
             <div className="gallery-item">
-              <img
-                loading="lazy" decoding="async" src="/images/_40A8525.jpg"
-                alt="Verde NYC Interior"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </div>
-            <div className="gallery-item">
-              <img
-                loading="lazy" decoding="async" src="/images/_40A8527.jpg"
+              <Image
+                src="/images/_40A8527.jpg"
                 alt="Verde NYC Ambiance"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
           </div>

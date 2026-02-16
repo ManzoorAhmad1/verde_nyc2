@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Image from 'next/image';
 import { INSTAGRAM_POSTS } from './constant';
 
 const InstagramSection: React.FC = () => {
@@ -24,10 +25,12 @@ const InstagramSection: React.FC = () => {
             rel="noopener noreferrer"
             className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
           >
-            <img
-              loading="lazy" decoding="async" src="/gallery/40A4553-verde-newyork-750x750.jpg"
+            <Image
+              src="/gallery/40A4553-verde-newyork-750x750.jpg"
               alt="Instagram post"
-              className="object-cover w-full h-full"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
             />
           </a>
           <a
@@ -36,10 +39,12 @@ const InstagramSection: React.FC = () => {
             rel="noopener noreferrer"
             className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
           >
-            <img
-              loading="lazy" decoding="async" src="/gallery/40A4575-verde-newyork-750x750.jpg"
+            <Image
+              src="/gallery/40A4575-verde-newyork-750x750.jpg"
               alt="Instagram post"
-              className="object-cover w-full h-full"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
             />
           </a>
           <a
@@ -48,10 +53,12 @@ const InstagramSection: React.FC = () => {
             rel="noopener noreferrer"
             className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
           >
-            <img
-              loading="lazy" decoding="async" src="/gallery/40A4610-verde-newyork-750x750.jpg"
+            <Image
+              src="/gallery/40A4610-verde-newyork-750x750.jpg"
               alt="Instagram post"
-              className="object-cover w-full h-full"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
             />
           </a>
           <a
@@ -60,10 +67,12 @@ const InstagramSection: React.FC = () => {
             rel="noopener noreferrer"
             className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
           >
-            <img
-              loading="lazy" decoding="async" src="/gallery/40A4697-verde-newyork-750x750.jpg"
+            <Image
+              src="/gallery/40A4697-verde-newyork-750x750.jpg"
               alt="Instagram post"
-              className="object-cover w-full h-full"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
             />
           </a>
           <a
@@ -72,10 +81,12 @@ const InstagramSection: React.FC = () => {
             rel="noopener noreferrer"
             className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
           >
-            <img
-              loading="lazy" decoding="async" src="/gallery/40A4726-verde-newyork-750x750.jpg"
+            <Image
+              src="/gallery/40A4726-verde-newyork-750x750.jpg"
               alt="Instagram post"
-              className="object-cover w-full h-full"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
             />
           </a>
           <a
@@ -84,10 +95,12 @@ const InstagramSection: React.FC = () => {
             rel="noopener noreferrer"
             className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
           >
-            <img
-              loading="lazy" decoding="async" src="/gallery/40A4761-verde-newyork-750x750.jpg"
+            <Image
+              src="/gallery/40A4761-verde-newyork-750x750.jpg"
               alt="Instagram post"
-              className="object-cover w-full h-full"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
             />
           </a>
           <a
@@ -96,10 +109,12 @@ const InstagramSection: React.FC = () => {
             rel="noopener noreferrer"
             className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
           >
-            <img
-              loading="lazy" decoding="async" src="/gallery/40A4823-verde-newyork-750x750.jpg"
+            <Image
+              src="/gallery/40A4823-verde-newyork-750x750.jpg"
               alt="Instagram post"
-              className="object-cover w-full h-full"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
             />
           </a>
           <a
@@ -108,10 +123,12 @@ const InstagramSection: React.FC = () => {
             rel="noopener noreferrer"
             className="instagram-item relative block aspect-square overflow-hidden rounded-lg hover:scale-105 transition-transform duration-300"
           >
-            <img
-              loading="lazy" decoding="async" src="/gallery/40A4947-verde-newyork-750x750.jpg"
+            <Image
+              src="/gallery/40A4947-verde-newyork-750x750.jpg"
               alt="Instagram post"
-              className="object-cover w-full h-full"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
             />
           </a>
         </div>

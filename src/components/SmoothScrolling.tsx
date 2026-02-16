@@ -7,12 +7,12 @@ export default function SmoothScrolling() {
   useEffect(() => {
     // Initialize Lenis with ultra-smooth settings
     const lenis = new Lenis({
-      lerp: 0.08, // Slightly faster response
-      duration: 1.2, // Reduced duration for less "floaty" feel
+      lerp: 0.1, // Faster response (less laggy feel)
+      duration: 1.2, // Smooth ease-out
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
-      syncTouch: false,
+      // touchMultiplier: 1.5, // Commented out to use default touch behavior
+      syncTouch: true, // Use native touch momentum if possible
       prevent: (node) => node.classList.contains('no-smooth'),
     })
 

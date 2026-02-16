@@ -1,12 +1,24 @@
 
 import React from 'react';
+import Image from 'next/image';
 import { VENUES } from './constant';
 
 const VenueGrid: React.FC = () => {
   return (
     <div>
-      <section className=" bg pt-8 pb-4 px-6" style={{ backgroundImage: "url('/mila-miami-texture.png')" }}>
-        <div className="w-full mt-20">
+      <section className=" bg pt-8 pb-4 px-6 relative">
+        {/* Texture Background as optimized image */}
+        <div className="absolute inset-0 z-0">
+             <Image
+              src="/mila-miami-texture.png"
+              alt="Texture Background"
+              fill
+              className="object-cover opacity-50"
+              sizes="100vw"
+            />
+        </div>
+
+        <div className="w-full mt-20 relative z-10">
           <h3 className="section-title font-bold">A YEEELS GROUP DESTINATION — Paris | Saint-Tropez | Dubai | Sardinia | New York</h3>
           <h2 className="section-heading font-normal">Where Parisian Craft Meets New York Soul</h2>
 
@@ -24,17 +36,19 @@ const VenueGrid: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
           {VENUES.map((venue: any) => (
             <a
               key={venue.id}
               href={venue.link}
               className="group relative block aspect-[16/9] overflow-hidden"
             >
-              <img
+              <Image
                 src={venue.image}
                 alt={venue.title}
-                className="venue-image-smooth w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                fill
+                className="venue-image-smooth object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"></div>
               <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 md:p-10 opacity-100 group-hover:bg-red-950/80 transition-all">

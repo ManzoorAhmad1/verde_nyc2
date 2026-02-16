@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 
 interface ParallaxSectionProps {
   imageUrl: string;
@@ -75,9 +76,17 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
       {/* Background */}
       <div
         ref={bgRef}
-        className="absolute top-0 left-0 w-full h-full bg-cover bg-center will-change-transform"
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      />
+        className="absolute w-full h-[140%] -top-[20%] will-change-transform" // Use larger height to accommodate parallax movement
+      >
+        <Image
+          src={imageUrl}
+          alt={title || "Parallax Background"}
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority
+        />
+      </div>
 
       {/* Overlay */}
 

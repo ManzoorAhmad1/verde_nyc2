@@ -1,11 +1,19 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import React from 'react'
 
 function PhilosophySection() {
   return (
     <div>
       {/* Philosophy Section */}
-      <section className="bg-mila-dark py-32 px-6 sticky top-0 min-h-screen flex flex-col justify-center" style={{ backgroundImage: "url('/mila-miami-texture.png')" }}>
+      <section className="bg-mila-dark py-32 px-6 sticky top-0 min-h-screen flex flex-col justify-center relative overflow-hidden">
+        <Image
+          src="/mila-miami-texture.png"
+          alt="Texture Background"
+          fill
+          className="object-cover object-center -z-10 opacity-50"
+          sizes="100vw"
+        />
         <div className="relative z-10 text-white">
           <h2 className="section-heading">Our Philosophy</h2>
           <div className="philosophy-grid">
@@ -20,12 +28,13 @@ function PhilosophySection() {
       </section>
       {/* Art Culture Section */}
       <section id="art-culture-mila" className="art-section relative z-20">
-        <div className="art-image">
-          <img
-            loading="lazy" decoding="async" src="/images/_40A8425.jpg"
+        <div className="art-image relative">
+          <Image
+            src="/images/_40A8425.jpg"
             alt="Verde NYC Art Culture"
+            fill
             className="object-cover"
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
         <div className="art-content" style={{ color: 'var(--verde-text)' }}>

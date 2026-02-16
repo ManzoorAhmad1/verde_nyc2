@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="my-16 border-t border-[#bdb6ab]" />
 
       {/* Container */}
-      <div className="container mx-auto mx-auto px-6">
+      <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row gap-10">
           
           {/* Left */}

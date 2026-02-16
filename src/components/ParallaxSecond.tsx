@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const ParallaxSecond: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -37,16 +38,17 @@ const ParallaxSecond: React.FC = () => {
       {/* Parallax Background */}
       <div
         ref={bgRef}
-        className="absolute inset-0 z-0 scale-110 will-change-transform"
-        style={{
-          backgroundImage:
-            "url('/images/_40A8490.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          // Initial transform handled by ref
-        }}
+        className="absolute w-full h-[140%] -top-[20%] z-0 will-change-transform" // Increased height to accommodate larger parallax movement
       >
+        <Image
+          src="/images/_40A8490.jpg"
+          alt="The Art of Festive Dining"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
         {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* Content */}

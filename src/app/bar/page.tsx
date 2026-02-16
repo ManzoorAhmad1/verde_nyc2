@@ -44,7 +44,7 @@ export default function MiamiBrunchPage() {
             />
           </div>
           <div className="banner-content w-full">
-            <h1>VERDE NYC BRUNCH</h1>
+            <h1>Verde NYC brunch</h1>
           </div>
         </section>
 
@@ -102,8 +102,8 @@ export default function MiamiBrunchPage() {
 
             {/* Brunch Intro */}
             <div className="brunch-intro">
-              <h2 className='py-4 mt-4' style={{color: 'var(--verde-heading)'}}>The Yeeels Group Sunday Brunch Experience</h2>
-              <h6 className='text-[#948E84]'>From Saint-Tropez beach clubs to Parisian terraces, Sunday at the Yeeels Group has always been sacred. At <span>Verde NYC</span>, we bring this celebrated tradition to New York—a midday celebration where Mediterranean elegance meets Manhattan sophistication. From noon to 5pm in the sun-drenched splendor of our <a href="https://www.google.com/maps/place/Verde+NYC" target="_blank">Meatpacking District</a> rooftop, indulge in a transportive experience brought to life with live music, curated cocktails, and the festive energy that has made <a href="https://yeeels.com/en/" target="_blank">Yeeels Group</a> brunches legendary across Europe and the Middle East.</h6>
+              <h2 className='py-4 mt-4' style={{color: 'var(--verde-heading)'}}>The Yeeels Group Sunday brunch experience</h2>
+              <p className='text-[#948E84] text-center mb-4'>From Saint-Tropez beach clubs to Parisian terraces, Sunday at the Yeeels Group has always been sacred. At <span>Verde NYC</span>, we bring this celebrated tradition to New York—a midday celebration where Mediterranean elegance meets Manhattan sophistication. From noon to 5pm in the sun-drenched splendor of our <a href="https://www.google.com/maps/place/Verde+NYC" target="_blank">Meatpacking District</a> rooftop, indulge in a transportive experience brought to life with live music, curated cocktails, and the festive energy that has made <a href="https://yeeels.com/en/" target="_blank">Yeeels Group</a> brunches legendary across Europe and the Middle East.</p>
             </div>
 
             <hr className="section-divider" />
@@ -118,8 +118,8 @@ export default function MiamiBrunchPage() {
                 />
               </div>
               <div className="image-card-content">
-                <h3 className='text-[#3A363A]'><span>Chef-Curated Mediterranean Stations</span></h3>
-                <h6 className='text-[#948E84]'>Inspired by the legendary brunch formats at our Saint-Tropez and Dubai venues, guests journey through artfully designed stations curated by chefs trained across our global kitchens. Each stop offers a distinct gastronomic chapter—compose your own Mediterranean narrative over a leisurely two-hour experience.</h6>
+                <h3 className='text-[#3A363A]'><span>Chef-curated Mediterranean stations</span></h3>
+                <p className='!text-[#948E84] text-justify'>Inspired by the legendary brunch formats at our Saint-Tropez and Dubai venues, guests journey through artfully designed stations curated by chefs trained across our global kitchens. Each stop offers a distinct gastronomic chapter—compose your own Mediterranean narrative over a leisurely two-hour experience.</p>
               </div>
             </div>
 
@@ -127,9 +127,9 @@ export default function MiamiBrunchPage() {
 
             {/* Description Text */}
             <div className="brunch-description">
-              <h6 className='text-[#948E84]'>Your journey begins with an exquisite bakery selection featuring freshly baked croissants from recipes perfected in our Parisian kitchens, alongside seasonal fruits sourced from Mediterranean growers and Hudson Valley farms. Continue to an artful display of Italian cured meats, French artisanal cheeses, and handcrafted breads from our in-house boulangerie.</h6>
-              <h6 className='text-[#948E84]'>At the heart of the experience, our <span>5J Jamón Ibérico carving station</span>—a tradition from our Spanish-influenced Dubai venue—offers premium cuts carved to perfection. Explore curated salads and a vibrant <span>Sushi and Temaki Handroll Station</span> showcasing fish flown daily from Japan. The Raw Bar features freshly shucked oysters from both coasts, while our Mezze station highlights Verde&apos;s signature eggplant caviar and Mediterranean spreads. On our celebrated <span>rooftop terrace</span>, a live <span>Robata grill</span> and dedicated <span>Spritz station</span> channel the aperitivo culture of our Italian venues.</h6>
-              <h6 className='text-[#948E84]'>The experience concludes with an indulgent dessert display featuring creations from our pastry team trained in Paris, capped by a <span>Gelato Station</span> offering flavors inspired by each of our global destinations.</h6>
+              <p className='text-[#948E84] text-justify mb-4'>Your journey begins with an exquisite bakery selection featuring freshly baked croissants from recipes perfected in our Parisian kitchens, alongside seasonal fruits sourced from Mediterranean growers and Hudson Valley farms. Continue to an artful display of Italian cured meats, French artisanal cheeses, and handcrafted breads from our in-house boulangerie.</p>
+              <p className='text-[#948E84] text-justify mb-4'>At the heart of the experience, our <span>5J Jamón Ibérico carving station</span>—a tradition from our Spanish-influenced Dubai venue—offers premium cuts carved to perfection. Explore curated salads and a vibrant <span>Sushi and Temaki Handroll Station</span> showcasing fish flown daily from Japan. The Raw Bar features freshly shucked oysters from both coasts, while our Mezze station highlights Verde&apos;s signature eggplant caviar and Mediterranean spreads. On our celebrated <span>rooftop terrace</span>, a live <span>Robata grill</span> and dedicated <span>Spritz station</span> channel the aperitivo culture of our Italian venues.</p>
+              <p className='text-[#948E84] text-justify mb-4'>The experience concludes with an indulgent dessert display featuring creations from our pastry team trained in Paris, capped by a <span>Gelato Station</span> offering flavors inspired by each of our global destinations.</p>
             </div>
 
             <hr className="section-divider" />
@@ -144,9 +144,9 @@ export default function MiamiBrunchPage() {
                 />
               </div>
               <div className="image-card-content">
-                <h3 className='text-[#3A363A]'><span>International Beverage Program</span></h3>
-                <h6 className='text-[#948E84]'>Our beverage packages reflect the Yeeels Group&apos;s expertise cultivated across Paris, Saint-Tropez, Dubai, and Italy:</h6>
-                <h6 className='text-[#948E84]'><span>A thoughtfully crafted non-alcoholic program</span> featuring mocktails developed by our international mixology team, alongside <span>Champagne and Rosé packages</span> showcasing selections from our French suppliers—including houses that have partnered with us since our earliest Parisian days.</h6>
+                <h3 className='text-[#3A363A]'><span>International beverage program</span></h3>
+                <p className='!text-[#948E84] text-justify mb-4'>Our beverage packages reflect the Yeeels Group&apos;s expertise cultivated across Paris, Saint-Tropez, Dubai, and Italy:</p>
+                <p className='!text-[#948E84] text-justify'><span>A thoughtfully crafted non-alcoholic program</span> featuring mocktails developed by our international mixology team, alongside <span>Champagne and Rosé packages</span> showcasing selections from our French suppliers—including houses that have partnered with us since our earliest Parisian days.</p>
               </div>
             </div>
 
@@ -154,10 +154,10 @@ export default function MiamiBrunchPage() {
 
             {/* Hours Section */}
             <div className="brunch-hours">
-              <h3 style={{color: 'var(--verde-heading)'}}>Hours & Location</h3>
-              <h6 className='text-[#948E84]'>Sunday | Noon - 5:00 PM</h6>
-              <h6 className='text-[#948E84]'><a href="https://maps.app.goo.gl/fqeZH3QPWLxBZFXY7" target="_blank">Get Directions — 85 10th Avenue, Meatpacking District, New York City</a></h6>
-              <h6 className='text-[#948E84]' style={{marginTop: '1rem'}}>Part of the Yeeels Group: Paris | Saint-Tropez | Dubai | Italy | New York</h6>
+              <h3 style={{color: 'var(--verde-heading)'}}>Hours & location</h3>
+              <p className='text-[#948E84] text-center mb-2'>Sunday | Noon - 5:00 PM</p>
+              <p className='text-[#948E84] text-center mb-2'><a href="https://maps.app.goo.gl/fqeZH3QPWLxBZFXY7" target="_blank">Get Directions — 85 10th Avenue, Meatpacking District, New York City</a></p>
+              <p className='text-[#948E84] text-center mt-4'>Part of the Yeeels Group: Paris | Saint-Tropez | Dubai | Italy | New York</p>
             </div>
 
             <div className="button-center">
@@ -171,7 +171,7 @@ export default function MiamiBrunchPage() {
             </div>
 
             <div className="brunch-menu-section">
-              <h3><span className='text-[#948E84]'>Sunday Brunch Menu</span></h3>
+              <h3><span className='text-[#948E84]'>Sunday brunch menu</span></h3>
               <div className="button-center">
                 <Link href="/restaurant" className="text-[#948E84]">
                   Explore Our Menus

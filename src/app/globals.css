@@ -259,10 +259,10 @@ html.lenis, html.lenis body {
     line-height: 1.6;
     color: var(--foreground);
     background: var(--background);
-    overflow-x: hidden;
+    /* overflow-x: hidden; - Removed to prevent potential scroll locking */
     -webkit-overflow-scrolling: touch;
     /* Prevent layout shifts during scroll */
-    overscroll-behavior: none;
+    /* overscroll-behavior: none; - Removed to restore natural bounce */
   }
 
   h1,
@@ -1188,8 +1188,8 @@ html.lenis, html.lenis body {
 
 .philosophy-section {
   position: relative;
-  padding: 80px 40px;
-  min-height: 80vh;
+  padding: 40px 20px; /* Reduced from 80px 40px */
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1243,7 +1243,7 @@ html.lenis, html.lenis body {
 /* Menu Section */
 .menu-section {
   position: relative;
-  padding: 80px 40px;
+  padding: 40px 20px; /* Reduced from 80px 40px */
   background: var(--background);
   color: #464245;
 }
@@ -1291,7 +1291,8 @@ html.lenis, html.lenis body {
 }
 
 .tab-content {
-  min-height: 400px;
+  min-height: auto; /* Changed from 400px to auto to remove extra space */
+  padding-bottom: 20px;
 }
 
 .tab-panel {
@@ -1408,10 +1409,18 @@ html.lenis, html.lenis body {
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
+  transform: translateZ(0); /* Force GPU */
+  backface-visibility: hidden;
 }
 
 .food-gallery-section .gallery-item img {
   transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+/* Disable hover effects while scrolling for better performance */
+.lenis.lenis-scrolling .food-gallery-section .gallery-item:hover img {
+  transform: none; 
 }
 
 .food-gallery-section .gallery-item:hover img {
@@ -3234,7 +3243,7 @@ html.lenis, html.lenis body {
 .brunch-image-card .image-card-content p {
   font-size: 14px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
+  color: inherit;
 }
 
 .brunch-description {
@@ -3246,7 +3255,6 @@ html.lenis, html.lenis body {
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 20px;
-  text-align: left;
 }
 
 .brunch-hours {
