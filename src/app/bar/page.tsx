@@ -1,31 +1,61 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
 
+// Define Interface for CMS Content
+interface PageSection {
+  type: string;
+  heading?: string;
+  subheading?: string;
+  content?: string;
+  images?: string[];
+  ctaLink?: string;
+  ctaText?: string;
+  order?: number;
+}
+
 export default function MiamiBrunchPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [sections, setSections] = useState<PageSection[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPageData = async () => {
+      try {
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+        const res = await fetch(`${API_URL}/pages/bar`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.page && data.page.sections) {
+            setSections(data.page.sections.sort((a: PageSection, b: PageSection) => (a.order || 0) - (b.order || 0)));
+          }
+        }
+      } catch (error) {
+        console.error("Failed to load page content", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPageData();
+  }, []);
   
-  const images = [
-    "/images/_40A8504.jpg",
-    "/images/_40A8506.jpg",
-    "/images/_40A8507.jpg",
-    "/images/_40A8510.jpg",
-    "/images/_40A8511.jpg",
-    "/images/_40A8513.jpg",
-    "/images/_40A8514.jpg"
-  ];
+  // Helper to find section by order index
+  const getSection = (index: number) => sections[index] || {};
+  
+  const images = getSection(1).images || [];
 
   const handlePrevious = () => {
-    setCurrentSlide((prev) => (prev === 0 ? Math.max(0, images.length - 5) : Math.max(0, prev - 1)));
+    setCurrentSlide((prev) => (prev === 0 ? Math.max(0, images.length - 2) : Math.max(0, prev - 1)));
   };
 
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev >= images.length - 5 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev >= images.length - 2 ? 0 : prev + 1));
   };
 
   return (
@@ -34,24 +64,28 @@ export default function MiamiBrunchPage() {
       <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
 
       <main className="brunch-page">
-        {/* Banner Section */}
+        {/* Banner Section (Order 1) */}
+        {getSection(0).images?.[0] && (
         <section id="brunch-banner" className="brunch-banner-section">
           <div className="parallax-background">
             <img
-              loading="eager" decoding="async" fetchPriority="high" src="/images/_40A8503.jpg"
+              loading="eager" decoding="async" fetchPriority="high" 
+              src={getSection(0).images![0]}
               alt="Verde NYC Brunch"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
             />
           </div>
           <div className="banner-content w-full">
-            <h1>Verde NYC brunch</h1>
+            <h1>{getSection(0).heading || "Verde NYC brunch"}</h1>
           </div>
         </section>
+        )}
 
         {/* Brunch Content Section */}
         <section id="miami-brunch-content" className="brunch-content-section">
           <div className="content-wrapper">
-            {/* Gallery Slider */}
+            {/* Gallery Slider (Order 2) */}
+            {images.length > 0 && (
             <div className="sqs-block gallery-block sqs-block-gallery relative w-full h-[300px] overflow-hidden">
               <div className="sqs-gallery-container h-full">
                 <div className="sqs-gallery sqs-gallery-design-strip relative h-full">
@@ -64,7 +98,7 @@ export default function MiamiBrunchPage() {
                       <div key={index} className="flex-shrink-0 w-2/5 h-full">
                         <img 
                           className="w-full h-full object-cover" 
-                          src={`${src}?format=500w`} 
+                          src={src} 
                           alt={`Gallery image ${index + 1}`}
                         />
                       </div>
@@ -99,85 +133,107 @@ export default function MiamiBrunchPage() {
                 </div>
               </div>
             </div>
+            )}
 
-            {/* Brunch Intro */}
+            {/* Brunch Intro (Order 3) */}
+            {getSection(2).heading && (
             <div className="brunch-intro">
-              <h2 className='py-4 mt-4' style={{color: 'var(--verde-heading)'}}>The Yeeels Group Sunday brunch experience</h2>
-              <p className='text-[#948E84] text-center mb-4'>From Saint-Tropez beach clubs to Parisian terraces, Sunday at the Yeeels Group has always been sacred. At <span>Verde NYC</span>, we bring this celebrated tradition to New York—a midday celebration where Mediterranean elegance meets Manhattan sophistication. From noon to 5pm in the sun-drenched splendor of our <a href="https://www.google.com/maps/place/Verde+NYC" target="_blank">Meatpacking District</a> rooftop, indulge in a transportive experience brought to life with live music, curated cocktails, and the festive energy that has made <a href="https://yeeels.com/en/" target="_blank">Yeeels Group</a> brunches legendary across Europe and the Middle East.</p>
+              <h2 className='py-4 mt-4' style={{color: 'var(--verde-heading)'}}>{getSection(2).heading}</h2>
+              {getSection(2).content?.split('\n\n').map((paragraph: string, idx: number) => (
+                <p key={idx} className='text-[#948E84] text-center mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
+              ))}
             </div>
+            )}
 
             <hr className="section-divider" />
 
-            {/* Buffet Image Card */}
+            {/* Buffet Image Card (Order 4) */}
+            {getSection(3).heading && getSection(3).images?.[0] && (
             <div className="brunch-image-card right">
               <div className="image-card-image">
                 <img 
-                  loading="lazy" decoding="async" src="/images/_40A8515.jpg"
-                  alt="Verde NYC Sunday Brunch featuring chef-curated Mediterranean stations"
+                  loading="lazy" decoding="async" src={getSection(3).images![0]}
+                  alt={getSection(3).heading || 'Buffet'}
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
               <div className="image-card-content">
-                <h3 className='text-[#3A363A]'><span>Chef-curated Mediterranean stations</span></h3>
-                <p className='!text-[#948E84] text-justify'>Inspired by the legendary brunch formats at our Saint-Tropez and Dubai venues, guests journey through artfully designed stations curated by chefs trained across our global kitchens. Each stop offers a distinct gastronomic chapter—compose your own Mediterranean narrative over a leisurely two-hour experience.</p>
+                <h3 className='text-[#3A363A]'><span>{getSection(3).heading}</span></h3>
+                <p className='!text-[#948E84] text-justify'>{getSection(3).content}</p>
               </div>
             </div>
+            )}
 
             <hr className="section-divider" />
 
-            {/* Description Text */}
+            {/* Description Text (Order 5) */}
+            {getSection(4).content && (
             <div className="brunch-description">
-              <p className='text-[#948E84] text-justify mb-4'>Your journey begins with an exquisite bakery selection featuring freshly baked croissants from recipes perfected in our Parisian kitchens, alongside seasonal fruits sourced from Mediterranean growers and Hudson Valley farms. Continue to an artful display of Italian cured meats, French artisanal cheeses, and handcrafted breads from our in-house boulangerie.</p>
-              <p className='text-[#948E84] text-justify mb-4'>At the heart of the experience, our <span>5J Jamón Ibérico carving station</span>—a tradition from our Spanish-influenced Dubai venue—offers premium cuts carved to perfection. Explore curated salads and a vibrant <span>Sushi and Temaki Handroll Station</span> showcasing fish flown daily from Japan. The Raw Bar features freshly shucked oysters from both coasts, while our Mezze station highlights Verde&apos;s signature eggplant caviar and Mediterranean spreads. On our celebrated <span>rooftop terrace</span>, a live <span>Robata grill</span> and dedicated <span>Spritz station</span> channel the aperitivo culture of our Italian venues.</p>
-              <p className='text-[#948E84] text-justify mb-4'>The experience concludes with an indulgent dessert display featuring creations from our pastry team trained in Paris, capped by a <span>Gelato Station</span> offering flavors inspired by each of our global destinations.</p>
+              {getSection(4).content!.split('\n\n').map((paragraph: string, idx: number) => (
+                <p key={idx} className='text-[#948E84] text-justify mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
+              ))}
             </div>
+            )}
 
             <hr className="section-divider" />
 
-            {/* Cocktail Image Card */}
+            {/* Cocktail Image Card (Order 6) */}
+            {getSection(5).heading && getSection(5).images?.[0] && (
             <div className="brunch-image-card left">
               <div className="image-card-image">
                 <img
-                  loading="lazy" decoding="async" src="/images/_40A8519.jpg"
-                  alt="Verde NYC signature brunch cocktails and Mediterranean beverages"
+                  loading="lazy" decoding="async" src={getSection(5).images![0]}
+                  alt={getSection(5).heading || 'Beverages'}
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
               <div className="image-card-content">
-                <h3 className='text-[#3A363A]'><span>International beverage program</span></h3>
-                <p className='!text-[#948E84] text-justify mb-4'>Our beverage packages reflect the Yeeels Group&apos;s expertise cultivated across Paris, Saint-Tropez, Dubai, and Italy:</p>
-                <p className='!text-[#948E84] text-justify'><span>A thoughtfully crafted non-alcoholic program</span> featuring mocktails developed by our international mixology team, alongside <span>Champagne and Rosé packages</span> showcasing selections from our French suppliers—including houses that have partnered with us since our earliest Parisian days.</p>
+                <h3 className='text-[#3A363A]'><span>{getSection(5).heading}</span></h3>
+                {getSection(5).content?.split('\n\n').map((paragraph: string, idx: number) => (
+                  <p key={idx} className='!text-[#948E84] text-justify mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
+                ))}
               </div>
             </div>
+            )}
 
             <hr className="section-divider" />
 
-            {/* Hours Section */}
+            {/* Hours Section (Order 7) */}
+            {getSection(6).heading && (
             <div className="brunch-hours">
-              <h3 style={{color: 'var(--verde-heading)'}}>Hours & location</h3>
-              <p className='text-[#948E84] text-center mb-2'>Sunday | Noon - 5:00 PM</p>
-              <p className='text-[#948E84] text-center mb-2'><a href="https://maps.app.goo.gl/fqeZH3QPWLxBZFXY7" target="_blank">Get Directions — 85 10th Avenue, Meatpacking District, New York City</a></p>
-              <p className='text-[#948E84] text-center mt-4'>Part of the Yeeels Group: Paris | Saint-Tropez | Dubai | Italy | New York</p>
+              <h3 style={{color: 'var(--verde-heading)'}}>{getSection(6).heading}</h3>
+              {getSection(6).content?.split('\n\n').map((paragraph: string, idx: number) => (
+                <p key={idx} className='text-[#948E84] text-center mb-2' dangerouslySetInnerHTML={{ __html: paragraph }} />
+              ))}
             </div>
+            )}
 
+            {/* Reservation CTA (Order 8) */}
+            {getSection(7).ctaLink && getSection(7).ctaText && (
             <div className="button-center">
               <Link
-                href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search"
+                href={getSection(7).ctaLink!}
                 className="text-[#948E84]"
                 target="_blank"
               >
-                Reserve Your Experience
+                {getSection(7).ctaText}
               </Link>
             </div>
+            )}
 
+            {/* Menu Section (Order 9) */}
+            {getSection(8).heading && (
             <div className="brunch-menu-section">
-              <h3><span className='text-[#948E84]'>Sunday brunch menu</span></h3>
+              <h3><span className='text-[#948E84]'>{getSection(8).heading}</span></h3>
+              {getSection(8).ctaLink && getSection(8).ctaText && (
               <div className="button-center">
-                <Link href="/restaurant" className="text-[#948E84]">
-                  Explore Our Menus
+                <Link href={getSection(8).ctaLink!} className="text-[#948E84]">
+                  {getSection(8).ctaText}
                 </Link>
               </div>
+              )}
             </div>
+            )}
           </div>
         </section>
 

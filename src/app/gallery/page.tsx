@@ -1,45 +1,49 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
 
-// Gallery images from public/gallery folder
-const galleryImages = [
-  { src: '/gallery/40A4553-verde-newyork.jpg', alt: 'Verde NYC Interior' },
-  { src: '/gallery/40A4575-verde-newyork.jpg', alt: 'Verde NYC Ambiance' },
-  { src: '/gallery/40A4585-verde-newyork.jpg', alt: 'Verde NYC Dining' },
-  { src: '/gallery/40A4593-verde-newyork.jpg', alt: 'Verde NYC Restaurant' },
-  { src: '/gallery/40A4610-verde-newyork.jpg', alt: 'Verde NYC Experience' },
-  { src: '/gallery/40A4625-verde-newyork.jpg', alt: 'Verde NYC Venue' },
-  { src: '/gallery/40A4660-verde-newyork.jpg', alt: 'Verde NYC Atmosphere' },
-  { src: '/gallery/40A4697-verde-newyork.jpg', alt: 'Verde NYC Setting' },
-  { src: '/gallery/40A4717-verde-newyork.jpg', alt: 'Verde NYC Decor' },
-  { src: '/gallery/40A4726-verde-newyork.jpg', alt: 'Verde NYC Design' },
-  { src: '/gallery/40A4746-verde-newyork.jpg', alt: 'Verde NYC Interior Design' },
-  { src: '/gallery/40A4755-verde-newyork.jpg', alt: 'Verde NYC Space' },
-  { src: '/gallery/40A4761-verde-newyork.jpg', alt: 'Verde NYC Culinary' },
-  { src: '/gallery/40A4778-verde-newyork.jpg', alt: 'Verde NYC Dining Experience' },
-  { src: '/gallery/40A4781-verde-newyork.jpg', alt: 'Verde NYC Fine Dining' },
-  { src: '/gallery/40A4812-verde-newyork.jpg', alt: 'Verde NYC Restaurant Experience' },
-  { src: '/gallery/40A4823-verde-newyork.jpg', alt: 'Verde NYC Luxury' },
-  { src: '/gallery/40A4867.jpg', alt: 'Verde NYC Moments' },
-  { src: '/gallery/40A4901.jpg', alt: 'Verde NYC Celebration' },
-  { src: '/gallery/40A4916-06fe9f00-f32f-4d49-b4f9-20b8f8a7f72ejpeg.jpeg', alt: 'Verde NYC Event' },
-  { src: '/gallery/40A4939-db5620d8-89c3-4a1b-84c2-37308543f619jpeg.jpeg', alt: 'Verde NYC Gathering' },
-  { src: '/gallery/40A4947-verde-newyork.jpg', alt: 'Verde NYC Evening' },
-  { src: '/gallery/40A4987-verde-newyork.jpg', alt: 'Verde NYC Night' },
-  { src: '/gallery/40A5006-verde-newyork.jpg', alt: 'Verde NYC Cuisine' },
-  { src: '/gallery/40A5026-verde-newyork.jpg', alt: 'Verde NYC Food' },
-  { src: '/gallery/40A5048-verde-newyork.jpg', alt: 'Verde NYC Dishes' },
-  { src: '/gallery/40A5053-verde-newyork.jpg', alt: 'Verde NYC Flavors' },
-  { src: '/gallery/40A5070-verde-newyork.jpg', alt: 'Verde NYC Taste' },
-];
+// Define Interface for CMS Content
+interface PageSection {
+  type: string;
+  heading?: string;
+  subheading?: string;
+  content?: string;
+  images?: string[];
+  ctaLink?: string;
+  ctaText?: string;
+}
 
 export default function GalleryPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [heroSection, setHeroSection] = useState<PageSection | null>(null);
+  const [gallerySection, setGallerySection] = useState<PageSection | null>(null);
+
+  useEffect(() => {
+    const fetchPageData = async () => {
+      try {
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+        const res = await fetch(`${API_URL}/pages/gallery`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.page && data.page.sections) {
+            const sections = data.page.sections;
+            setHeroSection(sections.find((s: PageSection) => s.type === 'hero'));
+            setGallerySection(sections.find((s: PageSection) => s.type === 'gallery'));
+          }
+        }
+      } catch (error) {
+        console.error("Failed to load page content", error);
+      }
+    };
+
+    fetchPageData();
+  }, []);
+
+  const galleryImages = gallerySection?.images || [];
 
   return (
     <div className="gallery-page">
@@ -53,13 +57,13 @@ export default function GalleryPage() {
             loading="eager"
             decoding="async"
             fetchPriority="high"
-            src="/gallery/40A4553-verde-newyork.jpg"
+            src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/gallery/40A4553-verde-newyork.jpg"}
             alt="Verde NYC Gallery"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
         <div className="gallery-hero-content">
-          <h1 className="gallery-hero-title">GALLERY</h1>
+          <h1 className="gallery-hero-title">{heroSection?.heading || "GALLERY"}</h1>
         </div>
       </section>
 
@@ -67,17 +71,17 @@ export default function GalleryPage() {
       <section className="gallery-grid-section">
         <div className="gallery-container">
           <div className="gallery-grid">
-            {galleryImages.map((image, index) => (
+            {galleryImages.map((imageSrc, index) => (
               <div
                 key={index}
                 className="gallery-item"
-                onClick={() => setSelectedImage(image.src)}
+                onClick={() => setSelectedImage(imageSrc)}
               >
                 <img
                   loading="lazy"
                   decoding="async"
-                  src={image.src}
-                  alt={image.alt}
+                  src={imageSrc}
+                  alt={`Verde NYC Gallery Image ${index + 1}`}
                   className="gallery-image"
                 />
                 <div className="gallery-item-overlay">

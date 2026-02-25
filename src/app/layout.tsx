@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Verde NYC | MediterrAsian Rooftop Restaurant & Lounge',
     description: 'Experience a culinary journey through the Mediterranean & Asia at Verde NYC.',
-    images: ['/images/logo-Verde-NYC-green.png'],
+    images: ['https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png'],
   },
 }
 

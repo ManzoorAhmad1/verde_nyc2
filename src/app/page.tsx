@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Hero from '@/components/Hero';
 import VenueGrid from '@/components/VenueGrid';
 import ParallaxSection from '@/components/ParallaxSection';
@@ -10,9 +10,154 @@ import InstagramSection from '@/components/InstagramSection';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import MobileNav from './components/MobileNav';
+import Image from 'next/image';
+import Link from 'next/link';
+
+// Interface matching backend Page Schema
+interface PageSection {
+  type: string;
+  heading?: string;
+  subheading?: string;
+  content?: string;
+  images?: string[];
+  ctaLink?: string;
+  ctaText?: string;
+  items?: Array<{
+    name: string;
+    description: string;
+    price?: string;
+    image?: string;
+    link?: string;
+  }>;
+}
 
 const App: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sections, setSections] = useState<PageSection[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [imageTimestamp, setImageTimestamp] = useState(Date.now());
+
+  useEffect(() => {
+    // Fetch home page content
+    const fetchHomeData = async () => {
+      setIsLoading(true);
+      try {
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+        const res = await fetch(`${API_URL}/pages/home?t=${Date.now()}`, {
+          cache: 'no-store',
+          headers: {
+            'Pragma': 'no-cache',
+            'Cache-Control': 'no-cache'
+          }
+        });
+        
+        if (res.ok) {
+          const data = await res.json();
+          if (data.page?.sections) {
+            setSections(data.page.sections);
+            setImageTimestamp(Date.now());
+          }
+        }
+      } catch (error) {
+        console.error("Failed to load home page content", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchHomeData();
+
+    // Auto-refresh when user comes back to tab
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        console.log('🔄 Tab visible - refreshing data...');
+        fetchHomeData();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
+  // Render section based on type
+  const renderSection = (section: PageSection, index: number) => {
+    const key = `section-${index}-${imageTimestamp}`;
+    
+    switch (section.type) {
+      case 'hero':
+        return (
+          <Hero
+            key={key}
+            image={section.images?.[0] ? `${section.images[0]}?t=${imageTimestamp}` : undefined}
+            heading={section.heading}
+            subheading={section.subheading}
+            isLoading={isLoading}
+          />
+        );
+        
+      case 'features':
+        // Venue Grid Section
+        return (
+          <div key={key} id="mila-venues">
+            <VenueGrid
+              venues={section.items || []}
+              heading={section.heading}
+              subheading={section.subheading}
+              content={section.content}
+            />
+          </div>
+        );
+        
+      case 'parallax':
+        return (
+          <ParallaxSection
+            key={key}
+            imageUrl={section.images?.[0] ? `${section.images[0]}?t=${imageTimestamp}` : ''}
+            title={section.heading || ''}
+            subtitle={section.content || section.subheading || ''}
+            speed={0.5}
+          />
+        );
+        
+      case 'text':
+        // Philosophy/Reserve section
+        return (
+          <Philosophy
+            key={key}
+            heading={section.heading}
+            content={section.content}
+            ctaText={section.ctaText}
+            ctaLink={section.ctaLink}
+          />
+        );
+        
+      case 'philosophy':
+        return (
+          <PhilosophySection
+            key={key}
+            section={section}
+          />
+        );
+        
+      case 'gallery':
+        // Instagram Section
+        return (
+          <InstagramSection
+            key={key}
+            heading={section.heading}
+            subheading={section.subheading}
+            images={section.images || []}
+            ctaLink={section.ctaLink}
+          />
+        );
+        
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -20,34 +165,21 @@ const App: React.FC = () => {
       <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
 
       <main>
-        {/* Section 1: Hero Video */}
-        <Hero />
-
-        {/* Section 2: Venues */}
-        <div id="mila-venues">
-          <VenueGrid />
-        </div>
-
-        {/* Section 3: Parallax Callout */}
-        <ParallaxSection
-          imageUrl="/images/_40A8419.jpg"
-          title="Inspired by nature"
-          subtitle="MILA embodies a multi-sensory culinary and lifestyle sanctuary inspired by the elegant details of nature."
-          speed={0.5}
-        />
-
-        {/* Section 4: Philosophy and More */}
-        <Philosophy />
-        <ParallaxSecond />
-        <PhilosophySection />
-
-        {/* Section 6: Instagram */}
-        <InstagramSection />
+        {isLoading ? (
+          <div className="min-h-screen flex items-center justify-center">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-4 border-[var(--verde-accent)] border-t-transparent mx-auto mb-4"></div>
+              <p className="text-[var(--verde-text)]">Loading...</p>
+            </div>
+          </div>
+        ) : (
+          sections.map((section, index) => renderSection(section, index))
+        )}
       </main>
 
       <Footer />
 
-      {/* Floating Action Button (Optional, mimicking Squarespace overlay) */}
+      {/* Floating Action Button */}
       <a
         href="#"
         className="fixed bottom-6 right-6 bg-mila-gold text-white p-4 rounded-full shadow-2xl z-40 hover:scale-110 transition-transform lg:hidden"

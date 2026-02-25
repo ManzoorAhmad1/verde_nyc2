@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 
 const ParallaxSecond: React.FC = () => {
@@ -6,28 +6,38 @@ const ParallaxSecond: React.FC = () => {
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const updateParallax = () => {
       if (!sectionRef.current || !bgRef.current) return;
-
       const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      // Check visibility including partial visibility
-      if (rect.bottom >= 0 && rect.top <= windowHeight) {
-        // Calculate offset (negative value to move background up slower than scroll)
-        // Using -rect.top * speed creates the parallax effect
-        // We use translate3d for GPU acceleration
-        const offset = -rect.top * 0.3;
-        bgRef.current.style.transform = `translate3d(0, ${offset}px, 0)`;
+      const wh = window.innerHeight;
+      if (rect.bottom >= 0 && rect.top <= wh) {
+        bgRef.current.style.transform = `translate3d(0, ${-rect.top * 0.3}px, 0)`;
       }
     };
 
-    // Use passive listener for better scroll performance
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    // Initial calculation
-    handleScroll();
-    
-    return () => window.removeEventListener("scroll", handleScroll);
+    const tryLenis = () => {
+      const lenis = (window as any).__lenis;
+      if (lenis) {
+        lenis.on('scroll', updateParallax);
+        updateParallax();
+        return true;
+      }
+      return false;
+    };
+
+    if (!tryLenis()) {
+      const interval = setInterval(() => {
+        if (tryLenis()) clearInterval(interval);
+      }, 50);
+      return () => {
+        clearInterval(interval);
+        (window as any).__lenis?.off('scroll', updateParallax);
+      };
+    }
+
+    return () => {
+      (window as any).__lenis?.off('scroll', updateParallax);
+    };
   }, []);
 
   return (
@@ -41,7 +51,7 @@ const ParallaxSecond: React.FC = () => {
         className="absolute w-full h-[140%] -top-[20%] z-0 will-change-transform" // Increased height to accommodate larger parallax movement
       >
         <Image
-          src="/images/_40A8490.jpg"
+          src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8490.jpg"
           alt="The Art of Festive Dining"
           fill
           className="object-cover object-center"

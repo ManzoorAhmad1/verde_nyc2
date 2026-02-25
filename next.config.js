@@ -14,11 +14,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'verde-nyc.s3.eu-north-1.amazonaws.com',
+        hostname: 'verde-nyc-s3.s3.eu-north-1.amazonaws.com',
         pathname: '/**',
       },
     ],
-    domains: ['images.squarespace-cdn.com', 'files.elfsightcdn.com', 'verde-nyc.s3.eu-north-1.amazonaws.com'],
+    domains: ['images.squarespace-cdn.com', 'files.elfsightcdn.com', 'verde-nyc-s3.s3.eu-north-1.amazonaws.com'],
     // Image Optimization configured to reduce file size and improve scrolling smoothness
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,

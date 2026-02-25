@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="footer-logo-section">
           <Link href="/">
             <img
-              loading="lazy" decoding="async" src="/images/logo-Verde-NYC-green.png"
+              loading="lazy" decoding="async" src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png"
               alt="Verde NYC - A Yeeels Group Venue"
               width={150}
               height={50}
@@ -105,7 +105,7 @@ export default function Footer() {
             "@type": ["Restaurant", "LocalBusiness"],
             "name": "Verde NYC - A Yeeels Group Venue",
             "image": [
-              "/images/logo-Verde-NYC-green.png"
+              "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png"
             ],
             "url": "https://verde-nyc.com/",
             "telephone": "+16464068763",

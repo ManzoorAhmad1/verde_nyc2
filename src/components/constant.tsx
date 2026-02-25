@@ -5,28 +5,28 @@ export const VENUES: any = [
     id: '1',
     title: 'VERDE RESTAURANT',
     description: 'The distinctively curated rooftop aims to take guests on a culinary journey through the shores of the Mediterranean.',
-    image: '/gallery/40A4553-verde-newyork.jpg',
+    image: 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/gallery/40A4553-verde-newyork.jpg',
     link: '/milaomakase'
   },
   {
     id: '2',
     title: "VERDE PARTY'S",
     description: " Experience world-class hospitality at VERDYPARTY'S, where bespoke private events come to life. Whether an intimate gathering or a grand celebration for up to 400 guests, each occasion is infused with timeless Mediterranean elegance and meticulous attention to detail.",
-    image: '/gallery/40A4575-verde-newyork.jpg',
+    image: 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/gallery/40A4575-verde-newyork.jpg',
     link: '/milaomakase'
   },
   {
     id: '3',
     title: 'VERDE Lounge',
     description: 'At VERDE lounge, intimate charm blends seamlessly with metropolitan energy. Designed for vibrant lounge evenings and thoughtfully curated experiences, this space captures the essence of Parisian artistry and the spirited soul of New York',
-    image: '/VERDE-DUBAI-VENUE_0019__40A8461.jpg-750x750.jpg',
+    image: 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/verde_images/VERDE-DUBAI-VENUE_0019__40A8461.jpg-750x750.jpg',
     link: '/milaomakase'
   },
   {
     id: '4',
     title: 'VERDE BAR',
     description: 'VERDYBAR redefines Sunday Brunch. Join us on our rooftop for a festive experience featuring live music, exquisite Mediterranean fare from chef-designed stations, and an atmosphere dedicated to leisure and lively connection',
-    image: '/VERDE-DUBAI-VENUE_0019__40A8461.jpg.jpg',
+    image: 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/verde_images/VERDE-DUBAI-VENUE_0019__40A8461.jpg.jpg',
     link: '/milaomakase'
   }
 ];
