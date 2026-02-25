@@ -55,7 +55,9 @@ const ParallaxSecond: React.FC = () => {
           alt="The Art of Festive Dining"
           fill
           className="object-cover object-center"
-          sizes="100vw"
+          sizes="101vw"
+          priority
+          unoptimized
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/20" />

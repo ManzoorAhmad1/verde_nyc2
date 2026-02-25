@@ -12,7 +12,12 @@ export default function FloatingActionButton() {
   const reservationLink = 'https://www.sevenrooms.com/explore/verdenyc/reservations/create/search';
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/${whatsappNumber.replace(/\+/g, '')}`, '_blank');
+    // Use direct link instead of window.open to avoid Chrome's protocol handler permission
+    const link = document.createElement('a');
+    link.href = `https://wa.me/${whatsappNumber.replace(/\+/g, '')}`;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.click();
   };
 
   const handleCopyPhone = () => {

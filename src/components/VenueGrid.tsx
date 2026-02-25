@@ -78,14 +78,15 @@ const VenueGrid: React.FC<VenueGridProps> = ({
                 src={venue.image}
                 alt={venue.name || venue.title}
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 will-change-transform"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 unoptimized
                 loading="lazy"
+                style={{ transform: 'translateZ(0)' }}
               />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"></div>
-              <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 md:p-10 opacity-100 group-hover:bg-red-950/80 transition-all">
-                <h3 className="text-lg md:text-2xl lg:text-3xl font-playfair uppercase tracking-[0.1em] mb-0 group-hover:mb-2 md:group-hover:mb-4 text-white transition-all duration-500">
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+              <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 md:p-10 opacity-100 group-hover:bg-[#450a0a]/80 transition-colors duration-500">
+                <h3 className="text-lg md:text-2xl lg:text-3xl font-playfair uppercase tracking-[0.1em] mb-0 group-hover:mb-2 md:group-hover:mb-4 text-white transition-all duration-500 will-change-[margin, opacity]">
                   {venue.name || venue.title}
                 </h3>
                 <p className="text-xs md:text-sm text-white opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-[200px] transition-all duration-500 max-w-2xl">
