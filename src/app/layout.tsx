@@ -4,11 +4,11 @@ import FloatingActionButton from './components/FloatingActionButton'
 
 export const metadata: Metadata = {
   title: 'Verde NYC | Restaurant and Lounge',
-  description: 'Verde NYC is a multi-venue concept offering an exceptional dining experience with Mediterranean and Japanese inspired cuisine in the heart of New York.',
-  keywords: 'Verde NYC, restaurant, lounge, dining, New York, fine dining, omakase',
+  description: 'Verde NYC is a multi-venue concept by Yeeels Group, with locations in Paris, Dubai, Saint-Tropez, and New York, offering an exceptional Mediterranean dining experience.',
+  keywords: 'Verde NYC, restaurant, lounge, dining, New York, Paris, Dubai, Saint-Tropez, fine dining, Yeeels Group',
   openGraph: {
     title: 'Verde NYC | Restaurant and Lounge',
-    description: 'Experience exceptional dining at Verde NYC Restaurant and Lounge in New York.',
+    description: 'Experience exceptional Mediterranean dining at Verde NYC Restaurant and Lounge - A Yeeels Group Venue.',
     images: ['/images/logo-Verde-NYC-green.png'],
   },
 }
