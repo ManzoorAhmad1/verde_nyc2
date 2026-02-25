@@ -35,6 +35,15 @@ html.lenis, html.lenis body {
   height: auto;
 }
 
+/* Ensure fixed elements work with Lenis */
+html.lenis {
+  transform: none !important;
+}
+
+html.lenis body {
+  transform: none !important;
+}
+
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
@@ -132,9 +141,10 @@ html.lenis, html.lenis body {
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
   left: auto;
   width: 320px;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
   z-index: 9998;
   display: flex;
   transform: translateY(-100%) translateZ(0);
@@ -142,6 +152,7 @@ html.lenis, html.lenis body {
   opacity: 1;
   visibility: hidden;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s ease;
+  overflow: hidden;
 }
 
 .menu-overlay.open {
@@ -154,11 +165,16 @@ html.lenis, html.lenis body {
   position: relative;
   width: 100%;
   height: 100%;
+  max-height: 100vh;
+  max-height: 100dvh;
   background: #f5f0eb;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 25px 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .menu-close-btn {
@@ -332,7 +348,7 @@ html.lenis, html.lenis body {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 9997;
     padding: 20px 40px;
     transition: background-color 0.3s ease;
     display: flex;
@@ -340,6 +356,8 @@ html.lenis, html.lenis body {
     align-items: center;
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   .header.scrolled {

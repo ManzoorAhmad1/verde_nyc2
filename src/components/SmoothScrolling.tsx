@@ -10,6 +10,8 @@ export default function SmoothScrolling() {
       smoothWheel: true,
       wheelMultiplier: 1.0,
       touchMultiplier: 1.5,
+      wrapper: window,
+      content: document.documentElement,
     })
 
     // Expose instance globally so parallax components can sync to Lenis RAF
