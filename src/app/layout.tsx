@@ -3,12 +3,12 @@ import './globals.css'
 import FloatingActionButton from './components/FloatingActionButton'
 
 export const metadata: Metadata = {
-  title: 'Verde NYC | Modern French Bistro & Lounge',
-  description: 'Verde NYC: A modern French bistro in New York. Join us for authentic cuisine, fine wine, and sophisticated lounge vibes. Part of the Verde family—Dubai, Paris, Sardinia.',
-  keywords: 'Verde NYC, French bistro, lounge, dining, New York, Paris, Dubai, Sardinia, fine dining, authentic cuisine, wine bar',
+  title: 'Verde NYC | International Festive Restaurant in New York',
+  description: 'Discover Verde NYC in the Meatpacking District: a festive Mediterranean restaurant with refined dining, signature atmosphere, and unforgettable nights.',
+  keywords: 'Verde NYC, Mediterranean restaurant, Meatpacking District, festive dining, New York restaurant, fine dining, rooftop restaurant, international cuisine',
   openGraph: {
-    title: 'Verde NYC | Modern French Bistro & Lounge',
-    description: 'Verde NYC: A modern French bistro in New York. Join us for authentic cuisine, fine wine, and sophisticated lounge vibes. Part of the Verde family—Dubai, Paris, Sardinia.',
+    title: 'Verde NYC | International Festive Restaurant in New York',
+    description: 'Discover Verde NYC in the Meatpacking District: a festive Mediterranean restaurant with refined dining, signature atmosphere, and unforgettable nights.',
     images: ['/images/logo-Verde-NYC-green.png'],
   },
 }
