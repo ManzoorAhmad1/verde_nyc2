@@ -3,12 +3,12 @@ import './globals.css'
 import FloatingActionButton from './components/FloatingActionButton'
 
 export const metadata: Metadata = {
-  title: 'Verde NYC | MediterrAsian Rooftop Restaurant & Lounge',
-  description: 'Verde NYC is a multi-venue concept, aiming to transport guests on a culinary journey through the shores of the Mediterranean and Japan, while creating a visionary expression of flavorful MediterrAsian cuisine.',
-  keywords: 'Verde NYC, Mediterranean restaurant, Japanese cuisine, rooftop dining, New York, fine dining, omakase, lounge',
+  title: 'Verde NYC | Restaurant and Lounge',
+  description: 'Verde NYC is a multi-venue concept offering an exceptional dining experience with Mediterranean and Japanese inspired cuisine in the heart of New York.',
+  keywords: 'Verde NYC, restaurant, lounge, dining, New York, fine dining, omakase',
   openGraph: {
-    title: 'Verde NYC | MediterrAsian Rooftop Restaurant & Lounge',
-    description: 'Experience a culinary journey through the Mediterranean & Asia at Verde NYC.',
+    title: 'Verde NYC | Restaurant and Lounge',
+    description: 'Experience exceptional dining at Verde NYC Restaurant and Lounge in New York.',
     images: ['/images/logo-Verde-NYC-green.png'],
   },
 }
