@@ -66,15 +66,6 @@ export default function PrivateEventsPage() {
       {/* Event Menu Section (Order 2) */}
       {getSection(1).heading && (
       <section className="private-events-intro">
-        {getSection(1).images?.[0] && (
-        <div className="private-events-intro-bg">
-          <img
-            src={getSection(1).images?.[0]}
-            alt="texture background"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
-        </div>
-        )}
         <div className="private-events-intro-content">
           <h1 style={{color: 'var(--verde-heading)'}}>
             <em>{getSection(1).heading}</em>
