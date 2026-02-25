@@ -21,7 +21,7 @@ export default function Header() {
       {/* Logo - Left Side */}
       <Link href="/" className="header-logo-link relative w-[80px] h-[30px]">
         <Image
-          src={scrolled ? '/images/logo-Verde-NYC-green-removebg-preview.png' : '/images/logo-Verde-NYC-white.png'}
+          src={scrolled ? 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green-removebg-preview.png' : 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png'}
           alt="Verde NYC"
           fill
           className="object-contain header-logo"

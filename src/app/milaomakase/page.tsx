@@ -19,7 +19,7 @@ export default function MilaOmakasePage() {
         <div className="lounge-gallery-wrapper">
           <div className="lounge-gallery-item active">
             <img
-              loading="eager" decoding="async" fetchPriority="high" src="/images/_40A8496.jpg"
+              loading="eager" decoding="async" fetchPriority="high" src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8496.jpg"
               alt="Verde NYC Omakase Interior"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
@@ -70,14 +70,14 @@ export default function MilaOmakasePage() {
           
           <div className="lounge-lineup-image mt-8">
             <img
-              loading="lazy" decoding="async" src="/images/_40A8500.jpg"
+              loading="lazy" decoding="async" src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8500.jpg"
               alt="Verde NYC Omakase Venue"
               style={{ width: '100%', height: 'auto' }}
             />
           </div>
           <div className="lounge-lineup-image mt-6">
             <img
-              loading="lazy" decoding="async" src="/images/_40A8498.jpg"
+              loading="lazy" decoding="async" src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8498.jpg"
               alt="Verde NYC Omakase Experience"
               style={{ width: '100%', height: 'auto' }}
             />
@@ -95,7 +95,7 @@ export default function MilaOmakasePage() {
           
           <div className="lounge-collage-image">
             <img
-              loading="lazy" decoding="async" src="/images/_40A8501.jpg"
+              loading="lazy" decoding="async" src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8501.jpg"
               alt="Verde NYC Omakase culinary presentation"
               style={{ width: '100%', height: 'auto' }}
             />

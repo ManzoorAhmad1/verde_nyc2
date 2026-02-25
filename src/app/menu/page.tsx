@@ -1,58 +1,67 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
 
-const menuCategories = [
-  {
-    title: 'FOOD MENU',
-    description: 'Experience our curated Mediterranean and Asian fusion dishes',
-    menuImages: [
-      '/menu/2025 NV FORMAT VERDE NYC_Parades_DEC_page-0002.jpg',
-      '/menu/2025_Verde NYC - FINAL_DEC_page-0002.jpg',
-    ],
-    image: '/images/_40A8416.jpg'
-  },
-  {
-    title: 'WINE MENU',
-    description: 'Discover our exceptional selection of wines from around the world',
-    menuImages: [
-      '/menu/2025 NV FORMAT VERDE NYC_Vins_DEC_page-0002.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC_Vins_DEC_page-0003.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC_Vins_DEC_page-0004.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC_Vins_DEC_page-0005.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC_Vins_DEC_page-0006.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC_Vins_DEC_page-0007.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC_Vins_DEC_page-0008.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC_Vins_DEC_page-0009.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC_Vins_DEC_page-0010.jpg',
-    ],
-    image: '/images/_40A8417.jpg'
-  },
-  {
-    title: 'BAR MENU',
-    description: 'Explore our curated selection of cocktails and beverages',
-    menuImages: [
-      '/menu/2025 NV FORMAT VERDE NYC - BAR livret A5_DEC_page-0001.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC - BAR livret A5_DEC_page-0003.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC - BAR livret A5_DEC_page-0004.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC - BAR livret A5_DEC_page-0005.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC - BAR livret A5_DEC_page-0006.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC - BAR livret A5_DEC_page-0007.jpg',
-      '/menu/2025 NV FORMAT VERDE NYC - BAR livret A5_DEC_page-0008.jpg',
-    ],
-    image: '/images/_40A8419.jpg'
-  }
-];
+// Define Interface for CMS Content
+interface PageSection {
+  type: string;
+  heading?: string;
+  subheading?: string;
+  content?: string;
+  images?: string[];
+  ctaLink?: string;
+  ctaText?: string;
+}
 
 export default function MenuPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState<{title: string, images: string[]} | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [heroSection, setHeroSection] = useState<PageSection | null>(null);
+  const [menuCategories, setMenuCategories] = useState<any[]>([]);
+  const [introSection, setIntroSection] = useState<PageSection | null>(null);
+  const [ctaSection, setCtaSection] = useState<PageSection | null>(null);
+
+  useEffect(() => {
+    const fetchPageData = async () => {
+      try {
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+        const res = await fetch(`${API_URL}/pages/menu`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.page && data.page.sections) {
+            const sections = data.page.sections;
+            setHeroSection(sections.find((s: PageSection) => s.type === 'hero'));
+            
+            // Find text sections by order
+            const textSections = sections.filter((s: PageSection) => s.type === 'text');
+            setIntroSection(textSections.find((s: PageSection) => s.heading?.includes('CULINARY') || s.heading?.includes('EXCELLENCE')));
+            setCtaSection(textSections.find((s: PageSection) => s.heading?.includes('RESERVE') || s.ctaText));
+            
+            const categories = sections
+              .filter((s: PageSection) => s.type === 'menu-category')
+              .map((s: PageSection) => ({
+                title: s.heading,
+                description: s.content,
+                image: s.images && s.images.length > 0 ? s.images[0] : '', // Cover is first image
+                menuImages: s.images && s.images.length > 1 ? s.images.slice(1) : [] // Rest are menu pages
+              }));
+            setMenuCategories(categories);
+          }
+        }
+      } catch (error) {
+        console.error("Failed to load page content", error);
+        // Fallback or empty
+      }
+    };
+
+    fetchPageData();
+  }, []);
 
   const handlePrevImage = () => {
     if (selectedMenu) {
@@ -72,7 +81,7 @@ export default function MenuPage() {
     }
   };
 
-  const openMenu = (category: typeof menuCategories[0]) => {
+  const openMenu = (category: any) => {
     setSelectedMenu({ title: category.title, images: category.menuImages });
     setCurrentImageIndex(0);
     setIsZoomed(false);
@@ -96,7 +105,7 @@ export default function MenuPage() {
             loading="eager"
             decoding="async"
             fetchPriority="high"
-            src="/images/_40A8416.jpg"
+            src={heroSection?.images?.[0] || heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8416.jpg"}
             alt="Verde NYC Menu"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
@@ -108,17 +117,14 @@ export default function MenuPage() {
       </section>
 
       {/* Menu Introduction */}
-      <section className="menu-intro-section">
-        <div className="menu-intro-content">
-          <h2>CULINARY EXCELLENCE</h2>
-          <p>
-            Indulge in a symphony of flavors inspired by the elegance of Paris and the
-            vibrant spirit of the Mediterranean. At Verde NYC, every dish is a masterpiece,
-            crafted with creativity and precision to ignite your senses and elevate your dining
-            journey.
-          </p>
-        </div>
-      </section>
+      {introSection && (
+        <section className="menu-intro-section">
+          <div className="menu-intro-content">
+            <h2>{introSection.heading}</h2>
+            {introSection.content && <p>{introSection.content}</p>}
+          </div>
+        </section>
+      )}
 
       {/* Menu Categories Grid */}
       <section className="menu-categories-section">
@@ -197,7 +203,7 @@ export default function MenuPage() {
                 onClick={() => setIsZoomed(!isZoomed)}
               >
                 <img
-                  src={selectedMenu.images[currentImageIndex]}
+                  src={selectedMenu.images?.[currentImageIndex]}
                   alt={`${selectedMenu.title} - Page ${currentImageIndex + 1}`}
                   className="carousel-image"
                 />
@@ -240,23 +246,23 @@ export default function MenuPage() {
       )}
 
       {/* Reservation CTA */}
-      <section className="menu-cta-section">
-        <div className="menu-cta-content">
-          <h2>RESERVE YOUR EXPERIENCE</h2>
-          <p>
-            Join us for an unforgettable dining journey at Verde NYC. Our team awaits
-            to guide you through our exceptional menu, creating moments that linger
-            long after the evening ends.
-          </p>
-          <Link
-            href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search"
-            target="_blank"
-            className="btn btn-primary border border-[#8e402f] text-[#8e402f] hover:bg-[#8e402f] hover:text-white"
-          >
-            MAKE A RESERVATION
-          </Link>
-        </div>
-      </section>
+      {ctaSection && (
+        <section className="menu-cta-section">
+          <div className="menu-cta-content">
+            <h2>{ctaSection.heading}</h2>
+            {ctaSection.content && <p>{ctaSection.content}</p>}
+            {ctaSection.ctaLink && ctaSection.ctaText && (
+              <Link
+                href={ctaSection.ctaLink}
+                target="_blank"
+                className="btn btn-primary border border-[#8e402f] text-[#8e402f] hover:bg-[#8e402f] hover:text-white"
+              >
+                {ctaSection.ctaText}
+              </Link>
+            )}
+          </div>
+        </section>
+      )}
 
       <Footer />
     </div>

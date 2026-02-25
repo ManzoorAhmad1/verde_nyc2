@@ -5,20 +5,18 @@ import Lenis from 'lenis'
 
 export default function SmoothScrolling() {
   useEffect(() => {
-    // Initialize Lenis with ultra-smooth settings
     const lenis = new Lenis({
-      lerp: 0.1, // Faster response (less laggy feel)
-      duration: 1.2, // Smooth ease-out
+      lerp: 0.1,
       smoothWheel: true,
-      wheelMultiplier: 1,
-      // touchMultiplier: 1.5, // Commented out to use default touch behavior
-      syncTouch: true, // Use native touch momentum if possible
-      prevent: (node) => node.classList.contains('no-smooth'),
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
     })
+
+    // Expose instance globally so parallax components can sync to Lenis RAF
+    ;(window as any).__lenis = lenis
 
     let animationFrameId: number
 
-    // Request animation frame loop
     function raf(time: number) {
       lenis.raf(time)
       animationFrameId = requestAnimationFrame(raf)
@@ -26,10 +24,10 @@ export default function SmoothScrolling() {
 
     animationFrameId = requestAnimationFrame(raf)
 
-    // Cleanup
     return () => {
       cancelAnimationFrame(animationFrameId)
       lenis.destroy()
+      ;(window as any).__lenis = null
     }
   }, [])
 

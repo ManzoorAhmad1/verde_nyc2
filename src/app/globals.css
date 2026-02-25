@@ -13,6 +13,20 @@
   --font-cormorant: 'Cormorant Garamond', Georgia, serif;
 }
 
+/* Shimmer loading animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
 html {
   /* scroll-behavior: smooth; - Removed to prevent conflict with Lenis */
 }
@@ -54,6 +68,8 @@ html.lenis, html.lenis body {
   align-items: center;
   gap: 20px;
   padding: 20px 25px;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* Header Reservations Button */
@@ -121,14 +137,16 @@ html.lenis, html.lenis body {
   width: 320px;
   z-index: 9998;
   display: flex;
-  transform: translateY(-100%);
+  transform: translateY(-100%) translateZ(0);
+  -webkit-transform: translateY(-100%) translateZ(0);
   opacity: 1;
   visibility: hidden;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s ease;
 }
 
 .menu-overlay.open {
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
+  -webkit-transform: translateY(0) translateZ(0);
   visibility: visible;
 }
 
@@ -261,8 +279,8 @@ html.lenis, html.lenis body {
     background: var(--background);
     /* overflow-x: hidden; - Removed to prevent potential scroll locking */
     -webkit-overflow-scrolling: touch;
-    /* Prevent layout shifts during scroll */
-    /* overscroll-behavior: none; - Removed to restore natural bounce */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
 
   h1,
@@ -296,6 +314,13 @@ html.lenis, html.lenis body {
   img {
     max-width: 100%;
     height: auto;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  section {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
 }
 
@@ -313,6 +338,8 @@ html.lenis, html.lenis body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
 
   .header.scrolled {
@@ -671,21 +698,19 @@ html.lenis, html.lenis body {
   }
 
   .venue-image-smooth {
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
 
   .venue-overlay-smooth {
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
 
   .venue-section-smooth {
     position: relative;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
     z-index: 50;
     background: #f3ede2;
     padding-bottom: 250px;
@@ -923,8 +948,8 @@ html.lenis, html.lenis body {
     gap: 0;
     z-index: 40;
     background: #f3ede2;
-    transform: translate3d(0, 0, 0); /* Promote to GPU layer for smoother sliding */
-    will-change: transform; /* Hint browser of incoming movement */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
 
   .art-image {
@@ -969,8 +994,6 @@ html.lenis, html.lenis body {
     background-position: center;
     background-attachment: scroll;
     z-index: 20;
-    will-change: transform, background-position;
-    transition: background-position 0.1s ease-out;
   }
 
   .eudaimonia-content {
@@ -994,8 +1017,7 @@ html.lenis, html.lenis body {
 
   /* Philosophy Section */
   .philosophy-section {
-    position: sticky;
-    top: 0;
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -1004,7 +1026,14 @@ html.lenis, html.lenis body {
     background-position: center;
     background-attachment: scroll;
     z-index: 30;
-    will-change: transform;
+  }
+
+  .philosophy-wrapper {
+    position: relative;
+    isolation: isolate;
+    z-index: 10;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
 
   .philosophy-grid {
@@ -1027,8 +1056,7 @@ html.lenis, html.lenis body {
 
   /* Reserve Section */
   .reserve-section {
-    position: sticky;
-    top: 0;
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -1037,7 +1065,6 @@ html.lenis, html.lenis body {
     padding: 80px 40px;
     text-align: center;
     z-index: 15;
-    will-change: transform;
   }
 
   .reserve-section h3 {
@@ -1649,7 +1676,8 @@ html.lenis, html.lenis body {
   position: fixed;
   right: 30px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateZ(0);
+  -webkit-transform: translateY(-50%) translateZ(0);
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -3910,6 +3938,8 @@ html.lenis, html.lenis body {
   pointer-events: auto !important;
   visibility: visible !important;
   opacity: 1 !important;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* Main FAB Button */

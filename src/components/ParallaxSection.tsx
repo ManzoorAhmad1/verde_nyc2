@@ -7,7 +7,7 @@ interface ParallaxSectionProps {
   subtitle?: string;
   className?: string;
   contentClassName?: string;
-  speed?: number; // smaller = slower
+  speed?: number;
 }
 
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({
@@ -16,55 +16,45 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   subtitle,
   className = "",
   contentClassName = "",
-  speed = 0.2, // smaller = slower background
+  speed = 0.2,
 }) => {
   const bgRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let animationFrameId: number;
-    // Cache values to avoid layout thrashing during scroll
-    let sectionTop = 0;
-    let sectionHeight = 0;
-    const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 0;
-
-    const updateDimensions = () => {
-      if (sectionRef.current) {
-        sectionTop = sectionRef.current.offsetTop;
-        sectionHeight = sectionRef.current.offsetHeight;
+    const updateParallax = () => {
+      if (!bgRef.current || !sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const wh = window.innerHeight;
+      if (rect.bottom >= 0 && rect.top <= wh) {
+        bgRef.current.style.transform = `translate3d(0, ${-rect.top * speed}px, 0)`;
       }
     };
 
-    // Initial measure
-    updateDimensions();
-    
-    // Update cached values on resize
-    window.addEventListener('resize', updateDimensions);
-
-    const handleScroll = () => {
-      if (!bgRef.current) return;
-
-      const scrollTop = window.scrollY;
-
-      // Check using cached values
-      // Add a buffer to ensure smooth entry/exit
-      if (scrollTop + windowHeight > sectionTop && scrollTop < sectionTop + sectionHeight) {
-        // Use requestAnimationFrame for the actual DOM update
-        animationFrameId = requestAnimationFrame(() => {
-          if (bgRef.current) {
-            const offset = (scrollTop - sectionTop) * speed;
-            bgRef.current.style.transform = `translate3d(0, ${offset}px, 0)`;
-          }
-        });
+    // Try to use Lenis scroll event for frame-perfect sync
+    const tryLenis = () => {
+      const lenis = (window as any).__lenis;
+      if (lenis) {
+        lenis.on('scroll', updateParallax);
+        updateParallax();
+        return true;
       }
+      return false;
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    
+    // Lenis may not be ready yet — retry until available
+    if (!tryLenis()) {
+      const interval = setInterval(() => {
+        if (tryLenis()) clearInterval(interval);
+      }, 50);
+      return () => {
+        clearInterval(interval);
+        (window as any).__lenis?.off('scroll', updateParallax);
+      };
+    }
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener('resize', updateDimensions);
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      (window as any).__lenis?.off('scroll', updateParallax);
     };
   }, [speed]);
 
@@ -79,23 +69,55 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
         className="absolute w-full h-[140%] -top-[20%] will-change-transform" // Use larger height to accommodate parallax movement
       >
         <Image
+          key={imageUrl}
           src={imageUrl}
           alt={title || "Parallax Background"}
           fill
           className="object-cover object-center"
           sizes="100vw"
           priority
+          loading="eager"
+          unoptimized
+          onLoad={() => {
+            console.log('✅ Parallax image loaded:', imageUrl);
+          }}
+          onError={() => {
+            console.error('❌ Failed to load parallax image:', imageUrl);
+          }}
         />
       </div>
 
       {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40 z-[1]"></div>
 
       {/* Content */}
-      <div className={`relative z-10 text-center font-light px-4 md:px-6 max-w-3xl leading-relaxed ${contentClassName}`}>
-        <h2 className="w-full section-heading text-white intro-text-animate !text-sm md:!text-xl lg:!text-2xl !leading-relaxed">
-          Born in Paris. Celebrated in Saint-Tropez. Elevated in Dubai. <span className="hidden md:inline"><br /></span>
-          Now, Verde arrives in New York—bringing two decades of Mediterranean excellence to the Meatpacking District.
-        </h2>
+      <div className={`relative z-10 px-4 md:px-6 w-full flex justify-end ${contentClassName}`}>
+        {title && subtitle ? (
+          // Style 2: Heading + Content (right-aligned with top and bottom lines)
+          <div className="text-left max-w-sm md:max-w-md lg:max-w-lg">
+            {/* Top line */}
+            <div className="w-full h-[1px] bg-white/30 mb-8"></div>
+            
+            <h2 className="text-white font-bold !text-2xl md:!text-3xl lg:!text-4xl !leading-relaxed mb-6 uppercase tracking-wider">
+              {title}
+            </h2>
+            <p className="text-white text-sm md:text-base lg:text-lg leading-relaxed opacity-95 mb-8">
+              {subtitle}
+            </p>
+            
+            {/* Bottom line */}
+            <div className="w-full h-[1px] bg-white/30"></div>
+          </div>
+        ) : (
+          // Style 1: Only Content (centered, uppercase)
+          subtitle && (
+            <div className="text-center w-full max-w-4xl mx-auto">
+              <h2 className="w-full section-heading text-white intro-text-animate !text-sm md:!text-xl lg:!text-2xl !leading-relaxed uppercase">
+                {subtitle}
+              </h2>
+            </div>
+          )
+        )}
       </div>
     </section>
   );

@@ -32,6 +32,10 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.env
+.env.local
+.env.development
+.env.production
 
 # vercel
 .vercel
@@ -39,3 +43,36 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDEs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Backend specific
+backend/node_modules/
+backend/.env
+backend/coverage/
+backend/npm-debug.log*
+
+# CMS specific
+cms/node_modules/
+cms/.next/
+cms/.env.local
+cms/coverage/
+cms/npm-debug.log*
+
+# Logs
+logs/
+*.log
