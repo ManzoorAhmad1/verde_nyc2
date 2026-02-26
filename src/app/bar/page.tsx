@@ -110,7 +110,9 @@ export default function MiamiBrunchPage() {
                       <div key={index} className="flex-shrink-0 w-2/5 h-full">
                         <img 
                           className="w-full h-full object-cover" 
-                          src={src} 
+                          src={src}
+                          loading="lazy"
+                          decoding="async"
                           alt={`Gallery image ${index + 1}`}
                         />
                       </div>

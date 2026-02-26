@@ -82,6 +82,7 @@ export default function RestaurantPage() {
           <div className="gallery-slideshow relative w-full h-[80vh] md:h-[90vh]">
             <Image
               priority
+              unoptimized
               src={heroSection?.images?.[0] || heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"}
               alt="Verde NYC Restaurant"
               fill
@@ -98,6 +99,7 @@ export default function RestaurantPage() {
               src={philosophySection?.images?.[0] || "https://images.squarespace-cdn.com/content/v1/61d2ccabbc553c1fec7c16e9/0c14fc2a-88f5-46a4-996e-8e0175295970/mila-miami-texture.png"}
               alt="verde-nyc-texture"
               fill
+              unoptimized
               className="object-cover object-center"
               sizes="100vw"
             />
@@ -204,9 +206,11 @@ export default function RestaurantPage() {
             ]).map((img, index) => (
               <div key={index} className="gallery-item">
                 <Image
+                  unoptimized
                   src={img}
                   alt={`Verde NYC Gallery ${index + 1}`}
                   fill
+                  loading="lazy"
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />

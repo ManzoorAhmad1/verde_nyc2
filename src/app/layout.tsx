@@ -50,6 +50,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com" />
+        <link rel="dns-prefetch" href="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com" />
       </head>
       <body className="antialiased">
         <SmoothScrolling />

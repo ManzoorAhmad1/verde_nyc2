@@ -7,43 +7,33 @@ const ParallaxSecond: React.FC = () => {
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let currentY = 0;
+    let targetY = 0;
+    
+    const lerp = (start: number, end: number, factor: number) => {
+      return start + (end - start) * factor;
+    };
+    
     const updateParallax = () => {
       if (!sectionRef.current || !bgRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const wh = window.innerHeight;
       if (rect.bottom >= 0 && rect.top <= wh) {
-        bgRef.current.style.transform = `translate3d(0, ${-rect.top * 0.3}px, 0)`;
+        targetY = -rect.top * 0.3;
+        currentY = lerp(currentY, targetY, 0.1);
+        bgRef.current.style.transform = `translate3d(0, ${currentY}px, 0)`;
       }
     };
 
-    // Initial calculation
-    updateParallax();
-
-    const tryLenis = () => {
-      const lenis = (window as any).__lenis;
-      if (lenis) {
-        lenis.on('scroll', updateParallax);
-        return true;
-      }
-      return false;
+    const animate = () => {
+      updateParallax();
+      requestAnimationFrame(animate);
     };
-
-    let interval: ReturnType<typeof setInterval> | null = null;
-    if (!tryLenis()) {
-      interval = setInterval(() => {
-        if (tryLenis()) {
-          if (interval) clearInterval(interval);
-        }
-      }, 100);
-    }
-
-    // Also listen to native scroll as fallback
-    window.addEventListener('scroll', updateParallax, { passive: true });
-
+    
+    const rafId = requestAnimationFrame(animate);
+    
     return () => {
-      if (interval) clearInterval(interval);
-      (window as any).__lenis?.off('scroll', updateParallax);
-      window.removeEventListener('scroll', updateParallax);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -55,7 +45,7 @@ const ParallaxSecond: React.FC = () => {
       {/* Parallax Background */}
       <div
         ref={bgRef}
-        className="absolute w-full h-[140%] -top-[20%] z-0 will-change-transform"
+        className="absolute w-full h-[130%] -top-[15%] z-0 will-change-transform"
       >
         <Image
           src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8490.jpg"
@@ -63,8 +53,7 @@ const ParallaxSecond: React.FC = () => {
           fill
           className="object-cover object-center"
           sizes="100vw"
-          priority={false}
-          loading="eager"
+          priority
           unoptimized
           placeholder="blur"
           blurDataURL={blurDataURLDark}

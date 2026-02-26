@@ -81,7 +81,7 @@ const VenueGrid: React.FC<VenueGridProps> = ({
                 fill
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                loading="eager"
+                priority
                 unoptimized
                 placeholder="blur"
                 blurDataURL={blurDataURLDark}

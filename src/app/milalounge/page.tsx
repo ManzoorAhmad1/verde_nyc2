@@ -44,9 +44,12 @@ export default function MilaLoungePage() {
             <div
               key={index}
               className={`lounge-gallery-item ${index === currentSlide ? 'active' : ''}`}
-            >
+            >   
               <img
-                loading="lazy" decoding="async" src={image.src}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                fetchPriority={index === 0 ? 'high' : 'low'}
+                src={image.src}
                 alt={image.alt}
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />

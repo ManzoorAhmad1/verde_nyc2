@@ -1463,6 +1463,8 @@ html.lenis body {
   overflow: hidden;
   transform: translateZ(0); /* Force GPU */
   backface-visibility: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 400px;
 }
 
 .food-gallery-section .gallery-item img {
@@ -4213,6 +4215,8 @@ html.lenis body {
   overflow: hidden;
   cursor: pointer;
   border-radius: 4px;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 300px;
 }
 
 .gallery-image {

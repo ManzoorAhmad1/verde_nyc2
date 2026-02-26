@@ -170,35 +170,28 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
+    <>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
 
-      <main>
-        {isLoading ? (
-          <div className="min-h-screen flex items-center justify-center">
-            <div className="text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-4 border-[var(--verde-accent)] border-t-transparent mx-auto mb-4"></div>
-              <p className="text-[var(--verde-text)]">Loading...</p>
-            </div>
-          </div>
-        ) : (
-          sections.map((section, index) => renderSection(section, index))
-        )}
-      </main>
+        <main>
+          {sections.map((section, index) => renderSection(section, index))}
+        </main>
 
-      <Footer />
+        <Footer />
 
-      {/* Floating Action Button */}
-      <a
-        href="#"
-        className="fixed bottom-6 right-6 bg-mila-gold text-white p-4 rounded-full shadow-2xl z-40 hover:scale-110 transition-transform lg:hidden"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      </a>
-    </div>
+        {/* Floating Action Button */}
+        <a
+          href="#"
+          className="fixed bottom-6 right-6 bg-mila-gold text-white p-4 rounded-full shadow-2xl z-40 hover:scale-110 transition-transform lg:hidden"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </a>
+      </div>
+    </>
   );
 };
 
