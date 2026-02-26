@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://www.verdenyc.com/sitemap.xml',
+    sitemap: 'https://verde-nyc.com/sitemap.xml',
   };
 }
