@@ -127,13 +127,11 @@ export default function RestaurantPage() {
         </section>
 
         {/* Menu Section */}
-        <section id="menu-page" className="menu-section">
-          <h1 style={{ textAlign: 'center' }}>MENU</h1>
-
+        <section id="menu-page" className="menu-section" style={{ padding: '20px 20px 0' }}>
           {/* Tab Controls */}
           {menuTabs.length > 0 && (
           <div className="menu-tabs">
-            <div className="tab-controls">
+            <div className="tab-controls" style={{ marginBottom: '10px', paddingBottom: '10px' }}>
               {menuTabs.map((tab, index) => (
                 <button
                   key={index}
@@ -146,36 +144,13 @@ export default function RestaurantPage() {
             </div>
 
             {/* Tab Content - FROM CMS */}
-            <div className="tab-content">
-              {menuSections.map((menuSection, index) => (
-                activeTab === index && (
-                  <div key={index} className="tab-panel">
-                    {menuSection.subheading && (
-                      <h3 style={{ textAlign: 'center' }}>{menuSection.subheading.toLowerCase()}</h3>
-                    )}
-                    {menuSection.heading && (
-                      <h2 style={{ textAlign: 'center' }}>{menuSection.heading}</h2>
-                    )}
-                    
-                    {menuSection.content && (
-                      <div dangerouslySetInnerHTML={{ __html: menuSection.content }} />
-                    )}
-                    
-                    {menuSection.ctaLink && menuSection.ctaText && (
-                      <div className="button-center">
-                        <Link 
-                          href={menuSection.ctaLink}
-                          className="btn"
-                          target="_blank"
-                        >
-                          {menuSection.ctaText}
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                )
-              ))}
-            </div>
+            {menuSections.map((menuSection, index) => (
+              activeTab === index && menuSection.content && (
+                <div key={index} className="tab-panel" style={{ padding: '0' }}>
+                  <div dangerouslySetInnerHTML={{ __html: menuSection.content }} />
+                </div>
+              )
+            ))}
           </div>
           )}
         </section>

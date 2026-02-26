@@ -1295,7 +1295,7 @@ html.lenis body {
 /* Menu Section */
 .menu-section {
   position: relative;
-  padding: 40px 20px; /* Reduced from 80px 40px */
+  padding: 20px 20px;
   background: var(--background);
   color: #464245;
 }
@@ -1343,12 +1343,13 @@ html.lenis body {
 }
 
 .tab-content {
-  min-height: auto; /* Changed from 400px to auto to remove extra space */
-  padding-bottom: 20px;
+  min-height: auto;
+  padding-bottom: 0;
 }
 
 .tab-panel {
   text-align: center;
+  padding: 0;
 }
 
 .tab-panel h2 {
@@ -1510,7 +1511,7 @@ html.lenis body {
   }
 
   .menu-section {
-    padding: 60px 20px;
+    padding: 20px 20px;
   }
 
   .menu-section h1 {
