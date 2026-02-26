@@ -23,7 +23,6 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ticking = false;
     let currentY = 0;
     let targetY = 0;
     
@@ -57,12 +56,12 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   return (
     <section
       ref={sectionRef}
-      className={`relative h-[50vh] md:h-[60vh] lg:h-[80vh] overflow-hidden flex items-center justify-center ${className}`}
+      className={`relative h-[80vh] md:h-[60vh] lg:h-[80vh] overflow-hidden flex items-center justify-center ${className}`}
     >
       {/* Background */}
       <div
         ref={bgRef}
-        className="absolute w-full h-[130%] -top-[15%] will-change-transform"
+        className="absolute w-full h-[160%] -top-[30%] will-change-transform"
       >
         <Image
           key={imageUrl}
