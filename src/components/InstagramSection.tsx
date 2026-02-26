@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { INSTAGRAM_POSTS } from './constant';
+import { blurDataURLLight } from '@/lib/imageUtils';
 
 interface InstagramSectionProps {
   heading?: string;
@@ -55,6 +56,10 @@ const InstagramSection: React.FC<InstagramSectionProps> = ({
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                loading="lazy"
+                unoptimized
+                placeholder="blur"
+                blurDataURL={blurDataURLLight}
               />
             </a>
           ))}

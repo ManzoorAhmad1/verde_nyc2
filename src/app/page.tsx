@@ -12,6 +12,7 @@ import Header from './components/Header';
 import MobileNav from './components/MobileNav';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSeoMetadata } from './hooks/useSeoMetadata';
 
 // Interface matching backend Page Schema
 interface PageSection {
@@ -36,6 +37,10 @@ const App: React.FC = () => {
   const [sections, setSections] = useState<PageSection[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [imageTimestamp, setImageTimestamp] = useState(Date.now());
+  const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
+
+  // Use SEO metadata from CMS
+  useSeoMetadata(pageData);
 
   useEffect(() => {
     // Fetch home page content
@@ -56,6 +61,11 @@ const App: React.FC = () => {
           if (data.page?.sections) {
             setSections(data.page.sections);
             setImageTimestamp(Date.now());
+            setPageData({
+              seoTitle: data.page.seoTitle,
+              seoDescription: data.page.seoDescription,
+              title: data.page.title
+            });
           }
         }
       } catch (error) {

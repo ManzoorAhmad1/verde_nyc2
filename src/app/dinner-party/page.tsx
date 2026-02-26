@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
+import { useSeoMetadata } from '../hooks/useSeoMetadata';
 
 // Define Interface for CMS Content
 interface PageSection {
@@ -20,6 +21,10 @@ export default function PrivateEventsPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [sections, setSections] = useState<PageSection[]>([]);
   const [loading, setLoading] = useState(true);
+  const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
+
+  // Use SEO metadata from CMS
+  useSeoMetadata(pageData);
 
   useEffect(() => {
     const fetchPageData = async () => {
@@ -30,6 +35,13 @@ export default function PrivateEventsPage() {
           const data = await res.json();
           if (data.page && data.page.sections) {
             setSections(data.page.sections.sort((a: PageSection, b: PageSection) => (a.order || 0) - (b.order || 0)));
+            
+            // Set SEO data
+            setPageData({
+              seoTitle: data.page.seoTitle,
+              seoDescription: data.page.seoDescription,
+              title: data.page.title
+            });
           }
         }
       } catch (error) {

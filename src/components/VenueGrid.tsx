@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { VENUES } from './constant';
+import { blurDataURLDark } from '@/lib/imageUtils';
 
 interface VenueGridProps {
   venues?: any[];
@@ -78,11 +79,12 @@ const VenueGrid: React.FC<VenueGridProps> = ({
                 src={venue.image}
                 alt={venue.name || venue.title}
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 will-change-transform"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                loading="eager"
                 unoptimized
-                loading="lazy"
-                style={{ transform: 'translateZ(0)' }}
+                placeholder="blur"
+                blurDataURL={blurDataURLDark}
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
               <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 md:p-10 opacity-100 group-hover:bg-[#450a0a]/80 transition-colors duration-500">

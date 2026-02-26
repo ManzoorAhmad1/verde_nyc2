@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
+import { useSeoMetadata } from '../hooks/useSeoMetadata';
 
 // Define Interface for CMS Content
 interface PageSection {
@@ -26,6 +27,10 @@ export default function MenuPage() {
   const [menuCategories, setMenuCategories] = useState<any[]>([]);
   const [introSection, setIntroSection] = useState<PageSection | null>(null);
   const [ctaSection, setCtaSection] = useState<PageSection | null>(null);
+  const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
+
+  // Use SEO metadata from CMS
+  useSeoMetadata(pageData);
 
   useEffect(() => {
     const fetchPageData = async () => {
@@ -52,6 +57,13 @@ export default function MenuPage() {
                 menuImages: s.images && s.images.length > 1 ? s.images.slice(1) : [] // Rest are menu pages
               }));
             setMenuCategories(categories);
+            
+            // Set SEO data
+            setPageData({
+              seoTitle: data.page.seoTitle,
+              seoDescription: data.page.seoDescription,
+              title: data.page.title
+            });
           }
         }
       } catch (error) {

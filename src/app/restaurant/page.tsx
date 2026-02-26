@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
+import { useSeoMetadata } from '../hooks/useSeoMetadata';
 
 // Define Interface for CMS Content
 interface PageSection {
@@ -27,6 +28,10 @@ export default function RestaurantPage() {
   const [menuSections, setMenuSections] = useState<PageSection[]>([]);
   const [disclaimerSection, setDisclaimerSection] = useState<PageSection | null>(null);
   const [gallerySection, setGallerySection] = useState<PageSection | null>(null);
+  const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
+
+  // Use SEO metadata from CMS
+  useSeoMetadata(pageData);
 
   useEffect(() => {
     const fetchPageData = async () => {
@@ -47,6 +52,13 @@ export default function RestaurantPage() {
             
             setDisclaimerSection(sections.find((s: PageSection) => s.heading === 'Disclaimer'));
             setGallerySection(sections.find((s: PageSection) => s.type === 'gallery'));
+            
+            // Set SEO data
+            setPageData({
+              seoTitle: data.page.seoTitle,
+              seoDescription: data.page.seoDescription,
+              title: data.page.title
+            });
           }
         }
       } catch (error) {

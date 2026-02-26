@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
+import { blurDataURLDark } from '@/lib/imageUtils'
 
 interface PhilosophySectionProps {
   section?: {
@@ -44,7 +45,9 @@ function PhilosophySection({ section }: PhilosophySectionProps) {
             className="object-cover object-center opacity-50"
             sizes="100vw"
             unoptimized
-            priority={false}
+            placeholder="blur"
+            blurDataURL={blurDataURLDark}
+            loading="lazy"
           />
         )}
         <div className="relative z-10 text-white">
@@ -69,6 +72,9 @@ function PhilosophySection({ section }: PhilosophySectionProps) {
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
             unoptimized
+            placeholder="blur"
+            blurDataURL={blurDataURLDark}
+            loading="lazy"
           />
         </div>
         <div className="art-content" style={{ color: 'var(--verde-text)' }}>

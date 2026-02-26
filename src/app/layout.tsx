@@ -2,15 +2,40 @@ import type { Metadata } from 'next'
 import './globals.css'
 import FloatingActionButton from './components/FloatingActionButton'
 
-export const metadata: Metadata = {
-  title: 'Verde NYC | International Festive Restaurant in New York',
-  description: 'Discover Verde NYC in the Meatpacking District: a festive Mediterranean restaurant with refined dining, signature atmosphere, and unforgettable nights.',
-  keywords: 'Verde NYC, Mediterranean restaurant, Meatpacking District, festive dining, New York restaurant, fine dining, rooftop restaurant, international cuisine',
-  openGraph: {
-    title: 'Verde NYC | International Festive Restaurant in New York',
-    description: 'Discover Verde NYC in the Meatpacking District: a festive Mediterranean restaurant with refined dining, signature atmosphere, and unforgettable nights.',
-    images: ['/images/logo-Verde-NYC-green.png'],
-  },
+// Fetch site settings for metadata
+async function getSiteSettings() {
+  try {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+    const res = await fetch(`${API_URL}/settings`, {
+      next: { revalidate: 60 }, // Revalidate every 60 seconds
+    });
+    if (res.ok) {
+      const data = await res.json();
+      return data.settings;
+    }
+  } catch (e) {
+    console.error('Failed to fetch site settings for metadata', e);
+  }
+  return null;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings();
+  
+  const title = settings?.siteTitle || 'Verde NYC | Festive Restaurant in New York';
+  const description = settings?.siteDescription || 'Discover Verde NYC in the Meatpacking District: a festive Mediterranean restaurant with refined dining, signature atmosphere, and unforgettable nights.';
+  const keywords = settings?.siteKeywords || 'Verde NYC, Mediterranean restaurant, Meatpacking District, festive dining, New York restaurant';
+  
+  return {
+    title,
+    description,
+    keywords,
+    openGraph: {
+      title,
+      description,
+      images: ['/images/logo-Verde-NYC-green.png'],
+    },
+  };
 }
 
 import SmoothScrolling from '@/components/SmoothScrolling'

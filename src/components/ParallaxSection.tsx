@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { blurDataURLDark } from "@/lib/imageUtils";
 
 interface ParallaxSectionProps {
   imageUrl: string;
@@ -31,30 +32,36 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
       }
     };
 
-    // Try to use Lenis scroll event for frame-perfect sync
+    // Initial calculation
+    updateParallax();
+
+    // Listen to both Lenis and native scroll for reliability
     const tryLenis = () => {
       const lenis = (window as any).__lenis;
       if (lenis) {
         lenis.on('scroll', updateParallax);
-        updateParallax();
         return true;
       }
       return false;
     };
 
     // Lenis may not be ready yet — retry until available
+    let interval: ReturnType<typeof setInterval> | null = null;
     if (!tryLenis()) {
-      const interval = setInterval(() => {
-        if (tryLenis()) clearInterval(interval);
-      }, 50);
-      return () => {
-        clearInterval(interval);
-        (window as any).__lenis?.off('scroll', updateParallax);
-      };
+      interval = setInterval(() => {
+        if (tryLenis()) {
+          if (interval) clearInterval(interval);
+        }
+      }, 100);
     }
 
+    // Also listen to native scroll as fallback
+    window.addEventListener('scroll', updateParallax, { passive: true });
+
     return () => {
+      if (interval) clearInterval(interval);
       (window as any).__lenis?.off('scroll', updateParallax);
+      window.removeEventListener('scroll', updateParallax);
     };
   }, [speed]);
 
@@ -66,7 +73,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
       {/* Background */}
       <div
         ref={bgRef}
-        className="absolute w-full h-[140%] -top-[20%] will-change-transform" // Use larger height to accommodate parallax movement
+        className="absolute w-full h-[140%] -top-[20%] will-change-transform"
       >
         <Image
           key={imageUrl}
@@ -75,12 +82,11 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
           fill
           className="object-cover object-center"
           sizes="100vw"
-          priority
+          priority={false}
           loading="eager"
           unoptimized
-          onLoad={() => {
-            console.log('✅ Parallax image loaded:', imageUrl);
-          }}
+          placeholder="blur"
+          blurDataURL={blurDataURLDark}
           onError={() => {
             console.error('❌ Failed to load parallax image:', imageUrl);
           }}

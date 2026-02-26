@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { blurDataURLDark } from "@/lib/imageUtils";
 
 interface HeroProps {
   image?: string;
@@ -31,12 +32,11 @@ const Hero: React.FC<HeroProps> = ({
             alt="Hero"
             fill
             className="object-cover"
+            sizes="100vw"
             priority
-            loading="eager"
             unoptimized
-            onLoad={() => {
-              console.log('✅ Hero image loaded:', image);
-            }}
+            placeholder="blur"
+            blurDataURL={blurDataURLDark}
             onError={(e) => {
               console.error('❌ Failed to load hero image:', image);
               setImageError(true);

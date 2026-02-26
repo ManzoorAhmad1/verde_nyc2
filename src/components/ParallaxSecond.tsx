@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { blurDataURLDark } from "@/lib/imageUtils";
 
 const ParallaxSecond: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -15,28 +16,34 @@ const ParallaxSecond: React.FC = () => {
       }
     };
 
+    // Initial calculation
+    updateParallax();
+
     const tryLenis = () => {
       const lenis = (window as any).__lenis;
       if (lenis) {
         lenis.on('scroll', updateParallax);
-        updateParallax();
         return true;
       }
       return false;
     };
 
+    let interval: ReturnType<typeof setInterval> | null = null;
     if (!tryLenis()) {
-      const interval = setInterval(() => {
-        if (tryLenis()) clearInterval(interval);
-      }, 50);
-      return () => {
-        clearInterval(interval);
-        (window as any).__lenis?.off('scroll', updateParallax);
-      };
+      interval = setInterval(() => {
+        if (tryLenis()) {
+          if (interval) clearInterval(interval);
+        }
+      }, 100);
     }
 
+    // Also listen to native scroll as fallback
+    window.addEventListener('scroll', updateParallax, { passive: true });
+
     return () => {
+      if (interval) clearInterval(interval);
       (window as any).__lenis?.off('scroll', updateParallax);
+      window.removeEventListener('scroll', updateParallax);
     };
   }, []);
 
@@ -48,16 +55,19 @@ const ParallaxSecond: React.FC = () => {
       {/* Parallax Background */}
       <div
         ref={bgRef}
-        className="absolute w-full h-[140%] -top-[20%] z-0 will-change-transform" // Increased height to accommodate larger parallax movement
+        className="absolute w-full h-[140%] -top-[20%] z-0 will-change-transform"
       >
         <Image
           src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8490.jpg"
           alt="The Art of Festive Dining"
           fill
           className="object-cover object-center"
-          sizes="101vw"
-          priority
+          sizes="100vw"
+          priority={false}
+          loading="eager"
           unoptimized
+          placeholder="blur"
+          blurDataURL={blurDataURLDark}
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/20" />
