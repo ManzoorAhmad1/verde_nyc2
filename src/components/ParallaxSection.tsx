@@ -23,34 +23,28 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let currentY = 0;
-    let targetY = 0;
-    
-    const lerp = (start: number, end: number, factor: number) => {
-      return start + (end - start) * factor;
-    };
-    
-    const updateParallax = () => {
-      if (!bgRef.current || !sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const wh = window.innerHeight;
-      if (rect.bottom >= 0 && rect.top <= wh) {
-        targetY = -rect.top * speed;
-        currentY = lerp(currentY, targetY, 0.1);
-        bgRef.current.style.transform = `translate3d(0, ${currentY}px, 0)`;
+    const section = sectionRef.current;
+    const bg = bgRef.current;
+    if (!section || !bg) return;
+
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const rect = section.getBoundingClientRect();
+          const y = -rect.top * speed;
+          bg.style.transform = `translate3d(0, ${y.toFixed(1)}px, 0)`;
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    const animate = () => {
-      updateParallax();
-      requestAnimationFrame(animate);
-    };
-    
-    const rafId = requestAnimationFrame(animate);
-    
-    return () => {
-      cancelAnimationFrame(rafId);
-    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [speed]);
 
   return (
