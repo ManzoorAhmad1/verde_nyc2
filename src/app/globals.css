@@ -4518,6 +4518,43 @@ html.lenis body {
   color: #fff;
 }
 
+/* Restaurant Page Inline Menu Carousel */
+.restaurant-menu-carousel {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.restaurant-menu-carousel .carousel-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-menu-carousel .carousel-image-wrapper {
+  min-height: 300px;
+  background: #fff;
+}
+
+.restaurant-menu-carousel .carousel-image {
+  max-height: 75vh;
+}
+
+@media (max-width: 768px) {
+  .restaurant-menu-carousel {
+    padding: 5px;
+  }
+  .restaurant-menu-carousel .carousel-image-wrapper {
+    min-height: 200px;
+  }
+  .restaurant-menu-carousel .carousel-image {
+    max-height: 60vh;
+  }
+}
+
 /* Menu Modal Styles */
 .menu-modal-overlay {
   position: fixed;
