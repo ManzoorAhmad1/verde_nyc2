@@ -4593,7 +4593,6 @@ html.lenis body {
   border-radius: 8px;
   max-width: 1200px;
   width: 100%;
-  padding: 60px 60px 30px;
   max-height: 95vh;
   display: flex;
   flex-direction: column;
@@ -4775,7 +4774,6 @@ html.lenis body {
 /* Menu Modal Responsive */
 @media (max-width: 768px) {
   .menu-carousel-modal {
-    padding: 50px 15px 20px;
     max-height: 100vh;
     border-radius: 0;
   }
