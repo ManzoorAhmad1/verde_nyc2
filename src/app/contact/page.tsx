@@ -111,7 +111,7 @@ export default function ContactPage() {
                       target={item.link?.startsWith('http') ? '_blank' : undefined} 
                       rel={item.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
                     >
-                      {item.description || 'Click Here'}
+                      {item.description || 'Click Heremm'}
                     </a>
                   ) : isEmail ? (
                     <a href={`mailto:${item.description}`}>{item.description}</a>

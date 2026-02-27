@@ -7,12 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: BASE_URL,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 1.0,
-    },
-    {
       url: `${BASE_URL}/restaurant`,
       lastModified,
       changeFrequency: 'monthly',
@@ -30,18 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${BASE_URL}/milalounge`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/milaomakase`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
+
     {
       url: `${BASE_URL}/gallery`,
       lastModified,
@@ -49,31 +32,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/reserve`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: `${BASE_URL}/dinner-party`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-    {
-      url: `${BASE_URL}/gift-card`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+
     {
       url: `${BASE_URL}/contact`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${BASE_URL}/valentines-day`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.6,

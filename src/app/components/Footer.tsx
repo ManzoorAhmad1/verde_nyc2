@@ -18,16 +18,16 @@ export default function Footer() {
       {/* Top Section - Brands */}
 
       <div className="footer-brands">
-        <h3>A <Link href="https://yeeels.com/en/" target="_blank">YEEELS GROUP</Link> DESTINATION</h3>
+        <h3>A <p>YEEELS GROUP</p> DESTINATION</h3>
         <h3 className="mt-2">Paris | Saint-Tropez | Dubai | Italy | New York</h3>
-        <h3 className="mt-2">
-          <Link href="https://yeeels.com/en/services/architecture" target="_blank">VERDE PARIS</Link>
+        <h3 className="mt-2 flex w-full items-center justify-center gap-4">
+          <p>VERDE PARIS</p>
           {' | '}
-          <Link href="https://yeeels.com/en/services/verdebeach/" target="_blank">VERDE BEACH</Link>
+          <p>VERDE BEACH</p>
           {' | '}
-          <Link href="https://yeeels.com/en/services/verdedubai" target="_blank">VERDE DUBAI</Link>
+          <p>VERDE DUBAI</p>
           {' | '}
-          <Link href="https://yeeels.com/en/services/decorating" target="_blank">MAMAMIA PARIS</Link>
+          <p>MAMAMIA PARIS</p>
         </h3>
       </div>
 
