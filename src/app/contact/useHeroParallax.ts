@@ -5,8 +5,8 @@ export function useHeroParallax(sectionId = 'contact-mila', speed = 0.3) {
   const imageRef = useRef(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    const image = imageRef.current;
+    const section:any = sectionRef.current;
+    const image:any = imageRef.current;
     if (!section || !image) return;
 
     let ticking = false;
