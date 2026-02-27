@@ -21,6 +21,7 @@ interface PageSection {
   }>;
 }
 
+
 export default function ContactPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [heroSection, setHeroSection] = useState<PageSection | null>(null);
@@ -28,9 +29,22 @@ export default function ContactPage() {
   const [mapSection, setMapSection] = useState<PageSection | null>(null);
   const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
 
+  // Hero image is fixed; no parallax transforms here so it remains static
+
   // Use SEO metadata from CMS
   useSeoMetadata(pageData);
 
+  // Button style for contact links: block (new row) + only bottom border
+  const contactButtonStyle: React.CSSProperties = {
+    display: 'inline-block',
+    padding: '0.35rem 0.6rem',
+    border: 'none',
+    borderBottom: '1px solid var(--verde-text)',
+    textDecoration: 'none',
+    color: 'inherit',
+    margin: '0.5rem 0',
+    width: 'auto'
+  };
   useEffect(() => {
     const fetchPageData = async () => {
       try {
@@ -43,7 +57,6 @@ export default function ContactPage() {
             setHeroSection(sections.find((s: PageSection) => s.type === 'hero'));
             setContactInfo(sections.find((s: PageSection) => s.type === 'contact_info'));
             setMapSection(sections.find((s: PageSection) => s.type === 'text'));
-            
             // Set SEO data
             setPageData({
               seoTitle: data.page.seoTitle,
@@ -56,7 +69,6 @@ export default function ContactPage() {
         console.error("Failed to load page content", error);
       }
     };
-
     fetchPageData();
   }, []);
 
@@ -66,17 +78,38 @@ export default function ContactPage() {
       <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
 
       {/* Hero Section */}
-      <section id="contact-mila" className="contact-hero">
-        <div className="contact-hero-image">
+      <section
+        id="contact-mila"
+        className="contact-hero"
+        style={{ position: 'relative', overflow: 'visible', height: '100vh' }}
+      >
+        {/* Fixed background image: stays in place while content scrolls over it */}
+        <div
+          className="contact-hero-image"
+          style={{
+            willChange: 'transform',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100vh',
+            zIndex: 0,
+            overflow: 'hidden'
+          }}
+        >
           <img
-            loading="eager" decoding="async" fetchPriority="high" 
-            src={heroSection?.images?.[0] || heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8472.jpg"}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8472.jpg"}
             alt="Verde NYC Contact"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.2s cubic-bezier(0.4,0,0.2,1)' }}
           />
         </div>
-        <div className="contact-hero-content">
-          <h1 className="contact-hero-title">{heroSection?.heading || "CONTACT US"}</h1>
+
+        {/* Foreground content: placed above the fixed image */}
+        <div className="contact-hero-content" style={{ position: 'relative', zIndex: 10, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <h1 className="contact-hero-title italic">{heroSection?.heading || "CONTACT US"}</h1>
         </div>
       </section>
 
@@ -110,13 +143,14 @@ export default function ContactPage() {
                       href={item.link} 
                       target={item.link?.startsWith('http') ? '_blank' : undefined} 
                       rel={item.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      style={contactButtonStyle}
                     >
-                      {item.description || 'Click Heremm'}
+                      {item.description || 'Click Here'}
                     </a>
                   ) : isEmail ? (
-                    <a href={`mailto:${item.description}`}>{item.description}</a>
+                    <a href={`mailto:${item.description}`} style={contactButtonStyle}>{item.description}</a>
                   ) : isPhone ? (
-                    <a href={`tel:${item.description?.replace(/\s/g, '')}`}>{item.description}</a>
+                    <a href={`tel:${item.description?.replace(/\s/g, '')}`} style={contactButtonStyle}>{item.description}</a>
                   ) : (
                     item.description
                   )}
@@ -170,33 +204,33 @@ export default function ContactPage() {
         <div className="contact-info-content">
           <h2 style={{ color: 'var(--verde-heading)' }}>VERDE NYC — <Link href="/restaurant" style={{  color: 'var(--verde-heading)' }}>A YEEELS GROUP VENUE</Link></h2>
           <p style={{ color: 'var(--verde-text)' }}>
-            <a href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank" rel="noopener noreferrer">
+            <a href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank" rel="noopener noreferrer" style={contactButtonStyle}>
               85 10th Avenue, New York City, NY 10011
             </a>
           </p>
 
           <h2 style={{ color: 'var(--verde-heading)' }}>Reservations</h2>
           <p style={{ color: 'var(--verde-text)' }}>
-            <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank">Online: Click Here</Link><br />
-            Phone: <a href="tel:+16467763660">+16467763660</a><br />
-            Email: <a href="mailto:contact@verde-nyc.com">contact@verde-nyc.com</a>
+            <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" style={contactButtonStyle}>Online: Click Here</Link><br />
+            Phone: <a href="tel:+16467763660" style={contactButtonStyle}>+16467763660</a><br />
+            Email: <a href="mailto:contact@verde-nyc.com" style={contactButtonStyle}>contact@verde-nyc.com</a>
           </p>
 
           <h2 style={{ color: 'var(--verde-heading)' }}>Private Events & Buyouts</h2>
           <p style={{ color: 'var(--verde-text)' }}>
-            Email: <a href="mailto:events@yeeels.com">events@yeeels.com</a><br />
-            Global Events Director: <a href="tel:+971566756965">+971 56 675 6965</a>
+            Email: <a href="mailto:events@yeeels.com" style={contactButtonStyle}>events@yeeels.com</a><br />
+            Global Events Director: <a href="tel:+971566756965" style={contactButtonStyle}>+971 56 675 6965</a>
           </p>
 
           <h2 style={{ color: 'var(--verde-heading)' }}>Yeeels Group Headquarters</h2>
           <p style={{ color: 'var(--verde-text)' }}>
             24 Avenue George V, Paris 75008, France<br />
-            Email: <a href="mailto:contact@yeeels.com">contact@yeeels.com</a>
+            Email: <a href="mailto:contact@yeeels.com" style={contactButtonStyle}>contact@yeeels.com</a>
           </p>
 
           <h2 style={{ color: 'var(--verde-heading)' }}>Members Club</h2>
           <p style={{ color: 'var(--verde-text)' }}>
-            <Link href="/membersclub">Explore Membership Benefits</Link>
+            <Link href="/membersclub" style={contactButtonStyle}>Explore Membership Benefits</Link>
           </p>
 
           {/* Social Icons */}

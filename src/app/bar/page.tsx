@@ -88,7 +88,7 @@ export default function MiamiBrunchPage() {
             />
           </div>
           <div className="banner-content w-full">
-            <h1>{getSection(0).heading || "Verde NYC brunch"}</h1>
+            <h1 className='italic'>{getSection(0).heading || "Verde NYC brunch"}</h1>
           </div>
         </section>
         )}

@@ -123,8 +123,8 @@ export default function MenuPage() {
           />
         </div>
         <div className="menu-hero-content">
-          <h1 className="menu-hero-title">OUR MENU</h1>
-          <p className="menu-hero-subtitle">Culinary Excellence Meets Celebration</p>
+          <h1 className="menu-hero-title italic">OUR MENU</h1>
+          <p className="menu-hero-subtitle italic">Culinary Excellence Meets Celebration</p>
         </div>
       </section>
 
