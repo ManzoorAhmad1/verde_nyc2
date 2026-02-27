@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({
         ) : null}
         {(heading || subheading) && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white bg-black/30">
-            {heading && <h1 className="text-4xl md:text-6xl font-serif mb-4 italic">{heading}</h1>}
+            {heading && <h1 className="text-4xl md:text-6xl font-serif mb-4 headingFont italic">{heading}</h1>}
             {subheading && <p className="text-lg md:text-xl max-w-2xl px-4">{subheading}</p>}
           </div>
         )}

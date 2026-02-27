@@ -91,24 +91,7 @@ export default function Footer() {
             <p className="text-sm sm:text-base mb-4">
               Join the Yeeels Group community. Receive exclusive news, events, and invitations from all our venues worldwide.
             </p>
-            <form onSubmit={handleSubmit}>
-              <div className="newsletter-input-group flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="newsletter-input flex-1 px-4 py-3 border border-black/20 rounded-md focus:outline-none focus:border-black/40 text-sm sm:text-base"
-                  required
-                />
-                <button 
-                  type="submit" 
-                  className="newsletter-btn px-6 py-3 bg-black/10 hover:bg-black/20 rounded-md transition-colors text-sm sm:text-base font-medium whitespace-nowrap"
-                >
-                  Sign Up
-                </button>
-              </div>
-            </form>
+       
             <p className="newsletter-privacy text-xs sm:text-sm mt-2 text-black/40">
               We respect your privacy.
             </p>

@@ -255,7 +255,7 @@ export default function MenuPage() {
         </div>
       </section>
 
-      {/* Menu Carousel Modal - Updated Design with larger images and smaller title height */}
+      {/* Menu Carousel Modal - Mobile optimized with larger images */}
       {selectedMenu && (
         <div
           className="menu-modal-overlay"
@@ -331,7 +331,7 @@ export default function MenuPage() {
                 </>
               )}
               
-              {/* Scrollable Image Box - Optimized for larger images */}
+              {/* Scrollable Image Box - Mobile optimized */}
               <div ref={imageScrollBoxRef} className="modal-scroll-box">
                 <img
                   src={selectedMenu.images?.[currentImageIndex]}
@@ -396,7 +396,7 @@ export default function MenuPage() {
       <Footer />
 
       <style jsx>{`
-        /* Modal Styles - Optimized for larger images and smaller header */
+        /* Modal Styles - Mobile optimized */
         .menu-modal-overlay {
           position: fixed;
           top: 0;
@@ -426,6 +426,7 @@ export default function MenuPage() {
           transition: transform 0.3s ease;
         }
 
+        /* Mobile specific - Full screen with larger images */
         @media (max-width: 768px) {
           .menu-modal-overlay {
             padding: 0;
@@ -438,7 +439,7 @@ export default function MenuPage() {
           }
         }
 
-        /* Modal Header - Reduced height */
+        /* Modal Header - Ultra compact on mobile */
         .modal-header {
           display: flex;
           align-items: center;
@@ -450,10 +451,17 @@ export default function MenuPage() {
           min-height: 48px;
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .modal-header {
-            padding: 6px 12px;
-            min-height: 44px;
+            padding: 4px 12px;
+            min-height: 40px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .modal-header {
+            padding: 4px 10px;
+            min-height: 38px;
           }
         }
 
@@ -465,7 +473,7 @@ export default function MenuPage() {
           flex: 1;
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .modal-title-wrap {
             gap: 6px;
           }
@@ -484,10 +492,17 @@ export default function MenuPage() {
           flex-shrink: 0;
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .modal-label {
             font-size: 10px;
             padding: 2px 8px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .modal-label {
+            font-size: 9px;
+            padding: 2px 6px;
           }
         }
 
@@ -502,9 +517,15 @@ export default function MenuPage() {
           line-height: 1.2;
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .modal-title {
             font-size: 15px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .modal-title {
+            font-size: 14px;
           }
         }
 
@@ -513,6 +534,12 @@ export default function MenuPage() {
           align-items: center;
           gap: 6px;
           flex-shrink: 0;
+        }
+
+        @media (max-width: 480px) {
+          .modal-actions {
+            gap: 4px;
+          }
         }
 
         .modal-icon-btn {
@@ -561,11 +588,19 @@ export default function MenuPage() {
           color: white;
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .modal-icon-btn,
           .modal-close-btn {
             width: 32px;
             height: 32px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .modal-icon-btn,
+          .modal-close-btn {
+            width: 30px;
+            height: 30px;
           }
         }
 
@@ -581,7 +616,7 @@ export default function MenuPage() {
           overflow: hidden;
         }
 
-        /* Navigation Arrows */
+        /* Navigation Arrows - Smaller on mobile */
         .modal-arrow {
           position: absolute;
           top: 50%;
@@ -642,7 +677,7 @@ export default function MenuPage() {
           }
         }
 
-        /* Scrollable Image Box - Optimized for larger images */
+        /* Scrollable Image Box - Mobile optimized for larger images */
         .modal-scroll-box {
           width: 100%;
           height: 100%;
@@ -675,19 +710,34 @@ export default function MenuPage() {
           background: #8e402f;
         }
 
+        /* Desktop - Large images */
+        @media (min-width: 1024px) {
+          .modal-scroll-box {
+            padding: 20px 20px;
+          }
+        }
+
+        /* Tablet - Medium padding */
+        @media (max-width: 1023px) and (min-width: 769px) {
+          .modal-scroll-box {
+            padding: 16px 16px;
+          }
+        }
+
+        /* Mobile - Minimal padding for maximum image size */
         @media (max-width: 768px) {
           .modal-scroll-box {
-            padding: 16px 12px;
+            padding: 8px 4px;
           }
         }
 
         @media (max-width: 480px) {
           .modal-scroll-box {
-            padding: 12px 8px;
+            padding: 4px 2px;
           }
         }
 
-        /* Larger images */
+        /* Images - Larger on mobile */
         .modal-image {
           width: 100%;
           max-width: 1100px;
@@ -696,6 +746,29 @@ export default function MenuPage() {
           border-radius: 4px;
           box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
           transition: all 0.3s ease;
+        }
+
+        /* Desktop - Standard size */
+        @media (min-width: 1024px) {
+          .modal-image {
+            max-width: 1100px;
+          }
+        }
+
+        /* Tablet - Slightly larger */
+        @media (max-width: 1023px) and (min-width: 769px) {
+          .modal-image {
+            max-width: 100%;
+          }
+        }
+
+        /* Mobile - Full width images */
+        @media (max-width: 768px) {
+          .modal-image {
+            max-width: 100%;
+            width: 100%;
+            border-radius: 2px;
+          }
         }
 
         .modal-image.zoomed {
@@ -708,6 +781,7 @@ export default function MenuPage() {
           opacity: 0.3;
         }
 
+        /* Scroll hint - Hide on very small screens */
         .scroll-hint {
           display: flex;
           align-items: center;
@@ -718,14 +792,23 @@ export default function MenuPage() {
           padding-bottom: 12px;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
           .scroll-hint {
-            font-size: 10px;
+            font-size: 11px;
             margin-top: 12px;
+            padding-bottom: 8px;
           }
         }
 
-        /* Bottom Bar */
+        @media (max-width: 480px) {
+          .scroll-hint {
+            font-size: 10px;
+            margin-top: 8px;
+            padding-bottom: 4px;
+          }
+        }
+
+        /* Bottom Bar - Compact on mobile */
         .modal-bottom-bar {
           display: flex;
           align-items: center;
@@ -738,11 +821,19 @@ export default function MenuPage() {
           min-height: 44px;
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .modal-bottom-bar {
             padding: 6px 12px;
             gap: 12px;
-            min-height: 40px;
+            min-height: 38px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .modal-bottom-bar {
+            padding: 4px 10px;
+            gap: 10px;
+            min-height: 36px;
           }
         }
 
@@ -754,10 +845,17 @@ export default function MenuPage() {
           text-align: center;
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .page-indicator {
             font-size: 12px;
             min-width: 45px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .page-indicator {
+            font-size: 11px;
+            min-width: 40px;
           }
         }
 
@@ -765,6 +863,12 @@ export default function MenuPage() {
           display: flex;
           align-items: center;
           gap: 8px;
+        }
+
+        @media (max-width: 480px) {
+          .dot-container {
+            gap: 6px;
+          }
         }
 
         .dot {
@@ -788,7 +892,7 @@ export default function MenuPage() {
           background: #8e402f;
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .dot {
             width: 6px;
             height: 6px;
@@ -796,6 +900,17 @@ export default function MenuPage() {
           
           .dot.active {
             width: 20px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .dot {
+            width: 5px;
+            height: 5px;
+          }
+          
+          .dot.active {
+            width: 18px;
           }
         }
       `}</style>
