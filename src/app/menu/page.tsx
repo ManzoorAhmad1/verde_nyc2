@@ -32,6 +32,7 @@ export default function MenuPage() {
   const [modalVisible, setModalVisible] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
 
   const imageScrollBoxRef = useRef<HTMLDivElement>(null);
 
@@ -185,6 +186,85 @@ export default function MenuPage() {
     setTimeout(() => setModalVisible(true), 10);
   };
 
+  // Load jsPDF dynamically from CDN (no npm install needed)
+  const loadJsPDF = (): Promise<any> => {
+    return new Promise((resolve, reject) => {
+      if ((window as any).jspdf) { resolve((window as any).jspdf.jsPDF); return; }
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+      script.onload = () => resolve((window as any).jspdf.jsPDF);
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  };
+
+  // Fetch image URL -> base64 string via fetch (avoids canvas CORS taint)
+  const fetchImageAsBase64 = async (url: string): Promise<{ base64: string; mime: string; width: number; height: number } | null> => {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) return null;
+      const blob = await res.blob();
+      const mime = blob.type || 'image/jpeg';
+      const base64 = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result as string);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+      // Get natural dimensions via Image element
+      const { w, h } = await new Promise<{ w: number; h: number }>((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
+        img.onerror = () => resolve({ w: 800, h: 600 });
+        img.src = base64;
+      });
+      return { base64, mime, width: w, height: h };
+    } catch {
+      return null;
+    }
+  };
+
+  // PDF Download - direct download using jsPDF loaded from CDN
+  const handleDownloadPDF = async () => {
+    if (!selectedMenu || !selectedMenu.images || selectedMenu.images.length === 0) return;
+    setIsDownloadingPdf(true);
+    try {
+      const JsPDF = await loadJsPDF();
+      const pdf = new JsPDF({ orientation: 'portrait', unit: 'pt', format: 'a4' });
+      const pageW = pdf.internal.pageSize.getWidth();
+      const pageH = pdf.internal.pageSize.getHeight();
+      let firstPage = true;
+
+      for (const src of selectedMenu.images) {
+        const result = await fetchImageAsBase64(src);
+        if (!result) continue;
+
+        const { base64, mime, width, height } = result;
+        const format = mime.includes('png') ? 'PNG' : 'JPEG';
+
+        if (!firstPage) pdf.addPage();
+        firstPage = false;
+
+        // Fit image inside page preserving aspect ratio
+        const ratio = width / height;
+        let w = pageW, h = pageW / ratio;
+        if (h > pageH) { h = pageH; w = pageH * ratio; }
+        const x = (pageW - w) / 2;
+        const y = (pageH - h) / 2;
+
+        pdf.addImage(base64, format, x, y, w, h);
+      }
+
+      if (!firstPage) {
+        pdf.save(`${selectedMenu.title || 'menu'}.pdf`);
+      }
+    } catch (err) {
+      console.error('PDF generation failed:', err);
+    } finally {
+      setIsDownloadingPdf(false);
+    }
+  };
+
   const closeMenu = () => {
     setModalVisible(false);
     setTimeout(() => {
@@ -274,6 +354,25 @@ export default function MenuPage() {
                 <h2 className="modal-title">{selectedMenu.title}</h2>
               </div>
               <div className="modal-actions">
+                <button
+                  className="modal-download-btn"
+                  onClick={handleDownloadPDF}
+                  disabled={isDownloadingPdf}
+                  title="Download PDF"
+                >
+                  {isDownloadingPdf ? (
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" style={{ animation: 'spin 1s linear infinite' }}>
+                      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="7 10 12 15 17 10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                  )}
+                  <span className="download-btn-text">{isDownloadingPdf ? 'Generating...' : 'Download PDF'}</span>
+                </button>
                 <button
                   className={`modal-icon-btn ${isZoomed ? 'active' : ''}`}
                   onClick={() => { setIsZoomed(z => !z); resetScroll(); }}
@@ -912,6 +1011,69 @@ export default function MenuPage() {
           .dot.active {
             width: 18px;
           }
+        }
+
+        /* PDF Download Button */
+        .modal-download-btn {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          padding: 0 14px;
+          height: 36px;
+          border-radius: 6px;
+          border: 1px solid #8e402f;
+          background: #8e402f;
+          color: white;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.3px;
+          cursor: pointer;
+          transition: all 0.2s;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+
+        .modal-download-btn:hover:not(:disabled) {
+          background: #7a3526;
+          border-color: #7a3526;
+        }
+
+        .modal-download-btn:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+          .modal-download-btn {
+            height: 32px;
+            padding: 0 10px;
+            font-size: 11px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .modal-download-btn {
+            height: 30px;
+            padding: 0 8px;
+            font-size: 10px;
+            gap: 4px;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .download-btn-text {
+            display: none;
+          }
+          .modal-download-btn {
+            width: 30px;
+            padding: 0;
+            justify-content: center;
+          }
+        }
+
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </div>
