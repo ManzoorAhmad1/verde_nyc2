@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
+import PageLoader from '@/components/PageLoader';
 
 // Define Interface for CMS Content
 interface PageSection {
@@ -33,6 +34,7 @@ export default function MenuPage() {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const imageScrollBoxRef = useRef<HTMLDivElement>(null);
 
@@ -76,12 +78,13 @@ export default function MenuPage() {
       } catch (error) {
         console.error("Failed to load page content", error);
         // Fallback or empty
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchPageData();
   }, []);
-
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -275,8 +278,10 @@ export default function MenuPage() {
   };
 
   return (
-    <div className="menu-page">
-      <Header />
+    <>
+      <PageLoader isDataLoaded={!isLoading} />
+      <div className="menu-page">
+        <Header />
       <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
 
       {/* Hero Section - Same as before */}
@@ -1077,5 +1082,6 @@ export default function MenuPage() {
         }
       `}</style>
     </div>
+    </>
   );
 }

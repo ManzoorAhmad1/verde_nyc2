@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
+import PageLoader from '@/components/PageLoader';
 
 // Define Interface for CMS Content
 interface PageSection {
@@ -72,6 +73,7 @@ export default function MiamiBrunchPage() {
 
   return (
     <>
+      <PageLoader isDataLoaded={!loading} />
       <Header />
       <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
 

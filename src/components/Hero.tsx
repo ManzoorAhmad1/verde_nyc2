@@ -47,7 +47,7 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Hero Image with Parallax */}
-      <div className="absolute inset-0 z-0" ref={imageRef} style={{ willChange: 'transform', transition: 'transform 0.2s cubic-bezier(0.4,0,0.2,1)' }}>
+      <div className="absolute inset-0 z-0" ref={imageRef} style={{ willChange: 'transform' }}>
         {image && !imageError ? (
           <Image
             key={image}

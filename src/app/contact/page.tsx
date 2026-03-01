@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
+import PageLoader from '@/components/PageLoader';
 
 // Define Interface for CMS Content
 interface PageSection {
@@ -27,6 +28,7 @@ export default function ContactPage() {
   const [heroSection, setHeroSection] = useState<PageSection | null>(null);
   const [contactInfo, setContactInfo] = useState<PageSection | null>(null);
   const [mapSection, setMapSection] = useState<PageSection | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
 
   // Hero image is fixed; no parallax transforms here so it remains static
@@ -66,16 +68,18 @@ export default function ContactPage() {
           }
         }
       } catch (error) {
-        console.error("Failed to load page content", error);
-      }
+        console.error("Failed to load page content", error);      } finally {
+        setIsLoading(false);      }
     };
     fetchPageData();
   }, []);
 
   return (
-    <div className="contact-page">
-      <Header />
-      <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
+    <>
+      <PageLoader isDataLoaded={!isLoading} />
+      <div className="contact-page">
+        <Header />
+        <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
 
       {/* Hero Section */}
       <section
@@ -297,6 +301,7 @@ export default function ContactPage() {
       </nav>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 }

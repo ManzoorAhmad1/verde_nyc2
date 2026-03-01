@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
+import PageLoader from '@/components/PageLoader';
 
 // Define Interface for CMS Content
 interface PageSection {
@@ -58,8 +59,10 @@ export default function PrivateEventsPage() {
   const getSection :any= (index: number) => sections[index] || {};
 
   return (
-    <div className="private-events-page">
-      <Header />
+    <>
+      <PageLoader isDataLoaded={!loading} />
+      <div className="private-events-page">
+        <Header />
       <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
 
       {/* Hero Gallery Section (Order 1) */}
@@ -320,6 +323,7 @@ export default function PrivateEventsPage() {
       </nav>
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 }

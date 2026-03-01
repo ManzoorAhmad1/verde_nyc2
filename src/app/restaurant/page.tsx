@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
+import PageLoader from '@/components/PageLoader';
 
 // Define Interface for CMS Content
 interface PageSection {
@@ -28,6 +29,7 @@ export default function RestaurantPage() {
   const [menuSections, setMenuSections] = useState<PageSection[]>([]);
   const [disclaimerSection, setDisclaimerSection] = useState<PageSection | null>(null);
   const [gallerySection, setGallerySection] = useState<PageSection | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
 
   // Use SEO metadata from CMS
@@ -62,8 +64,8 @@ export default function RestaurantPage() {
           }
         }
       } catch (error) {
-        console.error("Failed to load page content", error);
-      }
+        console.error("Failed to load page content", error);      } finally {
+        setIsLoading(false);      }
     };
 
     fetchPageData();
@@ -73,6 +75,7 @@ export default function RestaurantPage() {
 
   return (
     <>
+      <PageLoader isDataLoaded={!isLoading} />
       <Header />
       <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
 

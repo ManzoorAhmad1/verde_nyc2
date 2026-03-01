@@ -10,6 +10,7 @@ import InstagramSection from '@/components/InstagramSection';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import MobileNav from './components/MobileNav';
+import PageLoader from '@/components/PageLoader';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSeoMetadata } from './hooks/useSeoMetadata';
@@ -171,6 +172,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <PageLoader isDataLoaded={!isLoading} />
       <div className="flex flex-col min-h-screen">
         <Header />
         <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
