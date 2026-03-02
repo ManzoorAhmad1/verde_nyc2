@@ -37,6 +37,7 @@ export default function MenuPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const imageScrollBoxRef = useRef<HTMLDivElement>(null);
+  const savedScrollY = useRef<number>(0);
 
   // Use SEO metadata from CMS
   useSeoMetadata(pageData);
@@ -100,18 +101,17 @@ export default function MenuPage() {
   // Lock body scroll when modal is open
   useEffect(() => {
     if (selectedMenu) {
-      const y = window.scrollY;
+      savedScrollY.current = window.scrollY;
       document.body.style.position = 'fixed';
-      document.body.style.top = `-${y}px`;
+      document.body.style.top = `-${savedScrollY.current}px`;
       document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
     } else {
-      const top = document.body.style.top;
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';
       document.body.style.overflow = '';
-      if (top) window.scrollTo(0, -parseInt(top));
+      window.scrollTo({ top: savedScrollY.current, behavior: 'instant' });
     }
     return () => {
       document.body.style.position = '';
