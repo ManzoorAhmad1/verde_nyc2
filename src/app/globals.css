@@ -3220,7 +3220,7 @@ html.lenis body {
 }
 
 .brunch-intro p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   text-align: center;
 }
@@ -3264,9 +3264,9 @@ html.lenis body {
 }
 
 .brunch-image-card .image-card-content h3 {
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.05em;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-transform: none;
 }
 
@@ -3282,9 +3282,9 @@ html.lenis body {
 }
 
 .brunch-description p {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 16px;
 }
 
 .brunch-hours {
@@ -3293,15 +3293,15 @@ html.lenis body {
 }
 
 .brunch-hours h3 {
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 0.1em;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .brunch-hours p {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 8px;
 }
 
 .brunch-hours p a {
@@ -3314,32 +3314,36 @@ html.lenis body {
 }
 
 .brunch-menu-section h3 {
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 0.1em;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .brunch-banner-section h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .brunch-image-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 16px;
   }
 
   .brunch-image-card.left .image-card-image,
   .brunch-image-card.right .image-card-image {
-    order: 1;
+    order: 1 !important;
+    width: 100%;
+    aspect-ratio: 4/3;
   }
 
   .brunch-image-card.left .image-card-content,
   .brunch-image-card.right .image-card-content {
-    order: 2;
+    order: 2 !important;
+    width: 100%;
   }
 
   .brunch-intro h2 {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 

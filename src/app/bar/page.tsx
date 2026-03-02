@@ -23,6 +23,7 @@ interface PageSection {
 export default function MiamiBrunchPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [slidesVisible, setSlidesVisible] = useState(3);
   const [sections, setSections] = useState<PageSection[]>([]);
   const [loading, setLoading] = useState(true);
   const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
@@ -63,12 +64,26 @@ export default function MiamiBrunchPage() {
   
   const images = getSection(1).images || [];
 
+  // Responsive slides count
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth < 640) setSlidesVisible(1);
+      else if (window.innerWidth < 1024) setSlidesVisible(2);
+      else setSlidesVisible(3);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  const slideWidth = 100 / slidesVisible;
+
   const handlePrevious = () => {
-    setCurrentSlide((prev) => (prev === 0 ? Math.max(0, images.length - 2) : Math.max(0, prev - 1)));
+    setCurrentSlide((prev) => (prev === 0 ? Math.max(0, images.length - slidesVisible) : Math.max(0, prev - 1)));
   };
 
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev >= images.length - 2 ? 0 : prev + 1));
+    setCurrentSlide((prev) => (prev >= images.length - slidesVisible ? 0 : prev + 1));
   };
 
   return (
@@ -100,16 +115,16 @@ export default function MiamiBrunchPage() {
           <div className="content-wrapper">
             {/* Gallery Slider (Order 2) */}
             {images.length > 0 && (
-            <div className="sqs-block gallery-block sqs-block-gallery relative w-full h-[300px] overflow-hidden">
+            <div className="sqs-block gallery-block sqs-block-gallery relative w-full h-[260px] sm:h-[300px] overflow-hidden">
               <div className="sqs-gallery-container h-full">
                 <div className="sqs-gallery sqs-gallery-design-strip relative h-full">
                   {/* Slider Images */}
                   <div 
                     className="sqs-wrapper flex transition-transform duration-500 ease-in-out h-full"
-                    style={{ transform: `translateX(-${currentSlide * 40}%)` }}
+                    style={{ transform: `translateX(-${currentSlide * slideWidth}%)` }}
                   >
                     {images.map((src, index) => (
-                      <div key={index} className="flex-shrink-0 w-2/5 h-full">
+                      <div key={index} className="flex-shrink-0 h-full" style={{ width: `${slideWidth}%` }}>
                         <img 
                           className="w-full h-full object-cover" 
                           src={src}
@@ -156,7 +171,7 @@ export default function MiamiBrunchPage() {
             <div className="brunch-intro">
               <h2 className='py-4 mt-4' style={{color: 'var(--verde-heading)'}}>{getSection(2).heading}</h2>
               {getSection(2).content?.split('\n\n').map((paragraph: string, idx: number) => (
-                <p key={idx} className='text-[#948E84] text-center mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
+                <p key={idx} className='text-[#948E84] text-[14px] text-center mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
               ))}
             </div>
             )}
@@ -175,7 +190,7 @@ export default function MiamiBrunchPage() {
               </div>
               <div className="image-card-content">
                 <h3 className='text-[#3A363A]'><span>{getSection(3).heading}</span></h3>
-                <p className='!text-[#948E84] text-justify'>{getSection(3).content}</p>
+                <p className='!text-[#948E84] text-[14px] text-justify'>{getSection(3).content}</p>
               </div>
             </div>
             )}
@@ -186,7 +201,7 @@ export default function MiamiBrunchPage() {
             {getSection(4).content && (
             <div className="brunch-description">
               {getSection(4).content!.split('\n\n').map((paragraph: string, idx: number) => (
-                <p key={idx} className='text-[#948E84] text-justify mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
+                <p key={idx} className='text-[#948E84] text-[14px] text-justify mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
               ))}
             </div>
             )}
@@ -206,7 +221,7 @@ export default function MiamiBrunchPage() {
               <div className="image-card-content">
                 <h3 className='text-[#3A363A]'><span>{getSection(5).heading}</span></h3>
                 {getSection(5).content?.split('\n\n').map((paragraph: string, idx: number) => (
-                  <p key={idx} className='!text-[#948E84] text-justify mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
+                  <p key={idx} className='!text-[#948E84] text-[14px] text-justify mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
                 ))}
               </div>
             </div>
@@ -219,7 +234,7 @@ export default function MiamiBrunchPage() {
             <div className="brunch-hours">
               <h3 style={{color: 'var(--verde-heading)'}}>{getSection(6).heading}</h3>
               {getSection(6).content?.split('\n\n').map((paragraph: string, idx: number) => (
-                <p key={idx} className='text-[#948E84] text-center mb-2' dangerouslySetInnerHTML={{ __html: paragraph }} />
+                <p key={idx} className='text-[#948E84] text-[14px] text-center mb-2' dangerouslySetInnerHTML={{ __html: paragraph }} />
               ))}
             </div>
             )}

@@ -533,12 +533,13 @@ export default function MenuPage() {
         /* Mobile specific - Full screen with larger images */
         @media (max-width: 768px) {
           .menu-modal-overlay {
-            padding: 0;
+            padding: 30px 0 0 0;
+            align-items: flex-start;
           }
           
           .menu-carousel-modal {
-            height: 100vh;
-            border-radius: 0;
+            height: calc(100vh - 60px);
+            border-radius: 12px 12px 0 0;
             max-width: 100%;
           }
         }
@@ -638,11 +639,18 @@ export default function MenuPage() {
           align-items: center;
           gap: 6px;
           flex-shrink: 0;
+          overflow: visible;
         }
 
         @media (max-width: 480px) {
           .modal-actions {
             gap: 4px;
+          }
+        }
+
+        @media (max-width: 380px) {
+          .modal-actions {
+            gap: 3px;
           }
         }
 
@@ -1054,6 +1062,9 @@ export default function MenuPage() {
             padding: 0 10px;
             font-size: 11px;
           }
+          .download-btn-text {
+            display: inline;
+          }
         }
 
         @media (max-width: 480px) {
@@ -1063,9 +1074,12 @@ export default function MenuPage() {
             font-size: 10px;
             gap: 4px;
           }
+          .download-btn-text {
+            display: inline;
+          }
         }
 
-        @media (max-width: 380px) {
+        @media (max-width: 340px) {
           .download-btn-text {
             display: none;
           }
