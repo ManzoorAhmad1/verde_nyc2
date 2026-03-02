@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 interface PageLoaderProps {
@@ -92,7 +93,16 @@ export default function PageLoader({ isDataLoaded }: PageLoaderProps) {
           textAlign: 'center',
           lineHeight: '1.6'
         }}>
-          <span className='italic' style={{ fontSize: '2rem', fontWeight: 'bold' }}>V</span>erde <br /> NYC
+          <div style={{ position: 'relative', width: '70px', height: '70px' }} className='flex items-center justify-center'>
+            <Image
+              src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green-removebg-preview.png"
+              alt="Verde NYC"
+              width={70}
+              height={70}
+              priority
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         </p>
         <style>{`
           @keyframes vfade {
