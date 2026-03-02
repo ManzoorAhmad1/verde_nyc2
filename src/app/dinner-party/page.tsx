@@ -58,6 +58,27 @@ export default function PrivateEventsPage() {
   // Helper to find section by order or content match if order is not strict
   const getSection: any = (index: number) => sections[index] || {};
 
+  // Render paragraph text: converts <br/> tags and any email into proper elements
+  const renderParagraph = (text: string) => {
+    const brParts = text.split(/<br\s*\/?>/gi);
+    return brParts.map((part, bi) => {
+      const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+      const emailParts = part.split(emailRegex);
+      return (
+        <span key={bi}>
+          {bi > 0 && <br />}
+          {emailParts.map((seg, si) =>
+            si % 2 === 1 ? (
+              <a key={si} href={`mailto:${seg}`} style={{ textDecoration: 'underline' }}>{seg}</a>
+            ) : (
+              seg
+            )
+          )}
+        </span>
+      );
+    });
+  };
+
   return (
     <>
       <PageLoader isDataLoaded={!loading} />
@@ -94,15 +115,7 @@ export default function PrivateEventsPage() {
 
               {getSection(1).content?.split('\n\n').map((paragraph: string, idx: number) => (
                 <p key={idx} className="private-events-description" style={{ color: 'var(--verde-text)' }}>
-                  {paragraph.includes('@') ? (
-                    <>
-                      {paragraph.split('events@yeeels.com')[0]}
-                      <a href="mailto:events@yeeels.com">events@yeeels.com</a>
-                      {paragraph.split('events@yeeels.com')[1]}
-                    </>
-                  ) : (
-                    paragraph
-                  )}
+                  {renderParagraph(paragraph)}
                 </p>
               ))}
 
@@ -277,15 +290,7 @@ export default function PrivateEventsPage() {
                   <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(10).heading}</h2>
                   {getSection(10).content?.split('\n\n').map((paragraph: string, idx: number) => (
                     <p key={idx} style={{ color: 'var(--verde-text)' }}>
-                      {paragraph.includes('events@yeeels.com') ? (
-                        <>
-                          {paragraph.split('events@yeeels.com')[0]}
-                          <a href="mailto:events@yeeels.com"><span style={{ textDecoration: 'underline' }}>events@yeeels.com</span></a>
-                          {paragraph.split('events@yeeels.com')[1]}
-                        </>
-                      ) : (
-                        paragraph
-                      )}
+                      {renderParagraph(paragraph)}
                     </p>
                   ))}
 

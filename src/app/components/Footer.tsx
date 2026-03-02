@@ -19,7 +19,14 @@ export default function Footer() {
       {/* Top Branding */}
       <div className="text-center mb-10 tracking-widest uppercase text-xs space-y-2">
         <p>A <strong className="font-semibold">Yeeels Group</strong> Destination</p>
-        <p className="text-black/35">Paris &nbsp;|&nbsp; Saint-Tropez &nbsp;|&nbsp; Dubai &nbsp;|&nbsp; Sardinia &nbsp;|&nbsp; New York</p>
+        <p className="text-black/55 flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
+          {['Paris', 'Saint-Tropez', 'Dubai', 'Sardinia', 'New York'].map((city, i, arr) => (
+            <span key={city} className="flex items-center gap-x-4">
+              <span className='text-xs'>{city}</span>
+              {i < arr.length - 1 && <span className="text-black/20">|</span>}
+            </span>
+          ))}
+        </p>
       </div>
 
       <hr className="border-black/10 mb-10 max-w-6xl mx-auto" />
@@ -63,7 +70,7 @@ export default function Footer() {
         <div className="flex-1 flex flex-col gap-8 justify-center items-center">
 
           {/* Nav Links */}
-          <nav className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-2 text-[11px] tracking-[0.2em] uppercase">
+          <nav className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-2 text-xs tracking-widest uppercase">
             {[
               { label: 'Menu', href: '/menu' },
               { label: 'Gallery', href: '/gallery' },
