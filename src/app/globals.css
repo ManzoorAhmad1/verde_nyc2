@@ -2227,7 +2227,7 @@ html.lenis body {
   display: inline-block;
   font-family: var(--font-cormorant);
   font-size: 1rem;
-  color: #8E402F;
+  color: #8E402F !important;
   border: 1px solid #8E402F;
   padding: 15px 40px;
   margin-top: 30px;
@@ -2239,7 +2239,7 @@ html.lenis body {
 
 .private-events-cta-button:hover {
   background: #8E402F;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .private-events-index-nav {

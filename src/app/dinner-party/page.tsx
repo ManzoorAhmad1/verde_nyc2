@@ -295,8 +295,8 @@ export default function PrivateEventsPage() {
                   ))}
 
                   {getSection(10).ctaLink && (
-                    <a href={getSection(10).ctaLink} target="_blank" rel="noopener noreferrer" className="private-events-cta-button">
-                      {getSection(10).ctaText || 'inquire about your event'}
+                    <a href={getSection(10).ctaLink} target="_blank" rel="noopener noreferrer" className="private-events-cta-button ">
+                      {getSection(10).ctaText }
                     </a>
                   )}
                 </>
