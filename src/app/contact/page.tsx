@@ -160,7 +160,7 @@ export default function ContactPage() {
                         {group.rows.map((row, ri) => (
                           <div key={ri} className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start gap-1 md:gap-4 lg:gap-8 w-full text-center md:text-left">
                             {row.name && (
-                              <span className="text-[10px] tracking-[0.15em] md:tracking-[0.2em] leading-relaxed uppercase text-[#A7A096] font-semibold flex-shrink-0 md:whitespace-nowrap mt-1 w-full md:w-auto">
+                              <span className={`text-[10px] tracking-[0.15em] md:tracking-[0.2em] leading-relaxed uppercase font-semibold flex-shrink-0 md:whitespace-nowrap mt-1 w-full md:w-auto ${row.name.toLowerCase().includes('address') ? 'text-[#3a3a3a]' : 'text-[#A7A096]'}`}>
                                 {row.name}
                               </span>
                             )}
