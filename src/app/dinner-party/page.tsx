@@ -124,8 +124,8 @@ export default function PrivateEventsPage() {
                   <a href={getSection(1).ctaLink} target="_blank" rel="noopener noreferrer" className="private-events-button">
                     {getSection(1).ctaText || 'INQUIRE ABOUT EVENTS'}
                   </a>
-                  <a href="tel:+16464068763" target="_blank" rel="noopener noreferrer" className="private-events-button">
-                    CALL US
+                  <a href={getSection(1).ctaLink2 || "tel:+16464068763"} target="_blank" rel="noopener noreferrer" className="private-events-button">
+                    {getSection(1).ctaText2 || 'CALL US'}
                   </a>
                 </div>
               )}
