@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const navItems = [
   { label: 'HOME', href: '/' },
@@ -20,6 +21,10 @@ interface MobileNavProps {
 
 export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isContactPage = pathname === '/contact';
+  
+  const isDarkForeground = scrolled || isContactPage;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +51,7 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
         <Link 
           href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" 
           target="_blank" 
-          className={`${isOpen ? 'hidden' : ''} ${scrolled ? 'header-reservations-btn-scrolled' : 'header-reservations-btn'} hover:bg-black hover:text-white transition-colors`}
+          className={`${isOpen ? 'hidden' : ''} ${isDarkForeground ? 'header-reservations-btn-scrolled' : 'header-reservations-btn'} hover:bg-black hover:text-white transition-colors`}
         >
           RESERVATIONS
         </Link>
@@ -57,9 +62,9 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
-          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`} />
-          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`} />
-          <span className={` ${scrolled ? 'bg-black text-black' : 'bg-white'}`} />
+          <span className={` ${isDarkForeground ? 'bg-black text-black' : 'bg-white'}`} />
+          <span className={` ${isDarkForeground ? 'bg-black text-black' : 'bg-white'}`} />
+          <span className={` ${isDarkForeground ? 'bg-black text-black' : 'bg-white'}`} />
         </button>
       </div>
 

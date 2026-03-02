@@ -1721,6 +1721,180 @@ html.lenis body {
 
 
 
+/* ── Contact Split Layout ─────────────────────────── */
+.contact-split-section {
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+}
+
+/* centered title block */
+.contact-section-header {
+  text-align: center;
+  padding: 64px 40px 44px;
+  border-bottom: 1px solid #EDEAE6;
+}
+
+.contact-section-title {
+  color: #3A3A3A;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  margin: 12px 0 24px;
+  text-transform: uppercase;
+}
+
+.contact-section-rule {
+  width: 36px;
+  height: 1px;
+  background: #C8C0B8;
+  margin: 0 auto;
+}
+
+/* row: content left + image right */
+.contact-split-row {
+  display: flex;
+  align-items: center;
+  min-height: 500px;
+}
+
+.contact-split-content {
+  flex: 1 1 0;
+  padding: 56px 48px 56px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-split-eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #A7A096;
+  font-weight: 400;
+  margin-bottom: -12px;
+}
+
+.contact-split-image-wrap {
+  flex: 0 0 40%;
+  position: relative;
+  overflow: hidden;
+  align-self: center;
+  margin: 48px 48px 48px 0;
+  border-radius: 2px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+}
+
+.contact-split-image {
+  width: 100%;
+  height: 100%;
+  max-height: 580px;
+  min-height: 360px;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 3 / 4;
+}
+
+@media (max-width: 900px) {
+  .contact-split-row {
+    flex-direction: column-reverse;
+  }
+
+  .contact-section-header {
+    padding: 48px 24px 32px;
+  }
+
+  .contact-section-title {
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+    letter-spacing: 0.18em;
+  }
+
+  .contact-split-content {
+    flex: none;
+    padding: 40px 24px 48px 24px;
+    gap: 0;
+  }
+
+  .contact-split-image-wrap {
+    flex: none;
+    position: relative;
+    width: calc(100% - 32px);
+    margin: 0 16px 0 16px;
+    border-radius: 2px;
+  }
+
+  .contact-split-image {
+    max-height: 300px;
+    min-height: 200px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .contact-blocks-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Contact Block Grid ───────────────────────────── */
+.contact-block {
+  padding: 0;
+}
+
+.contact-block-label {
+  font-family: var(--font-cormorant), serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #A7A096;
+  margin-bottom: 14px;
+}
+
+.contact-block-divider {
+  width: 100%;
+  height: 1px;
+  background: #E8E5E1;
+  margin-bottom: 20px;
+}
+
+.contact-block-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-block-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.contact-block-key {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B0AAA2;
+  min-width: 68px;
+  padding-top: 1px;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.contact-block-link {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.55;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  padding-bottom: 1px;
+}
+
+.contact-block-link:hover {
+  color: #111;
+  border-bottom-color: #999;
+}
+
+/* ── Social Icons ───────────── */
 .contact-social-icons {
   display: flex;
   justify-content: center;

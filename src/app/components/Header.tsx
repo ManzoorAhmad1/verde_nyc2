@@ -3,9 +3,12 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isContactPage = pathname === '/contact';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +24,7 @@ export default function Header() {
       {/* Logo - Left Side */}
       <Link href="/" className="header-logo-link relative w-[100px] h-[50px]">
         <Image
-          src={scrolled ? 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green-removebg-preview.png' : 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png'}
+          src={(scrolled || isContactPage) ? 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green-removebg-preview.png' : 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png'}
           alt="Verde NYC"
           fill
           className="object-contain header-logo"

@@ -1,27 +1,87 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
 import { useSeoMetadata } from '../hooks/useSeoMetadata';
 import PageLoader from '@/components/PageLoader';
 
-// Define Interface for CMS Content
+interface ContactItem {
+  name?: string;
+  description?: string;
+  link?: string;
+}
+
 interface PageSection {
   type: string;
   heading?: string;
   content?: string;
   images?: string[];
   ctaLink?: string;
-  items?: Array<{
-    name?: string;
-    description?: string;
-    link?: string;
-  }>;
+  items?: ContactItem[];
 }
 
+interface ContactGroup {
+  label: string;
+  rows: ContactItem[];
+}
+
+const SOCIAL_KEYS = ['instagram', 'facebook', 'soundcloud', 'spotify'];
+
+function isSocialItem(item: ContactItem) {
+  return SOCIAL_KEYS.some(s => item.name?.toLowerCase().includes(s));
+}
+
+function groupItems(items: ContactItem[]): ContactGroup[] {
+  const groups: ContactGroup[] = [];
+  let current: ContactGroup | null = null;
+  for (const item of items) {
+    if (isSocialItem(item)) continue;
+    const isHeading = item.name && !item.description && !item.link;
+    if (isHeading) {
+      if (current) groups.push(current);
+      current = { label: item.name!, rows: [] };
+    } else {
+      if (!current) current = { label: '', rows: [] };
+      current.rows.push(item);
+    }
+  }
+  if (current) groups.push(current);
+  return groups;
+}
+
+function ItemValue({ item }: { item: ContactItem }) {
+  const cls = 'text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors';
+  if (item.link && item.link.trim()) {
+    return (
+      <a href={item.link} target={item.link.startsWith('http') ? '_blank' : undefined}
+        rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined} className={cls}>
+        {item.description || 'View'}
+      </a>
+    );
+  }
+  if (item.description?.includes('@')) return <a href={`mailto:${item.description}`} className={cls}>{item.description}</a>;
+  if (item.description?.startsWith('+') || /^\d/.test(item.description || '')) {
+    return <a href={`tel:${item.description?.replace(/\s/g, '')}`} className={cls}>{item.description}</a>;
+  }
+  return <span className="text-[#666666] font-light">{item.description}</span>;
+}
+
+const ICON_MAP: Record<string, JSX.Element> = {
+  soundcloud: (
+    <svg viewBox="0 0 64 64" width="32" height="32"><path fill="currentColor" d="M43.6,30c-0.6,0-1.2,0.1-1.7,0.3c-0.3-4-3.7-7.1-7.7-7.1c-1,0-2,0.2-2.8,0.5C31.1,23.9,31,24,31,24.3v13.9c0,0.3,0.2,0.5,0.5,0.5c0,0,12.2,0,12.2,0c2.4,0,4.4-1.9,4.4-4.4C48,31.9,46,30,43.6,30z M27.2,25.1c-0.7,0-1.2,0.5-1.2,1.1v11.3c0,0.7,0.6,1.2,1.2,1.2c0.7,0,1.2-0.6,1.2-1.2V26.2C28.4,25.6,27.8,25.1,27.2,25.1z M22.2,27.8c-0.7,0-1.2,0.5-1.2,1.1v8.5c0,0.7,0.6,1.2,1.2,1.2s1.2-0.6,1.2-1.2V29C23.4,28.3,22.9,27.8,22.2,27.8z M17.2,30.2c-0.7,0-1.2,0.5-1.2,1.1v4.9c0,0.7,0.6,1.2,1.2,1.2c0.7,0,1.2-0.6,1.2-1.2v-4.9C18.5,30.7,17.9,30.2,17.2,30.2z" /></svg>
+  ),
+  facebook: (
+    <svg viewBox="0 0 64 64" width="32" height="32"><path fill="currentColor" d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z" /></svg>
+  ),
+  spotify: (
+    <svg viewBox="0 0 64 64" width="32" height="32"><path fill="currentColor" d="M32,16c-8.8,0-16,7.2-16,16c0,8.8,7.2,16,16,16c8.8,0,16-7.2,16-16C48,23.2,40.8,16,32,16 M39.3,39.1c-0.3,0.5-0.9,0.6-1.4,0.3c-3.8-2.3-8.5-2.8-14.1-1.5c-0.5,0.1-1.1-0.2-1.2-0.7c-0.1-0.5,0.2-1.1,0.8-1.2c6.1-1.4,11.3-0.8,15.5,1.8C39.5,38,39.6,38.6,39.3,39.1 M41.3,34.7c-0.4,0.6-1.1,0.8-1.7,0.4c-4.3-2.6-10.9-3.4-15.9-1.9c-0.7,0.2-1.4-0.2-1.6-0.8c-0.2-0.7,0.2-1.4,0.8-1.6c5.8-1.8,13-0.9,18,2.1C41.5,33.4,41.7,34.1,41.3,34.7 M41.5,30.2c-5.2-3.1-13.7-3.3-18.6-1.9c-0.8,0.2-1.6-0.2-1.9-1c-0.2-0.8,0.2-1.6,1-1.9c5.7-1.7,15-1.4,21,2.1c0.7,0.4,0.9,1.3,0.5,2.1C43.1,30.4,42.2,30.6,41.5,30.2" /></svg>
+  ),
+  instagram: (
+    <svg viewBox="0 0 64 64" width="32" height="32"><path fill="currentColor" d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M44.21,38.061c-0.067,1.462-0.311,2.257-0.516,2.785c-0.272,0.7-0.597,1.2-1.122,1.725c-0.525,0.525-1.025,0.85-1.725,1.122c-0.529,0.205-1.323,0.45-2.785,0.516c-1.581,0.072-2.056,0.087-6.061,0.087s-4.48-0.015-6.061-0.087c-1.462-0.067-2.257-0.311-2.785-0.516c-0.7-0.272-1.2-0.597-1.725-1.122c-0.525-0.525-0.85-1.025-1.122-1.725c-0.205-0.529-0.45-1.323-0.516-2.785c-0.072-1.582-0.087-2.056-0.087-6.061s0.015-4.48,0.087-6.061c0.067-1.462,0.311-2.257,0.516-2.785c0.272-0.7,0.597-1.2,1.122-1.725c0.525-0.525,1.025-0.85,1.725-1.122c0.529-0.205,1.323-0.45,2.785-0.516c1.582-0.072,2.056-0.087,6.061-0.087s4.48,0.015,6.061,0.087c1.462,0.067,2.257,0.311,2.785,0.516c0.7,0.272,1.2,0.597,1.725,1.122c0.525,0.525,0.85,1.025,1.122,1.725c0.205,0.529,0.45,1.323,0.516,2.785c0.072,1.582,0.087,2.056,0.087,6.061S44.282,36.48,44.21,38.061z M32,24.297c-4.254,0-7.703,3.449-7.703,7.703c0,4.254,3.449,7.703,7.703,7.703c4.254,0,7.703-3.449,7.703-7.703C39.703,27.746,36.254,24.297,32,24.297z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,22.193c-0.994,0-1.8,0.806-1.8,1.8c0,0.994,0.806,1.8,1.8,1.8c0.994,0,1.8-0.806,1.8-1.8C41.807,22.999,41.001,22.193,40.007,22.193z" /></svg>
+  ),
+};
 
 export default function ContactPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -31,9 +91,6 @@ export default function ContactPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [pageData, setPageData] = useState<{ seoTitle?: string; seoDescription?: string; title?: string } | null>(null);
 
-  // Hero image is fixed; no parallax transforms here so it remains static
-
-  // Use SEO metadata from CMS
   useSeoMetadata(pageData);
 
   useEffect(() => {
@@ -44,26 +101,29 @@ export default function ContactPage() {
         if (res.ok) {
           const data = await res.json();
           if (data.page && data.page.sections) {
-            const sections = data.page.sections;
-            setHeroSection(sections.find((s: PageSection) => s.type === 'hero'));
-            setContactInfo(sections.find((s: PageSection) => s.type === 'contact_info'));
-            setMapSection(sections.find((s: PageSection) => s.type === 'text'));
-            // Set SEO data
+            const sections: PageSection[] = data.page.sections;
+            setHeroSection(sections.find(s => s.type === 'hero') || null);
+            setContactInfo(sections.find(s => s.type === 'contact_info') || null);
+            setMapSection(sections.find(s => s.type === 'text') || null);
             setPageData({
               seoTitle: data.page.seoTitle,
               seoDescription: data.page.seoDescription,
-              title: data.page.title
+              title: data.page.title,
             });
           }
         }
       } catch (error) {
-        console.error("Failed to load page content", error);
+        console.error('Failed to load contact page', error);
       } finally {
         setIsLoading(false);
       }
     };
     fetchPageData();
   }, []);
+
+  const items = contactInfo?.items || [];
+  const groups = groupItems(items);
+  const socials = items.filter(isSocialItem);
 
   return (
     <>
@@ -72,225 +132,117 @@ export default function ContactPage() {
         <Header />
         <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
 
-        {/* Hero Section */}
-        <section
-          id="contact-mila"
-          className="contact-hero"
-          style={{ position: 'relative', overflow: 'visible', height: '100vh' }}
-        >
-          {/* Fixed background image: stays in place while content scrolls over it */}
-          <div
-            className="contact-hero-image"
-            style={{
-              willChange: 'transform',
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100vh',
-              zIndex: 0,
-              overflow: 'hidden'
-            }}
-          >
+        {/* Commented out Hero Section per user request */}
+        {/*
+        <section id="contact-mila" className="contact-hero" style={{ position: 'relative', overflow: 'visible', height: '100vh' }}>
+          <div className="contact-hero-image" style={{ willChange: 'transform', position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', zIndex: 0, overflow: 'hidden' }}>
             <img
               loading="eager"
               decoding="async"
-              fetchPriority="high"
-              src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8472.jpg"}
+              src={heroSection?.images?.[0] || 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8472.jpg'}
               alt="Verde NYC Contact"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.2s cubic-bezier(0.4,0,0.2,1)' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
-
-          {/* Foreground content: placed above the fixed image */}
           <div className="contact-hero-content" style={{ position: 'relative', zIndex: 10, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <h2 className="hero-title headingFont  ">{heroSection?.heading || "CONTACT US"}   </h2>
+            <h2 className="hero-title headingFont">{heroSection?.heading }</h2>
+          </div>
+        </section>
+        */}
+
+        {/* Contact Info — fully CMS-driven */}
+        <section id="contact-info" className="contact-info bg-[#F5EFEA] pt-32 pb-16">
+          <div className="text-center mb-16 lg:mb-24">
+            <p className="text-[11px] tracking-[0.2em] font-light uppercase text-[#A7A096] mb-4">
+              A YEEELS GROUP VENUE — NEW YORK CITY
+            </p>
+            <h1 className="text-[26px] md:text-[32px] font-serif tracking-[0.15em] uppercase text-[#3A363A]">
+              {contactInfo?.heading || 'FIND US'}
+            </h1>
+            <div className="w-[40px] h-[1px] bg-[#C8C0B8] mx-auto mt-6"></div>
+          </div>
+
+          <div className="max-w-[95vw] md:max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-4 lg:px-8">
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 items-start pb-12">
+              
+              {/* Left Column: Contact Details */}
+              <div className="flex-1 lg:w-[45%] xl:w-[40%] pt-0 w-full text-center md:text-left flex justify-center md:justify-start">
+                <div className="flex flex-col gap-12 xl:gap-16 max-w-xl w-full">
+                  {groups.map((group, gi) => (
+                    <div key={gi} className="flex flex-col w-full text-center md:text-left">
+                      {group.label && group.label.trim() !== '' && (
+                        <p className="text-[13px] md:text-[14px] tracking-[0.2em] font-light uppercase text-[#A7A096] mb-6 inline-block w-full">
+                          {group.label}
+                        </p>
+                      )}
+                      <div className="flex flex-col gap-5 w-full items-center md:items-stretch">
+                        {group.rows.map((row, ri) => (
+                          <div key={ri} className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start gap-1 md:gap-4 lg:gap-8 w-full text-center md:text-left">
+                            {row.name && (
+                              <span className="text-[10px] tracking-[0.15em] md:tracking-[0.2em] leading-relaxed uppercase text-[#A7A096] font-semibold flex-shrink-0 md:whitespace-nowrap mt-1 w-full md:w-auto">
+                                {row.name}
+                              </span>
+                            )}
+                            <div className="text-[13px] md:text-[14px] lg:text-[15px] leading-[1.6] font-light text-[#666666] flex-1 text-center md:text-right w-full break-words">
+                              <ItemValue item={row} />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* Social Icons */}
+                  {socials.length > 0 && (
+                    <div className="flex flex-col w-full mt-2 text-center md:text-left">
+                      <p className="text-[13px] md:text-[14px] tracking-[0.2em] font-light uppercase text-[#A7A096] mb-6 inline-block w-full">
+                        FOLLOW VERDE NYC
+                      </p>
+                      <div className="flex justify-center md:justify-end gap-5 w-full">
+                        {socials.map((social, idx) => {
+                          const key = SOCIAL_KEYS.find(s => social.name?.toLowerCase().includes(s)) || '';
+                          const href = social.link || social.description || '#';
+                          return (
+                            <a key={idx} href={href} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="text-[#A7A096] hover:text-[#666666] transition-colors scale-90">
+                              {ICON_MAP[key]}
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                </div>
+              </div>
+
+              {/* Right Column: Image */}
+              <div className="flex-1 w-full lg:w-[55%] xl:w-[60%] overflow-hidden relative min-h-[200px] sm:min-h-[300px] lg:min-h-[500px] xl:min-h-[600px] mt-8 lg:mt-0">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={heroSection?.images?.[0] || 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8472.jpg'}
+                  alt="Verde NYC Contact"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+
+            </div>
           </div>
         </section>
 
-        {/* Contact Info Section - CMS Driven */}
-        {contactInfo && contactInfo.items && contactInfo.items.length > 0 && (
-          <section id="contact-info" className="contact-info">
-            <div className="contact-info-content">
-              {contactInfo.heading && (
-                <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">{contactInfo.heading}</p>
-              )}
-
-              {contactInfo.items.map((item, idx) => {
-                const isHeading = item.name && !item.description && !item.link;
-                const hasLink = item.link && item.link.trim() !== '';
-                const isEmail = item.description?.includes('@');
-                const isPhone = item.description?.startsWith('+') || /^\d/.test(item.description || '');
-
-                if (isHeading) {
-                  return (
-                    <p key={idx} className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">
-                      {item.name}
-                    </p>
-                  );
-                }
-
-                return (
-                  <div key={idx} className="flex flex-col md:flex-row justify-center items-center my-3 text-[15px] font-sans font-light text-[#666666] text-center">
-                    {item.name && <div className="mr-0 md:mr-2 text-[#A7A096] text-[15px] mb-1 md:mb-0">{item.name}:</div>}
-                    <div>
-                      {hasLink ? (
-                        <a
-                          href={item.link}
-                          target={item.link?.startsWith('http') ? '_blank' : undefined}
-                          rel={item.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap"
-                        >
-                          {item.description || 'Click Here'}
-                        </a>
-                      ) : isEmail ? (
-                        <a href={`mailto:${item.description}`} className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">{item.description}</a>
-                      ) : isPhone ? (
-                        <a href={`tel:${item.description?.replace(/\s/g, '')}`} className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">{item.description}</a>
-                      ) : (
-                        item.description
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-
-              {/* Social Icons */}
-              <div className="contact-social-icons mx-auto mt-12 mb-8 flex justify-center gap-6">
-                {contactInfo.items
-                  .filter(item => item.name?.toLowerCase().includes('social') ||
-                    ['instagram', 'facebook', 'soundcloud', 'spotify'].some(s =>
-                      item.name?.toLowerCase().includes(s)))
-                  .map((social, idx) => {
-                    const name = social.name?.toLowerCase() || '';
-                    const link = social.link || social.description || '#';
-
-                    return (
-                      <a key={idx} href={link} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="text-[#666666] hover:text-[#333333] transition-colors">
-                        {name.includes('soundcloud') && (
-                          <svg viewBox="0 0 64 64" width="32" height="32">
-                            <path fill="currentColor" d="M43.6,30c-0.6,0-1.2,0.1-1.7,0.3c-0.3-4-3.7-7.1-7.7-7.1c-1,0-2,0.2-2.8,0.5 C31.1,23.9,31,24,31,24.3v13.9c0,0.3,0.2,0.5,0.5,0.5c0,0,12.2,0,12.2,0c2.4,0,4.4-1.9,4.4-4.4C48,31.9,46,30,43.6,30z M27.2,25.1 c-0.7,0-1.2,0.5-1.2,1.1v11.3c0,0.7,0.6,1.2,1.2,1.2c0.7,0,1.2-0.6,1.2-1.2V26.2C28.4,25.6,27.8,25.1,27.2,25.1z M22.2,27.8 c-0.7,0-1.2,0.5-1.2,1.1v8.5c0,0.7,0.6,1.2,1.2,1.2s1.2-0.6,1.2-1.2V29C23.4,28.3,22.9,27.8,22.2,27.8z M17.2,30.2 c-0.7,0-1.2,0.5-1.2,1.1v4.9c0,0.7,0.6,1.2,1.2,1.2c0.7,0,1.2-0.6,1.2-1.2v-4.9C18.5,30.7,17.9,30.2,17.2,30.2z" />
-                          </svg>
-                        )}
-                        {name.includes('facebook') && (
-                          <svg viewBox="0 0 64 64" width="32" height="32">
-                            <path fill="currentColor" d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2 c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z" />
-                          </svg>
-                        )}
-                        {name.includes('spotify') && (
-                          <svg viewBox="0 0 64 64" width="32" height="32">
-                            <path fill="currentColor" d="M32,16c-8.8,0-16,7.2-16,16c0,8.8,7.2,16,16,16c8.8,0,16-7.2,16-16C48,23.2,40.8,16,32,16 M39.3,39.1c-0.3,0.5-0.9,0.6-1.4,0.3c-3.8-2.3-8.5-2.8-14.1-1.5c-0.5,0.1-1.1-0.2-1.2-0.7c-0.1-0.5,0.2-1.1,0.8-1.2 c6.1-1.4,11.3-0.8,15.5,1.8C39.5,38,39.6,38.6,39.3,39.1 M41.3,34.7c-0.4,0.6-1.1,0.8-1.7,0.4c-4.3-2.6-10.9-3.4-15.9-1.9 c-0.7,0.2-1.4-0.2-1.6-0.8c-0.2-0.7,0.2-1.4,0.8-1.6c5.8-1.8,13-0.9,18,2.1C41.5,33.4,41.7,34.1,41.3,34.7 M41.5,30.2 c-5.2-3.1-13.7-3.3-18.6-1.9c-0.8,0.2-1.6-0.2-1.9-1c-0.2-0.8,0.2-1.6,1-1.9c5.7-1.7,15-1.4,21,2.1c0.7,0.4,0.9,1.3,0.5,2.1 C43.1,30.4,42.2,30.6,41.5,30.2" />
-                          </svg>
-                        )}
-                        {name.includes('instagram') && (
-                          <svg viewBox="0 0 64 64" width="32" height="32">
-                            <path fill="currentColor" d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M44.21,38.061c-0.067,1.462-0.311,2.257-0.516,2.785c-0.272,0.7-0.597,1.2-1.122,1.725c-0.525,0.525-1.025,0.85-1.725,1.122c-0.529,0.205-1.323,0.45-2.785,0.516c-1.581,0.072-2.056,0.087-6.061,0.087s-4.48-0.015-6.061-0.087c-1.462-0.067-2.257-0.311-2.785-0.516c-0.7-0.272-1.2-0.597-1.725-1.122c-0.525-0.525-0.85-1.025-1.122-1.725c-0.205-0.529-0.45-1.323-0.516-2.785c-0.072-1.582-0.087-2.056-0.087-6.061s0.015-4.48,0.087-6.061c0.067-1.462,0.311-2.257,0.516-2.785c0.272-0.7,0.597-1.2,1.122-1.725c0.525-0.525,1.025-0.85,1.725-1.122c0.529-0.205,1.323-0.45,2.785-0.516c1.582-0.072,2.056-0.087,6.061-0.087s4.48,0.015,6.061,0.087c1.462,0.067,2.257,0.311,2.785,0.516c0.7,0.272,1.2,0.597,1.725,1.122c0.525,0.525,0.85,1.025,1.122,1.725c0.205,0.529,0.45,1.323,0.516,2.785c0.072,1.582,0.087,2.056,0.087,6.061S44.282,36.48,44.21,38.061z M32,24.297c-4.254,0-7.703,3.449-7.703,7.703c0,4.254,3.449,7.703,7.703,7.703c4.254,0,7.703-3.449,7.703-7.703C39.703,27.746,36.254,24.297,32,24.297z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,22.193c-0.994,0-1.8,0.806-1.8,1.8c0,0.994,0.806,1.8,1.8,1.8c0.994,0,1.8-0.806,1.8-1.8C41.807,22.999,41.001,22.193,40.007,22.193z" />
-                          </svg>
-                        )}
-                      </a>
-                    );
-                  })}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Fallback - Hardcoded Contact Info (if CMS not loaded) */}
-        {(!contactInfo || !contactInfo.items || contactInfo.items.length === 0) && (
-          <section id="contact-info" className="contact-info">
-            <div className="contact-info-content">
-              <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">VERDE NYC — <Link href="/restaurant" className="text-[#4A4A4A] transition-colors hover:text-black">A YEEELS GROUP VENUE</Link></p>
-              <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed flex flex-col items-center justify-center">
-                <a href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank" rel="noopener noreferrer" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">
-                  85 10th Avenue, New York City, NY 10011
-                </a>
-              </p>
-
-              <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">Reservations</p>
-              <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed flex flex-col items-center justify-center">
-                <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">Online: Click Here</Link><br />
-                Phone: <a href="tel:+16467763660" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">+16467763660</a><br />
-                Email: <a href="mailto:contact@verde-nyc.com" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">contact@verde-nyc.com</a>
-              </p>
-
-              <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">Private Events & Buyouts</p>
-              <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed flex flex-col items-center justify-center">
-                Email: <a href="mailto:events@yeeels.com" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">events@yeeels.com</a><br />
-                Global Events Director: <a href="tel:+971566756965" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">+971 56 675 6965</a>
-              </p>
-
-              <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">Yeeels Group Headquarters</p>
-              <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed flex flex-col items-center justify-center">
-                24 Avenue George V, Paris 75008, France<br />
-                Email: <a href="mailto:contact@yeeels.com" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">contact@yeeels.com</a>
-              </p>
-
-              <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">Members Club</p>
-              <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed flex flex-col items-center justify-center">
-                <Link href="/membersclub" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">Explore Membership Benefits</Link>
-              </p>
-
-              {/* Social Icons */}
-              <div className="contact-social-icons mx-auto mt-12 mb-8 flex justify-center gap-6">
-                <a href="https://soundcloud.com/user-611720735" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
-                  <svg viewBox="0 0 64 64" width="32" height="32">
-                    <path fill="currentColor" d="M43.6,30c-0.6,0-1.2,0.1-1.7,0.3c-0.3-4-3.7-7.1-7.7-7.1c-1,0-2,0.2-2.8,0.5 C31.1,23.9,31,24,31,24.3v13.9c0,0.3,0.2,0.5,0.5,0.5c0,0,12.2,0,12.2,0c2.4,0,4.4-1.9,4.4-4.4C48,31.9,46,30,43.6,30z M27.2,25.1 c-0.7,0-1.2,0.5-1.2,1.1v11.3c0,0.7,0.6,1.2,1.2,1.2c0.7,0,1.2-0.6,1.2-1.2V26.2C28.4,25.6,27.8,25.1,27.2,25.1z M22.2,27.8 c-0.7,0-1.2,0.5-1.2,1.1v8.5c0,0.7,0.6,1.2,1.2,1.2s1.2-0.6,1.2-1.2V29C23.4,28.3,22.9,27.8,22.2,27.8z M17.2,30.2 c-0.7,0-1.2,0.5-1.2,1.1v4.9c0,0.7,0.6,1.2,1.2,1.2c0.7,0,1.2-0.6,1.2-1.2v-4.9C18.5,30.7,17.9,30.2,17.2,30.2z" />
-                  </svg>
-                </a>
-                <a href="https://www.facebook.com/verdenyc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                  <svg viewBox="0 0 64 64" width="32" height="32">
-                    <path fill="currentColor" d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2 c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z" />
-                  </svg>
-                </a>
-                <a href="https://open.spotify.com/user/31prdeupjndbgg6f3yvdhbrmbvwq" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
-                  <svg viewBox="0 0 64 64" width="32" height="32">
-                    <path fill="currentColor" d="M32,16c-8.8,0-16,7.2-16,16c0,8.8,7.2,16,16,16c8.8,0,16-7.2,16-16C48,23.2,40.8,16,32,16 M39.3,39.1c-0.3,0.5-0.9,0.6-1.4,0.3c-3.8-2.3-8.5-2.8-14.1-1.5c-0.5,0.1-1.1-0.2-1.2-0.7c-0.1-0.5,0.2-1.1,0.8-1.2 c6.1-1.4,11.3-0.8,15.5,1.8C39.5,38,39.6,38.6,39.3,39.1 M41.3,34.7c-0.4,0.6-1.1,0.8-1.7,0.4c-4.3-2.6-10.9-3.4-15.9-1.9 c-0.7,0.2-1.4-0.2-1.6-0.8c-0.2-0.7,0.2-1.4,0.8-1.6c5.8-1.8,13-0.9,18,2.1C41.5,33.4,41.7,34.1,41.3,34.7 M41.5,30.2 c-5.2-3.1-13.7-3.3-18.6-1.9c-0.8,0.2-1.6-0.2-1.9-1c-0.2-0.8,0.2-1.6,1-1.9c5.7-1.7,15-1.4,21,2.1c0.7,0.4,0.9,1.3,0.5,2.1 C43.1,30.4,42.2,30.6,41.5,30.2" />
-                  </svg>
-                </a>
-                <a href="https://www.instagram.com/verdenyc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                  <svg viewBox="0 0 64 64" width="32" height="32">
-                    <path fill="currentColor" d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M44.21,38.061c-0.067,1.462-0.311,2.257-0.516,2.785c-0.272,0.7-0.597,1.2-1.122,1.725c-0.525,0.525-1.025,0.85-1.725,1.122c-0.529,0.205-1.323,0.45-2.785,0.516c-1.581,0.072-2.056,0.087-6.061,0.087s-4.48-0.015-6.061-0.087c-1.462-0.067-2.257-0.311-2.785-0.516c-0.7-0.272-1.2-0.597-1.725-1.122c-0.525-0.525-0.85-1.025-1.122-1.725c-0.205-0.529-0.45-1.323-0.516-2.785c-0.072-1.582-0.087-2.056-0.087-6.061s0.015-4.48,0.087-6.061c0.067-1.462,0.311-2.257,0.516-2.785c0.272-0.7,0.597-1.2,1.122-1.725c0.525-0.525,1.025-0.85,1.725-1.122c0.529-0.205,1.323-0.45,2.785-0.516c1.582-0.072,2.056-0.087,6.061-0.087s4.48,0.015,6.061,0.087c1.462,0.067,2.257,0.311,2.785,0.516c0.7,0.272,1.2,0.597,1.725,1.122c0.525,0.525,0.85,1.025,1.122,1.725c0.205,0.529,0.45,1.323,0.516,2.785c0.072,1.582,0.087,2.056,0.087,6.061S44.282,36.48,44.21,38.061z M32,24.297c-4.254,0-7.703,3.449-7.703,7.703c0,4.254,3.449,7.703,7.703,7.703c4.254,0,7.703-3.449,7.703-7.703C39.703,27.746,36.254,24.297,32,24.297z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,22.193c-0.994,0-1.8,0.806-1.8,1.8c0,0.994,0.806,1.8,1.8,1.8c0.994,0,1.8-0.806,1.8-1.8C41.807,22.999,41.001,22.193,40.007,22.193z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Map Section */}
+        {/* Map — CMS-driven */}
         {mapSection && (
-          <section id="map" className="contact-map">
-            <div className="contact-map-content">
-              <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block"><em>{mapSection.heading}</em></p>
-              {mapSection.content && <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed">{mapSection.content}</p>}
-              {mapSection.ctaLink && (
-                <div className="contact-map-embed">
-                  <iframe
-                    src={mapSection.ctaLink}
-                    width="100%"
-                    height="450"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-              )}
-            </div>
+          <section id="map" className="contact-map w-full bg-[#F5EFEA] pb-16">
+             <div className="w-full h-[250px] sm:h-[350px] md:h-[500px]">
+                <iframe src={mapSection.ctaLink || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.109503923487!2d-74.00908748459423!3d40.7420101793284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf141ebfdd%3A0xe51083acc8dc343b!2s85%2010th%20Ave%2C%20New%20York%2C%20NY%2010011%2C%20USA!5e0!3m2!1sen!2sus!4v1682859013098!5m2!1sen!2sus"} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+             </div>
           </section>
         )}
 
-        {/* Index Navigation */}
         <nav className="contact-index-nav">
-          <a href="#contact-mila" className="contact-index-item active">
-            <div className="contact-index-indicator"></div>
-          </a>
-          <a href="#contact-info" className="contact-index-item">
-            <div className="contact-index-indicator"></div>
-          </a>
-          <a href="#map" className="contact-index-item">
-            <div className="contact-index-indicator"></div>
-          </a>
+          <a href="#contact-mila" className="contact-index-item active"><div className="contact-index-indicator" /></a>
+          <a href="#contact-info" className="contact-index-item"><div className="contact-index-indicator" /></a>
+          <a href="#map" className="contact-index-item"><div className="contact-index-indicator" /></a>
         </nav>
 
         <Footer />
@@ -298,11 +250,3 @@ export default function ContactPage() {
     </>
   );
 }
-
-
-
-
-
-
-
-
