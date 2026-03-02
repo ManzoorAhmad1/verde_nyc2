@@ -108,7 +108,7 @@ export default function RestaurantPage() {
             />
           </div>
           <div className="philosophy-content">
-            <h1 style={{color: 'var(--verde-heading)'}}><em>{philosophySection?.heading || "A Yeeels Group Signature Destination"}</em></h1>
+            <h1 style={{color: 'var(--verde-heading)'}}>{philosophySection?.heading || "A Yeeels Group Signature Destination"}</h1>
             <h1 style={{color: 'var(--verde-heading)'}}>{philosophySection?.subheading || "Verde NYC — Where Culinary Mastery Meets Celebration"}</h1>
             
             <div className="philosophy-text" style={{color: 'var(--verde-text)'}}>
