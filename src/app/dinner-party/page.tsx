@@ -130,99 +130,14 @@ export default function PrivateEventsPage() {
                 </div>
               )}
 
-              {getSection(8)?.heading && (
-                <div className="private-events-brochure">
-                  <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(8).heading}</h2>
-                  <p style={{ color: 'var(--verde-text)' }}>{getSection(8).content}</p>
-                  {getSection(8).ctaLink && (
-                    <a href={getSection(8).ctaLink} target="_blank" rel="noopener noreferrer" className="private-events-button">
-                      {getSection(8).ctaText || 'CONTACT GLOBAL EVENTS'}
-                    </a>
-                  )}
-                </div>
-              )}
+        
             </div>
           </section>
         )}
 
         {/* Indoor/Outdoor Section */}
         <section className="private-events-spaces">
-          {/* Indoor Private Dining (Order 3) */}
-          {getSection(2)?.heading && (
-            <div className="private-events-grid reverse">
-              <div className="private-events-image-col">
-                <div className="private-events-image-wrapper">
-                  <img
-                    src={getSection(2).images?.[0] || ''}
-                    alt={getSection(2).heading || 'Private dining'}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-              </div>
-              <div className="private-events-text-col">
-                <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(2).heading}</h2>
-                <p style={{ color: 'var(--verde-text)' }}>{getSection(2).content}</p>
-              </div>
-            </div>
-          )}
-
-          {/* Outdoor Event Spaces (Order 4) */}
-          {getSection(3)?.heading && (
-            <div className="private-events-grid">
-              <div className="private-events-image-col">
-                <div className="private-events-image-wrapper">
-                  <img
-                    src={getSection(3).images?.[0] || ''}
-                    alt={getSection(3).heading || 'Outdoor events'}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-              </div>
-              <div className="private-events-text-col">
-                <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(3).heading}</h2>
-                <p style={{ color: 'var(--verde-text)' }}>{getSection(3).content}</p>
-              </div>
-            </div>
-          )}
-
-          {/* Verde Lounge (Order 5) */}
-          {getSection(4)?.heading && (
-            <div className="private-events-grid reverse">
-              <div className="private-events-image-col">
-                <div className="private-events-image-wrapper">
-                  <img
-                    src={getSection(4).images?.[0] || ''}
-                    alt={getSection(4).heading || 'Lounge'}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-              </div>
-              <div className="private-events-text-col">
-                <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(4).heading}</h2>
-                <p style={{ color: 'var(--verde-text)' }}>{getSection(4).content}</p>
-              </div>
-            </div>
-          )}
-
-          {/* Private Dining Experience (Order 6) */}
-          {getSection(5)?.heading && (
-            <div className="private-events-grid">
-              <div className="private-events-image-col">
-                <div className="private-events-image-wrapper">
-                  <img
-                    src={getSection(5).images?.[0] || ''}
-                    alt={getSection(5).heading || 'Dining'}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-              </div>
-              <div className="private-events-text-col">
-                <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(5).heading}</h2>
-                <p style={{ color: 'var(--verde-text)' }}>{getSection(5).content}</p>
-              </div>
-            </div>
-          )}
-
+         
           {/* Additional Space 1 (Order 7) */}
           {getSection(6)?.heading && (
             <div className="private-events-grid reverse">
@@ -261,50 +176,6 @@ export default function PrivateEventsPage() {
             </div>
           )}
         </section>
-
-        {/* Types of Events Section */}
-        {(getSection(9)?.heading || getSection(10)?.heading) && (
-          <section className="private-events-types">
-            <div className="private-events-types-content">
-              {getSection(9)?.heading && (
-                <>
-                  <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(9).heading}</h2>
-                  {getSection(9).content?.split('\n\n').map((paragraph: string, idx: number) => (
-                    <p key={idx} style={{ color: 'var(--verde-text)' }}>
-                      {paragraph.includes('Verde NYC') ? (
-                        paragraph.split(/(Verde NYC|exceptional cuisine)/g).map((part: string, i: number) => {
-                          if (part === 'Verde NYC') return <Link key={i} href="/">Verde NYC</Link>;
-                          if (part === 'exceptional cuisine') return <Link key={i} href="/restaurant">exceptional cuisine</Link>;
-                          return part;
-                        })
-                      ) : (
-                        paragraph
-                      )}
-                    </p>
-                  ))}
-                </>
-              )}
-
-              {getSection(10)?.heading && (
-                <>
-                  <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(10).heading}</h2>
-                  {getSection(10).content?.split('\n\n').map((paragraph: string, idx: number) => (
-                    <p key={idx} style={{ color: 'var(--verde-text)' }}>
-                      {renderParagraph(paragraph)}
-                    </p>
-                  ))}
-
-                  {getSection(10).ctaLink && (
-                    <a href={getSection(10).ctaLink} target="_blank" rel="noopener noreferrer" className="private-events-cta-button ">
-                      {getSection(10).ctaText }
-                    </a>
-                  )}
-                </>
-              )}
-            </div>
-          </section>
-        )}
-
         {/* Index Navigation */}
         <nav className="private-events-index-nav">
           <div className="private-events-index-nav-inner">

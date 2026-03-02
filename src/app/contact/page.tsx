@@ -133,29 +133,14 @@ export default function ContactPage() {
         <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
 
         {/* Commented out Hero Section per user request */}
-        {/*
-        <section id="contact-mila" className="contact-hero" style={{ position: 'relative', overflow: 'visible', height: '100vh' }}>
-          <div className="contact-hero-image" style={{ willChange: 'transform', position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', zIndex: 0, overflow: 'hidden' }}>
-            <img
-              loading="eager"
-              decoding="async"
-              src={heroSection?.images?.[0] || 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8472.jpg'}
-              alt="Verde NYC Contact"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-          </div>
-          <div className="contact-hero-content" style={{ position: 'relative', zIndex: 10, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <h2 className="hero-title headingFont">{heroSection?.heading }</h2>
-          </div>
-        </section>
-        */}
+       
 
         {/* Contact Info — fully CMS-driven */}
         <section id="contact-info" className="contact-info bg-[#F5EFEA] pt-32 pb-16">
           <div className="text-center mb-16 lg:mb-24">
-            <h1 className="text-[26px] md:text-[32px] font-serif tracking-[0.15em] uppercase text-[#3a3a3a]">
+            <h2 className="text-[26px] md:text-[32px] font-serif tracking-[0.15em] uppercase text-[#3a3a3a]">
               {contactInfo?.heading || 'Contact Us'}
-            </h1>
+            </h2>
           </div>
 
           <div className="max-w-[95vw] md:max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-4 lg:px-8">
@@ -212,7 +197,7 @@ export default function ContactPage() {
               </div>
 
               {/* Right Column: Image */}
-              <div className="flex-1 w-full lg:w-[55%] xl:w-[60%] overflow-hidden relative h-[500px] md:min-h-[300px] mt-8 lg:mt-0 flex">
+              <div className="flex-1 w-full lg:w-[55%] xl:w-[60%] overflow-hidden relative hidden md:block md:min-h-[300px] mt-8 lg:mt-0 ">
                 <img
                   loading="lazy"
                   decoding="async"
