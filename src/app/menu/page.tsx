@@ -297,8 +297,8 @@ export default function MenuPage() {
             />
           </div>
           <div className="menu-hero-content">
-            <h2 className="hero-title  ">OUR MENU</h2>
-            <p className="menu-hero-subtitle  ">Culinary Excellence Meets Celebration</p>
+            <h2 className="hero-title  ">{heroSection?.heading }</h2>
+            <p className="menu-hero-subtitle  ">{heroSection?.subheading}</p>
           </div>
         </section>
 
