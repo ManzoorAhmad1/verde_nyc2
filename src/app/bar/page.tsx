@@ -126,7 +126,56 @@ export default function MiamiBrunchPage() {
             )}
 
             <hr className="section-divider" />
-            {/* Gallery Slider (Order 2) */}
+           
+            {/* Buffet Image Card (Order 4) */}
+            {getSection(3).heading && getSection(3).images?.[0] && (
+              <div className="brunch-image-card right">
+                <div className="image-card-image">
+                  <img
+                    loading="lazy" decoding="async" src={getSection(3).images![0]}
+                    alt={getSection(3).heading || 'Buffet'}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+                <div className="image-card-content">
+                  <h3 className='text-[#3A363A]'><span>{getSection(3).heading}</span></h3>
+                  <p className='!text-[#948E84] text-[14px] text-justify'>{getSection(3).content}</p>
+                </div>
+              </div>
+            )}
+
+            <hr className="section-divider" />
+
+            {/* Description Text (Order 5) */}
+            {getSection(4).content && (
+              <div className="brunch-description">
+                {getSection(4).content!.split('\n\n').map((paragraph: string, idx: number) => (
+                  <p key={idx} className='text-[#948E84] text-[14px] text-justify mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
+                ))}
+              </div>
+            )}
+
+            <hr className="section-divider" />
+
+            {/* Cocktail Image Card (Order 6) */}
+            {getSection(5).heading && getSection(5).images?.[0] && (
+              <div className="brunch-image-card left">
+                <div className="image-card-image">
+                  <img
+                    loading="lazy" decoding="async" src={getSection(5).images![0]}
+                    alt={getSection(5).heading || 'Beverages'}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+                <div className="image-card-content">
+                  <h3 className='text-[#3A363A]'><span>{getSection(5).heading}</span></h3>
+                  {getSection(5).content?.split('\n\n').map((paragraph: string, idx: number) => (
+                    <p key={idx} className='!text-[#948E84] text-[14px] text-justify mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
+                  ))}
+                </div>
+              </div>
+            )}
+             {/* Gallery Slider (Order 2) */}
             {images.length > 0 && (
               <div className="sqs-block gallery-block sqs-block-gallery relative w-full h-[260px] sm:h-[300px] overflow-hidden">
                 <div className="sqs-gallery-container h-full">
@@ -178,55 +227,8 @@ export default function MiamiBrunchPage() {
                 </div>
               </div>
             )}
-            {/* Buffet Image Card (Order 4) */}
-            {getSection(3).heading && getSection(3).images?.[0] && (
-              <div className="brunch-image-card right">
-                <div className="image-card-image">
-                  <img
-                    loading="lazy" decoding="async" src={getSection(3).images![0]}
-                    alt={getSection(3).heading || 'Buffet'}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-                <div className="image-card-content">
-                  <h3 className='text-[#3A363A]'><span>{getSection(3).heading}</span></h3>
-                  <p className='!text-[#948E84] text-[14px] text-justify'>{getSection(3).content}</p>
-                </div>
-              </div>
-            )}
-
-            <hr className="section-divider" />
-
-            {/* Description Text (Order 5) */}
-            {getSection(4).content && (
-              <div className="brunch-description">
-                {getSection(4).content!.split('\n\n').map((paragraph: string, idx: number) => (
-                  <p key={idx} className='text-[#948E84] text-[14px] text-justify mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
-                ))}
-              </div>
-            )}
-
-            <hr className="section-divider" />
-
-            {/* Cocktail Image Card (Order 6) */}
-            {getSection(5).heading && getSection(5).images?.[0] && (
-              <div className="brunch-image-card left">
-                <div className="image-card-image">
-                  <img
-                    loading="lazy" decoding="async" src={getSection(5).images![0]}
-                    alt={getSection(5).heading || 'Beverages'}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
-                <div className="image-card-content">
-                  <h3 className='text-[#3A363A]'><span>{getSection(5).heading}</span></h3>
-                  {getSection(5).content?.split('\n\n').map((paragraph: string, idx: number) => (
-                    <p key={idx} className='!text-[#948E84] text-[14px] text-justify mb-4' dangerouslySetInnerHTML={{ __html: paragraph }} />
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
+          
         </section>
 
         {/* Index Navigation */}
