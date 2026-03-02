@@ -103,18 +103,18 @@ export default function PrivateEventsPage() {
         {getSection(1).heading && (
           <section className="private-events-intro">
             <div className="private-events-intro-content">
-              <h2 style={{ color: 'var(--verde-heading)' }}>
+              <h2 className="section-heading font-normal" style={{ color: 'var(--verde-heading)' }}>
                 {getSection(1).heading}
                 {getSection(1).subheading && (
                   <>
                     <br />
-                    {getSection(1).subheading}
+                    <span className="section-title mt-2 hide-on-mobile block">{getSection(1).subheading}</span>
                   </>
                 )}
               </h2>
 
               {getSection(1).content?.split('\n\n').map((paragraph: string, idx: number) => (
-                <p key={idx} className="private-events-description" style={{ color: 'var(--verde-text)' }}>
+                <p key={idx} className="section-text !text-center lg:!text-left lg:!mx-0" style={{ color: 'var(--verde-text)' }}>
                   {renderParagraph(paragraph)}
                 </p>
               ))}
@@ -130,20 +130,20 @@ export default function PrivateEventsPage() {
                 </div>
               )}
 
-        
+
             </div>
           </section>
         )}
 
         {/* Indoor/Outdoor Section */}
-        <section className="private-events-spaces max-w-[95vw] md:max-w-[85vw] lg:max-w-[75vw] xl:max-w-[1200px] mx-auto px-4 py-16">
-         
+        <section className="private-events-spaces max-w-[95vw] md:max-w-[85vw] lg:max-w-[75vw] xl:max-w-[1200px] mx-auto px-4 pb-16">
+
           {/* Additional Space 1 (Was Order 7, now index 2 since others were deleted) */}
           {getSection(2)?.heading && (
-             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center mb-10 lg:mb-0">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center mb-10 lg:mb-0">
               <div className="order-2 lg:order-1 flex flex-col justify-center text-center lg:text-left">
-                <h2 style={{ color: 'var(--verde-heading)' }} className="font-serif text-[26px] md:text-[30px] tracking-[0.1em] uppercase mb-6">{getSection(2).heading}</h2>
-                <p style={{ color: 'var(--verde-text)' }} className="font-light text-[15px] md:text-[16px] leading-[1.8]">{getSection(2).content}</p>
+                <h2 className="section-heading font-normal" style={{ color: 'var(--verde-heading)', marginBottom: '24px' }}>{getSection(2).heading}</h2>
+                <p className="section-text !text-center lg:!text-left lg:!mx-0" style={{ color: 'var(--verde-text)' }}>{getSection(2).content}</p>
               </div>
               <div className="order-1 lg:order-2 w-full relative min-h-[350px] lg:min-h-[450px]">
                 <img
@@ -166,8 +166,8 @@ export default function PrivateEventsPage() {
                 />
               </div>
               <div className="order-2 lg:order-2 flex flex-col justify-center text-center lg:text-left">
-                <h2 style={{ color: 'var(--verde-heading)' }} className="font-serif text-[26px] md:text-[30px] tracking-[0.1em] uppercase mb-6">{getSection(3).heading}</h2>
-                <p style={{ color: 'var(--verde-text)' }} className="font-light text-[15px] md:text-[16px] leading-[1.8]">{getSection(3).content}</p>
+                <h2 className="section-heading font-normal" style={{ color: 'var(--verde-heading)', marginBottom: '24px' }}>{getSection(3).heading}</h2>
+                <p className="section-text !text-center lg:!text-left lg:!mx-0" style={{ color: 'var(--verde-text)' }}>{getSection(3).content}</p>
               </div>
             </div>
           )}

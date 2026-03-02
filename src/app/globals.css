@@ -2297,7 +2297,7 @@ html.lenis body {
   }
 
   .private-events-intro {
-    padding: 60px 0;
+    padding: 60px 0 10px 0 ;
   }
 
   .private-events-intro-content h1 {
