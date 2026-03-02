@@ -136,42 +136,38 @@ export default function PrivateEventsPage() {
         )}
 
         {/* Indoor/Outdoor Section */}
-        <section className="private-events-spaces">
+        <section className="private-events-spaces max-w-[95vw] md:max-w-[85vw] lg:max-w-[75vw] xl:max-w-[1200px] mx-auto px-4 py-16">
          
           {/* Additional Space 1 (Was Order 7, now index 2 since others were deleted) */}
           {getSection(2)?.heading && (
-            <div className="private-events-grid reverse">
-              <div className="private-events-image-col">
-                <div className="private-events-image-wrapper">
-                  <img
-                    src={getSection(2).images?.[0] || ''}
-                    alt={getSection(2).heading || 'VIP Dining'}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
+             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center mb-10 lg:mb-0">
+              <div className="order-2 lg:order-1 flex flex-col justify-center text-center lg:text-left">
+                <h2 style={{ color: 'var(--verde-heading)' }} className="font-serif text-[26px] md:text-[30px] tracking-[0.1em] uppercase mb-6">{getSection(2).heading}</h2>
+                <p style={{ color: 'var(--verde-text)' }} className="font-light text-[15px] md:text-[16px] leading-[1.8]">{getSection(2).content}</p>
               </div>
-              <div className="private-events-text-col">
-                <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(2).heading}</h2>
-                <p style={{ color: 'var(--verde-text)' }}>{getSection(2).content}</p>
+              <div className="order-1 lg:order-2 w-full relative min-h-[350px] lg:min-h-[450px]">
+                <img
+                  src={getSection(2).images?.[0] || ''}
+                  alt={getSection(2).heading || 'VIP Dining'}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
             </div>
           )}
 
           {/* Additional Space 2 (Was Order 8, now index 3) */}
           {getSection(3)?.heading && (
-            <div className="private-events-grid">
-              <div className="private-events-image-col">
-                <div className="private-events-image-wrapper">
-                  <img
-                    src={getSection(3).images?.[0] || ''}
-                    alt={getSection(3).heading || 'Bar'}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center mb-0 mt-4 lg:mt-0">
+              <div className="order-1 lg:order-1 w-full relative min-h-[350px] lg:min-h-[450px]">
+                <img
+                  src={getSection(3).images?.[0] || ''}
+                  alt={getSection(3).heading || 'Bar'}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
-              <div className="private-events-text-col">
-                <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(3).heading}</h2>
-                <p style={{ color: 'var(--verde-text)' }}>{getSection(3).content}</p>
+              <div className="order-2 lg:order-2 flex flex-col justify-center text-center lg:text-left">
+                <h2 style={{ color: 'var(--verde-heading)' }} className="font-serif text-[26px] md:text-[30px] tracking-[0.1em] uppercase mb-6">{getSection(3).heading}</h2>
+                <p style={{ color: 'var(--verde-text)' }} className="font-light text-[15px] md:text-[16px] leading-[1.8]">{getSection(3).content}</p>
               </div>
             </div>
           )}

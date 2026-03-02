@@ -137,7 +137,7 @@ export default function ContactPage() {
 
         {/* Contact Info — fully CMS-driven */}
         <section id="contact-info" className="contact-info bg-[#F5EFEA] pt-32 pb-16">
-          <div className="text-center mb-16 lg:mb-24">
+          <div className="text-center mb-4 mt-4 md:mt-0 lg:mb-24">
             <h2 className="text-[26px] md:text-[32px] font-serif tracking-[0.15em] uppercase text-[#3a3a3a]">
               {contactInfo?.heading || 'Contact Us'}
             </h2>

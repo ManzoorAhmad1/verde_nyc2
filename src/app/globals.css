@@ -2027,7 +2027,7 @@ html.lenis body {
 
 .private-events-intro {
   position: relative;
-  padding: 80px 0;
+  padding: 80px 0 10px 0;
   overflow: hidden;
 }
 
@@ -2161,7 +2161,7 @@ html.lenis body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px 80px;
+  padding: 0 80px;
 }
 
 .private-events-text-col h2 {
@@ -3395,7 +3395,7 @@ html.lenis body {
 
 .brunch-banner-section {
   position: relative;
-  min-height: 50vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
