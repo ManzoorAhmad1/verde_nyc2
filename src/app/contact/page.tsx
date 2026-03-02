@@ -153,20 +153,17 @@ export default function ContactPage() {
         {/* Contact Info — fully CMS-driven */}
         <section id="contact-info" className="contact-info bg-[#F5EFEA] pt-32 pb-16">
           <div className="text-center mb-16 lg:mb-24">
-            <p className="text-[11px] tracking-[0.2em] font-light uppercase text-[#A7A096] mb-4">
-              A YEEELS GROUP VENUE — NEW YORK CITY
-            </p>
-            <h1 className="text-[26px] md:text-[32px] font-serif tracking-[0.15em] uppercase text-[#3A363A]">
-              {contactInfo?.heading || 'FIND US'}
+            <h1 className="text-[26px] md:text-[32px] font-serif tracking-[0.15em] uppercase text-[#3a3a3a]">
+              {contactInfo?.heading || 'Contact Us'}
             </h1>
             <div className="w-[40px] h-[1px] bg-[#C8C0B8] mx-auto mt-6"></div>
           </div>
 
           <div className="max-w-[95vw] md:max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-4 lg:px-8">
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 items-start pb-12">
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 items-stretch pb-12">
               
               {/* Left Column: Contact Details */}
-              <div className="flex-1 lg:w-[45%] xl:w-[40%] pt-0 w-full text-center md:text-left flex justify-center md:justify-start">
+              <div className="flex-1 lg:w-[45%] xl:w-[40%] pt-0 w-full text-center md:text-left flex flex-col justify-center">
                 <div className="flex flex-col gap-12 xl:gap-16 max-w-xl w-full">
                   {groups.map((group, gi) => (
                     <div key={gi} className="flex flex-col w-full text-center md:text-left">
@@ -216,13 +213,13 @@ export default function ContactPage() {
               </div>
 
               {/* Right Column: Image */}
-              <div className="flex-1 w-full lg:w-[55%] xl:w-[60%] overflow-hidden relative min-h-[200px] sm:min-h-[300px] lg:min-h-[500px] xl:min-h-[600px] mt-8 lg:mt-0">
+              <div className="flex-1 w-full lg:w-[55%] xl:w-[60%] overflow-hidden relative min-h-[300px] mt-8 lg:mt-0 flex">
                 <img
                   loading="lazy"
                   decoding="async"
                   src={heroSection?.images?.[0] || 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8472.jpg'}
                   alt="Verde NYC Contact"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
