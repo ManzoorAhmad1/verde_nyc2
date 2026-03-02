@@ -24,6 +24,37 @@ body {
   --font-cormorant: 'Cormorant Garamond', Georgia, serif;
 }
 
+/* Global Typography Consistency - Applied across all pages */
+.philosophy-content p,
+.contact-info-content p,
+.brunch-intro p,
+.brunch-description p,
+.brunch-hours p,
+.introduction-text p,
+.dinner-intro p,
+section p {
+  font-size: 15px !important;
+  line-height: 1.7;
+}
+
+section h2,
+.philosophy-content h2,
+.contact-info-content h2,
+.brunch-intro h2,
+main h2 {
+  font-size: 20px !important;
+  letter-spacing: 0.1em;
+}
+
+section h3,
+.philosophy-content h3,
+.contact-info-content h3,
+.brunch-hours h3,
+.brunch-menu-section h3,
+.brunch-image-card h3 {
+  font-size: 16px !important;
+}
+
 .headingFont {
   font-family: "Cormorant Garamond", Georgia, serif;
 
@@ -238,7 +269,7 @@ html.lenis body {
 
 .menu-nav-item {
   font-family: var(--font-cormorant);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -294,7 +325,7 @@ html.lenis body {
   }
 
   .menu-nav-item {
-    font-size: 16px;
+    font-size: 14px;
     padding: 12px 0;
   }
 }
@@ -666,12 +697,11 @@ html.lenis body {
 
   .section-title {
     font-size: 10px;
-    letter-spacing: 0.7em;
     text-transform: uppercase;
     margin-bottom: 15px;
     text-align: center;
-    font-weight: 100;
     color: #5D5C57;
+    margin-bottom: 15px;
   }
 
   .section-heading {
@@ -686,7 +716,7 @@ html.lenis body {
   }
 
   .section-text {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.9;
     max-width: 750px;
     margin: 0 auto;
@@ -729,7 +759,7 @@ html.lenis body {
   }
 
   .venue-card-title {
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -1314,7 +1344,7 @@ html.lenis body {
 }
 
 .philosophy-text p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   margin-bottom: 20px;
   text-align: justify;
@@ -1536,7 +1566,7 @@ html.lenis body {
   }
 
   .philosophy-content h2 {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .menu-section {
@@ -3264,7 +3294,7 @@ html.lenis body {
 }
 
 .brunch-image-card .image-card-content h3 {
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.05em;
   margin-bottom: 10px;
   text-transform: none;
@@ -3293,7 +3323,7 @@ html.lenis body {
 }
 
 .brunch-hours h3 {
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   margin-bottom: 10px;
 }
@@ -3314,7 +3344,7 @@ html.lenis body {
 }
 
 .brunch-menu-section h3 {
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   margin-bottom: 10px;
 }
@@ -3613,7 +3643,7 @@ html.lenis body {
   }
 
   .valentines-intro p {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .venue-section h2 {
@@ -3712,7 +3742,7 @@ html.lenis body {
 }
 
 .coming-soon-contact p {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 8px;
 }
 
@@ -3863,7 +3893,7 @@ html.lenis body {
 
   .coming-soon-content p,
   .not-found-content p {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .not-found-links {
@@ -4712,7 +4742,7 @@ html.lenis body {
 
 .page-counter {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--verde-heading);
   font-weight: 500;
 }

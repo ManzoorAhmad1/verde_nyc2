@@ -52,7 +52,7 @@ const VenueGrid: React.FC<VenueGridProps> = ({
     <div>
       <section className=" bg pt-8 pb-4 px-6 relative">
         <div className="w-full mt-20 relative z-10">
-          <h3 className="section-title font-bold">{subheading}</h3>
+          <h2 className="section-title">{subheading}</h2>
           <h2 className="section-heading font-normal">{heading}</h2>
 
           {paragraphs.map((para, idx) => {
