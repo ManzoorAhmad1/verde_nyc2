@@ -145,7 +145,7 @@ export default function PrivateEventsPage() {
                 <h2 className="section-heading font-normal" style={{ color: 'var(--verde-heading)', marginBottom: '24px' }}>{getSection(2).heading}</h2>
                 <p className="section-text !text-center lg:!text-left lg:!mx-0" style={{ color: 'var(--verde-text)' }}>{getSection(2).content}</p>
               </div>
-              <div className="order-1 lg:order-2 w-full relative min-h-[350px] lg:min-h-[450px]">
+              <div className="order-1 lg:order-2 w-full relative aspect-[16/9] overflow-hidden">
                 <img
                   src={getSection(2).images?.[0] || ''}
                   alt={getSection(2).heading || 'VIP Dining'}
@@ -158,7 +158,7 @@ export default function PrivateEventsPage() {
           {/* Additional Space 2 (Was Order 8, now index 3) */}
           {getSection(3)?.heading && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center mb-0 mt-4 lg:mt-0">
-              <div className="order-1 lg:order-1 w-full relative min-h-[350px] lg:min-h-[450px]">
+              <div className="order-1 lg:order-1 w-full relative aspect-[16/9] overflow-hidden">
                 <img
                   src={getSection(3).images?.[0] || ''}
                   alt={getSection(3).heading || 'Bar'}
