@@ -175,57 +175,25 @@ export default function MiamiBrunchPage() {
                 </div>
               </div>
             )}
-             {/* Gallery Slider (Order 2) */}
+             {/* Gallery Grid (Order 2) */}
             {images.length > 0 && (
-              <div className="sqs-block gallery-block sqs-block-gallery relative w-full h-[260px] sm:h-[300px] overflow-hidden">
-                <div className="sqs-gallery-container h-full">
-                  <div className="sqs-gallery sqs-gallery-design-strip relative h-full">
-                    {/* Slider Images */}
-                    <div
-                      className="sqs-wrapper flex transition-transform duration-500 ease-in-out h-full"
-                      style={{ transform: `translateX(-${currentSlide * slideWidth}%)` }}
-                    >
-                      {images.map((src, index) => (
-                        <div key={index} className="flex-shrink-0 h-full" style={{ width: `${slideWidth}%` }}>
-                          <img
-                            className="w-full h-full object-cover"
-                            src={src}
-                            loading="lazy"
-                            decoding="async"
-                            alt={`Gallery image ${index + 1}`}
-                          />
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Gallery Controls */}
-                    <div className="sqs-gallery-meta-container">
-                      <div className="sqs-gallery-controls">
-                        <button
-                          tabIndex={0}
-                          className="previous absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full h6-3 shadow-lg transition-all"
-                          aria-label="Previous Slide"
-                          onClick={handlePrevious}
-                        >
-                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                          </svg>
-                        </button>
-                        <button
-                          tabIndex={0}
-                          className="next absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full h6-3 shadow-lg transition-all"
-                          aria-label="Next Slide"
-                          onClick={handleNext}
-                        >
-                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+               <section className="w-full pt-10 pb-20">
+                 <div className="w-full px-[4px] md:px-6 lg:max-w-[1400px] lg:mx-auto">
+                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[4px] md:gap-4">
+                     {images.map((imageSrc, index) => (
+                       <div key={index} className="relative aspect-[16/9] sm:aspect-square w-full overflow-hidden bg-gray-100">
+                         <img
+                           loading="lazy"
+                           decoding="async"
+                           src={imageSrc}
+                           alt={`Verde NYC Bar Image ${index + 1}`}
+                           className="w-full h-full object-cover"
+                         />
+                       </div>
+                     ))}
+                   </div>
+                 </div>
+               </section>
             )}
           </div>
           
