@@ -66,20 +66,30 @@ const Hero: React.FC<HeroProps> = ({
             }}
           />
         ) : null}
-        {(heading || subheading) && (
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white bg-black/30">
-            {heading && (
-              <p className="text-4xl md:text-6xl font-serif mb-4 headingFont italic text-white">
-                <span className="font-bold text-[80px]">
-                  {heading.split("")[0].toUpperCase()}
-                </span>
-                {heading.split("").slice(1).join("")}
-              </p>
-            )}
-            {subheading && <p className="text-lg md:text-xl max-w-2xl px-4">{subheading}</p>}
-          </div>
-        )}
       </div>
+
+      {/* Overlay — outside parallax so it stays fixed in center */}
+      {(heading || subheading) && (
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white bg-black/30">
+
+          {/* Logo Wrapper */}
+          <div className="relative w-64 h-32 mb-4">
+            <Image
+              src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png"
+              alt="Verde NYC"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+
+          {subheading && (
+            <p className="text-lg md:text-xl max-w-2xl px-4">
+              {subheading}
+            </p>
+          )}
+        </div>
+      )}
     </section>
   );
 };
