@@ -86,7 +86,7 @@ export default function PageLoader({ isDataLoaded }: PageLoaderProps) {
           fontFamily: 'Georgia, serif',
           fontSize: '1rem',
           letterSpacing: '0.2em',
-          textTransform: 'uppercase',
+          // textTransform: 'uppercase',
           animation: 'vfade 1.5s ease-in-out infinite',
           margin: 0,
           textAlign: 'center',
