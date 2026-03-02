@@ -138,40 +138,40 @@ export default function PrivateEventsPage() {
         {/* Indoor/Outdoor Section */}
         <section className="private-events-spaces">
          
-          {/* Additional Space 1 (Order 7) */}
-          {getSection(6)?.heading && (
+          {/* Additional Space 1 (Was Order 7, now index 2 since others were deleted) */}
+          {getSection(2)?.heading && (
             <div className="private-events-grid reverse">
               <div className="private-events-image-col">
                 <div className="private-events-image-wrapper">
                   <img
-                    src={getSection(6).images?.[0] || ''}
-                    alt={getSection(6).heading || 'VIP Dining'}
+                    src={getSection(2).images?.[0] || ''}
+                    alt={getSection(2).heading || 'VIP Dining'}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </div>
               </div>
               <div className="private-events-text-col">
-                <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(6).heading}</h2>
-                <p style={{ color: 'var(--verde-text)' }}>{getSection(6).content}</p>
+                <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(2).heading}</h2>
+                <p style={{ color: 'var(--verde-text)' }}>{getSection(2).content}</p>
               </div>
             </div>
           )}
 
-          {/* Additional Space 2 (Order 8) */}
-          {getSection(7)?.heading && (
+          {/* Additional Space 2 (Was Order 8, now index 3) */}
+          {getSection(3)?.heading && (
             <div className="private-events-grid">
               <div className="private-events-image-col">
                 <div className="private-events-image-wrapper">
                   <img
-                    src={getSection(7).images?.[0] || ''}
-                    alt={getSection(7).heading || 'Bar'}
+                    src={getSection(3).images?.[0] || ''}
+                    alt={getSection(3).heading || 'Bar'}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </div>
               </div>
               <div className="private-events-text-col">
-                <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(7).heading}</h2>
-                <p style={{ color: 'var(--verde-text)' }}>{getSection(7).content}</p>
+                <h2 style={{ color: 'var(--verde-heading)' }}>{getSection(3).heading}</h2>
+                <p style={{ color: 'var(--verde-text)' }}>{getSection(3).content}</p>
               </div>
             </div>
           )}
