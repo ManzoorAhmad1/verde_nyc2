@@ -50,7 +50,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   return (
     <section
       ref={sectionRef}
-      className={`relative h-[80vh] md:h-[60vh] lg:h-[80vh] overflow-hidden flex items-center justify-center ${className}`}
+      className={`relative h-screen md:h-[60vh] lg:h-[80vh] overflow-hidden flex items-center justify-center ${className}`}
     >
       {/* Background */}
       <div

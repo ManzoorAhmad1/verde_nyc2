@@ -21,14 +21,14 @@ interface PageSection {
 
 export default function MenuPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [selectedMenu, setSelectedMenu] = useState<{title: string, images: string[]} | null>(null);
+  const [selectedMenu, setSelectedMenu] = useState<{ title: string, images: string[] } | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
   const [heroSection, setHeroSection] = useState<PageSection | null>(null);
   const [menuCategories, setMenuCategories] = useState<any[]>([]);
   const [introSection, setIntroSection] = useState<PageSection | null>(null);
   const [ctaSection, setCtaSection] = useState<PageSection | null>(null);
-  const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
+  const [pageData, setPageData] = useState<{ seoTitle?: string; seoDescription?: string; title?: string } | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -52,12 +52,12 @@ export default function MenuPage() {
           if (data.page && data.page.sections) {
             const sections = data.page.sections;
             setHeroSection(sections.find((s: PageSection) => s.type === 'hero'));
-            
+
             // Find text sections by order
             const textSections = sections.filter((s: PageSection) => s.type === 'text');
             setIntroSection(textSections.find((s: PageSection) => s.heading?.includes('CULINARY') || s.heading?.includes('EXCELLENCE')));
             setCtaSection(textSections.find((s: PageSection) => s.heading?.includes('RESERVE') || s.ctaText));
-            
+
             const categories = sections
               .filter((s: PageSection) => s.type === 'menu-category')
               .map((s: PageSection) => ({
@@ -67,7 +67,7 @@ export default function MenuPage() {
                 menuImages: s.images && s.images.length > 1 ? s.images.slice(1) : [] // Rest are menu pages
               }));
             setMenuCategories(categories);
-            
+
             // Set SEO data
             setPageData({
               seoTitle: data.page.seoTitle,
@@ -148,11 +148,11 @@ export default function MenuPage() {
 
   const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > 50;
     const isRightSwipe = distance < -50;
-    
+
     if (isLeftSwipe) {
       handleNext();
     } else if (isRightSwipe) {
@@ -282,224 +282,224 @@ export default function MenuPage() {
       <PageLoader isDataLoaded={!isLoading} />
       <div className="menu-page">
         <Header />
-      <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
+        <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
 
-      {/* Hero Section - Same as before */}
-      <section className="menu-hero">
-        <div className="menu-hero-image">
-          <img
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-            src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8416.jpg"}
-            alt="Verde NYC Menu"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
-        </div>
-        <div className="menu-hero-content">
-             <h3 className="menu-hero-title italic">OUR MENU   </h3>
-          <p className="menu-hero-subtitle italic">Culinary Excellence Meets Celebration</p>
-        </div>
-      </section>
-
-      {/* Menu Introduction - Same as before */}
-      {introSection && (
-        <section className="menu-intro-section">
-          <div className="menu-intro-content">
-            <h2>{introSection.heading}</h2>
-            {introSection.content && <p>{introSection.content}</p>}
+        {/* Hero Section - Same as before */}
+        <section className="menu-hero">
+          <div className="menu-hero-image">
+            <img
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8416.jpg"}
+              alt="Verde NYC Menu"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </div>
+          <div className="menu-hero-content">
+            <h2 className="hero-title  ">OUR MENU</h2>
+            <p className="menu-hero-subtitle  ">Culinary Excellence Meets Celebration</p>
           </div>
         </section>
-      )}
 
-      {/* Menu Categories Grid - Same as before */}
-      <section className="menu-categories-section">
-        <div className="menu-categories-grid">
-          {menuCategories.map((category, index) => (
-            <div key={index} className="menu-category-card">
-              <div className="menu-category-image">
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={category.image}
-                  alt={category.title}
-                />
-              </div>
-              <div className="menu-category-content">
-                <h3>{category.title}</h3>
-                <p>{category.description}</p>
-                <button
-                  onClick={() => openMenu(category)}
-                  className="menu-view-btn"
-                >
-                  VIEW MENU
-                </button>
-              </div>
+        {/* Menu Introduction - Same as before */}
+        {introSection && (
+          <section className="menu-intro-section">
+            <div className="menu-intro-content">
+              <h2>{introSection.heading}</h2>
+              {introSection.content && <p>{introSection.content}</p>}
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
+        )}
 
-      {/* Menu Carousel Modal - Mobile optimized with larger images */}
-      {selectedMenu && (
-        <div
-          className="menu-modal-overlay"
-          style={{ opacity: modalVisible ? 1 : 0 }}
-          onClick={closeMenu}
-        >
-          <div
-            className="menu-carousel-modal"
-            style={{ transform: modalVisible ? 'scale(1)' : 'scale(0.96)' }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header - Reduced height */}
-            <div className="modal-header">
-              <div className="modal-title-wrap">
-                <span className="modal-label">MENU</span>
-                <h2 className="modal-title">{selectedMenu.title}</h2>
-              </div>
-              <div className="modal-actions">
-                <button
-                  className="modal-download-btn"
-                  onClick={handleDownloadPDF}
-                  disabled={isDownloadingPdf}
-                  title="Download PDF"
-                >
-                  {isDownloadingPdf ? (
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" style={{ animation: 'spin 1s linear infinite' }}>
-                      <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                    </svg>
-                  ) : (
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                      <polyline points="7 10 12 15 17 10"/>
-                      <line x1="12" y1="15" x2="12" y2="3"/>
-                    </svg>
-                  )}
-                  <span className="download-btn-text">{isDownloadingPdf ? 'Generating...' : 'Download PDF'}</span>
-                </button>
-                <button
-                  className={`modal-icon-btn ${isZoomed ? 'active' : ''}`}
-                  onClick={() => { setIsZoomed(z => !z); resetScroll(); }}
-                  title={isZoomed ? 'Zoom Out' : 'Zoom In'}
-                >
-                  {isZoomed ? (
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6"/>
-                    </svg>
-                  ) : (
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/>
-                    </svg>
-                  )}
-                </button>
-                <button className="modal-close-btn" onClick={closeMenu} title="Close">
-                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2.5" fill="none">
-                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            {/* Image Viewer - Full height */}
-            <div 
-              className="modal-viewer"
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {/* Navigation Arrows */}
-              {selectedMenu.images.length > 1 && (
-                <>
+        {/* Menu Categories Grid - Same as before */}
+        <section className="menu-categories-section">
+          <div className="menu-categories-grid">
+            {menuCategories.map((category, index) => (
+              <div key={index} className="menu-category-card">
+                <div className="menu-category-image">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src={category.image}
+                    alt={category.title}
+                  />
+                </div>
+                <div className="menu-category-content">
+                  <h3>{category.title}</h3>
+                  <p>{category.description}</p>
                   <button
-                    className="modal-arrow modal-arrow-left"
-                    onClick={handlePrev}
-                    disabled={isAnimating}
-                    aria-label="Previous image"
+                    onClick={() => openMenu(category)}
+                    className="menu-view-btn"
                   >
-                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2.5" fill="none">
-                      <path d="M15 18l-6-6 6-6"/>
-                    </svg>
+                    VIEW MENU
                   </button>
-                  
-                  <button
-                    className="modal-arrow modal-arrow-right"
-                    onClick={handleNext}
-                    disabled={isAnimating}
-                    aria-label="Next image"
-                  >
-                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2.5" fill="none">
-                      <path d="M9 18l6-6-6-6"/>
-                    </svg>
-                  </button>
-                </>
-              )}
-              
-              {/* Scrollable Image Box - Mobile optimized */}
-              <div ref={imageScrollBoxRef} className="modal-scroll-box">
-                <img
-                  src={selectedMenu.images?.[currentImageIndex]}
-                  alt={`${selectedMenu.title} - Page ${currentImageIndex + 1}`}
-                  className={`modal-image ${isZoomed ? 'zoomed' : ''} ${isAnimating ? 'fade' : ''}`}
-                  draggable="false"
-                />
-                <p className="scroll-hint">
-                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
-                  </svg>
-                  Scroll to read more
-                </p>
-              </div>
-            </div>
-
-            {/* Bottom Bar */}
-            {selectedMenu.images.length > 1 && (
-              <div className="modal-bottom-bar">
-                <span className="page-indicator">
-                  {currentImageIndex + 1}/{selectedMenu.images.length}
-                </span>
-                <div className="dot-container">
-                  {selectedMenu.images.map((_, index) => (
-                    <button
-                      key={index}
-                      className={`dot ${index === currentImageIndex ? 'active' : ''}`}
-                      onClick={() => {
-                        setCurrentImageIndex(index);
-                        setIsZoomed(false);
-                        resetScroll();
-                      }}
-                      aria-label={`Go to page ${index + 1}`}
-                    />
-                  ))}
                 </div>
               </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* Reservation CTA - Same as before */}
-      {ctaSection && (
-        <section className="menu-cta-section">
-          <div className="menu-cta-content">
-            <h2>{ctaSection.heading}</h2>
-            {ctaSection.content && <p>{ctaSection.content}</p>}
-            {ctaSection.ctaLink && ctaSection.ctaText && (
-              <Link
-                href={ctaSection.ctaLink}
-                target="_blank"
-                className="btn btn-primary border border-[#8e402f] text-[#8e402f] hover:bg-[#8e402f] hover:text-white"
-              >
-                {ctaSection.ctaText}
-              </Link>
-            )}
+            ))}
           </div>
         </section>
-      )}
 
-      <Footer />
+        {/* Menu Carousel Modal - Mobile optimized with larger images */}
+        {selectedMenu && (
+          <div
+            className="menu-modal-overlay"
+            style={{ opacity: modalVisible ? 1 : 0 }}
+            onClick={closeMenu}
+          >
+            <div
+              className="menu-carousel-modal"
+              style={{ transform: modalVisible ? 'scale(1)' : 'scale(0.96)' }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header - Reduced height */}
+              <div className="modal-header">
+                <div className="modal-title-wrap">
+                  <span className="modal-label">MENU</span>
+                  <h2 className="modal-title">{selectedMenu.title}</h2>
+                </div>
+                <div className="modal-actions">
+                  <button
+                    className="modal-download-btn"
+                    onClick={handleDownloadPDF}
+                    disabled={isDownloadingPdf}
+                    title="Download PDF"
+                  >
+                    {isDownloadingPdf ? (
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" style={{ animation: 'spin 1s linear infinite' }}>
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                      </svg>
+                    ) : (
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                      </svg>
+                    )}
+                    <span className="download-btn-text">{isDownloadingPdf ? 'Generating...' : 'Download PDF'}</span>
+                  </button>
+                  <button
+                    className={`modal-icon-btn ${isZoomed ? 'active' : ''}`}
+                    onClick={() => { setIsZoomed(z => !z); resetScroll(); }}
+                    title={isZoomed ? 'Zoom Out' : 'Zoom In'}
+                  >
+                    {isZoomed ? (
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /><path d="M8 11h6" />
+                      </svg>
+                    ) : (
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /><path d="M11 8v6M8 11h6" />
+                      </svg>
+                    )}
+                  </button>
+                  <button className="modal-close-btn" onClick={closeMenu} title="Close">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2.5" fill="none">
+                      <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
 
-      <style jsx>{`
+              {/* Image Viewer - Full height */}
+              <div
+                className="modal-viewer"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+              >
+                {/* Navigation Arrows */}
+                {selectedMenu.images.length > 1 && (
+                  <>
+                    <button
+                      className="modal-arrow modal-arrow-left"
+                      onClick={handlePrev}
+                      disabled={isAnimating}
+                      aria-label="Previous image"
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2.5" fill="none">
+                        <path d="M15 18l-6-6 6-6" />
+                      </svg>
+                    </button>
+
+                    <button
+                      className="modal-arrow modal-arrow-right"
+                      onClick={handleNext}
+                      disabled={isAnimating}
+                      aria-label="Next image"
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2.5" fill="none">
+                        <path d="M9 18l6-6-6-6" />
+                      </svg>
+                    </button>
+                  </>
+                )}
+
+                {/* Scrollable Image Box - Mobile optimized */}
+                <div ref={imageScrollBoxRef} className="modal-scroll-box">
+                  <img
+                    src={selectedMenu.images?.[currentImageIndex]}
+                    alt={`${selectedMenu.title} - Page ${currentImageIndex + 1}`}
+                    className={`modal-image ${isZoomed ? 'zoomed' : ''} ${isAnimating ? 'fade' : ''}`}
+                    draggable="false"
+                  />
+                  <p className="scroll-hint">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 5v14M5 12l7 7 7-7" />
+                    </svg>
+                    Scroll to read more
+                  </p>
+                </div>
+              </div>
+
+              {/* Bottom Bar */}
+              {selectedMenu.images.length > 1 && (
+                <div className="modal-bottom-bar">
+                  <span className="page-indicator">
+                    {currentImageIndex + 1}/{selectedMenu.images.length}
+                  </span>
+                  <div className="dot-container">
+                    {selectedMenu.images.map((_, index) => (
+                      <button
+                        key={index}
+                        className={`dot ${index === currentImageIndex ? 'active' : ''}`}
+                        onClick={() => {
+                          setCurrentImageIndex(index);
+                          setIsZoomed(false);
+                          resetScroll();
+                        }}
+                        aria-label={`Go to page ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Reservation CTA - Same as before */}
+        {ctaSection && (
+          <section className="menu-cta-section">
+            <div className="menu-cta-content">
+              <h2>{ctaSection.heading}</h2>
+              {ctaSection.content && <p>{ctaSection.content}</p>}
+              {ctaSection.ctaLink && ctaSection.ctaText && (
+                <Link
+                  href={ctaSection.ctaLink}
+                  target="_blank"
+                  className="btn btn-primary border border-[#8e402f] text-[#8e402f] hover:bg-[#8e402f] hover:text-white"
+                >
+                  {ctaSection.ctaText}
+                </Link>
+              )}
+            </div>
+          </section>
+        )}
+
+        <Footer />
+
+        <style jsx>{`
         /* Modal Styles - Mobile optimized */
         .menu-modal-overlay {
           position: fixed;
@@ -1095,7 +1095,7 @@ export default function MenuPage() {
           to { transform: rotate(360deg); }
         }
       `}</style>
-    </div>
+      </div>
     </>
   );
 }

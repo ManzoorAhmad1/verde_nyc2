@@ -29,12 +29,25 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('mobile-menu-open');
+    } else {
+      document.body.classList.remove('mobile-menu-open');
+    }
+    return () => document.body.classList.remove('mobile-menu-open');
+  }, [isOpen]);
   return (
     <>
       {/* Top Header Bar with Reservations and Menu Icon */}
-      <div className="top-header-bar">
-        {/* Reservations Button - Left of Menu Icon */}
-        <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className={` ${scrolled ? 'text-black border border-black px-4 py-2' : 'header-reservations-btn'}`}>
+      <div className={`top-header-bar${scrolled ? ' top-header-bar--scrolled' : ''}`}>
+        {/* Reservations Button - Left of Menu Icon - Hidden when menu is open */}
+        <Link 
+          href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" 
+          target="_blank" 
+          className={`${isOpen ? 'hidden' : ''} ${scrolled ? 'header-reservations-btn-scrolled' : 'header-reservations-btn'} hover:bg-black hover:text-white transition-colors`}
+        >
           RESERVATIONS
         </Link>
 
@@ -66,13 +79,25 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
             </svg>
           </button>
 
+          {/* Reservations Button in Menu */}
+          <div className="flex justify-center mt-12 mb-12">
+            <Link 
+              href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" 
+              target="_blank"
+              className="menu-reservations-btn hover:bg-black hover:text-white transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              RESERVATIONS
+            </Link>
+          </div>
+
           {/* Navigation Links */}
-          <nav className="menu-nav-links">
+          <nav className="menu-nav-links items-center">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="menu-nav-item"
+                className="menu-nav-item text-center w-full"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

@@ -20,8 +20,8 @@ const Philosophy: React.FC<PhilosophyProps> = ({
       {/* Reserve Experience Section */}
       <section className="py-24 px-6 text-center max-w-5xl mx-auto ">
         <div className="max-w-3xl mx-auto">
-          <h3 className='text-[var(--verde-text)]'>{heading}</h3>
-          <p className='text-[var(--verde-text)]'>
+          <h3 className='text-[#3A363A]  '>{heading}</h3>
+          <p className='text-[var(--verde-text)] py-6'>
             {content}
           </p>
           <Link href={ctaLink} target="_blank" className="btn btn-primary border border-[#8e402f] text-[#8e402f] hover:bg-[#8e402f] hover:text-white">

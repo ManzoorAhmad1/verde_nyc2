@@ -73,7 +73,7 @@ const Hero: React.FC<HeroProps> = ({
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white">
 
           {/* Logo Wrapper */}
-          <div className="relative w-64 h-32 mb-4">
+          <div className="relative w-36 h-20 md:w-64 md:h-32 mb-4">
             <Image
               src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png"
               alt="Verde NYC"

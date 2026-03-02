@@ -60,7 +60,7 @@ const VenueGrid: React.FC<VenueGridProps> = ({
             return (
               <p 
                 key={idx} 
-                className={`section-text mb-8 ${isLast ? 'italic' : ''}`}
+                className={`section-text mb-8 ${isLast ? ' ' : ''}`}
               >
                 {para.trim()}
               </p>

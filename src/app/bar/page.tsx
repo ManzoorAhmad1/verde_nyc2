@@ -105,7 +105,7 @@ export default function MiamiBrunchPage() {
             />
           </div>
           <div className="banner-content w-full">
-               <h3 className='headingFont italic'>{getSection(0).heading || "Verde NYC brunch"}   </h3>
+               <h2 className='hero-title  '>{getSection(0).heading || "Verde NYC brunch"}   </h2>
           </div>
         </section>
         )}
