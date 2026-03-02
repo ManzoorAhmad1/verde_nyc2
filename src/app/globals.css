@@ -29,6 +29,21 @@ body {
 
 }
 
+/* Athena Light Font */
+@font-face {
+  font-family: 'Athena';
+  src: url('/fonts/Athena-Light.woff2') format('woff2'),
+       url('/fonts/Athena-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+.athenaFont {
+  font-family: 'Athena', 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+}
+
 /* Shimmer loading animation */
 @keyframes shimmer {
   0% {
@@ -1599,7 +1614,7 @@ html.lenis body {
 }
 
 .contact-info {
-  padding: 80px 20px;
+  padding: 30px 20px 0px 20px;
   background: var(--background);
 }
 
@@ -1609,61 +1624,21 @@ html.lenis body {
   text-align: center;
 }
 
-.contact-info-content h2 {
-  font-family: var(--font-cormorant), serif;
-  font-size: 2rem;
-  font-weight: 300;
-  color: #ffffff;
-  margin: 40px 0 10px;
-  letter-spacing: 0.1em;
-}
 
-.contact-info-content h2:first-child {
-  margin-top: 0;
-}
 
-.contact-info-content h2 a {
-  color: #ffffff;
-  text-decoration: underline;
-  transition: opacity 0.3s ease;
-}
 
-.contact-info-content h2 a:hover {
-  opacity: 0.7;
-}
 
-.contact-info-content h3 {
-  font-family: var(--font-cormorant), serif;
-  font-size: 1.3rem;
-  font-weight: 300;
-  color: #ffffff;
-  margin: 10px 0;
-  font-style: italic;
-}
 
-.contact-info-content p {
-  font-family: var(--font-cormorant), serif;
-  font-size: 1.1rem;
-  color: #ffffff;
-  line-height: 1.8;
-  margin: 15px 0;
-}
 
-.contact-info-content p a {
-  color: #000000;
-  text-decoration: none;
-  border: 1px solid #000000;
-  padding: 8px 20px;
-  display: inline-block;
-  transition: all 0.3s ease;
-  background-color: transparent;
-  margin: 5px 0;
-}
 
-.contact-info-content p a:hover {
-  background-color: #000000;
-  color: #ffffff;
-}
+
+
+
+
+
+
+
+
 
 .contact-social-icons {
   display: flex;
@@ -1693,14 +1668,7 @@ html.lenis body {
   text-align: center;
 }
 
-.contact-map-content h2 {
-  font-family: var(--font-cormorant), serif;
-  font-size: 2rem;
-  font-weight: 300;
-  color: #676463;
-  margin-bottom: 30px;
-  letter-spacing: 0.1em;
-}
+
 
 .contact-map-content h2 em {
   font-style: italic;
@@ -1760,25 +1728,17 @@ html.lenis body {
     padding: 50px 20px 0px 20px;
   }
 
-  .contact-info-content h2 {
-    font-size: 1.5rem;
-  }
+  
 
-  .contact-info-content h3 {
-    font-size: 1.1rem;
-  }
+  
 
-  .contact-info-content p {
-    font-size: 1rem;
-  }
+  
 
   .contact-map {
     padding: 50px 20px;
   }
 
-  .contact-map-content h2 {
-    font-size: 1.5rem;
-  }
+  
 
   .contact-map-embed iframe {
     height: 300px;
@@ -4942,4 +4902,7 @@ html, body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+
+
 

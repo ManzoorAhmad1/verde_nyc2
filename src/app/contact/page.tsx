@@ -36,18 +36,7 @@ export default function ContactPage() {
   // Use SEO metadata from CMS
   useSeoMetadata(pageData);
 
-  // Button style for contact links: block (new row) + only bottom border
-  const contactButtonStyle: React.CSSProperties = {
-    display: 'inline-block',
-    padding: '0.35rem 0.6rem',
-    border: 'none',
-    borderBottom: '1px solid var(--verde-text)',
-    textDecoration: 'none',
-    color: 'inherit',
-    margin: '0.5rem 0',
-    width: 'auto'
-  };
-  useEffect(() => {
+    useEffect(() => {
     const fetchPageData = async () => {
       try {
         const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
@@ -122,48 +111,50 @@ export default function ContactPage() {
         <section id="contact-info" className="contact-info">
           <div className="contact-info-content">
             {contactInfo.heading && (
-              <h2 style={{ color: 'var(--verde-heading)' }}>{contactInfo.heading}</h2>
+              <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">{contactInfo.heading}</p>
             )}
             
             {contactInfo.items.map((item, idx) => {
-              const isHeading = item.name && !item.description && !item.link;
-              const hasLink = item.link && item.link.trim() !== '';
-              const isEmail = item.description?.includes('@');
-              const isPhone = item.description?.startsWith('+') || /^\d/.test(item.description || '');
+                const isHeading = item.name && !item.description && !item.link;
+                const hasLink = item.link && item.link.trim() !== '';
+                const isEmail = item.description?.includes('@');
+                const isPhone = item.description?.startsWith('+') || /^\d/.test(item.description || '');
 
-              if (isHeading) {
+                if (isHeading) {
+                  return (
+                    <p key={idx} className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">
+                      {item.name}
+                    </p>
+                  );
+                }
+
                 return (
-                  <h2 key={idx} style={{ color: 'var(--verde-heading)' }}>
-                    {item.name}
-                  </h2>
-                );
-              }
-
-              return (
-                <p key={idx} style={{ color: 'var(--verde-text)' }}>
-                  {item.name && <strong>{item.name}: </strong>}
-                  {hasLink ? (
-                    <a 
-                      href={item.link} 
-                      target={item.link?.startsWith('http') ? '_blank' : undefined} 
-                      rel={item.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      style={contactButtonStyle}
-                    >
-                      {item.description || 'Click Here'}
-                    </a>
-                  ) : isEmail ? (
-                    <a href={`mailto:${item.description}`} style={contactButtonStyle}>{item.description}</a>
-                  ) : isPhone ? (
-                    <a href={`tel:${item.description?.replace(/\s/g, '')}`} style={contactButtonStyle}>{item.description}</a>
-                  ) : (
-                    item.description
-                  )}
-                </p>
-              );
-            })}
+                  <div key={idx} className="flex flex-col md:flex-row justify-center items-center my-3 text-[15px] font-sans font-light text-[#666666] text-center">
+                    {item.name && <div className="mr-0 md:mr-2 text-[#A7A096] text-[15px] mb-1 md:mb-0">{item.name}:</div>}
+                    <div>
+                      {hasLink ? (
+                        <a
+                          href={item.link}
+                          target={item.link?.startsWith('http') ? '_blank' : undefined}
+                          rel={item.link?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap"
+                        >
+                          {item.description || 'Click Here'}
+                        </a>
+                      ) : isEmail ? (
+                        <a href={`mailto:${item.description}`} className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">{item.description}</a>
+                      ) : isPhone ? (
+                        <a href={`tel:${item.description?.replace(/\s/g, '')}`} className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">{item.description}</a>
+                      ) : (
+                        item.description
+                      )}
+                    </div>
+                  </div>
+                  );
+                })}
 
             {/* Social Icons */}
-            <div className="contact-social-icons">
+            <div className="contact-social-icons mx-auto mt-12 mb-8 flex justify-center gap-6">
               {contactInfo.items
                 .filter(item => item.name?.toLowerCase().includes('social') || 
                                ['instagram', 'facebook', 'soundcloud', 'spotify'].some(s => 
@@ -173,7 +164,7 @@ export default function ContactPage() {
                   const link = social.link || social.description || '#';
                   
                   return (
-                    <a key={idx} href={link} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+                    <a key={idx} href={link} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="text-[#666666] hover:text-[#333333] transition-colors">
                       {name.includes('soundcloud') && (
                         <svg viewBox="0 0 64 64" width="32" height="32">
                           <path fill="currentColor" d="M43.6,30c-0.6,0-1.2,0.1-1.7,0.3c-0.3-4-3.7-7.1-7.7-7.1c-1,0-2,0.2-2.8,0.5 C31.1,23.9,31,24,31,24.3v13.9c0,0.3,0.2,0.5,0.5,0.5c0,0,12.2,0,12.2,0c2.4,0,4.4-1.9,4.4-4.4C48,31.9,46,30,43.6,30z M27.2,25.1 c-0.7,0-1.2,0.5-1.2,1.1v11.3c0,0.7,0.6,1.2,1.2,1.2c0.7,0,1.2-0.6,1.2-1.2V26.2C28.4,25.6,27.8,25.1,27.2,25.1z M22.2,27.8 c-0.7,0-1.2,0.5-1.2,1.1v8.5c0,0.7,0.6,1.2,1.2,1.2s1.2-0.6,1.2-1.2V29C23.4,28.3,22.9,27.8,22.2,27.8z M17.2,30.2 c-0.7,0-1.2,0.5-1.2,1.1v4.9c0,0.7,0.6,1.2,1.2,1.2c0.7,0,1.2-0.6,1.2-1.2v-4.9C18.5,30.7,17.9,30.2,17.2,30.2z" />
@@ -206,39 +197,39 @@ export default function ContactPage() {
       {(!contactInfo || !contactInfo.items || contactInfo.items.length === 0) && (
       <section id="contact-info" className="contact-info">
         <div className="contact-info-content">
-          <h2 style={{ color: 'var(--verde-heading)' }}>VERDE NYC — <Link href="/restaurant" style={{  color: 'var(--verde-heading)' }}>A YEEELS GROUP VENUE</Link></h2>
-          <p style={{ color: 'var(--verde-text)' }}>
-            <a href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank" rel="noopener noreferrer" style={contactButtonStyle}>
+          <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">VERDE NYC — <Link href="/restaurant" className="text-[#4A4A4A] transition-colors hover:text-black">A YEEELS GROUP VENUE</Link></p>
+          <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed flex flex-col items-center justify-center">
+            <a href="https://maps.app.goo.gl/JLnMD7GPo3FHgSBb7" target="_blank" rel="noopener noreferrer" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">
               85 10th Avenue, New York City, NY 10011
             </a>
           </p>
 
-          <h2 style={{ color: 'var(--verde-heading)' }}>Reservations</h2>
-          <p style={{ color: 'var(--verde-text)' }}>
-            <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" style={contactButtonStyle}>Online: Click Here</Link><br />
-            Phone: <a href="tel:+16467763660" style={contactButtonStyle}>+16467763660</a><br />
-            Email: <a href="mailto:contact@verde-nyc.com" style={contactButtonStyle}>contact@verde-nyc.com</a>
+          <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">Reservations</p>
+          <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed flex flex-col items-center justify-center">
+            <Link href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" target="_blank" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">Online: Click Here</Link><br />
+            Phone: <a href="tel:+16467763660" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">+16467763660</a><br />
+            Email: <a href="mailto:contact@verde-nyc.com" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">contact@verde-nyc.com</a>
           </p>
 
-          <h2 style={{ color: 'var(--verde-heading)' }}>Private Events & Buyouts</h2>
-          <p style={{ color: 'var(--verde-text)' }}>
-            Email: <a href="mailto:events@yeeels.com" style={contactButtonStyle}>events@yeeels.com</a><br />
-            Global Events Director: <a href="tel:+971566756965" style={contactButtonStyle}>+971 56 675 6965</a>
+          <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">Private Events & Buyouts</p>
+          <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed flex flex-col items-center justify-center">
+            Email: <a href="mailto:events@yeeels.com" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">events@yeeels.com</a><br />
+            Global Events Director: <a href="tel:+971566756965" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">+971 56 675 6965</a>
           </p>
 
-          <h2 style={{ color: 'var(--verde-heading)' }}>Yeeels Group Headquarters</h2>
-          <p style={{ color: 'var(--verde-text)' }}>
+          <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">Yeeels Group Headquarters</p>
+          <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed flex flex-col items-center justify-center">
             24 Avenue George V, Paris 75008, France<br />
-            Email: <a href="mailto:contact@yeeels.com" style={contactButtonStyle}>contact@yeeels.com</a>
+            Email: <a href="mailto:contact@yeeels.com" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">contact@yeeels.com</a>
           </p>
 
-          <h2 style={{ color: 'var(--verde-heading)' }}>Members Club</h2>
-          <p style={{ color: 'var(--verde-text)' }}>
-            <Link href="/membersclub" style={contactButtonStyle}>Explore Membership Benefits</Link>
+          <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block">Members Club</p>
+          <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed flex flex-col items-center justify-center">
+            <Link href="/membersclub" className="text-[#666666] font-light border-b border-[#666666]/40 hover:border-[#666666] pb-[1px] transition-colors whitespace-nowrap">Explore Membership Benefits</Link>
           </p>
 
           {/* Social Icons */}
-          <div className="contact-social-icons">
+          <div className="contact-social-icons mx-auto mt-12 mb-8 flex justify-center gap-6">
             <a href="https://soundcloud.com/user-611720735" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
               <svg viewBox="0 0 64 64" width="32" height="32">
                 <path fill="currentColor" d="M43.6,30c-0.6,0-1.2,0.1-1.7,0.3c-0.3-4-3.7-7.1-7.7-7.1c-1,0-2,0.2-2.8,0.5 C31.1,23.9,31,24,31,24.3v13.9c0,0.3,0.2,0.5,0.5,0.5c0,0,12.2,0,12.2,0c2.4,0,4.4-1.9,4.4-4.4C48,31.9,46,30,43.6,30z M27.2,25.1 c-0.7,0-1.2,0.5-1.2,1.1v11.3c0,0.7,0.6,1.2,1.2,1.2c0.7,0,1.2-0.6,1.2-1.2V26.2C28.4,25.6,27.8,25.1,27.2,25.1z M22.2,27.8 c-0.7,0-1.2,0.5-1.2,1.1v8.5c0,0.7,0.6,1.2,1.2,1.2s1.2-0.6,1.2-1.2V29C23.4,28.3,22.9,27.8,22.2,27.8z M17.2,30.2 c-0.7,0-1.2,0.5-1.2,1.1v4.9c0,0.7,0.6,1.2,1.2,1.2c0.7,0,1.2-0.6,1.2-1.2v-4.9C18.5,30.7,17.9,30.2,17.2,30.2z" />
@@ -268,8 +259,8 @@ export default function ContactPage() {
       {mapSection && (
         <section id="map" className="contact-map">
           <div className="contact-map-content">
-            <h2 style={{ color: 'var(--verde-heading)' }}><em>{mapSection.heading}</em></h2>
-            {mapSection.content && <p style={{ color: 'var(--verde-text)', textAlign: 'center', marginBottom: '2rem' }}>{mapSection.content}</p>}
+            <p className="text-[#3A363A] athenaFont text-[29px] font-light tracking-wide mt-12 mb-6 text-center uppercase mx-auto block"><em>{mapSection.heading}</em></p>
+            {mapSection.content && <p className="text-[15px] font-sans font-light text-[#666666] text-center my-3 leading-relaxed">{mapSection.content}</p>}
             {mapSection.ctaLink && (
               <div className="contact-map-embed">
                 <iframe
@@ -305,3 +296,11 @@ export default function ContactPage() {
     </>
   );
 }
+
+
+
+
+
+
+
+
