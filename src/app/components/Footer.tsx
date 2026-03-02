@@ -14,80 +14,79 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer bg-white text-black/60 px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-      {/* Top Section - Brands */}
-      <div className="footer-brands text-center max-w-7xl mx-auto">
-        <h3 className="text-sm sm:text-base flex flex-col sm:block">
-          A <span className="font-semibold">YEEELS GROUP</span> DESTINATION
-        </h3>
-        <h3 className="mt-2 text-sm sm:text-base">
-          Paris | Saint-Tropez | Dubai | Sardinia | New York
-        </h3>
-       
+    <footer className="bg-white text-black/55 py-14 px-6 lg:px-16">
+
+      {/* Top Branding */}
+      <div className="text-center mb-10 tracking-widest uppercase text-xs space-y-2">
+        <p>A <strong className="font-semibold">Yeeels Group</strong> Destination</p>
+        <p className="text-black/35">Paris &nbsp;|&nbsp; Saint-Tropez &nbsp;|&nbsp; Dubai &nbsp;|&nbsp; Sardinia &nbsp;|&nbsp; New York</p>
       </div>
 
-      <hr className="bg-black/80 my-8 md:my-12 max-w-7xl mx-auto" />
+      <hr className="border-black/10 mb-10 max-w-6xl mx-auto" />
 
-      {/* Main Footer Content */}
-      <div className="footer-content max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-        {/* Left - Logo & Address */}
-        <div className="footer-logo-section text-center md:text-left">
-          <Link href="/" className="inline-block">
+      {/* Main Grid */}
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-0">
+
+        {/* Left – Logo & Address */}
+        <div className="md:w-[28%] flex flex-col text-center md:text-left">
+          <Link href="/">
             <img
               loading="lazy"
-              decoding="async"
               src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png"
-              alt="Verde NYC - A Yeeels Group Venue"
-              width={150}
-              height={50}
-              className="footer-logo mx-auto md:mx-0 w-32 sm:w-40 md:w-[150px] h-auto"
+              alt="Verde NYC"
+              className="w-32 h-auto mx-auto md:mx-0"
             />
           </Link>
-          <div className="footer-address mt-4 text-sm sm:text-base">
-            <Link 
+          <div className="text-sm leading-6 tracking-wide">
+            <Link
               href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
               target="_blank"
-              className="hover:text-black transition-colors block"
+              className="hover:text-black transition-colors"
             >
               85 10th Avenue<br />
               Meatpacking District<br />
               New York, NY 10011
             </Link>
-            <br />
-            <Link 
-              href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" 
-              target='_blank'
-              className="underline mt-2 inline-block hover:text-black transition-colors"
-            >
-              Hours & Reservations
-            </Link>
           </div>
+          <Link
+            href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search"
+            target="_blank"
+            className="text-sm underline underline-offset-4 hover:text-black transition-colors inline-block"
+          >
+            Hours &amp; Reservations
+          </Link>
         </div>
 
-        {/* Center - Links & Newsletter */}
-        <div className="footer-center">
-          <div className="footer-links flex flex-wrap justify-center md:justify-start gap-2 sm:gap-4 text-sm sm:text-base">
-            <Link href="/menu" className="footer-link hover:text-black transition-colors whitespace-nowrap">MENU</Link>
-            <span className="hidden sm:inline">|</span>
-            <Link href="/gallery" className="footer-link hover:text-black transition-colors whitespace-nowrap">GALLERY</Link>
-            <span className="hidden sm:inline">|</span>
-            <Link href="/dinner-party" className="footer-link hover:text-black transition-colors whitespace-nowrap">DINNER PARTY</Link>
-            <Link href="/restaurant" className="footer-link hover:text-black transition-colors whitespace-nowrap">RESTAURANT</Link>
-            <span className="hidden sm:inline">|</span>
-            <Link href="/bar" className="footer-link hover:text-black transition-colors whitespace-nowrap">BAR</Link>
-            <span className="hidden sm:inline">|</span>
-            <Link href="/contact" className="footer-link hover:text-black transition-colors whitespace-nowrap">CONTACT</Link>
+
+
+        {/* Right – Nav + Newsletter */}
+        <div className="flex-1 flex flex-col gap-8 justify-center items-center">
+
+          {/* Nav Links */}
+          <nav className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-2 text-[11px] tracking-[0.2em] uppercase">
+            {[
+              { label: 'Menu', href: '/menu' },
+              { label: 'Gallery', href: '/gallery' },
+              { label: 'Dinner Party', href: '/dinner-party' },
+              { label: 'Restaurant', href: '/restaurant' },
+              { label: 'Bar', href: '/bar' },
+              { label: 'Contact', href: '/contact' },
+            ].map((item, i, arr) => (
+              <span key={item.href} className="flex items-center gap-x-4">
+                <Link href={item.href} className="hover:text-black transition-colors whitespace-nowrap">
+                  {item.label}
+                </Link>
+                {i < arr.length - 1 && <span className="text-black/20">|</span>}
+              </span>
+            ))}
+          </nav>
+
+          {/* Newsletter Text */}
+          <div className="text-xs leading-6 text-center max-w-md mx-auto md:mx-0 md:text-center text-black/45">
+            <p>Join the Yeeels Group community. Receive exclusive news, events, and invitations from all our venues worldwide.</p>
+            <p>We respect your privacy.</p>
           </div>
 
-          <div className="newsletter-form mt-6 md:mt-8">
-            <p className="text-sm sm:text-base mb-4">
-              Join the Yeeels Group community. Receive exclusive news, events, and invitations from all our venues worldwide.
-            </p>
-       
-            <p className="newsletter-privacy text-xs sm:text-sm mt-2 text-black/40">
-              We respect your privacy.
-            </p>
-          </div>
         </div>
       </div>
 
