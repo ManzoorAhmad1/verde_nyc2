@@ -129,24 +129,16 @@ export default function RestaurantPage() {
           </div>
         </section>
 
-        {/* Menu Section */}
+        {/* Menu Section - TEMPORARILY HIDDEN
         <section id="menu-page" className="menu-section" style={{ padding: '20px 20px 0' }}>
-          {/* Tab Controls */}
-          {menuTabs.length > 0 && (
           <div className="menu-tabs">
             <div className="tab-controls" style={{ marginBottom: '10px', paddingBottom: '10px' }}>
               {menuTabs.map((tab, index) => (
-                <button
-                  key={index}
-                  className={`tab-button ${activeTab === index ? 'active' : ''}`}
-                  onClick={() => setActiveTab(index)}
-                >
+                <button key={index} className={`tab-button ${activeTab === index ? 'active' : ''}`} onClick={() => setActiveTab(index)}>
                   {tab}
                 </button>
               ))}
             </div>
-
-            {/* Tab Content - FROM CMS */}
             {menuSections.map((menuSection, index) => (
               activeTab === index && menuSection.content && (
                 <div key={index} className="tab-panel" style={{ padding: '0' }}>
@@ -155,10 +147,10 @@ export default function RestaurantPage() {
               )
             ))}
           </div>
-          )}
         </section>
+        */}
 
-        {/* Disclaimer Section - FROM CMS */}
+        {/* Disclaimer Section - TEMPORARILY HIDDEN
         {disclaimerSection && disclaimerSection.content && (
         <section id="gf-v-disclaimer" className="disclaimer-section">
           <hr className="section-divider" />
@@ -168,6 +160,7 @@ export default function RestaurantPage() {
           <hr className="section-divider" />
         </section>
         )}
+        */}
 
         {/* Food Gallery Section - FROM CMS */}
         <section id="food-gallery" className="food-gallery-section">
