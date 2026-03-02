@@ -156,7 +156,6 @@ export default function ContactPage() {
             <h1 className="text-[26px] md:text-[32px] font-serif tracking-[0.15em] uppercase text-[#3a3a3a]">
               {contactInfo?.heading || 'Contact Us'}
             </h1>
-            <div className="w-[40px] h-[1px] bg-[#C8C0B8] mx-auto mt-6"></div>
           </div>
 
           <div className="max-w-[95vw] md:max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-4 lg:px-8">
@@ -213,7 +212,7 @@ export default function ContactPage() {
               </div>
 
               {/* Right Column: Image */}
-              <div className="flex-1 w-full lg:w-[55%] xl:w-[60%] overflow-hidden relative min-h-[300px] mt-8 lg:mt-0 flex">
+              <div className="flex-1 w-full lg:w-[55%] xl:w-[60%] overflow-hidden relative h-[500px] md:min-h-[300px] mt-8 lg:mt-0 flex">
                 <img
                   loading="lazy"
                   decoding="async"
