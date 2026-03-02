@@ -108,8 +108,8 @@ export default function RestaurantPage() {
             />
           </div>
           <div className="philosophy-content">
-            <h1 style={{color: 'var(--verde-heading)'}}>{philosophySection?.heading || "A Yeeels Group Signature Destination"}</h1>
-            <h1 style={{color: 'var(--verde-heading)'}}>{philosophySection?.subheading || "Verde NYC — Where Culinary Mastery Meets Celebration"}</h1>
+               <h3 style={{color: 'var(--verde-heading)'}}>{philosophySection?.heading || "A Yeeels Group Signature Destination"}   </h3>
+               <h3 style={{color: 'var(--verde-heading)'}}>{philosophySection?.subheading || "Verde NYC — Where Culinary Mastery Meets Celebration"}   </h3>
             
             <div className="philosophy-text" style={{color: 'var(--verde-text)'}}>
               <p>From the glamorous avenues of Paris to the sun-kissed shores of Saint-Tropez, from the sophisticated skyline of Dubai to the vibrant pulse of Manhattan—the Yeeels Group has redefined festive dining across four continents. At <Link href="https://verde-nyc.com/">Verde NYC</Link>, this legacy of excellence finds its newest expression in an unforgettable culinary journey through Mediterranean and Asian flavors.</p>

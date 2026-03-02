@@ -86,7 +86,6 @@ const VenueGrid: React.FC<VenueGridProps> = ({
                 placeholder="blur"
                 blurDataURL={blurDataURLDark}
               />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
               <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4 md:p-10 opacity-100 group-hover:bg-[#450a0a]/80 transition-colors duration-500">
                 <h3 className="text-lg md:text-2xl lg:text-3xl font-playfair uppercase tracking-[0.1em] mb-0 group-hover:mb-2 md:group-hover:mb-4 text-white transition-all duration-500 will-change-[margin, opacity]">
                   {venue.name || venue.title}

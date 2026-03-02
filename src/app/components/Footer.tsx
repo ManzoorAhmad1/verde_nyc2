@@ -21,17 +21,9 @@ export default function Footer() {
           A <span className="font-semibold">YEEELS GROUP</span> DESTINATION
         </h3>
         <h3 className="mt-2 text-sm sm:text-base">
-          Paris | Saint-Tropez | Dubai | Italy | New York
+          Paris | Saint-Tropez | Dubai | Sardinia | New York
         </h3>
-        <h3 className="mt-2 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm sm:text-base">
-          <span>VERDE PARIS</span>
-          <span className="hidden sm:inline">|</span>
-          <span>VERDE BEACH</span>
-          <span className="hidden sm:inline">|</span>
-          <span>VERDE DUBAI</span>
-          <span className="hidden sm:inline">|</span>
-          <span>MAMAMIA PARIS</span>
-        </h3>
+       
       </div>
 
       <hr className="bg-black/80 my-8 md:my-12 max-w-7xl mx-auto" />
@@ -63,7 +55,8 @@ export default function Footer() {
             </Link>
             <br />
             <Link 
-              href="/reserve" 
+              href="https://www.sevenrooms.com/explore/verdenyc/reservations/create/search" 
+              target='_blank'
               className="underline mt-2 inline-block hover:text-black transition-colors"
             >
               Hours & Reservations
@@ -79,7 +72,6 @@ export default function Footer() {
             <Link href="/gallery" className="footer-link hover:text-black transition-colors whitespace-nowrap">GALLERY</Link>
             <span className="hidden sm:inline">|</span>
             <Link href="/dinner-party" className="footer-link hover:text-black transition-colors whitespace-nowrap">DINNER PARTY</Link>
-            <span className="hidden sm:inline">|</span>
             <Link href="/restaurant" className="footer-link hover:text-black transition-colors whitespace-nowrap">RESTAURANT</Link>
             <span className="hidden sm:inline">|</span>
             <Link href="/bar" className="footer-link hover:text-black transition-colors whitespace-nowrap">BAR</Link>

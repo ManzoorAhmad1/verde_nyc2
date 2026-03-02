@@ -79,7 +79,7 @@ export default function GalleryPage() {
           />
         </div>
         <div className="gallery-hero-content">
-          <h1 className="gallery-hero-title headingFont italic">{heroSection?.heading || "GALLERY"}</h1>
+             <h3 className="gallery-hero-title headingFont italic">{heroSection?.heading || "GALLERY"}   </h3>
         </div>
       </section>
 

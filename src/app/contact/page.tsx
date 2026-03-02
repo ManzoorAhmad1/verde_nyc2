@@ -102,7 +102,7 @@ export default function ContactPage() {
 
         {/* Foreground content: placed above the fixed image */}
         <div className="contact-hero-content" style={{ position: 'relative', zIndex: 10, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <h1 className="contact-hero-title headingFont italic">{heroSection?.heading || "CONTACT US"}</h1>
+             <h3 className="contact-hero-title headingFont italic">{heroSection?.heading || "CONTACT US"}   </h3>
         </div>
       </section>
 

@@ -71,8 +71,6 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
         />
       </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-[1]"></div>
 
       {/* Content */}
       <div className={`relative z-10 px-4 md:px-6 w-full flex justify-end ${contentClassName}`}>
@@ -80,9 +78,8 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
           // Style 2: Heading + Content (right-aligned with top and bottom lines)
           <div className="text-left max-w-sm md:max-w-md lg:max-w-lg">
             {/* Top line */}
-            <div className="w-full h-[1px] bg-white/30 mb-8"></div>
             
-            <h2 className="text-white font-bold !text-2xl md:!text-3xl lg:!text-4xl !leading-relaxed mb-6 uppercase tracking-wider">
+            <h2 className="text-white !leading-relaxed mb-6 uppercase tracking-wider">
               {title}
             </h2>
             <p className="text-white text-sm md:text-base lg:text-lg leading-relaxed opacity-95 mb-8">

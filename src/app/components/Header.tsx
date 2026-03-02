@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       {/* Logo - Left Side */}
-      <Link href="/" className="header-logo-link relative w-[80px] h-[30px]">
+      <Link href="/" className="header-logo-link relative w-[100px] h-[50px]">
         <Image
           src={scrolled ? 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green-removebg-preview.png' : 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png'}
           alt="Verde NYC"

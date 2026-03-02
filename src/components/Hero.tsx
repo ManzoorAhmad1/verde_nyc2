@@ -70,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({
 
       {/* Overlay — outside parallax so it stays fixed in center */}
       {(heading || subheading) && (
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white bg-black/30">
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white">
 
           {/* Logo Wrapper */}
           <div className="relative w-64 h-32 mb-4">

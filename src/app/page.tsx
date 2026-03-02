@@ -145,14 +145,6 @@ const App: React.FC = () => {
           />
         );
         
-      case 'philosophy':
-        return (
-          <PhilosophySection
-            key={key}
-            section={section}
-          />
-        );
-        
       case 'gallery':
         // Instagram Section
         return (
