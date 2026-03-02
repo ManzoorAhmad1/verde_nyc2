@@ -147,12 +147,12 @@ export default function ContactPage() {
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 items-stretch pb-12">
               
               {/* Left Column: Contact Details */}
-              <div className="flex-1 lg:w-[45%] xl:w-[40%] pt-0 w-full text-center md:text-left flex flex-col justify-center">
+              <div className="flex-1 lg:w-[45%] xl:w-[40%] pt-0 w-full text-center md:text-left flex flex-col justify-start">
                 <div className="flex flex-col gap-12 xl:gap-16 max-w-xl w-full">
                   {groups.map((group, gi) => (
                     <div key={gi} className="flex flex-col w-full text-center md:text-left">
                       {group.label && group.label.trim() !== '' && (
-                        <p className="text-[13px] md:text-[14px] tracking-[0.2em] font-light uppercase text-[#A7A096] mb-6 inline-block w-full">
+                        <p className="text-[14px] md:text-[15px] tracking-[0.2em] font-medium uppercase text-[#3a3a3a] mb-6 inline-block w-full">
                           {group.label}
                         </p>
                       )}
@@ -176,7 +176,7 @@ export default function ContactPage() {
                   {/* Social Icons */}
                   {socials.length > 0 && (
                     <div className="flex flex-col w-full mt-2 text-center md:text-left">
-                      <p className="text-[13px] md:text-[14px] tracking-[0.2em] font-light uppercase text-[#A7A096] mb-6 inline-block w-full">
+                      <p className="text-[14px] md:text-[15px] tracking-[0.2em] font-medium uppercase text-[#3a3a3a] mb-6 inline-block w-full">
                         FOLLOW VERDE NYC
                       </p>
                       <div className="flex justify-center md:justify-end gap-5 w-full">
@@ -197,13 +197,13 @@ export default function ContactPage() {
               </div>
 
               {/* Right Column: Image */}
-              <div className="flex-1 w-full lg:w-[55%] xl:w-[60%] overflow-hidden relative hidden md:block md:min-h-[300px] mt-8 lg:mt-0 ">
+              <div className="flex-1 w-full lg:w-[55%] xl:w-[60%] overflow-hidden relative hidden md:block mt-8 lg:mt-0 lg:h-auto min-h-[300px] lg:min-h-0">
                 <img
                   loading="lazy"
                   decoding="async"
                   src={heroSection?.images?.[0] || 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8472.jpg'}
                   alt="Verde NYC Contact"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover lg:absolute lg:inset-0"
                 />
               </div>
 
