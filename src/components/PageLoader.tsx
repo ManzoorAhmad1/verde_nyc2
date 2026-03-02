@@ -65,10 +65,10 @@ export default function PageLoader({ isDataLoaded }: PageLoaderProps) {
         pointerEvents: fadeOut ? 'none' : 'all',
       }}
     >
-      <div style={{ 
-        position: 'relative', 
-        display: 'flex', 
-        alignItems: 'center', 
+      <div style={{
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
         justifyContent: 'center',
         width: '180px',
         height: '180px'
@@ -90,10 +90,9 @@ export default function PageLoader({ isDataLoaded }: PageLoaderProps) {
           animation: 'vfade 1.5s ease-in-out infinite',
           margin: 0,
           textAlign: 'center',
-          paddingLeft: '0.2em', // offset for letter spacing centering
           lineHeight: '1.6'
         }}>
-          Verde <br/ > NYC
+          <span className='italic' style={{ fontSize: '2rem', fontWeight: 'bold' }}>V</span>erde <br /> NYC
         </p>
         <style>{`
           @keyframes vfade {
