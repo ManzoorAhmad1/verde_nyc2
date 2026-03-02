@@ -18,7 +18,7 @@ export default function Footer() {
 
       {/* Top Branding */}
       <div className="text-center mb-10 tracking-widest uppercase text-xs space-y-2">
-        <p>A <strong className="font-semibold">Yeeels Group</strong> Destination</p>
+        <span className='text-xs'>A Yeeels Group Destination</span>
         <p className="text-black/55 flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
           {['Paris', 'Saint-Tropez', 'Dubai', 'Sardinia', 'New York'].map((city, i, arr) => (
             <span key={city} className="flex items-center gap-x-4">
