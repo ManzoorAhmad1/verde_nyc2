@@ -296,11 +296,17 @@ export default function MenuPage() {
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
-          <div className="menu-hero-content">
-            <h2 className="hero-title  ">{heroSection?.heading }</h2>
-            <p className="menu-hero-subtitle  ">{heroSection?.subheading}</p>
-          </div>
         </section>
+
+        {/* Page Title Below Hero */}
+        <div className="text-center mt-10 px-4">
+          <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
+            {heroSection?.heading || 'Menu'}
+          </h1>
+          {heroSection?.subheading && (
+            <p className="text-sm tracking-[0.15em] mt-2" style={{ color: 'var(--verde-text)' }}>{heroSection.subheading}</p>
+          )}
+        </div>
 
         {/* Menu Introduction - Same as before */}
         {introSection && (

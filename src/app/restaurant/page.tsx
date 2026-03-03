@@ -30,7 +30,7 @@ export default function RestaurantPage() {
   const [disclaimerSection, setDisclaimerSection] = useState<PageSection | null>(null);
   const [gallerySection, setGallerySection] = useState<PageSection | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
+  const [pageData, setPageData] = useState<{ seoTitle?: string; seoDescription?: string; title?: string } | null>(null);
 
   // Use SEO metadata from CMS
   useSeoMetadata(pageData);
@@ -46,15 +46,15 @@ export default function RestaurantPage() {
             const sections = data.page.sections;
             setHeroSection(sections.find((s: PageSection) => s.type === 'hero'));
             setPhilosophySection(sections.find((s: PageSection) => s.type === 'philosophy'));
-            
+
             // Get all menu sections (type: 'menu') sorted by order
             const menus = sections.filter((s: PageSection) => s.type === 'menu')
               .sort((a: PageSection, b: PageSection) => (a.order || 0) - (b.order || 0));
             setMenuSections(menus);
-            
+
             setDisclaimerSection(sections.find((s: PageSection) => s.heading === 'Disclaimer'));
             setGallerySection(sections.find((s: PageSection) => s.type === 'gallery'));
-            
+
             // Set SEO data
             setPageData({
               seoTitle: data.page.seoTitle,
@@ -64,8 +64,10 @@ export default function RestaurantPage() {
           }
         }
       } catch (error) {
-        console.error("Failed to load page content", error);      } finally {
-        setIsLoading(false);      }
+        console.error("Failed to load page content", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     fetchPageData();
@@ -81,19 +83,20 @@ export default function RestaurantPage() {
 
       <main className="restaurant-page">
         {/* Gallery Section - Hero */}
-        <section id="restaurant-gallery" className="restaurant-gallery-section" style={{ height: 'auto', minHeight: '80vh' }}>
-          <div className="gallery-slideshow relative w-full h-[80vh] md:h-[90vh]">
-            <Image
-              priority
-              unoptimized
-              src={heroSection?.images?.[0] || heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"}
-              alt="Verde NYC Restaurant"
-              fill
-              className="object-cover object-center"
-              sizes="100vw"
-            />
-          </div>
+        <section id="restaurant-gallery" className="restaurant-gallery-section" style={{ height: '75vh', minHeight: '400px', overflow: 'hidden', position: 'relative' }}>
+          <Image
+            priority
+            unoptimized
+            src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"}
+            alt="Verde NYC Restaurant"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
         </section>
+
+        {/* Page Title Below Hero */}
+
 
         {/* Philosophy Section */}
         <section id="our-philosophy-mila" className="philosophy-section">
@@ -108,17 +111,22 @@ export default function RestaurantPage() {
             />
           </div>
           <div className="philosophy-content">
-               <h3 style={{color: 'var(--verde-heading)'}}>{philosophySection?.heading }   </h3>
-               <h3 style={{color: 'var(--verde-heading)'}}>{philosophySection?.subheading}   </h3>
-            
-            <div className="philosophy-text" style={{color: 'var(--verde-text)'}}>
+            <div className="text-center px-4">
+              <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
+                {heroSection?.heading || 'Restaurant'}
+              </h1>
+            </div>
+            <h3 style={{ color: 'var(--verde-heading)' }}>{philosophySection?.heading}   </h3>
+            <h3 style={{ color: 'var(--verde-heading)' }}>{philosophySection?.subheading}   </h3>
+
+            <div className="philosophy-text" style={{ color: 'var(--verde-text)' }}>
               {(philosophySection?.content || '').split('\n\n').filter(Boolean).map((para, idx) => (
                 <p key={idx}>{para}</p>
               ))}
             </div>
 
             <div className="button-center">
-              <Link 
+              <Link
                 href={philosophySection?.ctaLink || "https://www.sevenrooms.com/explore/verdenyc/reservations/create/search"}
                 className="btn btn-primary text-[#8E402F] border-[#8E402F] hover:bg-[#8E402F] hover:text-white"
                 target="_blank"

@@ -2014,7 +2014,7 @@ html.lenis body {
 
 .private-events-hero {
   position: relative;
-  height: 100vh;
+  height: 75vh;
   min-height: 500px;
   overflow: hidden;
 }
@@ -2027,7 +2027,7 @@ html.lenis body {
 
 .private-events-intro {
   position: relative;
-  padding: 80px 0 10px 0;
+  padding: 0px 0 10px 0;
   overflow: hidden;
 }
 
@@ -4399,7 +4399,7 @@ body.mobile-menu-open .floating-action-container {
 
 .gallery-hero {
   position: relative;
-  height: 60vh;
+  height: 75vh;
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -4441,7 +4441,7 @@ body.mobile-menu-open .floating-action-container {
 }
 
 .gallery-grid-section {
-  padding: 80px 20px;
+  padding: 20px 20px 60px 20px;
 }
 
 .gallery-container {
@@ -4602,7 +4602,7 @@ body.mobile-menu-open .floating-action-container {
 
 .menu-hero {
   position: relative;
-  height: 60vh;
+  height: 75vh;
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -4656,7 +4656,7 @@ body.mobile-menu-open .floating-action-container {
 }
 
 .menu-intro-section {
-  padding: 80px 20px;
+  padding: 20px 20px 60px 20px;
   background: var(--verde-background);
 }
 

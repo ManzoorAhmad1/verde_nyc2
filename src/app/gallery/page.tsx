@@ -83,6 +83,18 @@ export default function GalleryPage() {
         </div>
       </section>
 
+      {/* Page Title Below Hero */}
+      <div className="text-center py-10 px-4">
+        <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
+          {heroSection?.heading || 'Gallery'}
+        </h1>
+        {(heroSection?.subheading || heroSection?.content) && (
+          <p className="mt-3 text-xs md:text-sm tracking-[0.15em] max-w-xl mx-auto" style={{ color: 'var(--verde-text)' }}>
+            {heroSection?.subheading || heroSection?.content}
+          </p>
+        )}
+      </div>
+
       {/* Gallery Grid Section */}
       <section className="gallery-grid-section">
         <div className="gallery-container">

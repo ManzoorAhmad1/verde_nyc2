@@ -64,10 +64,9 @@ export default function Footer() {
           </Link>
         </div>
 
-
-
         {/* Right – Nav + Newsletter */}
-        <div className="flex-1 flex flex-col gap-8 justify-center items-center">
+        <div className="flex-1 flex flex-col gap-8 justify-center items-start">
+       <div className='flex-1 flex flex-col gap-8 justify-center items-center'>
 
           {/* Nav Links */}
           <nav className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-2 text-xs tracking-widest uppercase">
@@ -89,10 +88,12 @@ export default function Footer() {
           </nav>
 
           {/* Newsletter Text */}
-          <div className="text-xs leading-6 text-center max-w-md mx-auto md:mx-0 md:text-center text-black/45">
-            <p>Join the Yeeels Group community. Receive exclusive news, events, and invitations from all our venues worldwide.</p>
-            <p>We respect your privacy.</p>
+          <div className="text-xs leading-6 text-center max-w-md mx-auto md:mx-0 md:text-left text-black/45 flex align-center justify-center flex-col">
+            <p>Join the Yeeels Group community. Receive exclusive news, events, </p>
+            <p className='text-center'>and invitations from all our venues worldwide</p>
+            <p className='text-center'>We respect your privacy.</p>
           </div>
+       </div>
 
         </div>
       </div>

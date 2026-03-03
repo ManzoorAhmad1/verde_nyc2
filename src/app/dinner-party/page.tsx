@@ -99,9 +99,16 @@ export default function PrivateEventsPage() {
           </section>
         )}
 
+        {/* Page Title Below Hero */}
+        <div className="text-center py-10 px-4">
+          <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
+            {getSection(0).heading || 'Dinner Party'}
+          </h1>
+        </div>
+
         {/* Event Menu Section (Order 2) */}
         {getSection(1).heading && (
-          <section className="private-events-intro">
+          <section className="private-events-intro mb-6">
             <div className="private-events-intro-content">
               <h2 className="section-heading font-normal" style={{ color: 'var(--verde-heading)' }}>
                 {getSection(1).heading}
