@@ -179,9 +179,9 @@ export default function MiamiBrunchPage() {
             {images.length > 0 && (
                <section className="w-full pt-10 pb-20">
                  <div className="w-full px-[4px] md:px-6 lg:max-w-[1400px] lg:mx-auto">
-                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[4px] md:gap-4">
+                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[10px] md:gap-4">
                      {images.map((imageSrc, index) => (
-                       <div key={index} className="relative aspect-[16/9] sm:aspect-square w-full overflow-hidden bg-gray-100">
+                       <div key={index} className="relative aspect-square w-full overflow-hidden bg-gray-100">
                          <img
                            loading="lazy"
                            decoding="async"

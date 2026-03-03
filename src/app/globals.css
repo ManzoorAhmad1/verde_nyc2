@@ -3432,13 +3432,19 @@ html.lenis body {
 
 .brunch-content-section {
   position: relative;
-  padding: 40px 20px;
+  padding: 40px 0;
   background: var(--background);
 }
 
 .brunch-content-section .content-wrapper {
   max-width: 70vw;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .brunch-content-section .content-wrapper {
+    max-width: 90vw;
+  }
 }
 
 .brunch-gallery-slider {
@@ -4566,6 +4572,14 @@ body.mobile-menu-open .floating-action-container {
   .gallery-grid {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .gallery-grid-section {
+    padding: 40px 0;
+  }
+
+  .gallery-container {
+    padding: 0;
   }
 
   .gallery-lightbox {
