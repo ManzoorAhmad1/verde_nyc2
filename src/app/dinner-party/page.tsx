@@ -78,8 +78,7 @@ export default function PrivateEventsPage() {
       );
     });
   };
-
-  return (
+    return (
     <>
       <PageLoader isDataLoaded={!loading} />
       <div className="private-events-page">
@@ -98,13 +97,15 @@ export default function PrivateEventsPage() {
             </div>
           </section>
         )}
-
-        {/* Page Title Below Hero */}
-        <div className="text-center py-10 px-4">
+        <div className="w-full text-center mt-10 px-4 flex flex-col items-center justify-center">
           <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
-            {getSection(0).heading || 'Dinner Party'}
+            {getSection(0)?.heading || 'Menu'}
           </h1>
+          {getSection(0)?.subheading && (
+            <p className=" section-text !text-center lg:!text-left lg:!mx-0" style={{ color: 'var(--verde-text)' }}>{getSection(0).subheading}</p>
+          )}
         </div>
+
 
         {/* Event Menu Section (Order 2) */}
         {getSection(1).heading && (
