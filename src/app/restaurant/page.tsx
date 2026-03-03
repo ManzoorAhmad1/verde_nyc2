@@ -39,7 +39,7 @@ export default function RestaurantPage() {
     const fetchPageData = async () => {
       try {
         const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
-        const res = await fetch(`${API_URL}/pages/restaurant`);
+        const res = await fetch(`${API_URL}/pages/restaurant?t=${Date.now()}`);
         if (res.ok) {
           const data = await res.json();
           if (data.page && data.page.sections) {
@@ -112,9 +112,9 @@ export default function RestaurantPage() {
                <h3 style={{color: 'var(--verde-heading)'}}>{philosophySection?.subheading}   </h3>
             
             <div className="philosophy-text" style={{color: 'var(--verde-text)'}}>
-              <p>From the glamorous avenues of Paris to the sun-kissed shores of Saint-Tropez, from the sophisticated skyline of Dubai to the vibrant pulse of Manhattan—the Yeeels Group has redefined festive dining across four continents. At <Link href="https://verde-nyc.com/">Verde NYC</Link>, this legacy of excellence finds its newest expression in an unforgettable culinary journey through Mediterranean and Asian flavors.</p>
-              <p>Our award-winning culinary team sources the finest ingredients from trusted purveyors across the globe—line-caught fish from Japanese waters, premium wagyu from Kagoshima Prefecture, seasonal vegetables from local farms, and artisanal products from the Mediterranean coast. Each dish is a masterpiece of technique and creativity, honoring tradition while embracing innovation.</p>
-              <p>Whether you join us for an intimate lunch overlooking the Meatpacking District or an electrifying evening of dining and entertainment, Verde NYC transforms every meal into a celebration. Dishes are designed for sharing, encouraging connection and conversation in an atmosphere that evolves from refined sophistication to vibrant festivity as the night unfolds.</p>
+              {(philosophySection?.content || '').split('\n\n').filter(Boolean).map((para, idx) => (
+                <p key={idx}>{para}</p>
+              ))}
             </div>
 
             <div className="button-center">
