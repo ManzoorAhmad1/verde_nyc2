@@ -78,9 +78,6 @@ export default function GalleryPage() {
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
-        <div className="gallery-hero-content">
-             <h2 className="hero-title headingFont  ">{heroSection?.heading}   </h2>
-        </div>
       </section>
 
       {/* Page Title Below Hero */}
