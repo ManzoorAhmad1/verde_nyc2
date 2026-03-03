@@ -215,7 +215,7 @@ export default function ContactPage() {
         <section id="map" className="contact-map w-full bg-[#F5EFEA] pb-16">
           <div className="w-full h-[250px] sm:h-[350px] md:h-[500px]">
             <iframe
-              src={mapSection?.ctaLink || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6272143582!2d-74.00888752357!3d40.74356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf141ebfdd%3A0xe51083acc8dc343b!2sVerde%20NYC!5e0!3m2!1sen!2sus!4v1709500000000!5m2!1sen!2sus"}
+              src={mapSection?.ctaLink || "https://maps.google.com/maps?q=Verde+NYC+85+10th+Ave+New+York+NY+10011&output=embed&z=18"}
               width="100%"
               height="100%"
               style={{ border: 0 }}

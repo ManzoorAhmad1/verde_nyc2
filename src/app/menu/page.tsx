@@ -299,12 +299,12 @@ export default function MenuPage() {
         </section>
 
         {/* Page Title Below Hero */}
-        <div className="text-center mt-10 px-4">
+        <div className="w-full text-center mt-10 px-4 flex flex-col items-center justify-center">
           <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
             {heroSection?.heading || 'Menu'}
           </h1>
           {heroSection?.subheading && (
-            <p className="text-sm tracking-[0.15em] mt-2" style={{ color: 'var(--verde-text)' }}>{heroSection.subheading}</p>
+            <p className=" section-text !text-center lg:!text-left lg:!mx-0" style={{ color: 'var(--verde-text)' }}>{heroSection.subheading}</p>
           )}
         </div>
 
