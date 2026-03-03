@@ -97,7 +97,7 @@ export default function PrivateEventsPage() {
             </div>
           </section>
         )}
-        <div className="w-full text-center mt-10 px-4 flex flex-col items-center justify-center">
+        <div className="w-full text-center mt-10 px-4 flex flex-col items-center justify-center my-16">
           <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
             {getSection(0)?.heading || 'Menu'}
           </h1>
