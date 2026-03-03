@@ -88,11 +88,9 @@ export default function GalleryPage() {
         <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
           {heroSection?.heading || 'Gallery'}
         </h1>
-        {(heroSection?.subheading || heroSection?.content) && (
-          <p className="mt-3 text-xs md:text-sm tracking-[0.15em] max-w-xl mx-auto" style={{ color: 'var(--verde-text)' }}>
-            {heroSection?.subheading || heroSection?.content}
-          </p>
-        )}
+        <p className="mt-3 text-xs md:text-sm tracking-[0.15em] max-w-xl mx-auto" style={{ color: 'var(--verde-text)' }}>
+          {heroSection?.subheading || heroSection?.content || 'A curated collection of moments from Verde NYC — where Mediterranean elegance meets the spirit of New York.'}
+        </p>
       </div>
 
       {/* Gallery Grid Section */}
