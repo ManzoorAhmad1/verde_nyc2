@@ -5260,12 +5260,14 @@ body.mobile-menu-open .floating-action-container {
 
 @media (max-width: 639px) {
   .menu-hero {
-    height: auto !important;
+    height: 100vh !important;
     min-height: unset !important;
   }
   .menu-hero-image {
-    position: relative !important;
-    height: auto !important;
+    position: absolute !important;
+    top: 0 !important; left: 0 !important;
+    right: 0 !important; bottom: 0 !important;
+    height: 100% !important;
   }
   .menu-hero-image::after {
     display: none !important;
@@ -5274,8 +5276,8 @@ body.mobile-menu-open .floating-action-container {
 
 @media (max-width: 768px) {
   .menu-hero {
-    height: 50vh;
-    min-height: 300px;
+    height: 100vh;
+    min-height: unset;
   }
 
   .menu-hero-title {
