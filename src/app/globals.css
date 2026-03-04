@@ -89,6 +89,66 @@ body {
   }
 }
 
+/* ── Tablet/iPad (640px–1023px): desktop images, no crop ── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .brunch-banner-section {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .brunch-banner-section .parallax-background {
+    position: relative !important;
+    top: unset !important;
+    left: unset !important;
+    right: unset !important;
+    bottom: unset !important;
+  }
+  .brunch-banner-section .banner-content {
+    position: absolute !important;
+    top: 0 !important; left: 0 !important;
+    right: 0 !important; bottom: 0 !important;
+  }
+  .gallery-hero {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .gallery-hero-image {
+    position: relative !important;
+    height: auto !important;
+  }
+  .gallery-hero-image::after {
+    display: none !important;
+  }
+  .private-events-hero {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .private-events-hero-image {
+    height: auto !important;
+  }
+  .restaurant-gallery-section {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .menu-hero {
+    height: auto !important;
+    min-height: unset !important;
+  }
+  .menu-hero-image {
+    position: relative !important;
+    height: auto !important;
+  }
+  .menu-hero-image::after {
+    display: none !important;
+  }
+  .page-hero-img {
+    height: auto !important;
+    object-fit: unset !important;
+  }
+  .hero-responsive-height {
+    height: auto !important;
+  }
+}
+
 
 
 /* Same scale-out logic for banner sections (bar, gallery, dinner-party hero) */

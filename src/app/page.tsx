@@ -162,17 +162,18 @@ const App: React.FC = () => {
 
       case 'philosophy':
         return (
-          <PhilosophySection
-            key={key}
-            section={{
-              heading: section.heading,
-              images: section.images,
-              mobileImages: section.mobileImages,
-              items: section.items,
-              ctaText: section.ctaText,
-              ctaLink: section.ctaLink,
-            }}
-          />
+          <div key={key} className="hidden lg:block">
+            <PhilosophySection
+              section={{
+                heading: section.heading,
+                images: section.images,
+                mobileImages: section.mobileImages,
+                items: section.items,
+                ctaText: section.ctaText,
+                ctaLink: section.ctaLink,
+              }}
+            />
+          </div>
         );
         
       default:
