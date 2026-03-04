@@ -279,7 +279,7 @@ export default function MenuPage() {
 
   return (
     <>
-      <PageLoader isDataLoaded={!isLoading} />
+      {/* <PageLoader isDataLoaded={!isLoading} /> */}
       <div className="menu-page">
         <Header />
         <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />

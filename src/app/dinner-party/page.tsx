@@ -80,7 +80,7 @@ export default function PrivateEventsPage() {
   };
     return (
     <>
-      <PageLoader isDataLoaded={!loading} />
+      {/* <PageLoader isDataLoaded={!loading} /> */}
       <div className="private-events-page">
         <Header />
         <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />

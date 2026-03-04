@@ -61,7 +61,7 @@ export default function GalleryPage() {
 
   return (
     <>
-      <PageLoader isDataLoaded={!isLoading} />
+      {/* <PageLoader isDataLoaded={!isLoading} /> */}
       <div className="gallery-page">
         <Header />
       <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />

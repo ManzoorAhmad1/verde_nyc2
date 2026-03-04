@@ -88,7 +88,7 @@ export default function MiamiBrunchPage() {
 
   return (
     <>
-      <PageLoader isDataLoaded={!loading} />
+      {/* <PageLoader isDataLoaded={!loading} /> */}
       <Header />
       <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
 

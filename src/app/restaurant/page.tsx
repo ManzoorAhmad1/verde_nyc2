@@ -77,7 +77,7 @@ export default function RestaurantPage() {
 
   return (
     <>
-      <PageLoader isDataLoaded={!isLoading} />
+      {/* <PageLoader isDataLoaded={!isLoading} /> */}
       <Header />
       <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
 

@@ -127,7 +127,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <PageLoader isDataLoaded={!isLoading} />
+      {/* <PageLoader isDataLoaded={!isLoading} /> */}
       <div className="contact-page">
         <Header />
         <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
