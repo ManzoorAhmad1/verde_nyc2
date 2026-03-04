@@ -164,7 +164,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <PageLoader isDataLoaded={!isLoading} />
+      {/* <PageLoader isDataLoaded={!isLoading} /> */}
       <div className="flex flex-col min-h-screen">
         <Header />
         <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />

@@ -32,7 +32,7 @@ export default function Footer() {
       <hr className="border-black/10 mb-10 max-w-6xl mx-auto" />
 
       {/* Main Grid */}
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-0">
+      <div className="max-w-6xl mx-auto flex flex-col  gap-12 md:gap-20 md:flex-col md:items-center md:justify-center lg:flex-row lg:gap-0">
 
         {/* Left – Logo & Address */}
         <div className="md:w-[28%] flex flex-col text-center md:text-left">
@@ -65,35 +65,35 @@ export default function Footer() {
         </div>
 
         {/* Right – Nav + Newsletter */}
-        <div className="flex-1 flex flex-col gap-8 justify-center items-start">
-       <div className='flex-1 flex flex-col gap-8 justify-center items-center'>
+        <div className="flex-1 flex flex-col gap-8 justify-center items-start ">
+          <div className='flex-1 flex flex-col gap-8 justify-center items-center  md:ml-[-38px]'>
 
-          {/* Nav Links */}
-          <nav className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-2 text-xs tracking-widest uppercase">
-            {[
-              { label: 'Menu', href: '/menu' },
-              { label: 'Gallery', href: '/gallery' },
-              { label: 'Dinner Party', href: '/dinner-party' },
-              { label: 'Restaurant', href: '/restaurant' },
-              { label: 'Bar', href: '/bar' },
-              { label: 'Contact', href: '/contact' },
-            ].map((item, i, arr) => (
-              <span key={item.href} className="flex items-center gap-x-4">
-                <Link href={item.href} className="hover:text-black transition-colors whitespace-nowrap">
-                  {item.label}
-                </Link>
-                {i < arr.length - 1 && <span className="text-black/20">|</span>}
-              </span>
-            ))}
-          </nav>
+            {/* Nav Links */}
+            <nav className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-2 text-xs tracking-widest uppercase">
+              {[
+                { label: 'Menu', href: '/menu' },
+                { label: 'Gallery', href: '/gallery' },
+                { label: 'Dinner Party', href: '/dinner-party' },
+                { label: 'Restaurant', href: '/restaurant' },
+                { label: 'Bar', href: '/bar' },
+                { label: 'Contact', href: '/contact' },
+              ].map((item, i, arr) => (
+                <span key={item.href} className="flex items-center gap-x-4">
+                  <Link href={item.href} className="hover:text-black transition-colors whitespace-nowrap">
+                    {item.label}
+                  </Link>
+                  {i < arr.length - 1 && <span className="text-black/20">|</span>}
+                </span>
+              ))}
+            </nav>
 
-          {/* Newsletter Text */}
-          <div className="text-xs leading-6 text-center max-w-md mx-auto md:mx-0 md:text-left text-black/45 flex align-center justify-center flex-col">
-            <p>Join the Yeeels Group community. Receive exclusive news, events, </p>
-            <p className='text-center'>and invitations from all our venues worldwide</p>
-            <p className='text-center'>We respect your privacy.</p>
+            {/* Newsletter Text */}
+            <div className="text-xs leading-6 text-center max-w-md mx-auto md:mx-0 md:text-left text-black/45 flex align-center justify-center flex-col">
+              <p>Join the Yeeels Group community. Receive exclusive news, events, </p>
+              <p className='text-center'>and invitations from all our venues worldwide</p>
+              <p className='text-center'>We respect your privacy.</p>
+            </div>
           </div>
-       </div>
 
         </div>
       </div>
