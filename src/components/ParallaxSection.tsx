@@ -4,6 +4,7 @@ import { blurDataURLDark } from "@/lib/imageUtils";
 
 interface ParallaxSectionProps {
   imageUrl: string;
+  mobileImageUrl?: string;
   title?: string;
   subtitle?: string;
   className?: string;
@@ -13,6 +14,7 @@ interface ParallaxSectionProps {
 
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   imageUrl,
+  mobileImageUrl,
   title,
   subtitle,
   className = "",
@@ -57,18 +59,34 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
         ref={bgRef}
         className="absolute w-full h-[160%] -top-[30%] will-change-transform"
       >
+        {/* Desktop image — hidden on mobile when a mobileImageUrl is provided */}
         <Image
           key={imageUrl}
           src={imageUrl}
           alt={title || "Parallax Background"}
           fill
-          className="object-cover object-center"
+          className={`object-cover object-center ${mobileImageUrl ? 'hidden sm:block' : ''}`}
           sizes="100vw"
           priority
           unoptimized
           placeholder="blur"
           blurDataURL={blurDataURLDark}
         />
+        {/* Mobile image — shown only on small screens */}
+        {mobileImageUrl && (
+          <Image
+            key={`${mobileImageUrl}-mobile`}
+            src={mobileImageUrl}
+            alt={`${title || 'Parallax'} Mobile`}
+            fill
+            className="object-cover object-center block sm:hidden"
+            sizes="100vw"
+            priority
+            unoptimized
+            placeholder="blur"
+            blurDataURL={blurDataURLDark}
+          />
+        )}
       </div>
 
 

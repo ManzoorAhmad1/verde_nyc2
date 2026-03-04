@@ -22,6 +22,7 @@ interface PageSection {
   subheading?: string;
   content?: string;
   images?: string[];
+  mobileImages?: string[];
   ctaLink?: string;
   ctaText?: string;
   items?: Array<{
@@ -103,6 +104,7 @@ const App: React.FC = () => {
           <Hero
             key={key}
             image={section.images?.[0] ? `${section.images[0]}?t=${imageTimestamp}` : undefined}
+            mobileImage={section.mobileImages?.[0] ? `${section.mobileImages[0]}?t=${imageTimestamp}` : undefined}
             heading={section.heading}
             subheading={section.subheading}
             isLoading={isLoading}
@@ -127,6 +129,7 @@ const App: React.FC = () => {
           <ParallaxSection
             key={key}
             imageUrl={section.images?.[0] ? `${section.images[0]}?t=${imageTimestamp}` : ''}
+            mobileImageUrl={section.mobileImages?.[0] ? `${section.mobileImages[0]}?t=${imageTimestamp}` : undefined}
             title={section.heading || ''}
             subtitle={section.content || section.subheading || ''}
             speed={0.5}

@@ -15,6 +15,7 @@ interface PageSection {
   subheading?: string;
   content?: string;
   images?: string[];
+  mobileImages?: string[];
   order?: number;
 }
 
@@ -89,11 +90,16 @@ export default function PrivateEventsPage() {
         {getSection(0).images?.[0] && (
           <section className="private-events-hero">
             <div className="private-events-hero-image">
-              <img
-                src={getSection(0).images?.[0]}
-                alt="Verde NYC private events venue"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+              <picture style={{ display: 'contents' }}>
+                {getSection(0).mobileImages?.[0] && (
+                  <source media="(max-width: 767px)" srcSet={getSection(0).mobileImages![0]} />
+                )}
+                <img
+                  src={getSection(0).images?.[0]}
+                  alt="Verde NYC private events venue"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </picture>
             </div>
           </section>
         )}

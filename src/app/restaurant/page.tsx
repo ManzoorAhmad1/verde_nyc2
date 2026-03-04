@@ -16,6 +16,7 @@ interface PageSection {
   subheading?: string;
   content?: string;
   images?: string[];
+  mobileImages?: string[];
   ctaLink?: string;
   ctaText?: string;
   order?: number;
@@ -84,15 +85,28 @@ export default function RestaurantPage() {
       <main className="restaurant-page">
         {/* Gallery Section - Hero */}
         <section id="restaurant-gallery" className="restaurant-gallery-section" style={{ height: '75vh', minHeight: '400px', overflow: 'hidden', position: 'relative' }}>
+          {/* Desktop hero image — hidden on mobile when mobileImage is set */}
           <Image
             priority
             unoptimized
             src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"}
             alt="Verde NYC Restaurant"
             fill
-            className="object-cover object-center"
+            className={`object-cover object-center ${heroSection?.mobileImages?.[0] ? 'hidden sm:block' : ''}`}
             sizes="100vw"
           />
+          {/* Mobile hero image — shown only on small screens */}
+          {heroSection?.mobileImages?.[0] && (
+            <Image
+              priority
+              unoptimized
+              src={heroSection.mobileImages[0]}
+              alt="Verde NYC Restaurant Mobile"
+              fill
+              className="object-cover object-center block sm:hidden"
+              sizes="100vw"
+            />
+          )}
         </section>
 
         {/* Page Title Below Hero */}

@@ -14,6 +14,7 @@ interface PageSection {
   subheading?: string;
   content?: string;
   images?: string[];
+  mobileImages?: string[];
   ctaLink?: string;
   ctaText?: string;
 }
@@ -69,14 +70,19 @@ export default function GalleryPage() {
       {/* Hero Section */}
       <section className="gallery-hero">
         <div className="gallery-hero-image">
-          <img
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-            src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/gallery/40A4553-verde-newyork.jpg"}
-            alt="Verde NYC Gallery"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
+          <picture style={{ display: 'contents' }}>
+            {heroSection?.mobileImages?.[0] && (
+              <source media="(max-width: 767px)" srcSet={heroSection.mobileImages[0]} />
+            )}
+            <img
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/gallery/40A4553-verde-newyork.jpg"}
+              alt="Verde NYC Gallery"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </picture>
         </div>
       </section>
 

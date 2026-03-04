@@ -15,6 +15,7 @@ interface PageSection {
   subheading?: string;
   content?: string;
   images?: string[];
+  mobileImages?: string[];
   ctaLink?: string;
   ctaText?: string;
   order?: number;
@@ -97,12 +98,17 @@ export default function MiamiBrunchPage() {
         {getSection(0).images?.[0] && (
           <section id="brunch-banner" className="brunch-banner-section">
             <div className="parallax-background">
-              <img
-                loading="eager" decoding="async" fetchPriority="high"
-                src={getSection(0).images![0]}
-                alt="Verde NYC Brunch"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
-              />
+              <picture style={{ display: 'contents' }}>
+                {getSection(0).mobileImages?.[0] && (
+                  <source media="(max-width: 767px)" srcSet={getSection(0).mobileImages![0]} />
+                )}
+                <img
+                  loading="eager" decoding="async" fetchPriority="high"
+                  src={getSection(0).images![0]}
+                  alt="Verde NYC Brunch"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
+                />
+              </picture>
             </div>
             <div className="banner-content w-full">
               <h2 className='hero-title  '>{getSection(0).heading}   </h2>
