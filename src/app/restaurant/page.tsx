@@ -84,27 +84,34 @@ export default function RestaurantPage() {
 
       <main className="restaurant-page">
         {/* Gallery Section - Hero */}
-        {/* Mobile: plain img, full width, no crop */}
-        <div className="block sm:hidden" style={{ width: '100%' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={heroSection?.mobileImages?.[0] || heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"}
-            alt="Verde NYC Restaurant"
-            className="page-hero-img"
-          />
-        </div>
-        {/* Desktop: 75vh with object-cover */}
-        <section id="restaurant-gallery" className="restaurant-gallery-section hidden sm:block" style={{ height: '75vh', minHeight: '400px', overflow: 'hidden', position: 'relative' }}>
-          <Image
-            priority
-            unoptimized
-            src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"}
-            alt="Verde NYC Restaurant"
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-        </section>
+        {!isLoading && heroSection?.images?.[0] && (
+          <>
+            {/* Mobile: plain img, full width, no crop */}
+            <div className="block sm:hidden" style={{ width: '100%' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={heroSection?.mobileImages?.[0] || heroSection.images[0]}
+                alt="Verde NYC Restaurant"
+                className="page-hero-img"
+              />
+            </div>
+            {/* Desktop: 75vh with object-cover */}
+            <section id="restaurant-gallery" className="restaurant-gallery-section hidden sm:block" style={{ height: '75vh', minHeight: '400px', overflow: 'hidden', position: 'relative' }}>
+              <Image
+                priority
+                unoptimized
+                src={heroSection.images[0]}
+                alt="Verde NYC Restaurant"
+                fill
+                className="object-cover object-center"
+                sizes="100vw"
+              />
+            </section>
+          </>
+        )}
+        {isLoading && (
+          <div className="w-full bg-[#F5EFEA]" style={{ height: '75vh', minHeight: '400px' }} />
+        )}
 
         {/* Page Title Below Hero */}
 
@@ -181,19 +188,23 @@ export default function RestaurantPage() {
         )}
         */}
 
-        {/* Food Gallery Section - Single Image */}
-        {gallerySection?.images?.[0] && (
+        {/* Food Gallery Section - Grid of all images */}
+        {gallerySection?.images && gallerySection.images.length > 0 && (
           <section id="food-gallery" className="food-gallery-section">
-            <div style={{ width: '100%', position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
-              <Image
-                unoptimized
-                src={gallerySection.images[0]}
-                alt="Verde NYC Gallery"
-                fill
-                loading="lazy"
-                className="object-cover object-center"
-                sizes="100vw"
-              />
+            <div className="gallery-grid">
+              {gallerySection.images.map((img, idx) => (
+                <div key={idx} className="gallery-item">
+                  <Image
+                    unoptimized
+                    src={img}
+                    alt={`Verde NYC Gallery ${idx + 1}`}
+                    fill
+                    loading="lazy"
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+              ))}
             </div>
           </section>
         )}

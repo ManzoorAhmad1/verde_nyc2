@@ -98,7 +98,7 @@ export default function MiamiBrunchPage() {
         {getSection(0).images?.[0] && (
           <section id="brunch-banner" className="brunch-banner-section">
             <div className="parallax-background">
-              <picture style={{ display: 'contents' }}>
+            <picture style={{ display: 'contents' }}>
                 {getSection(0).mobileImages?.[0] && (
                   <source media="(max-width: 767px)" srcSet={getSection(0).mobileImages![0]} />
                 )}

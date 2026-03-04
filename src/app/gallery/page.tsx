@@ -68,23 +68,28 @@ export default function GalleryPage() {
       <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
 
       {/* Hero Section */}
-      <section className="gallery-hero">
-        <div className="gallery-hero-image">
-          <picture style={{ display: 'contents' }}>
-            {heroSection?.mobileImages?.[0] && (
-              <source media="(max-width: 767px)" srcSet={heroSection.mobileImages[0]} />
-            )}
-            <img
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/gallery/40A4553-verde-newyork.jpg"}
-              alt="Verde NYC Gallery"
-              className="page-hero-img"
-            />
-          </picture>
-        </div>
-      </section>
+      {!isLoading && heroSection?.images?.[0] && (
+        <section className="gallery-hero">
+          <div className="gallery-hero-image">
+            <picture style={{ display: 'contents' }}>
+              {heroSection?.mobileImages?.[0] && (
+                <source media="(max-width: 767px)" srcSet={heroSection.mobileImages[0]} />
+              )}
+              <img
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                src={heroSection.images[0]}
+                alt="Verde NYC Gallery"
+                className="page-hero-img"
+              />
+            </picture>
+          </div>
+        </section>
+      )}
+      {isLoading && (
+        <div className="w-full bg-[#F5EFEA]" style={{ height: '75vh' }} />
+      )}
 
       {/* Page Title Below Hero */}
       <div className="text-center py-10 px-4">
