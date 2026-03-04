@@ -325,12 +325,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <nav className="contact-index-nav">
-          <a href="#contact-mila" className="contact-index-item active"><div className="contact-index-indicator" /></a>
-          <a href="#contact-info" className="contact-index-item"><div className="contact-index-indicator" /></a>
-          <a href="#map" className="contact-index-item"><div className="contact-index-indicator" /></a>
-        </nav>
-
         <Footer />
       </div>
     </>
