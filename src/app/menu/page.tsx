@@ -288,11 +288,7 @@ export default function MenuPage() {
         {/* Hero Section - Same as before */}
         <section className="menu-hero">
           <div className="menu-hero-image">
-            <picture style={{ display: 'contents' }}>
-              {heroSection?.mobileImages?.[0] && (
-                <source media="(max-width: 639px)" srcSet={heroSection.mobileImages[0]} />
-              )}
-              <img
+            <img
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
@@ -300,7 +296,6 @@ export default function MenuPage() {
                 alt="Verde NYC Menu"
                 className="page-hero-img"
               />
-            </picture>
           </div>
         </section>
 

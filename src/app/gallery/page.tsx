@@ -71,11 +71,7 @@ export default function GalleryPage() {
       {!isLoading && heroSection?.images?.[0] && (
         <section className="gallery-hero">
           <div className="gallery-hero-image">
-            <picture style={{ display: 'contents' }}>
-              {heroSection?.mobileImages?.[0] && (
-                <source media="(max-width: 767px)" srcSet={heroSection.mobileImages[0]} />
-              )}
-              <img
+            <img
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
@@ -83,7 +79,6 @@ export default function GalleryPage() {
                 alt="Verde NYC Gallery"
                 className="page-hero-img"
               />
-            </picture>
           </div>
         </section>
       )}

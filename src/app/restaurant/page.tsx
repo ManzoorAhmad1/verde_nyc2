@@ -85,29 +85,17 @@ export default function RestaurantPage() {
       <main className="restaurant-page">
         {/* Gallery Section - Hero */}
         {!isLoading && heroSection?.images?.[0] && (
-          <>
-            {/* Mobile: plain img, full width, no crop */}
-            <div className="block sm:hidden" style={{ width: '100%' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={heroSection?.mobileImages?.[0] || heroSection.images[0]}
-                alt="Verde NYC Restaurant"
-                className="page-hero-img"
-              />
-            </div>
-            {/* Desktop: 75vh with object-cover */}
-            <section id="restaurant-gallery" className="restaurant-gallery-section hidden sm:block" style={{ height: '75vh', minHeight: '400px', overflow: 'hidden', position: 'relative' }}>
-              <Image
-                priority
-                unoptimized
-                src={heroSection.images[0]}
-                alt="Verde NYC Restaurant"
-                fill
-                className="object-cover object-center"
-                sizes="100vw"
-              />
-            </section>
-          </>
+          <section id="restaurant-gallery" className="restaurant-gallery-section" style={{ height: '75vh', minHeight: '400px', overflow: 'hidden', position: 'relative' }}>
+            <Image
+              priority
+              unoptimized
+              src={heroSection.images[0]}
+              alt="Verde NYC Restaurant"
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+          </section>
         )}
         {isLoading && (
           <div className="w-full bg-[#F5EFEA]" style={{ height: '75vh', minHeight: '400px' }} />

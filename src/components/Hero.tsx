@@ -54,37 +54,33 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <section className="relative hero-responsive-height w-full overflow-hidden">
 
-      {/* ── Mobile (< 640px): natural-height image — full width, zero crop ── */}
-      <div className="sm:hidden" style={{ position: 'relative', width: '100%' }}>
+      {/* ── Mobile (< 640px): 100vh cover — uses mobile image from CMS ── */}
+      <div className="sm:hidden absolute inset-0 z-0">
         {mobileSrc && !imageError ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={mobileSrc}
             alt="Hero"
-            style={{ width: '100%', height: 'auto', display: 'block' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
             onError={() => setImageError(true)}
           />
         ) : null}
-        {/* Logo overlay centered on mobile image */}
-        {heading && (
-          <div style={{
-            position: 'absolute', inset: 0, display: 'flex',
-            flexDirection: 'column', alignItems: 'center',
-            justifyContent: 'center', color: '#fff',
-          }}>
-            <div style={{ position: 'relative', width: 144, height: 80 }}>
-              <Image
-                src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png"
-                alt="Verde NYC"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            {subheading && <p className="text-lg max-w-xs px-4 text-center">{subheading}</p>}
-          </div>
-        )}
       </div>
+      {/* Logo overlay centered on mobile */}
+      {heading && (
+        <div className="sm:hidden absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
+          <div style={{ position: 'relative', width: 144, height: 80 }}>
+            <Image
+              src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-white.png"
+              alt="Verde NYC"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          {subheading && <p className="text-lg max-w-xs px-4 text-center">{subheading}</p>}
+        </div>
+      )}
 
       {/* ── Desktop (≥ 640px): 100vh + parallax + object-cover ── */}
       <div

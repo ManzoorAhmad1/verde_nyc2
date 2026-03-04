@@ -90,16 +90,11 @@ export default function PrivateEventsPage() {
         {getSection(0).images?.[0] && (
           <section className="private-events-hero">
             <div className="private-events-hero-image">
-              <picture style={{ display: 'contents' }}>
-                {getSection(0).mobileImages?.[0] && (
-                  <source media="(max-width: 767px)" srcSet={getSection(0).mobileImages![0]} />
-                )}
-                <img
+              <img
                   src={getSection(0).images?.[0]}
                   alt="Verde NYC private events venue"
                   className="page-hero-img"
                 />
-              </picture>
             </div>
           </section>
         )}

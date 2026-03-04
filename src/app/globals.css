@@ -21,12 +21,7 @@ body {
    Desktop (≥ 640px): 100vh — object-cover fills the viewport.
    ─────────────────────────────────────────────────────────────────────────── */
 .hero-responsive-height {
-  height: auto;   /* mobile: full image visible, no crop */
-}
-@media (min-width: 640px) {
-  .hero-responsive-height {
-    height: 100vh; /* desktop: full viewport */
-  }
+  height: 100vh; /* full viewport on all screen sizes */
 }
 
 /* ── Shared hero image class: cover on desktop, natural height on mobile ── */
@@ -38,54 +33,57 @@ body {
   display: block;
 }
 
-/* ── All page hero sections: show full image without crop on mobile ── */
+/* ── All page hero sections: 100vh on mobile ── */
 @media (max-width: 639px) {
   /* Bar page */
   .brunch-banner-section {
-    height: auto !important;
+    height: 100vh !important;
     min-height: unset !important;
+    overflow: hidden !important;
   }
   .brunch-banner-section .parallax-background {
-    position: relative !important;
-    top: unset !important;
-    left: unset !important;
-    right: unset !important;
-    bottom: unset !important;
-  }
-  .brunch-banner-section .banner-content {
     position: absolute !important;
-    top: 0 !important; left: 0 !important;
-    right: 0 !important; bottom: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: 100% !important;
   }
   /* Gallery page */
   .gallery-hero {
-    height: auto !important;
+    height: 100vh !important;
     min-height: unset !important;
+    overflow: hidden !important;
   }
   .gallery-hero-image {
-    position: relative !important;
-    height: auto !important;
-  }
-  .gallery-hero-image::after {
-    display: none !important;
+    position: absolute !important;
+    top: 0 !important; left: 0 !important;
+    right: 0 !important; bottom: 0 !important;
+    height: 100% !important;
   }
   /* Dinner-party page */
   .private-events-hero {
-    height: auto !important;
+    height: 100vh !important;
     min-height: unset !important;
+    overflow: hidden !important;
   }
   .private-events-hero-image {
-    height: auto !important;
+    height: 100% !important;
   }
   /* Restaurant page */
   .restaurant-gallery-section {
-    height: auto !important;
+    height: 100vh !important;
     min-height: unset !important;
   }
-  /* Image inside any hero: natural height, no crop */
+  /* Menu page */
+  .menu-hero {
+    height: 100vh !important;
+    min-height: unset !important;
+  }
+  /* Image inside any hero: cover at full height */
   .page-hero-img {
-    height: auto !important;
-    object-fit: unset !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 }
 

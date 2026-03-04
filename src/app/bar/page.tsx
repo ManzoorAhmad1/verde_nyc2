@@ -98,17 +98,12 @@ export default function MiamiBrunchPage() {
         {getSection(0).images?.[0] && (
           <section id="brunch-banner" className="brunch-banner-section">
             <div className="parallax-background">
-            <picture style={{ display: 'contents' }}>
-                {getSection(0).mobileImages?.[0] && (
-                  <source media="(max-width: 767px)" srcSet={getSection(0).mobileImages![0]} />
-                )}
                 <img
                   loading="eager" decoding="async" fetchPriority="high"
                   src={getSection(0).images![0]}
                   alt="Verde NYC Brunch"
                   className="page-hero-img"
                 />
-              </picture>
             </div>
             <div className="banner-content w-full">
               <h2 className='hero-title  '>{getSection(0).heading}   </h2>
