@@ -206,18 +206,6 @@ export default function MiamiBrunchPage() {
         </section>
 
         {/* Index Navigation */}
-        <nav className="index-nav overlay">
-          <div className="index-nav-inner">
-            <a href="#brunch-banner" className="index-nav-item active">
-              <div className="index-nav-indicator"></div>
-              <div className="index-nav-text"><span>Brunch Banner</span></div>
-            </a>
-            <a href="#miami-brunch-content" className="index-nav-item">
-              <div className="index-nav-indicator"></div>
-              <div className="index-nav-text"><span>Verde NYC Brunch</span></div>
-            </a>
-          </div>
-        </nav>
       </main>
 
       <Footer />

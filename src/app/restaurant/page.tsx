@@ -181,59 +181,24 @@ export default function RestaurantPage() {
         )}
         */}
 
-        {/* Food Gallery Section - FROM CMS */}
-        <section id="food-gallery" className="food-gallery-section">
-          <div className="gallery-grid">
-            {(gallerySection?.images && gallerySection.images.length > 0 ? gallerySection.images : [
-              "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/verde_images/verde-lifestyle-1.jpg",
-              "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8444.jpg",
-              "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/verde_images/mixology-cocktails.jpg",
-              "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8455.jpg",
-              "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/verde_images/Decadence-verde-dubai-0693.jpg",
-              "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8460.jpg",
-              "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/verde_images/verde-lifestyle-8.jpg",
-              "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8527.jpg"
-            ]).map((img, index) => (
-              <div key={index} className="gallery-item">
-                <Image
-                  unoptimized
-                  src={img}
-                  alt={`Verde NYC Gallery ${index + 1}`}
-                  fill
-                  loading="lazy"
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Food Gallery Section - Single Image */}
+        {gallerySection?.images?.[0] && (
+          <section id="food-gallery" className="food-gallery-section">
+            <div style={{ width: '100%', position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
+              <Image
+                unoptimized
+                src={gallerySection.images[0]}
+                alt="Verde NYC Gallery"
+                fill
+                loading="lazy"
+                className="object-cover object-center"
+                sizes="100vw"
+              />
+            </div>
+          </section>
+        )}
 
-        {/* Index Navigation */}
-        <nav className="index-nav overlay">
-          <div className="index-nav-inner">
-            <a href="#restaurant-gallery" className="index-nav-item active">
-              <div className="index-nav-indicator"></div>
-              <div className="index-nav-text"><span>New Gallery</span></div>
-            </a>
-            <a href="#our-philosophy-mila" className="index-nav-item">
-              <div className="index-nav-indicator"></div>
-              <div className="index-nav-text"><span>our philosophy</span></div>
-            </a>
-            <a href="#menu-page" className="index-nav-item">
-              <div className="index-nav-indicator"></div>
-              <div className="index-nav-text"><span>Menu</span></div>
-            </a>
-            <a href="#gf-v-disclaimer" className="index-nav-item">
-              <div className="index-nav-indicator"></div>
-              <div className="index-nav-text"><span>GF / V disclaimer</span></div>
-            </a>
-            <a href="#food-gallery" className="index-nav-item">
-              <div className="index-nav-indicator"></div>
-              <div className="index-nav-text"><span>food gallery</span></div>
-            </a>
-          </div>
-        </nav>
+
       </main>
 
       <Footer />
