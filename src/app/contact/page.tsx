@@ -1,6 +1,7 @@
 ﻿'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import 'leaflet/dist/leaflet.css';
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
 import Footer from '../components/Footer';
@@ -86,6 +87,8 @@ const ICON_MAP: Record<string, JSX.Element> = {
 export default function ContactPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [heroSection, setHeroSection] = useState<PageSection | null>(null);
+  const mapDivRef = useRef<HTMLDivElement>(null);
+  const mapInstanceRef = useRef<any>(null);
   const [contactInfo, setContactInfo] = useState<PageSection | null>(null);
   const [mapSection, setMapSection] = useState<PageSection | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -124,6 +127,37 @@ export default function ContactPage() {
   const items = contactInfo?.items || [];
   const groups = groupItems(items);
   const socials = items.filter(isSocialItem);
+
+  // Leaflet map with Verde logo as real geo-marker
+  useEffect(() => {
+    if (!mapDivRef.current || mapInstanceRef.current) return;
+    import('leaflet').then((L) => {
+      const map = (L as any).map(mapDivRef.current!, { zoomControl: false }).setView([40.7424, -74.0060], 16);
+      mapInstanceRef.current = map;
+      (L as any).control.zoom({ position: 'bottomright' }).addTo(map);
+      (L as any).tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+      const logoIcon = (L as any).divIcon({
+        html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.35))" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Verde+NYC+85+10th+Ave+New+York+NY+10011','_blank')">
+          <img src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png"
+            style="width:70px;height:auto" />
+          <svg width="32" height="42" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg" style="margin-top:-4px">
+            <path d="M16 0C7.163 0 0 7.163 0 16c0 10 16 26 16 26S32 26 32 16C32 7.163 24.837 0 16 0z" fill="#EA4335"/>
+            <circle cx="16" cy="16" r="7" fill="white"/>
+          </svg>
+=        </div>`,
+        className: '',
+        iconAnchor: [35, 112],
+        iconSize: [70, 112],
+      });
+      (L as any).marker([40.7424, -74.0060], { icon: logoIcon }).addTo(map);
+    });
+    return () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
+        mapInstanceRef.current = null;
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -211,61 +245,18 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Map Section */}
+        {/* Map Section — Leaflet with Verde logo as real geo-marker */}
         <section id="map" className="contact-map w-full bg-[#F5EFEA] pb-16">
-          <div
-            className="w-full relative overflow-hidden"
-            style={{ height: '450px' }}
-          >
-            {/* Static map image */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://maps.googleapis.com/maps/api/staticmap?center=40.7424,-74.0060&zoom=16&size=1200x600&scale=2&style=feature:poi|visibility:off&style=feature:transit|visibility:off&style=feature:road|element:labels.icon|visibility:off&key=AIzaSyD-placeholder"
-              alt="Verde NYC Map"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
-            />
-            {/* OpenStreetMap embed */}
-            <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-74.0120%2C40.7390%2C-74.0000%2C40.7460&layer=mapnik&marker=40.7424%2C-74.0060"
-              className="absolute inset-0 w-full h-full border-0"
-              style={{ filter: 'grayscale(20%) contrast(95%)' }}
-              title="Verde NYC Location"
-              loading="lazy"
-            />
-            {/* Clickable blocker — blocks zoom/pan, opens Google Maps on click */}
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                zIndex: 100,
-                background: 'transparent',
-                cursor: 'default',
-                pointerEvents: 'none',
-              }}
-            />
-            {/* Cover OSM +/- zoom buttons */}
-            <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '56px',
-                height: '80px',
-                background: '#F5EFEA',
-                zIndex: 200,
-                pointerEvents: 'all',
-              }}
-            />
-            {/* Info box — top left corner */}
+          <div className="w-full relative overflow-hidden" style={{ height: '450px' }}>
+            {/* Leaflet map container */}
+            <div ref={mapDivRef} style={{ width: '100%', height: '100%', filter: 'grayscale(15%) contrast(95%)' }} />
+            {/* Info box — fixed top-left, always visible */}
             <div
               onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Verde+NYC+85+10th+Ave+New+York+NY+10011', '_blank')}
               style={{
                 position: 'absolute',
-                top: '0',
-                left: '0',
+                top: '16px',
+                left: '16px',
                 zIndex: 9999,
                 background: 'white',
                 borderRadius: '8px',
@@ -291,36 +282,6 @@ export default function ContactPage() {
                 <rect width="24" height="24" rx="12" fill="#e8e8e8"/>
                 <path d="M10 6H6a1 1 0 00-1 1v11a1 1 0 001 1h11a1 1 0 001-1v-4M14 4h6m0 0v6m0-6L10 14" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </div>
-
-            {/* Verde NYC logo as custom pin */}
-            <div
-              onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Verde+NYC+85+10th+Ave+New+York+NY+10011', '_blank')}
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: '44%',
-                transform: 'translate(-50%, -100%)',
-                zIndex: 9999,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                cursor: 'pointer',
-              }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png"
-                alt="Verde NYC"
-                style={{
-                  width: '80px',
-                  height: 'auto',
-                  filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.55))',
-                }}
-              />
-              {/* Pin needle */}
-              <div style={{ width: '2px', height: '16px', background: '#2d5a3d', borderRadius: '0 0 2px 2px', boxShadow: '0 2px 4px rgba(0,0,0,0.3)' }} />
-              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2d5a3d', boxShadow: '0 2px 6px rgba(0,0,0,0.4)' }} />
             </div>
           </div>
         </section>
