@@ -15,6 +15,7 @@ interface PageSection {
   subheading?: string;
   content?: string;
   images?: string[];
+  mobileImages?: string[];
   ctaLink?: string;
   ctaText?: string;
 }
@@ -287,14 +288,19 @@ export default function MenuPage() {
         {/* Hero Section - Same as before */}
         <section className="menu-hero">
           <div className="menu-hero-image">
-            <img
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8416.jpg"}
-              alt="Verde NYC Menu"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
+            <picture style={{ display: 'contents' }}>
+              {heroSection?.mobileImages?.[0] && (
+                <source media="(max-width: 639px)" srcSet={heroSection.mobileImages[0]} />
+              )}
+              <img
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8416.jpg"}
+                alt="Verde NYC Menu"
+                className="page-hero-img"
+              />
+            </picture>
           </div>
         </section>
 

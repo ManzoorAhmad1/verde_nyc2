@@ -97,7 +97,7 @@ export default function PrivateEventsPage() {
                 <img
                   src={getSection(0).images?.[0]}
                   alt="Verde NYC private events venue"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  className="page-hero-img"
                 />
               </picture>
             </div>

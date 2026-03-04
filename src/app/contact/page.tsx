@@ -213,17 +213,115 @@ export default function ContactPage() {
 
         {/* Map Section */}
         <section id="map" className="contact-map w-full bg-[#F5EFEA] pb-16">
-          <div className="w-full h-[250px] sm:h-[350px] md:h-[500px]">
-            <iframe
-              src={mapSection?.ctaLink || "https://maps.google.com/maps?q=Verde+NYC+85+10th+Ave+New+York+NY+10011&output=embed&z=18"}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Verde NYC on Google Maps"
+          <div
+            className="w-full relative overflow-hidden"
+            style={{ height: '450px' }}
+          >
+            {/* Static map image */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://maps.googleapis.com/maps/api/staticmap?center=40.7424,-74.0060&zoom=16&size=1200x600&scale=2&style=feature:poi|visibility:off&style=feature:transit|visibility:off&style=feature:road|element:labels.icon|visibility:off&key=AIzaSyD-placeholder"
+              alt="Verde NYC Map"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
             />
+            {/* OpenStreetMap embed */}
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-74.0120%2C40.7390%2C-74.0000%2C40.7460&layer=mapnik&marker=40.7424%2C-74.0060"
+              className="absolute inset-0 w-full h-full border-0"
+              style={{ filter: 'grayscale(20%) contrast(95%)' }}
+              title="Verde NYC Location"
+              loading="lazy"
+            />
+            {/* Clickable blocker — blocks zoom/pan, opens Google Maps on click */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                zIndex: 100,
+                background: 'transparent',
+                cursor: 'default',
+                pointerEvents: 'none',
+              }}
+            />
+            {/* Cover OSM +/- zoom buttons */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '56px',
+                height: '80px',
+                background: '#F5EFEA',
+                zIndex: 200,
+                pointerEvents: 'all',
+              }}
+            />
+            {/* Info box — top left corner */}
+            <div
+              onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Verde+NYC+85+10th+Ave+New+York+NY+10011', '_blank')}
+              style={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                zIndex: 9999,
+                background: 'white',
+                borderRadius: '8px',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.25)',
+                padding: '12px 16px',
+                minWidth: '220px',
+                maxWidth: '260px',
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '10px',
+                cursor: 'pointer',
+              }}
+            >
+              <div style={{ flex: 1 }}>
+                <p style={{ margin: 0, fontWeight: 700, fontSize: '13px', color: '#1a1a1a', lineHeight: 1.3 }}>
+                  Verde NYC
+                </p>
+                <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#666', lineHeight: 1.4 }}>
+                  85 10th Ave, New York, NY 10011, USA
+                </p>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, marginTop: '2px' }}>
+                <rect width="24" height="24" rx="12" fill="#e8e8e8"/>
+                <path d="M10 6H6a1 1 0 00-1 1v11a1 1 0 001 1h11a1 1 0 001-1v-4M14 4h6m0 0v6m0-6L10 14" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+
+            {/* Verde NYC logo as custom pin */}
+            <div
+              onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Verde+NYC+85+10th+Ave+New+York+NY+10011', '_blank')}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '44%',
+                transform: 'translate(-50%, -100%)',
+                zIndex: 9999,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                cursor: 'pointer',
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png"
+                alt="Verde NYC"
+                style={{
+                  width: '80px',
+                  height: 'auto',
+                  filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.55))',
+                }}
+              />
+              {/* Pin needle */}
+              <div style={{ width: '2px', height: '16px', background: '#2d5a3d', borderRadius: '0 0 2px 2px', boxShadow: '0 2px 4px rgba(0,0,0,0.3)' }} />
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2d5a3d', boxShadow: '0 2px 6px rgba(0,0,0,0.4)' }} />
+            </div>
           </div>
         </section>
 

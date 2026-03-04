@@ -80,7 +80,7 @@ export default function GalleryPage() {
               fetchPriority="high"
               src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/gallery/40A4553-verde-newyork.jpg"}
               alt="Verde NYC Gallery"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              className="page-hero-img"
             />
           </picture>
         </div>

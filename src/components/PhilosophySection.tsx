@@ -7,6 +7,7 @@ interface PhilosophySectionProps {
   section?: {
     heading?: string;
     images?: string[];
+    mobileImages?: string[];
     items?: Array<{
       name: string;
       description: string;
@@ -21,6 +22,7 @@ function PhilosophySection({ section }: PhilosophySectionProps) {
   const heading = section?.heading || 'Our Philosophy';
   const textureImage = section?.images?.[0] || '';
   const artImage = section?.images?.[1] || 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8425.jpg';
+  const mobileArtImage = section?.mobileImages?.[1] || artImage;
   const items = section?.items || [];
   const ctaText = section?.ctaText || 'CONTACT US';
   const ctaLink = section?.ctaLink || '/contact';
@@ -65,17 +67,25 @@ function PhilosophySection({ section }: PhilosophySectionProps) {
       {/* Art Culture Section */}
       <section id="art-culture-mila" className="art-section relative z-50">
         <div className="art-image relative">
-          <Image
-            src={artImage}
-            alt="Verde NYC Art Culture"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            unoptimized
-            placeholder="blur"
-            blurDataURL={blurDataURLDark}
-            loading="lazy"
-          />
+          {/* Mobile: full-width natural height, no crop */}
+          <div className="sm:hidden" style={{ width: '100%', position: 'relative' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={mobileArtImage} alt="Verde NYC Art Culture" className="page-hero-img" style={{ height: 'auto' }} />
+          </div>
+          {/* Desktop: object-cover fill */}
+          <div className="hidden sm:block" style={{ position: 'absolute', inset: 0 }}>
+            <Image
+              src={artImage}
+              alt="Verde NYC Art Culture"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              unoptimized
+              placeholder="blur"
+              blurDataURL={blurDataURLDark}
+              loading="lazy"
+            />
+          </div>
         </div>
         <div className="art-content" style={{ color: 'var(--verde-text)' }}>
           <h2 style={{ color: 'var(--verde-heading)' }}>{artCultureTitle}</h2>

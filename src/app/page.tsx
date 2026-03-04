@@ -159,6 +159,21 @@ const App: React.FC = () => {
             ctaLink={section.ctaLink}
           />
         );
+
+      case 'philosophy':
+        return (
+          <PhilosophySection
+            key={key}
+            section={{
+              heading: section.heading,
+              images: section.images,
+              mobileImages: section.mobileImages,
+              items: section.items,
+              ctaText: section.ctaText,
+              ctaLink: section.ctaLink,
+            }}
+          />
+        );
         
       default:
         return null;

@@ -46,8 +46,9 @@ export default function Footer() {
           </Link>
           <div className="text-sm leading-6 tracking-wide">
             <Link
-              href="https://www.instagram.com/verde_nyc?igsh=MXdlN2R5NmUxdXRiaQ=="
+              href="https://www.google.com/maps/search/?api=1&query=Verde+NYC+85+10th+Ave+New+York+NY+10011"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-black transition-colors"
             >
               85 10th Avenue<br />

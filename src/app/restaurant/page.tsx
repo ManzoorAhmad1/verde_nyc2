@@ -84,29 +84,26 @@ export default function RestaurantPage() {
 
       <main className="restaurant-page">
         {/* Gallery Section - Hero */}
-        <section id="restaurant-gallery" className="restaurant-gallery-section" style={{ height: '75vh', minHeight: '400px', overflow: 'hidden', position: 'relative' }}>
-          {/* Desktop hero image — hidden on mobile when mobileImage is set */}
+        {/* Mobile: plain img, full width, no crop */}
+        <div className="block sm:hidden" style={{ width: '100%' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={heroSection?.mobileImages?.[0] || heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"}
+            alt="Verde NYC Restaurant"
+            className="page-hero-img"
+          />
+        </div>
+        {/* Desktop: 75vh with object-cover */}
+        <section id="restaurant-gallery" className="restaurant-gallery-section hidden sm:block" style={{ height: '75vh', minHeight: '400px', overflow: 'hidden', position: 'relative' }}>
           <Image
             priority
             unoptimized
             src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8442.jpg"}
             alt="Verde NYC Restaurant"
             fill
-            className={`object-cover object-center ${heroSection?.mobileImages?.[0] ? 'hidden sm:block' : ''}`}
+            className="object-cover object-center"
             sizes="100vw"
           />
-          {/* Mobile hero image — shown only on small screens */}
-          {heroSection?.mobileImages?.[0] && (
-            <Image
-              priority
-              unoptimized
-              src={heroSection.mobileImages[0]}
-              alt="Verde NYC Restaurant Mobile"
-              fill
-              className="object-cover object-center block sm:hidden"
-              sizes="100vw"
-            />
-          )}
         </section>
 
         {/* Page Title Below Hero */}

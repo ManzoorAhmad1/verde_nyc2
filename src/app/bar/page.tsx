@@ -106,7 +106,7 @@ export default function MiamiBrunchPage() {
                   loading="eager" decoding="async" fetchPriority="high"
                   src={getSection(0).images![0]}
                   alt="Verde NYC Brunch"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 50%' }}
+                  className="page-hero-img"
                 />
               </picture>
             </div>
