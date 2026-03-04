@@ -50,7 +50,7 @@ const VenueGrid: React.FC<VenueGridProps> = ({
   
   return (
     <div>
-      <section className=" bg pt-8 pb-4 px-6 relative">
+      <section className=" bg sm:pt-0 md:pt-8 pb-4 px-6 relative">
         <div className="w-full mt-20 relative z-10">
           <h2 className="section-title">{subheading}</h2>
           <h2 className="section-heading font-normal">{heading}</h2>
