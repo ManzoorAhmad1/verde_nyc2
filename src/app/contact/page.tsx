@@ -1,6 +1,7 @@
 ﻿'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 import Header from '../components/Header';
 import MobileNav from '../components/MobileNav';
@@ -27,6 +28,16 @@ interface ContactGroup {
   label: string;
   rows: ContactItem[];
 }
+
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
+
+const MAP_STYLES = [
+  { label: 'Map',       value: 'mapbox://styles/mapbox/streets-v12' },
+  { label: 'Satellite', value: 'mapbox://styles/mapbox/satellite-streets-v12' },
+  { label: 'Terrain',   value: 'mapbox://styles/mapbox/outdoors-v12' },
+  { label: 'Dark',      value: 'mapbox://styles/mapbox/dark-v11' },
+  { label: 'Light',     value: 'mapbox://styles/mapbox/light-v11' },
+];
 
 const SOCIAL_KEYS = ['instagram', 'facebook', 'soundcloud', 'spotify'];
 
@@ -87,11 +98,16 @@ const ICON_MAP: Record<string, JSX.Element> = {
 export default function ContactPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [heroSection, setHeroSection] = useState<PageSection | null>(null);
-
   const [contactInfo, setContactInfo] = useState<PageSection | null>(null);
   const [mapSection, setMapSection] = useState<PageSection | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [pageData, setPageData] = useState<{ seoTitle?: string; seoDescription?: string; title?: string } | null>(null);
+  const [activeStyle, setActiveStyle] = useState(MAP_STYLES[0].value);
+
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<any>(null);
+  const mbglRef = useRef<any>(null);
+  const markerRef = useRef<any>(null);
 
   useSeoMetadata(pageData);
 
@@ -122,6 +138,71 @@ export default function ContactPage() {
     };
     fetchPageData();
   }, []);
+
+  // Mapbox map init
+  useEffect(() => {
+    if (!mapContainerRef.current) return;
+    let cancelled = false;
+
+    import('mapbox-gl').then((mod) => {
+      if (cancelled || !mapContainerRef.current) return;
+      const mbgl = mod.default ?? mod;
+      mbgl.accessToken = MAPBOX_TOKEN;
+      mbglRef.current = mbgl;
+
+      const addLogoMarker = (map: any) => {
+        if (markerRef.current) { markerRef.current.remove(); markerRef.current = null; }
+        const el = document.createElement('div');
+        el.style.cssText = 'display:flex;flex-direction:column;align-items:center;cursor:pointer';
+        el.innerHTML = `
+          <div style="filter:drop-shadow(0 4px 16px rgba(0,0,0,0.45))">
+            <img src="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png"
+              style="width:65px;height:auto;display:block" />
+            <svg width="30" height="38" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg"
+              style="display:block;margin-left:auto;margin-right:auto;margin-top:-4px">
+              <path d="M16 0C7.163 0 0 7.163 0 16c0 10 16 26 16 26S32 26 32 16C32 7.163 24.837 0 16 0z" fill="#2D6A4F"/>
+              <circle cx="16" cy="16" r="7" fill="white"/>
+            </svg>
+          </div>`;
+        el.addEventListener('click', () => {
+          window.open('https://www.google.com/maps/search/?api=1&query=Verde+NYC+85+10th+Ave+New+York+NY+10011', '_blank');
+        });
+        markerRef.current = new mbgl.Marker({ element: el, anchor: 'bottom' })
+          .setLngLat([-74.0077052, 40.7431145])
+          .addTo(map);
+      };
+
+      if (mapRef.current) { mapRef.current.remove(); }
+      const map = new mbgl.Map({
+        container: mapContainerRef.current!,
+        style: MAP_STYLES[0].value,
+        center: [-74.0077052, 40.7431145],
+        zoom:10.5,
+        bearing: 0,
+        pitch: 0,
+      });
+      mapRef.current = map;
+      (mapRef.current as any)._addLogoMarker = addLogoMarker;
+      map.on('load', () => addLogoMarker(map));
+    });
+
+    return () => {
+      cancelled = true;
+      markerRef.current?.remove();
+      markerRef.current = null;
+      mapRef.current?.remove();
+      mapRef.current = null;
+    };
+  }, []);
+
+  const handleStyleSwitch = (styleUrl: string) => {
+    setActiveStyle(styleUrl);
+    if (!mapRef.current) return;
+    mapRef.current.setStyle(styleUrl);
+    mapRef.current.once('style.load', () => {
+      (mapRef.current as any)?._addLogoMarker?.(mapRef.current);
+    });
+  };
 
   const items = contactInfo?.items || [];
   const groups = groupItems(items);
@@ -214,18 +295,38 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Map Section — Google Maps embed */}
+        {/* Map Section — Mapbox GL */}
         <section id="map" className="contact-map w-full bg-[#F5EFEA] pb-16">
           <div className="w-full relative overflow-hidden" style={{ height: '450px' }}>
-            <iframe
-              src="https://maps.google.com/maps?q=85+10th+Ave+New+York+NY+10011&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0, display: 'block' }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <div ref={mapContainerRef} style={{ width: '100%', height: '100%' }} />
+            {/* Style switcher */}
+            <div style={{
+              position: 'absolute', bottom: 28, left: 12, zIndex: 9999,
+              display: 'flex', flexWrap: 'wrap', gap: 6,
+            }}>
+              {MAP_STYLES.map(s => (
+                <button
+                  key={s.value}
+                  onClick={() => handleStyleSwitch(s.value)}
+                  style={{
+                    padding: '5px 11px',
+                    fontSize: '11px',
+                    fontWeight: 600,
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                    background: activeStyle === s.value ? '#2D6A4F' : 'rgba(255,255,255,0.97)',
+                    color: activeStyle === s.value ? 'white' : '#333',
+                    border: activeStyle === s.value ? '2px solid #2D6A4F' : '2px solid transparent',
+                    borderRadius: 20,
+                    cursor: 'pointer',
+                    boxShadow: '0 1px 6px rgba(0,0,0,0.28)',
+                    transition: 'all 0.15s ease',
+                  }}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
