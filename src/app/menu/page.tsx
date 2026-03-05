@@ -292,7 +292,7 @@ export default function MenuPage() {
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                src={heroSection?.images?.[0] || "https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/_40A8416.jpg"}
+                src={heroSection?.images?.[0] }
                 alt="Verde NYC Menu"
                 className="page-hero-img"
               />

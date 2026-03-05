@@ -2855,7 +2855,7 @@ html.lenis body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   z-index: 1;
 }
 
@@ -2885,7 +2885,7 @@ html.lenis body {
   font-size: 3.5rem;
   letter-spacing: 0.3em;
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
   padding: 20px 40px;
 }
 
@@ -4632,7 +4632,7 @@ body.mobile-menu-open .floating-action-container {
 }
 
 .gallery-item:hover .gallery-item-overlay {
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
 }
 
 .gallery-zoom-icon {
