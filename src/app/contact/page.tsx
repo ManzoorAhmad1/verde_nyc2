@@ -33,10 +33,7 @@ const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
 
 const MAP_STYLES = [
   { label: 'Map',       value: 'mapbox://styles/mapbox/streets-v12' },
-  { label: 'Satellite', value: 'mapbox://styles/mapbox/satellite-streets-v12' },
-  { label: 'Terrain',   value: 'mapbox://styles/mapbox/outdoors-v12' },
-  { label: 'Dark',      value: 'mapbox://styles/mapbox/dark-v11' },
-  { label: 'Light',     value: 'mapbox://styles/mapbox/light-v11' },
+
 ];
 
 const SOCIAL_KEYS = ['instagram', 'facebook', 'soundcloud', 'spotify'];
@@ -173,13 +170,14 @@ export default function ContactPage() {
       };
 
       if (mapRef.current) { mapRef.current.remove(); }
-      const map = new mbgl.Map({
+      const map:any = new mbgl.Map({
         container: mapContainerRef.current!,
         style: MAP_STYLES[0].value,
-        center: [-74.0077052, 40.7431145],
-        zoom:10.5,
+        center: [-74.000, 40.740],
+        zoom: 13,
         bearing: 0,
         pitch: 0,
+        cooperativeGestures: true,
       });
       mapRef.current = map;
       (mapRef.current as any)._addLogoMarker = addLogoMarker;
@@ -297,35 +295,38 @@ export default function ContactPage() {
 
         {/* Map Section — Mapbox GL */}
         <section id="map" className="contact-map w-full bg-[#F5EFEA] pb-16">
-          <div className="w-full relative overflow-hidden" style={{ height: '450px' }}>
+          <div className="w-full relative overflow-hidden" style={{ height: '520px' }}>
             <div ref={mapContainerRef} style={{ width: '100%', height: '100%' }} />
-            {/* Style switcher */}
             <div style={{
-              position: 'absolute', bottom: 28, left: 12, zIndex: 9999,
-              display: 'flex', flexWrap: 'wrap', gap: 6,
+              position: 'absolute',
+              top: 12,
+              left: 12,
+              zIndex: 2,
+              background: 'white',
+              borderRadius: 8,
+              boxShadow: '0 2px 10px rgba(0,0,0,0.18)',
+              padding: '12px 14px',
+              minWidth: 180,
+              maxWidth: 240,
             }}>
-              {MAP_STYLES.map(s => (
-                <button
-                  key={s.value}
-                  onClick={() => handleStyleSwitch(s.value)}
-                  style={{
-                    padding: '5px 11px',
-                    fontSize: '11px',
-                    fontWeight: 600,
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase',
-                    background: activeStyle === s.value ? '#2D6A4F' : 'rgba(255,255,255,0.97)',
-                    color: activeStyle === s.value ? 'white' : '#333',
-                    border: activeStyle === s.value ? '2px solid #2D6A4F' : '2px solid transparent',
-                    borderRadius: 20,
-                    cursor: 'pointer',
-                    boxShadow: '0 1px 6px rgba(0,0,0,0.28)',
-                    transition: 'all 0.15s ease',
-                  }}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10 }}>
+                <div>
+                  <p style={{ margin: 0, fontWeight: 700, fontSize: 14, color: '#1a1a1a', lineHeight: 1.3 }}>Verde NYC</p>
+                  <p style={{ margin: '4px 0 0', fontSize: 12, color: '#555', lineHeight: 1.5 }}>85 10th Ave, New York, NY 10011, USA</p>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Verde+NYC+85+10th+Ave+New+York+NY+10011"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open in Google Maps"
+                  style={{ flexShrink: 0, marginTop: 2, color: '#555' }}
                 >
-                  {s.label}
-                </button>
-              ))}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <rect width="24" height="24" rx="12" fill="#f0f0f0" />
+                    <path d="M10 6H6a1 1 0 00-1 1v11a1 1 0 001 1h11a1 1 0 001-1v-4M14 4h6m0 0v6m0-6L10 14" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </section>
