@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-import { blurDataURLDark } from "@/lib/imageUtils";
+import { blurDataURLLight } from "@/lib/imageUtils";
 
 interface HeroProps {
   image?: string;
@@ -98,7 +98,7 @@ const Hero: React.FC<HeroProps> = ({
             priority
             unoptimized
             placeholder="blur"
-            blurDataURL={blurDataURLDark}
+            blurDataURL={blurDataURLLight}
             onError={() => setImageError(true)}
           />
         ) : null}

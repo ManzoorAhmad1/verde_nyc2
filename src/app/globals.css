@@ -759,7 +759,7 @@ html.lenis body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: transparent;
   }
 
   .hero-content {
@@ -887,7 +887,7 @@ html.lenis body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: transparent;
     z-index: 1;
   }
 
@@ -1816,7 +1816,7 @@ html.lenis body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   z-index: 2;
 }
 
@@ -1832,7 +1832,7 @@ html.lenis body {
   font-weight: 300;
   color: #ffffff;
   letter-spacing: 0.3em;
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
   padding: 20px 40px;
 }
 
@@ -4564,7 +4564,7 @@ body.mobile-menu-open .floating-action-container {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
 }
 
 .gallery-hero-content {
@@ -4769,7 +4769,7 @@ body.mobile-menu-open .floating-action-container {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
 }
 
 .menu-hero-content {

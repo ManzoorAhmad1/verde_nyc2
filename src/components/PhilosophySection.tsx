@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
-import { blurDataURLDark } from '@/lib/imageUtils'
+import { blurDataURLLight } from '@/lib/imageUtils'
 
 interface PhilosophySectionProps {
   section?: {
@@ -48,7 +48,7 @@ function PhilosophySection({ section }: PhilosophySectionProps) {
             sizes="100vw"
             unoptimized
             placeholder="blur"
-            blurDataURL={blurDataURLDark}
+            blurDataURL={blurDataURLLight}
             loading="lazy"
           />
         )}
@@ -82,7 +82,7 @@ function PhilosophySection({ section }: PhilosophySectionProps) {
               sizes="(max-width: 768px) 100vw, 50vw"
               unoptimized
               placeholder="blur"
-              blurDataURL={blurDataURLDark}
+              blurDataURL={blurDataURLLight}
               loading="lazy"
             />
           </div>

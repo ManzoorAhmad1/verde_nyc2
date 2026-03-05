@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import { blurDataURLDark } from "@/lib/imageUtils";
+import { blurDataURLLight } from "@/lib/imageUtils";
 
 interface ParallaxSectionProps {
   imageUrl: string;
@@ -70,7 +70,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
           priority
           unoptimized
           placeholder="blur"
-          blurDataURL={blurDataURLDark}
+          blurDataURL={blurDataURLLight}
         />
         {/* Mobile image — shown only on small screens */}
         {mobileImageUrl && (
@@ -84,7 +84,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
             priority
             unoptimized
             placeholder="blur"
-            blurDataURL={blurDataURLDark}
+            blurDataURL={blurDataURLLight}
           />
         )}
       </div>

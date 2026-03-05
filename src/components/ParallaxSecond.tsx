@@ -58,8 +58,6 @@ const ParallaxSecond: React.FC = () => {
           placeholder="blur"
           blurDataURL={blurDataURLDark}
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* Content */}
