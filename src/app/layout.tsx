@@ -32,9 +32,9 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords,
     icons: {
       icon: [
-        { url: '/Verde-NYC-Favicon.png', type: 'image/png' },
+        { url: '/Verde-NYC-Favicon.png?v=3', type: 'image/png' },
       ],
-      apple: '/apple-touch-icon.png',
+      apple: '/apple-touch-icon.png?v=3',
     },
     openGraph: {
       title,
@@ -61,8 +61,8 @@ export default function RootLayout({
             __html: "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSC5FLKH');",
           }}
         />
-        <link rel="icon" href="/Verde-NYC-Favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/Verde-NYC-Favicon.png?v=3" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
       </head>
       <body className="antialiased">
         <noscript>
