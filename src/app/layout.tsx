@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import FloatingActionButton from './components/FloatingActionButton'
+import { Toaster } from 'react-hot-toast'
 
 // Fetch site settings for metadata
 async function getSiteSettings() {
@@ -74,6 +75,7 @@ export default function RootLayout({
           />
         </noscript>
         <SmoothScrolling />
+        <Toaster position="top-center" />
         {children}
         <div id="fab-portal" style={{
           position: 'fixed',

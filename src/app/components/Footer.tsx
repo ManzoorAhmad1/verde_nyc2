@@ -1,20 +1,50 @@
 'use client';
 
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import Link from 'next/link';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter signup
-    console.log('Newsletter signup:', email);
-    setEmail('');
+    setStatus('loading');
+    try {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+      const res = await fetch(`${API_URL}/subscribers`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+      let data: any = null;
+      const contentType = res.headers.get('content-type') || '';
+      if (contentType.includes('application/json')) {
+        data = await res.json();
+      } else {
+        const text = await res.text();
+        throw new Error(text || 'Unexpected response');
+      }
+      if (!res.ok) throw new Error(data?.message || 'Unable to subscribe');
+      setStatus('success');
+      toast.success('Thanks for joining the Yeeels Group community.');
+      setEmail('');
+      setTimeout(() => {
+        setStatus('idle');
+      }, 3000);
+    } catch (err: any) {
+      setStatus('error');
+      toast.error(err?.message || 'Something went wrong.');
+      setTimeout(() => {
+        setStatus('idle');
+      }, 3000);
+    }
   };
 
   return (
-    <footer className="bg-white text-black/55 py-14 px-6 lg:px-16">
+    <>
+      <footer className="bg-white text-black/55 py-14 px-6 lg:px-16">
 
       {/* Top Branding */}
       <div className="text-center mb-10 tracking-widest uppercase text-xs space-y-2">
@@ -94,6 +124,27 @@ export default function Footer() {
               <p className='text-center'>and invitations from all our venues worldwide</p>
               <p className='text-center'>We respect your privacy.</p>
             </div>
+
+            <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col items-center gap-4 ">
+              <div className="w-full flex flex-col items-center gap-3 sm:flex-row sm:items-end">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email Address"
+                  required
+                  className="w-full bg-transparent border-b border-black/30 text-xs tracking-[0.2em] text-center sm:text-left focus:outline-none placeholder:text-black/30"
+                />
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="text-[10px] whitespace-nowrap tracking-[0.4em] uppercase border border-black/40 px-6 py-2 hover:bg-black hover:text-white transition-colors disabled:opacity-60"
+                >
+                  {status === 'loading' ? 'Submitting...' : 'Sign Up'}
+                </button>
+              </div>
+           
+            </form>
           </div>
 
         </div>
@@ -136,6 +187,7 @@ export default function Footer() {
           })
         }}
       />
-    </footer>
+      </footer>
+    </>
   );
 }
