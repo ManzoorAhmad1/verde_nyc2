@@ -30,6 +30,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     keywords,
+    icons: {
+      icon: 'https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png',
+    },
     openGraph: {
       title,
       description,
@@ -52,6 +55,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com" />
         <link rel="dns-prefetch" href="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com" />
+        <link rel="icon" href="https://verde-nyc-s3.s3.eu-north-1.amazonaws.com/images/logo-Verde-NYC-green.png" />
       </head>
       <body className="antialiased">
         <SmoothScrolling />
