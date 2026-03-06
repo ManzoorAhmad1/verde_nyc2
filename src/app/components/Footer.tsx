@@ -28,7 +28,7 @@ export default function Footer() {
       }
       if (!res.ok) throw new Error(data?.message || 'Unable to subscribe');
       setStatus('success');
-      toast.success('Subscription successful.');
+      toast.success(data?.message || 'Subscription successful.');
       setEmail('');
       setTimeout(() => {
         setStatus('idle');
