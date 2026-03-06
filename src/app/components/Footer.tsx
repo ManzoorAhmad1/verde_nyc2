@@ -125,7 +125,7 @@ export default function Footer() {
               <p className='text-center'>We respect your privacy.</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col items-center gap-4 ">
+            {/* <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col items-center gap-4 ">
               <div className="w-full flex flex-col items-center gap-3 sm:flex-row sm:items-end">
                 <input
                   type="email"
@@ -144,7 +144,7 @@ export default function Footer() {
                 </button>
               </div>
            
-            </form>
+            </form> */}
           </div>
 
         </div>
