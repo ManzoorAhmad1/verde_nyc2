@@ -75,7 +75,9 @@ export default function RootLayout({
           />
         </noscript>
         <SmoothScrolling />
-        <Toaster position="top-center" />
+        <Toaster position="top-center" toastOptions={{
+          style: { marginTop: '72px' },
+        }} />
         {children}
         <div id="fab-portal" style={{
           position: 'fixed',

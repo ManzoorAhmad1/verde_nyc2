@@ -28,14 +28,14 @@ export default function Footer() {
       }
       if (!res.ok) throw new Error(data?.message || 'Unable to subscribe');
       setStatus('success');
-      toast.success('Thanks for joining the Yeeels Group community.');
+      toast.success('Subscription successful.');
       setEmail('');
       setTimeout(() => {
         setStatus('idle');
       }, 3000);
     } catch (err: any) {
       setStatus('error');
-      toast.error(err?.message || 'Something went wrong.');
+      toast.error(err?.message || 'Unable to subscribe right now. Please try again.');
       setTimeout(() => {
         setStatus('idle');
       }, 3000);
@@ -125,26 +125,26 @@ export default function Footer() {
               <p className='text-center'>We respect your privacy.</p>
             </div>
 
-            {/* <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col items-center gap-4 ">
-              <div className="w-full flex flex-col items-center gap-3 sm:flex-row sm:items-end">
+            <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col items-center gap-4">
+              <div className="w-full flex flex-col items-center gap-3 sm:flex-row sm:items-end sm:gap-4">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email Address"
                   required
-                  className="w-full bg-transparent border-b border-black/30 text-xs tracking-[0.2em] text-center sm:text-left focus:outline-none placeholder:text-black/30"
+                  className="w-full bg-transparent border-b border-black/30 text-xs tracking-[0.18em] text-center sm:text-left focus:outline-none placeholder:text-black/30"
                 />
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="text-[10px] whitespace-nowrap tracking-[0.4em] uppercase border border-black/40 px-6 py-2 hover:bg-black hover:text-white transition-colors disabled:opacity-60"
+                  className="w-full sm:w-auto text-[10px] whitespace-nowrap tracking-[0.4em] uppercase border border-black/40 px-6 py-2 hover:bg-black hover:text-white transition-colors disabled:opacity-60"
                 >
-                  {status === 'loading' ? 'Submitting...' : 'Sign Up'}
+                  {status === 'loading' ? 'Submitting...' : 'Subscribe'}
                 </button>
               </div>
            
-            </form> */}
+            </form>
           </div>
 
         </div>
