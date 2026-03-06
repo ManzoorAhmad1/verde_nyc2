@@ -300,7 +300,7 @@ export default function MenuPage() {
         </section>
 
         {/* Page Title Below Hero */}
-        <div className="w-full text-center mt-10 px-4 flex flex-col items-center justify-center">
+        <div className="w-full  text-center mt-10 px-4 flex flex-col items-center justify-center">
           <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
             {heroSection?.heading || 'Menu'}
           </h1>
