@@ -32,7 +32,7 @@ export default function PrivateEventsPage() {
     const fetchPageData = async () => {
       try {
         const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
-        const res = await fetch(`${API_URL}/pages/dinner-party`);
+        const res = await fetch(`${API_URL}/pages/festive-dining`);
         if (res.ok) {
           const data = await res.json();
           if (data.page && data.page.sections) {
@@ -55,7 +55,6 @@ export default function PrivateEventsPage() {
 
     fetchPageData();
   }, []);
-
   // Helper to find section by order or content match if order is not strict
   const getSection: any = (index: number) => sections[index] || {};
 
@@ -79,6 +78,8 @@ export default function PrivateEventsPage() {
       );
     });
   };
+console.log(getSection(0),'getSection(0)?.heading')
+
     return (
     <>
       {/* <PageLoader isDataLoaded={!loading} /> */}
@@ -100,7 +101,7 @@ export default function PrivateEventsPage() {
         )}
         <div className="w-full text-center mt-10 px-4 flex flex-col items-center justify-center my-16">
           <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
-            {getSection(0)?.heading || 'Menu'}
+            {getSection(0)?.heading}
           </h1>
           {getSection(0)?.subheading && (
             <p className=" section-text !text-center lg:!text-left lg:!mx-0" style={{ color: 'var(--verde-text)' }}>{getSection(0).subheading}</p>
