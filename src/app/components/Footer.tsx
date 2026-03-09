@@ -104,7 +104,7 @@ export default function Footer() {
               {[
                 { label: 'Menu', href: '/menu' },
                 { label: 'Gallery', href: '/gallery' },
-                { label: 'Dinner Party', href: '/dinner-party' },
+                { label: 'Festive Dining', href: '/festive-dining' },
                 { label: 'Restaurant', href: '/restaurant' },
                 { label: 'Bar', href: '/bar' },
                 { label: 'Contact', href: '/contact' },

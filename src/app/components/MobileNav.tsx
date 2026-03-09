@@ -8,7 +8,7 @@ const navItems = [
   { label: 'HOME', href: '/' },
   { label: 'MENU', href: '/menu' },
   { label: 'GALLERY', href: '/gallery' },
-  { label: 'DINNER PARTY', href: '/dinner-party' },
+  { label: 'FESTIVE DINING', href: '/festive-dining' },
   { label: 'RESTAURANT', href: '/restaurant' },
   { label: 'BAR', href: '/bar' },
   { label: 'CONTACT', href: '/contact' },
