@@ -52,7 +52,7 @@ function renderSection(section: PageSection, index: number) {
   switch (section.type) {
     case 'hero':
       return (
-        <Hero
+        <Hero 
           key={index}
           image={section.images?.[0]}
           mobileImage={section.mobileImages?.[0]}
