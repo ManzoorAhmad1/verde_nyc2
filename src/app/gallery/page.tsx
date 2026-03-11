@@ -1,157 +1,28 @@
-'use client';
+import GalleryClient from './GalleryClient';
+import type { Metadata } from 'next';
 
-import { useState, useEffect } from 'react';
-import Header from '../components/Header';
-import MobileNav from '../components/MobileNav';
-import Footer from '../components/Footer';
-import { useSeoMetadata } from '../hooks/useSeoMetadata';
-import PageLoader from '@/components/PageLoader';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
 
-// Define Interface for CMS Content
-interface PageSection {
-  type: string;
-  heading?: string;
-  subheading?: string;
-  content?: string;
-  images?: string[];
-  mobileImages?: string[];
-  ctaLink?: string;
-  ctaText?: string;
+async function getPageData() {
+  try {
+    const res = await fetch(`${API_URL}/pages/gallery`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
 }
 
-export default function GalleryPage() {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [heroSection, setHeroSection] = useState<PageSection | null>(null);
-  const [gallerySection, setGallerySection] = useState<PageSection | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [pageData, setPageData] = useState<{seoTitle?: string; seoDescription?: string; title?: string} | null>(null);
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getPageData();
+  const page = data?.page;
+  return {
+    title: page?.seoTitle || page?.title || 'Gallery | Verde NYC',
+    description: page?.seoDescription || 'Explore the Verde NYC gallery — a curated collection of moments from our restaurant.',
+  };
+}
 
-  // Use SEO metadata from CMS
-  useSeoMetadata(pageData);
-
-  useEffect(() => {
-    const fetchPageData = async () => {
-      try {
-        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
-        const res = await fetch(`${API_URL}/pages/gallery`);
-        if (res.ok) {
-          const data = await res.json();
-          if (data.page && data.page.sections) {
-            const sections = data.page.sections;
-            setHeroSection(sections.find((s: PageSection) => s.type === 'hero'));
-            setGallerySection(sections.find((s: PageSection) => s.type === 'gallery'));
-            
-            // Set SEO data
-            setPageData({
-              seoTitle: data.page.seoTitle,
-              seoDescription: data.page.seoDescription,
-              title: data.page.title
-            });
-          }
-        }
-      } catch (error) {
-        console.error("Failed to load page content", error);      } finally {
-        setIsLoading(false);      }
-    };
-
-    fetchPageData();
-  }, []);
-
-  const galleryImages = gallerySection?.images || [];
-
-  return (
-    <>
-      {/* <PageLoader isDataLoaded={!isLoading} /> */}
-      <div className="gallery-page">
-        <Header />
-      <MobileNav isOpen={mobileNavOpen} setIsOpen={setMobileNavOpen} />
-
-      {/* Hero Section */}
-      {!isLoading && heroSection?.images?.[0] && (
-        <section className="gallery-hero">
-          <div className="gallery-hero-image">
-            <img
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-                src={heroSection.images[0]}
-                alt="Verde NYC Gallery"
-                className="page-hero-img"
-              />
-          </div>
-        </section>
-      )}
-      {isLoading && (
-        <div className="w-full bg-[#F5EFEA]" style={{ height: '75vh' }} />
-      )}
-
-      {/* Page Title Below Hero */}
-      <div className="text-center py-10 px-4">
-        <h1 className="font-serif text-[28px] tracking-[0.1em]" style={{ color: 'var(--verde-heading)' }}>
-          {heroSection?.heading || 'Gallery'}
-        </h1>
-        <p className="mt-3 text-xs md:text-sm tracking-[0.15em] max-w-xl mx-auto" style={{ color: 'var(--verde-text)' }}>
-          {heroSection?.subheading || heroSection?.content || 'A curated collection of moments from Verde NYC — where Mediterranean elegance meets the spirit of New York.'}
-        </p>
-      </div>
-
-      {/* Gallery Grid Section */}
-      <section className="gallery-grid-section">
-        <div className="gallery-container">
-          <div className="gallery-grid">
-            {galleryImages.map((imageSrc, index) => (
-              <div
-                key={index}
-                className="gallery-item"
-                onClick={() => setSelectedImage(imageSrc)}
-              >
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={imageSrc}
-                  alt={`Verde NYC Gallery Image ${index + 1}`}
-                  className="gallery-image"
-                />
-                <div className="gallery-item-overlay">
-                  <span className="gallery-zoom-icon">
-                    <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="11" cy="11" r="8" />
-                      <path d="m21 21-4.35-4.35" />
-                      <path d="M11 8v6M8 11h6" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Lightbox Modal */}
-      {selectedImage && (
-        <div className="gallery-lightbox" onClick={() => setSelectedImage(null)}>
-          <button
-            className="lightbox-close"
-            onClick={() => setSelectedImage(null)}
-            aria-label="Close lightbox"
-          >
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" strokeWidth="2" fill="none">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-          <img
-            src={selectedImage}
-            alt="Verde NYC Gallery Image"
-            className="lightbox-image"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      )}
-
-      <Footer />
-      </div>
-    </>
-  );
+export default async function GalleryPage() {
+  const data = await getPageData();
+  return <GalleryClient pageData={data} />;
 }

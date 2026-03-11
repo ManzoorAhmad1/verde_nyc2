@@ -41,6 +41,7 @@ async function getHomeData() {
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getHomeData();
   const page = data?.page;
+
   return {
     title: page?.seoTitle || page?.title || 'Verde NYC | Festive Restaurant in New York',
     description: page?.seoDescription || 'Discover Verde NYC in the Meatpacking District: a festive Mediterranean restaurant with refined dining, signature atmosphere, and unforgettable nights.',
